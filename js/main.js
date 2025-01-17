@@ -1,5 +1,5 @@
 function download() {
-    window.location.href = 'v1/Download/v1.zip'; /* UDĚLAT ZIP VERZE 1 */
+    window.location.href = ''; /* TO DO: ADD DOWNLOAD */
 }
 function changelog() {
     window.location.href = 'changelog.htm';
