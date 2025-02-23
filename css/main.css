@@ -25,7 +25,7 @@ h1 {
 .tutorial h2 {
   font-family: 'Ubuntu', sans-serif;
 }
-.inherited-styles-for-exported-element {
+.menu-content {
     text-align: center;
     font-family: 'Ubuntu', sans-serif;
     font-size: medium;
