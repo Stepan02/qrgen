@@ -26,162 +26,148 @@ h1 {
   font-family: 'Ubuntu', sans-serif;
 }
 .menu-content {
-    text-align: center;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: medium;
-  }
-
-  header {
-    box-sizing: border-box;
-    position: fixed;
-  }
-
-  .logo {
-    font-weight: 400;
-    color: rgb(49, 49, 49);
-  }
-
-  .logo-wrapper, header {
-    align-items: center;
-    display: flex;
-  }
-
-  .logo-wrapper {
-    font-family: 'Ubuntu', sans-serif;
-  }
-
-  header.active {
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, .05) 0 6px 24px 0, rgba(0, 0, 0, .08) 0 0 0 1px;
-    left: 0;
-    padding: 0 6%;
-    top: 0;
-    transition: all 250ms;
-    width: 100%;
-    z-index: 999;
-  }
-  .logo-wrapper img {
-    margin-right: 1em;
-    pointer-events: none;
-  }
-
-  header .buttons-wrapper {
-    align-items: center;
-    display: flex;
-    margin-left: auto;
-  }
-
-  a.no-underline {
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.849);
-  }
-
-  header.active a {
-    display: initial;
-  }
-
-  header.active .logo-wrapper img {
-    height: 30px;
-    width: 30px;
-  }
-  p a:visited {
-    color: #332cf2;
-  }
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: medium;
+}
+header {
+  box-sizing: border-box;
+  position: fixed;
+}
+.logo {
+  font-weight: 400;
+  color: rgb(49, 49, 49);
+}
+.logo-wrapper, header {
+  align-items: center;
+  display: flex;
+}
+.logo-wrapper {
+  font-family: 'Ubuntu', sans-serif;
+}
+header.active {
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, .05) 0 6px 24px 0, rgba(0, 0, 0, .08) 0 0 0 1px;
+  left: 0;
+  padding: 0 6%;
+  top: 0;
+  transition: all 250ms;
+  width: 100%;
+  z-index: 999;
+}
+.logo-wrapper img {
+  margin-right: 1em;
+  pointer-events: none;
+}
+header .buttons-wrapper {
+  align-items: center;
+  display: flex;
+  margin-left: auto;
+}
+a.no-underline {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.849);
+}
+header.active a {
+  display: initial;
+}
+header.active .logo-wrapper img {
+  height: 30px;
+  width: 30px;
+}
+p a:visited {
+  color: #332cf2;
+}
+.download {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #332cf2;
+  border: 2px solid #332cf2;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.download:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+.menu-br {
+  width: 20px;
+}
+@media (min-width: 768px) {
   .download {
-    font-family: 'Ubuntu', sans-serif;
-    background-color: #332cf2;
-    border: 2px solid #332cf2;
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    outline: none;
-    outline: 0;
-    padding: 10px 25px;
-    text-align: center;
-    transform: translateY(0);
-    transition: transform 150ms, box-shadow 150ms;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+    padding: 10px 30px;
   }
-  
-  .download:hover {
-    box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
-    transform: translateY(-2px);
-  }
-  .menu-br {
-    width: 20px;
-  }
-  
-  @media (min-width: 768px) {
-    .download {
-      padding: 10px 30px;
-    }
-  }
+}
+.normal {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #332cf2;
+  border: 2px solid #332cf2;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.normal:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+@media (min-width: 768px) {
   .normal {
-    font-family: 'Ubuntu', sans-serif;
-    background-color: #332cf2;
-    border: 2px solid #332cf2;
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    outline: none;
-    outline: 0;
-    padding: 10px 25px;
-    text-align: center;
-    transform: translateY(0);
-    transition: transform 150ms, box-shadow 150ms;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+    padding: 10px 30px;
   }
-  
-  .normal:hover {
-    box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
-    transform: translateY(-2px);
-  }
-  
-  @media (min-width: 768px) {
-    .normal {
-      padding: 10px 30px;
-    }
-  }
-  .sec {
-    background-color: transparent;
-    border: 2px solid #332cf2;
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
-    box-sizing: border-box;
-    color: #332cf2;
-    cursor: pointer;
-    font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    outline: none;
-    outline: 0;
-    padding: 10px 25px;
-    text-align: center;
-    transform: translateY(0);
-    transition: transform 150ms, box-shadow 150ms;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-  }
-  
-  .sec:hover {
-    box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
-    transform: translateY(-2px);
-  }
+}
+.sec {
+  background-color: transparent;
+  border: 2px solid #332cf2;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #332cf2;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.sec:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
 .demo {
   appearance: button;
   backface-visibility: hidden;
@@ -210,137 +196,134 @@ h1 {
   touch-action: manipulation;
   width: 100%;
 }
-
 .demo:disabled {
   cursor: default;
 }
-
 .demo:focus {
   box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
 }
 .alert a {
   cursor: pointer;
 }
-  
-  @media (min-width: 768px) {
-    .sec {
-      padding: 10px 30px;
-    }
+@media (min-width: 768px) {
+  .sec {
+    padding: 10px 30px;
   }
-  @media (min-width: 768px) {
-    .ghost {
-      padding: 10px 30px;
-    }
+}
+@media (min-width: 768px) {
+  .ghost {
+    padding: 10px 30px;
   }
-  @media only screen and (max-width: 1000px) {
-    .active .inherited-styles-for-exported-element .sec .download {
-        display: none;
-    }
-    .error-not-found .sec {
-      display: block;
-    }
-    .error-not-found div {
-      text-align: center;
-    }
-  }
-  @media only screen and (max-width: 500px) {
-    .sec {
-        display: none;
-    }
-    .tutorial .sec {
-      display: block;
-    }
-    .feature-demo {
+}
+@media only screen and (max-width: 1000px) {
+  .active .inherited-styles-for-exported-element .sec .download {
       display: none;
   }
-    .feature {
-      width: 90%;
-    }
-    .no-mb {
+  .error-not-found .sec {
+    display: block;
+  }
+  .error-not-found div {
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .sec {
       display: none;
-    }
-    body {
-      font-size: 1.2rem;
-    }
   }
-  @media only screen and (max-width: 800px) {
-    .buttons-wrapper .sp {
-        display: none;
-    }
-    body {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-    i[class="bi bi-download"] {
-      display: none;
-    }
+  .tutorial .sec {
+    display: block;
   }
-  ::selection {
-    background-color: rgba(49, 49, 49, 0.123);
-  }
-  ::moz-selection {
-    background-color: rgba(49, 49, 49, 0.123);
-  }
-  .feature strong {
-    font-size: 2rem;
-    font-weight: 900;
+  .feature-demo {
+    display: none;
   }
   .feature {
-    background-color: #F5F5F5;
-    color:rgb(49, 49, 49);
-    padding: 20px;
-    border-radius: 15px;
-    width: 300px;
+    width: 90%;
   }
-  .sp {
-    text-decoration: none;
-    cursor: pointer;
-    touch-action: manipulation;
-    transform: translateY(0);
-    transition: transform 150ms, box-shadow 150ms;
+  .no-mb {
+    display: none;
   }
-  .sp:hover {
-    transform: translateY(-2px);
+  body {
+    font-size: 1.2rem;
   }
-  ::-webkit-scrollbar {
-    width: 19px;
-    }
-    ::-webkit-scrollbar-track {
-    background-color: transparent;
-    }
-    ::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    }
-    ::-webkit-scrollbar-thumb {
-    background-color: #F8F9FA;
-    border-radius: 20px;
-    }
-    ::-webkit-scrollbar-thumb {
-    background-color: rgba(49, 49, 49, 0.123);
-    border-radius: 20px;
-    border: 6px solid transparent;
-    background-clip: content-box;
-    }
-    hr {
-        border-top: rgb(27, 27, 27);
-    }
-    .alert {
-      border: 2px solid #332cf2;
-      border-radius: .375rem;
-      box-sizing: border-box;
-      color: #333333;
-      padding: 10px;
-      position: relative;
-      box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
-    }
-    .alert a {
-      text-decoration: none;
-      color: #332cf2;
-    }
-    .feature .browsers h1 {
-      user-select: none;
-      pointer-events: none;
-    }
+}
+@media only screen and (max-width: 800px) {
+  .buttons-wrapper .sp {
+      display: none;
+  }
+  body {
+      padding-left: 5px;
+      padding-right: 5px;
+  }
+  i[class="bi bi-download"] {
+    display: none;
+  }
+}
+::selection {
+  background-color: rgba(49, 49, 49, 0.123);
+}
+::moz-selection {
+  background-color: rgba(49, 49, 49, 0.123);
+}
+.feature strong {
+  font-size: 2rem;
+  font-weight: 900;
+}
+.feature {
+  background-color: #F5F5F5;
+  color:rgb(49, 49, 49);
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+}
+.sp {
+  text-decoration: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+}
+.sp:hover {
+  transform: translateY(-2px);
+}
+::-webkit-scrollbar {
+  width: 19px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #F8F9FA;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(49, 49, 49, 0.123);
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+hr {
+  border-top: rgb(27, 27, 27);
+}
+.alert {
+  border: 2px solid #332cf2;
+  border-radius: .375rem;
+  box-sizing: border-box;
+  color: #333333;
+  padding: 10px;
+  position: relative;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+.alert a {
+  text-decoration: none;
+  color: #332cf2;
+}
+.feature .browsers h1 {
+  user-select: none;
+  pointer-events: none;
+}
 .ver {
   border: 2px solid rgba(51, 51, 51, 0.027);
   outline: 1px solid transparent;
@@ -371,7 +354,7 @@ h1 {
   padding-right: 4px;
   padding-left: 4px;
   user-select: none;
-  }
+}
 .grid {
  display: none;
 }
@@ -381,7 +364,7 @@ h1 {
     gap: 20px 20px;
     text-align: center;
    }
-   #clippy {
+  #clippy {
     user-select: none;
     background-color: white;
     border-top: 2px solid #332cf2;
