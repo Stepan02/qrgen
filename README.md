@@ -2,7 +2,7 @@
 <p>Simple browser extension to generate QR codes</p>
 
 ## Using the extension
-The extension itself is not on any browser extension marketplace. Therefore it must be dowloaded manually.
+The extension itself is not available on any browser extension marketplace. Therefore it must be dowloaded manually.
 1. Download the [extension folder](extension)
 2. Add it to your favorite browser (Chromium-based browsers are supported, Safari has not been tested yet)
    
