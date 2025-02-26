@@ -71,15 +71,14 @@ dialog button {
     touch-action: manipulation;
     transition: all 0.3s;
     width: 100%;
-  }
-  
-  dialog button:hover {
+}
+dialog button:hover {
     box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
     transform: translateY(-2px);
     color: #fff;
     background-color: #405CF5;
-  }
-  dialog .qr-code {
+}
+dialog .qr-code {
     text-align: center;
 }
 dialog .download {
@@ -103,28 +102,27 @@ dialog .download {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-  }
-  
-  dialog .download:hover {
+}
+dialog .download:hover {
     box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
     transform: translateY(-2px);
-  }
-  dialog ::-webkit-scrollbar {
+}
+dialog ::-webkit-scrollbar {
     width: 19px;
-    }
-    dialog ::-webkit-scrollbar-track {
+}
+dialog ::-webkit-scrollbar-track {
     background-color: transparent;
-    }
-    dialog ::-webkit-scrollbar-thumb {
+}
+dialog ::-webkit-scrollbar-thumb {
     background-color: transparent;
-    }
-    dialog ::-webkit-scrollbar-thumb {
+}
+dialog ::-webkit-scrollbar-thumb {
     background-color: rgba(50, 151, 211, .3);
     border-radius: 20px;
-    }
-    dialog ::-webkit-scrollbar-thumb {
+}
+dialog ::-webkit-scrollbar-thumb {
     background-color: rgba(50, 151, 211, .3);
     border-radius: 20px;
     border: 6px solid transparent;
     background-clip: content-box;
-    }
+}
