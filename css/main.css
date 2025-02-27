@@ -356,9 +356,9 @@ hr {
   user-select: none;
 }
 .grid {
- display: none;
+ display: block;
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1200px) {
   .grid {
     display: flex;
     gap: 20px 20px;
