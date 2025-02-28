@@ -24,123 +24,121 @@
     <div style="width: 10px;"></div>
     <button class="sec" id="openmodal" onclick="demo()">Demo</button>
   </div>
-  </header>
-
-      <body>
-      <div style="height: 100px"></div>
-      <div class="modal">
-       <dialog id="demo">
-        <link rel="stylesheet" href="demo/main.css">
-        <body>
-          <div class="help">
-            <p>Press Esc key to exit</p>
-            </div>
-          <h1>QR Generator</h1>
-          <div class="form">
-              <textarea type="text" maxlength="2000" placeholder="Enter URL/text,..." spellcheck="false"></textarea>
-              <div class="cols">
-                <p><button type="button" class="generateBtn">Generate</button></p>
-              </div>
-          </div>
-          <div class="qr-code">
-            <div class="border">
-              <div class="scancontainer">
-                <img src="" alt="QR code load failed.">
-              </div>
-            </div>
-          </div>
-        </dialog>
-      </div>
-    <dialog id="clippy">
-      <h1 style="font-size: 2rem;">📎&nbsp;You found Clippy!</h1>
-      <hr>
-      <p>As an reward, you can copy the emoji here:</p>
-      <p class="emoji">📎</p>
-      <br>
-      <button onclick="copyClippy()" class="normal">📋&nbsp;Copy</button>
-      <hr>
+</header>
+<body>
+  <div style="height: 100px"></div>
+  <div class="modal">
+    <dialog id="demo">
+      <link rel="stylesheet" href="demo/main.css">
       <div class="help">
-        <form method="dialog">
-          <button onclick="document.querySelector('body').style.overflow = 'visible';">Close</button>
-          </form>
+        <p>Press Esc key to exit</p>
+      </div>
+      <h1>QR Generator</h1>
+      <div class="form">
+        <textarea type="text" maxlength="2000" placeholder="Enter URL/text,..." spellcheck="false"></textarea>
+        <div class="cols">
+          <p><button type="button" class="generateBtn">Generate</button></p>
         </div>
+      </div>
+      <div class="qr-code">
+        <div class="border">
+          <div class="scancontainer">
+            <img src="" alt="QR code load failed.">
+          </div>
+        </div>
+      </div>
     </dialog>
-    <div class="alert">
-      <h3>New in v1</h3>
-      <p>In this update I changed the UI to more match this site and also added few cool features!<br>Check <span class="no-mb"><a onclick="demo()">demo</a> to see the changes or</span> the <a href="changelog.htm#v1">changelog</a>.</p>
+  </div>
+  <dialog id="clippy">
+    <h1 style="font-size: 2rem;">📎&nbsp;You found Clippy!</h1>
+    <hr>
+    <p>As an reward, you can copy the emoji here:</p>
+    <p class="emoji">📎</p>
+    <br>
+    <button onclick="copyClippy()" class="normal">📋&nbsp;Copy</button>
+    <hr>
+    <div class="help">
+      <form method="dialog">
+        <button onclick="document.querySelector('body').style.overflow = 'visible';">Close</button>
+      </form>
     </div>
-      <h1>QRgen</h1>
-      <p>The pocket QR code generator.</p>
-      <p>Generate QR code for anything - website, text, number, your info,... anywhere, anytime.</p>
-      <p>Check the <a href="#faq">FAQ</a> if you have questions. <a href="https://github.com/Stepan02/qrgen/issues">Create an issue on GitHub</a> if you found a bug or you have problem. I appreciate the bug report, thanks!</p>
-      <br>
-      <div class="grid">
-      <div class="feature st">
-        <strong>Simple</strong>
-        <p>QRgen is simple and small extension that works in all Chromium based browsers.</p>
-      </div>
-      <br>
-      <div class="feature browsers nd">
-        <strong>Supported by</strong>
-        <h1><i class="bi bi-browser-chrome"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-browser-edge"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-browser-firefox"></i></h1>
-      </div>
-      <br>
-      <div class="feature rd">
-        <strong>Pocket</strong>
-        <p>Extension is accessible due to one-click run so you can access it whenever you want.</p>
-      </div>
-      <br>
-      <div class="feature rt">
-        <strong>Free</strong>
-        <p>Yes, QRgen is free to use. You don't need to pay for this extension.</p>
-      </div>
-      <br>
-      <div class="feature th">
-        <strong>Open source</strong>
-        <p>You can see QRgen source code on <a href="https://www.github.com/stepan02/qrgen">GitHub</a>.</p>
-      </div>
-      </div>
-      <br>
-      <div style="text-align:end ;">
-        <button class="sp" onclick="clippy()">📎</button>
-      </div>
-      <hr>
-      <h1>Download</h1>
-      <p>QRgen is free to use <strong>but</strong>, there is a chatch. You have to install it manually but don't worry - there is <a href="tutorial.htm">tutorial</a>.</p>
-      <button class="sec" onclick="download()"><i class="bi bi-download"></i>&nbsp;Download</button>
-      <br>
-      <h1>FAQ</h1>
-      <ol>
-        <li><strong>Is possible to save the QR code?</strong></li>
-        <ol style="list-style-type: none;">
-          <li>Of course! You can save the QR code as an image and share it!</li>
-        </ol>
-        <li><strong>When is next version out?</strong></li>
-        <ol style="list-style-type: none;">
-          <li>I don't know. I'll update QRgen when I have some new features and bug fixes so I cannot say "update will be every month" or something.</li>
-        </ol>
-        <li><strong>How do I update to current version?</strong></li>
-        <ol style="list-style-type: none;">
-          <li>Sadly, you have to re-install the extension manually. The extension is not on any marketplace at this moment but it might be in a future.</li>
-        </ol>
-        <li><strong>My QR code didn't loaded yet, why?</strong></li>
-        <ol style="list-style-type: none;">
-          <li>QR code generating time depends on the amount of data to generate, so if you are generating QR code of few words, the QR code will appear almost instantly but if you send around 200 characters, it might take longer time.</li>
-          <li>Just wait a few seconds.</li>
-        </ol>
-        <li><strong>Can I download old versions?</strong></li>
-        <ol style="list-style-type: none;">
-          <li>I'm sorry but you can't. It is because these old versions can have bugs and are unsupported.</li>
-        </ol>
-        <li><strong>What is the character limit in a text field?</strong></li>
-        <ol style="list-style-type: none;">
-          <li>I set a limit to 1 000 characters to avoid API problems. It probably won't happen that you need to enter so much data into the QR code, so the limit won't affect you much. Maybe in future I'll increase this limit but it depends on API request limits (how many times you can request data and how much data you are allowed to insert into the request).</li>
-        </ol>
-      </ol>
-      <footer>
-        <p>Made by <a href="https:www/github.com/stepan02">Stepan02</a></p>
-      </footer>
-      <script src="js/main.js"></script>
-      <script src="demo/main.js"></script>
+  </dialog>
+  <div class="alert">
+    <h3>New in v1</h3>
+    <p>In this update I changed the UI to more match this site and also added few cool features!<br>Check <span class="no-mb"><a onclick="demo()">demo</a> to see the changes or</span> the <a href="changelog.htm#v1">changelog</a>.</p>
+  </div>
+  <h1>QRgen</h1>
+  <p>The pocket QR code generator.</p>
+  <p>Generate QR code for anything - website, text, number, your info,... anywhere, anytime.</p>
+  <p>Check the <a href="#faq">FAQ</a> if you have questions. <a href="https://github.com/Stepan02/qrgen/issues">Create an issue on GitHub</a> if you found a bug or you have problem. I appreciate the bug report, thanks!</p>
+  <br>
+  <div class="grid">
+    <div class="feature st">
+      <strong>Simple</strong>
+      <p>QRgen is simple and small extension that works in all Chromium based browsers.</p>
+    </div>
+    <br>
+    <div class="feature browsers nd">
+      <strong>Supported by</strong>
+      <h1><i class="bi bi-browser-chrome"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-browser-edge"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-browser-firefox"></i></h1>
+    </div>
+    <br>
+    <div class="feature rd">
+      <strong>Pocket</strong>
+      <p>Extension is accessible due to one-click run so you can access it whenever you want.</p>
+    </div>
+    <br>
+    <div class="feature rt">
+      <strong>Free</strong>
+      <p>Yes, QRgen is free to use. You don't need to pay for this extension.</p>
+    </div>
+    <br>
+    <div class="feature th">
+      <strong>Open source</strong>
+      <p>You can see QRgen source code on <a href="https://www.github.com/stepan02/qrgen">GitHub</a>.</p>
+    </div>
+  </div>
+  <br>
+  <div style="text-align: end;">
+    <button class="sp" onclick="clippy()">📎</button>
+  </div>
+  <hr>
+  <h1>Download</h1>
+  <p>QRgen is free to use <strong>but</strong>, there is a chatch. You have to install it manually but don't worry - there is <a href="tutorial.htm">tutorial</a>.</p>
+  <button class="sec" onclick="download()"><i class="bi bi-download"></i>&nbsp;Download</button>
+  <br>
+  <h1>FAQ</h1>
+  <ol>
+    <li><strong>Is possible to save the QR code?</strong></li>
+    <ol style="list-style-type: none;">
+      <li>Of course! You can save the QR code as an image and share it!</li>
+    </ol>
+    <li><strong>When is next version out?</strong></li>
+    <ol style="list-style-type: none;">
+      <li>I don't know. I'll update QRgen when I have some new features and bug fixes so I cannot say "update will be every month" or something.</li>
+    </ol>
+    <li><strong>How do I update to current version?</strong></li>
+    <ol style="list-style-type: none;">
+      <li>Sadly, you have to re-install the extension manually. The extension is not on any marketplace at this moment but it might be in a future.</li>
+    </ol>
+    <li><strong>My QR code didn't loaded yet, why?</strong></li>
+    <ol style="list-style-type: none;">
+      <li>QR code generating time depends on the amount of data to generate, so if you are generating QR code of few words, the QR code will appear almost instantly but if you send around 200 characters, it might take longer time.</li>
+      <li>Just wait a few seconds.</li>
+    </ol>
+    <li><strong>Can I download old versions?</strong></li>
+    <ol style="list-style-type: none;">
+      <li>I'm sorry but you can't. It is because these old versions can have bugs and are unsupported.</li>
+    </ol>
+    <li><strong>What is the character limit in a text field?</strong></li>
+    <ol style="list-style-type: none;">
+      <li>I set a limit to 1 000 characters to avoid API problems. It probably won't happen that you need to enter so much data into the QR code, so the limit won't affect you much. Maybe in future I'll increase this limit but it depends on API request limits (how many times you can request data and how much data you are allowed to insert into the request).</li>
+    </ol>
+  </ol>
+  <footer>
+    <p>Made by <a href="https:www/github.com/stepan02">Stepan02</a></p>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="demo/main.js"></script>
 </body>
 </html>
