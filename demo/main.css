@@ -57,9 +57,8 @@ dialog button {
     box-sizing: border-box;
     color: #405CF5;
     cursor: pointer;
-    font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 100;
     outline: none;
     outline: 0;
     padding: 10px 25px;
