@@ -5,13 +5,13 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 
 body {
-    font-family: 'Mukta', sans-serif;
-    padding-left: 20px;
-    padding-right: 20px;
+  font-family: 'Mukta', sans-serif;
+  padding-left: 20px;
+  padding-right: 20px;
 }  
 h1 {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 2rem;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2rem;
 }
 .error-not-found {
   text-align: center;
@@ -87,9 +87,7 @@ p a:visited {
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
-  font-weight: 400;
   outline: none;
   outline: 0;
   padding: 10px 25px;
@@ -121,7 +119,6 @@ p a:visited {
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
   font-weight: 400;
   outline: none;
@@ -144,6 +141,7 @@ p a:visited {
   }
 }
 .sec {
+  font-family: 'Ubuntu', sans-serif;
   background-color: transparent;
   border: 2px solid #332cf2;
   border-radius: 4px;
@@ -151,7 +149,6 @@ p a:visited {
   box-sizing: border-box;
   color: #332cf2;
   cursor: pointer;
-  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
   font-weight: 400;
   outline: none;
@@ -169,6 +166,7 @@ p a:visited {
   transform: translateY(-2px);
 }
 .demo {
+  font-family: 'Ubuntu', sans-serif;
   appearance: button;
   backface-visibility: hidden;
   background-color: #332cf2;
@@ -178,7 +176,6 @@ p a:visited {
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
   font-size: 100%;
   height: 44px;
   line-height: 1.15;
@@ -216,7 +213,7 @@ p a:visited {
   }
 }
 @media only screen and (max-width: 1000px) {
-  .active .inherited-styles-for-exported-element .sec .download {
+  .active .menu-content .sec .download {
       display: none;
   }
   .error-not-found .sec {
@@ -363,6 +360,10 @@ hr {
     display: flex;
     gap: 20px 20px;
     text-align: center;
+   }
+   .flex {
+    display: flex;
+    gap: 20px 20px;
    }
   #clippy {
     user-select: none;
