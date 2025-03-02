@@ -14,7 +14,6 @@ function demo() {
 function home() {
     window.location.href = 'main.htm';
 }
-
 const clippymodal = document.querySelector('#clippy');
 clippymodal.onkeydown = function( event ) {
     if ( event.keyCode == 27 ) {
@@ -22,9 +21,8 @@ clippymodal.onkeydown = function( event ) {
     }
 };
 function clippy() {
-    const clippymodal = document.querySelector('#clippy');
-        clippymodal.showModal()
-        document.querySelector("body").style.overflow = 'hidden';
+    clippymodal.showModal()
+    document.querySelector("body").style.overflow = 'hidden';
 }
 function copyClippy() {
     navigator.clipboard.writeText('📎').then(() => alert('🎉 Copied, enjoy! 🎉'))
