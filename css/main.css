@@ -16,11 +16,12 @@ h1 {
 .error-not-found {
   text-align: center;
 }
-.error-not-found h2 {
-  font-weight: 900;
+.error-not-found h1 {
+  font-weight: 300;
+  font-size: 3rem;
 }
-.error-not-found div {
-  text-align: center;
+.error-not-found h2 {
+  font-weight: 500;
 }
 .tutorial h2 {
   font-family: 'Ubuntu', sans-serif;
@@ -218,14 +219,12 @@ p a:visited {
   }
   .error-not-found .sec {
     display: block;
-  }
-  .error-not-found div {
-    text-align: center;
+    margin: 0 auto;
   }
 }
 @media only screen and (max-width: 500px) {
   .sec {
-      display: none;
+    display: none;
   }
   .tutorial .sec {
     display: block;
