@@ -14,16 +14,19 @@ function demo() {
 function home() {
     window.location.href = 'main.htm';
 }
+
 const clippymodal = document.querySelector('#clippy');
-clippymodal.onkeydown = function( event ) {
-    if ( event.keyCode == 27 ) {
-        event.preventDefault();
+if (clippymodal != null) {
+    clippymodal.onkeydown = function( event ) {
+        if ( event.keyCode == 27 ) {
+            event.preventDefault();
+        }
+    };
+    function clippy() {
+        clippymodal.showModal()
+        document.querySelector("body").style.overflow = 'hidden';
     }
-};
-function clippy() {
-    clippymodal.showModal()
-    document.querySelector("body").style.overflow = 'hidden';
-}
-function copyClippy() {
-    navigator.clipboard.writeText('📎').then(() => alert('🎉 Copied, enjoy! 🎉'))
+    function copyClippy() {
+        navigator.clipboard.writeText('📎').then(() => alert('🎉 Copied, enjoy! 🎉'))
+    }
 }
