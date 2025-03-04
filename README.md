@@ -10,3 +10,6 @@ The extension itself is not available on any browser extension marketplace. Ther
    - [Firefox docs](https://extensionworkshop.com/documentation/publish/distribute-sideloading/)
    - [Microsoft Edge docs](https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading)
   > If you have a problem with the installation, please create an [issue](https://github.com/Stepan02/qrgen/issues)
+
+### Credits
+- Icons: Coloured Icons - [GitHub](https://github.com/dheereshagrwal/coloured-icons/tree/master) &centerdot; [Website](https://coloured-icons.vercel.app/)
