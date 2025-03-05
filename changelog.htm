@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Changelog | QRgen - The pocket QR code generator</title>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tutorial | QRgen - The pocket QR code generator</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dheereshagrwal/coloured-icons@1.9.0/src/app/ci.min.css">
 </head>
 <header class="active menu-content">
   <a href="main.htm" class="no-underline">
@@ -18,12 +19,12 @@
   <div class="buttons-wrapper">
     <a class="sp" onclick="tutorial()">Tutorial</a>
     <div class="menu-br"></div>
-      <a class="sp" onclick="changelog()">📜 Changelog</a>
-      <div class="menu-br"></div>
-      <button class="download" onclick="download()"><i class="bi bi-download"></i>&nbsp;Download</button>
-      <div style="width: 10px;"></div>
-      <button class="sec" id="openmodal" onclick="demo()">Demo</button>
-    </div>
+    <a class="sp" onclick="changelog()">📜 Changelog</a>
+    <div class="menu-br"></div>
+    <button class="download" onclick="download()"><i class="bi bi-download"></i>&nbsp;Download</button>
+    <div style="width: 10px;"></div>
+    <button class="sec" id="openmodal" onclick="demo()">Demo</button>
+  </div>
 </header>
 <body>
   <div style="height: 100px"></div>
@@ -49,40 +50,28 @@
       </div>
     </dialog>
   </div>
-  <h1>📜Changelog</h1>
-  <p>The changelog of QRgen extension!</p>
+  <h1>How do I install the extension?</h1>
+  <p>Wonder how to use extension? Don't worry!</p>
   <br>
-  <br>
-  <div class="flex">
-    <div class="ver">
-      <a name="v2beta"><h2>v2beta <span class="badge"><i class="bi bi-hash"></i>&nbsp;beta</span></h2></a>
-      <span class="date" title="Date format: yyyy mm. dd.">TBA</span>
-      <p>First beta of QRgen v2.</p>
-      <ul>
-          <li>???</li>
-      </ul>
-      <a class="suggestion-link" href="https://github.com/Stepan02/qrgen/issues/new?labels=enhancement&title=Feature+suggestion">Suggest a feature on GitHub</a>
+  <div class="tutorial">
+    <h2>1. Install ZIP file</h2>
+    <p>First you must do is download ZIP file using the button on the top of this site or button below.</p>
+    <p><button class="sec" onclick="download()"><i class="bi bi-download"></i>&nbsp;Download</button></p>
+    <br>
+    <h2>2. Export ZIP folder</h2>
+    <p>Once you have downloaded ZIP file, you have to export it - right-click the file and click "Export all".</p>
+    <br>
+    <h2>3. Open your favorite browser</h2>
+    <p>All Chromium-based browsers (Google Chrome, Microsoft Edge,...), Firefox and Safari (not tested) are supported.</p>
+    <p>Internet Explorer is not supported.</p>
+    <br>
+    <h2>4. Follow the instructions for your browser</h2>
+    <p>Unfortunately, every browser works differently, so here are links to the documentation for instructions on how to add the extension.<br>Choose your browser:</p>
+    <div class="grid browsers">
+      <p><a href="https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world"><i class="ci ci-chrome"></i>&nbsp;Google Chrome</a></p>
+      <p><a href="https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading"><i class="ci ci-edge"></i>&nbsp;Microsoft Edge</a></p>
+      <p><a href="https://extensionworkshop.com/documentation/publish/distribute-sideloading/"><i class="ci ci-firefox"></i>&nbsp;Mozzila Firefox</a></p>
     </div>
-  <div class="ver">
-    <a name="v1"><h2>v1 <span class="badge"><i class="bi bi-hash"></i>&nbsp;current version</span></h2></a>
-    <span class="date" title="Date format: yyyy mm. dd.">2022 08. 11.</span>
-    <p>First official version of QRgen.</p>
-    <ul>
-        <li>New UI</li>
-        <li>Light theme</li>
-        <li>Text input was replaced by textarea</li>
-    </ul>
-  </div>
-  <br>
-  <div class="ver">
-    <a name="v1beta"><h2>v1beta</h2></a>
-    <span class="date" title="Date format: yyyy mm. dd.">2022 08. 09.</span>
-    <p>This is the first relase of QRgen.</p>
-    <ul>
-        <li>Dark themed UI</li>
-        <li>One line for text entry</li>
-    </ul>
-  </div>
   </div>
   <br>
   <footer>
