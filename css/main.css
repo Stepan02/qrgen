@@ -223,6 +223,7 @@ p a:visited {
   padding-bottom: 10px;
   border-radius: 5px;
   transition: all .3s;
+  user-select: none;
 }
 .browsers a:hover {
   background-color: rgba(50, 151, 211, .07);
@@ -296,7 +297,7 @@ p a:visited {
   background-color: #F5F5F5;
   color:rgb(49, 49, 49);
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 10px;
   width: 300px;
 }
 .sp {
@@ -329,7 +330,7 @@ p a:visited {
   background-clip: content-box;
 }
 hr {
-  border-top: rgb(27, 27, 27);
+  border: 1px solid rgba(27, 27, 27, 0.137);
 }
 .alert {
   border: 2px solid #332cf2;
