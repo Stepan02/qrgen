@@ -6,7 +6,7 @@ The extension itself is not available on any browser extension marketplace. Ther
 1. Download the [extension folder](extension)
 2. Add it to your favorite browser (Chromium-based browsers are supported, Safari has not been tested yet)
    
-   - [Google Chrome (Stack Overflow answer)](https://stackoverflow.com/a/24577660)
+   - [Google Chrome](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world)
    - [Firefox docs](https://extensionworkshop.com/documentation/publish/distribute-sideloading/)
    - [Microsoft Edge docs](https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading)
   > If you have a problem with the installation, please create an [issue](https://github.com/Stepan02/qrgen/issues)
