@@ -274,12 +274,18 @@ p a:visited {
   }
 }
 @media only screen and (max-width: 800px) {
+  .buttons-wrapper .sp:nth-last-of-type(1) {
+    display: block;
+  }
   .buttons-wrapper .sp {
-      display: none;
+    display: none;
+  }
+  .buttons-wrapper .download, .buttons-wrapper .sec {
+    display: none;
   }
   body {
-      padding-left: 5px;
-      padding-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
   i[class="bi bi-download"] {
     display: none;
