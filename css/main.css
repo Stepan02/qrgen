@@ -390,10 +390,18 @@ hr {
   padding-left: 4px;
   user-select: none;
 }
-.grid {
+.grid .feature {
  display: block;
 }
-@media only screen and (min-width: 1200px) {
+@media only screen and (max-width: 900px) {
+  .grid {
+    display: block;
+  }
+  .grid .feature {
+    width: auto;
+  }
+}
+@media only screen and (min-width: 1345px) {
   .grid {
     display: flex;
     gap: 20px 20px;
