@@ -6,6 +6,14 @@
 /* Coloured Icons */
 @import url("https://cdn.jsdelivr.net/gh/dheereshagrwal/coloured-icons@master/src/app/ci.min.css");
 
+:root {
+  --main: #332cf2;
+  --main-hover-box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  --selection: rgba(49, 49, 49, 0.123);
+  --feature: rgb(49, 49, 49);
+  --feature-background: #F5F5F5;
+  --line: rgba(27, 27, 27, 0.137);
+}
 body {
   font-family: 'Mukta', sans-serif;
   padding-left: 20px;
@@ -39,7 +47,7 @@ header {
 }
 .logo {
   font-weight: 400;
-  color: rgb(49, 49, 49);
+  color: var(--feature);
 }
 .logo-wrapper, header {
   align-items: center;
@@ -79,12 +87,12 @@ header.active .logo-wrapper img {
   width: 30px;
 }
 p a:visited {
-  color: #332cf2;
+  color: var(--main);
 }
 .download {
   font-family: 'Ubuntu', sans-serif;
-  background-color: #332cf2;
-  border: 2px solid #332cf2;
+  background-color: var(--main);
+  border: 2px solid var(--main);
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
   box-sizing: border-box;
@@ -115,8 +123,8 @@ p a:visited {
 }
 .normal {
   font-family: 'Ubuntu', sans-serif;
-  background-color: #332cf2;
-  border: 2px solid #332cf2;
+  background-color: var(--main);
+  border: 2px solid var(--main);
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
   box-sizing: border-box;
@@ -146,11 +154,11 @@ p a:visited {
 .sec {
   font-family: 'Ubuntu', sans-serif;
   background-color: transparent;
-  border: 2px solid #332cf2;
+  border: 2px solid var(--main);
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
   box-sizing: border-box;
-  color: #332cf2;
+  color: var(--main);
   cursor: pointer;
   font-size: 16px;
   font-weight: 400;
@@ -170,7 +178,7 @@ p a:visited {
 }
 .suggestion-link {
   font-family: 'Ubuntu', sans-serif;
-  color: #332cf2;
+  color: var(--main);
   text-decoration: none;
 }
 .suggestion-link:hover {
@@ -183,7 +191,7 @@ p a:visited {
   font-family: 'Ubuntu', sans-serif;
   appearance: button;
   backface-visibility: hidden;
-  background-color: #332cf2;
+  background-color: var(--main);
   border-radius: 6px;
   border-width: 0;
   box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
@@ -292,18 +300,18 @@ p a:visited {
   }
 }
 ::selection {
-  background-color: rgba(49, 49, 49, 0.123);
+  background-color: var(--selection)
 }
 ::moz-selection {
-  background-color: rgba(49, 49, 49, 0.123);
+  background-color: var(--selection);
 }
 .feature strong {
   font-size: 2rem;
   font-weight: 900;
 }
 .feature {
-  background-color: #F5F5F5;
-  color:rgb(49, 49, 49);
+  background-color: var(--feature-background);
+  color: var(--feature);
   padding: 20px;
   border-radius: 10px;
   width: 300px;
@@ -338,10 +346,10 @@ p a:visited {
   background-clip: content-box;
 }
 hr {
-  border: 1px solid rgba(27, 27, 27, 0.137);
+  border: 1px solid var(--line);
 }
 .alert {
-  border: 2px solid #332cf2;
+  border: 2px solid var(--main);
   border-radius: .375rem;
   box-sizing: border-box;
   color: #333333;
@@ -351,7 +359,7 @@ hr {
 }
 .alert a {
   text-decoration: none;
-  color: #332cf2;
+  color: var(--main);
 }
 .feature .browsers h1 {
   user-select: none;
@@ -368,8 +376,8 @@ hr {
 }
 .ver:hover {
   background-color: white;
-  border: 2px solid #332cf2;
-  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  border: 2px solid var(--main);
+  box-shadow: var(--main-hover-box-shadow);
 }
 .ver h2 {
   font-family: 'Ubuntu', sans-serif;
@@ -414,8 +422,8 @@ hr {
   #clippy {
     user-select: none;
     background-color: white;
-    border-top: 2px solid #332cf2;
-    border-bottom: 2px solid #332cf2;
+    border-top: 2px solid var(--main);
+    border-bottom: 2px solid var(--main);
     border-radius: 5px;
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
     margin-top: 200px;
@@ -427,7 +435,7 @@ hr {
   #clippy {
     user-select: none;
     background-color: white;
-    border: 2px solid #332cf2;
+    border: 2px solid var(--main);
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
     margin-top: 100px;
     position: fixed;
@@ -443,7 +451,7 @@ hr {
   #clippy {
     user-select: none;
     background-color: white;
-    border: 2px solid #332cf2;
+    border: 2px solid var(--main);
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
     margin-top: 100px;
     position: fixed;
