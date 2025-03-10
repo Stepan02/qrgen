@@ -2,14 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200&display=swap');
-/* Bootstrap Icons v1.9.1 */
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
+:root {
+    --main: #332cf2;
+    --focus-box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
+    --scrollbar-background: rgba(50, 151, 211, .3);
+}
 dialog {
     border: none;
     border-radius: 10px;
-}
-dialog body {
-    font-family: 'Mukta', sans-serif;
 }
 dialog h1 {
     font-family: 'Ubuntu', sans-serif;
@@ -22,15 +23,15 @@ dialog textarea {
     max-height: 100px;
     resize: vertical;
     font-family: 'JetBrains Mono', monospace;
-    border: 2px solid #332cf2;
+    border: 2px solid var(--main);
     border-radius: 4px;
     font-size: 1rem;
     padding: 9px;
     outline: none;
 }
 dialog textarea:focus {
-    border: 2px solid #332cf2;
-    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
+    border: 2px solid var(--main);
+    box-shadow: var(--focus-box-shadow);
     transition: all 0.3s;
 }
 dialog .help {
@@ -51,11 +52,11 @@ dialog img {
 dialog button {
     font-family: 'Ubuntu', sans-serif;
     background-color: transparent;
-    border: 2px solid #405CF5;
+    border: 2px solid var(--main);
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
     box-sizing: border-box;
-    color: #405CF5;
+    color: var(--main);
     cursor: pointer;
     font-size: 16px;
     font-weight: 100;
@@ -75,36 +76,10 @@ dialog button:hover {
     box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
     transform: translateY(-2px);
     color: #fff;
-    background-color: #405CF5;
+    background-color: var(--main);
 }
 dialog .qr-code {
     text-align: center;
-}
-dialog .download {
-    font-family: 'Ubuntu', sans-serif;
-    background-color: #332cf2;
-    border: 2px solid #332cf2;
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    outline: none;
-    outline: 0;
-    padding: 10px 25px;
-    text-align: center;
-    transform: translateY(0);
-    transition: transform 150ms, box-shadow 150ms;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-dialog .download:hover {
-    box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
-    transform: translateY(-2px);
 }
 dialog ::-webkit-scrollbar {
     width: 19px;
@@ -116,11 +91,11 @@ dialog ::-webkit-scrollbar-thumb {
     background-color: transparent;
 }
 dialog ::-webkit-scrollbar-thumb {
-    background-color: rgba(50, 151, 211, .3);
+    background-color: var(--scrollbar-background);
     border-radius: 20px;
 }
 dialog ::-webkit-scrollbar-thumb {
-    background-color: rgba(50, 151, 211, .3);
+    background-color: var(--scrollbar-background);
     border-radius: 20px;
     border: 6px solid transparent;
     background-clip: content-box;
