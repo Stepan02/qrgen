@@ -16,4 +16,4 @@ The extension itself is not available on any browser extension marketplace. Ther
 
 ## Contribution and bug reporting
 Any contribution and bug report is greatly appreciated.
-Please check the [contribution guide](CONTRIBUTION.md) for more information.
+Please check the [contribution guide](https://github.com/Stepan02/qrgen/blob/main/CONTRIBUTING.md) for more information.
