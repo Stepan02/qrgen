@@ -13,3 +13,7 @@ The extension itself is not available on any browser extension marketplace. Ther
 
 ### Credits
 - Icons: Coloured Icons - [GitHub](https://github.com/dheereshagrwal/coloured-icons/tree/master) &centerdot; [Website](https://coloured-icons.vercel.app/)
+
+## Contribution and bug reporting
+Any contribution and bug report is greatly appreciated.
+Please check the [contribution guide](CONTRIBUTION.md) for more information.
