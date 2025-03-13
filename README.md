@@ -12,8 +12,8 @@ The extension itself is not available on any browser extension marketplace. Ther
   > If you have a problem with the installation, please create an [issue](https://github.com/Stepan02/qrgen/issues)
 
 ### Credits
+- QR code source: goQR code generator API - [Website](https://goqr.me/api/)
 - Icons: Coloured Icons - [GitHub](https://github.com/dheereshagrwal/coloured-icons/tree/master) &centerdot; [Website](https://coloured-icons.vercel.app/)
-
 ## Contribution and bug reporting
 Any contribution and bug report is greatly appreciated.
 Please check the [contribution guide](https://github.com/Stepan02/qrgen/blob/main/CONTRIBUTING.md) for more information.
