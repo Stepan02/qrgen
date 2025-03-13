@@ -11,3 +11,5 @@ Did you find a bug?
 **Please avoid creating a duplicate suggestions.**
 
 You can create a feature request using an issue with the [feature request template](https://github.com/Stepan02/qrgen/issues/new?template=feature-suggestion.md).
+
+**Have you figured out a solution to any bug or a feature request?** Create a [pull request](https://github.com/Stepan02/qrgen/pulls).
