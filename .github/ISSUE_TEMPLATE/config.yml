@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Check CONTRIBUTING.md
+    url: https://github.com/Stepan02/qrgen/blob/main/CONTRIBUTING.md
+    about: Check contribution guidelines
