@@ -1,5 +1,5 @@
 function download() {
-    window.location.href = ''; /* TO DO: ADD DOWNLOAD */
+    window.location.href = 'https://github.com/Stepan02/qrgen?tab=readme-ov-file#using-the-extension';
 }
 function changelog() {
     window.location.href = 'changelog.htm';
