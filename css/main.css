@@ -239,6 +239,17 @@ p a:visited {
   background-color: rgba(50, 151, 211, .07);
   transition: all .3s;
 }
+.github-link {
+  font-family: 'Ubuntu', sans-serif;
+  color: #151B23 !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+.github-link:hover {
+  transition: all .3s;
+  text-decoration: none;
+}
 .alert a {
   cursor: pointer;
 }
