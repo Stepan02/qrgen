@@ -253,6 +253,9 @@ p a:visited {
 .alert a {
   cursor: pointer;
 }
+.no-desktop {
+  display: none;
+}
 @media (min-width: 768px) {
   .sec {
     padding: 10px 30px;
@@ -288,6 +291,9 @@ p a:visited {
   .no-mb {
     display: none;
   }
+  .no-desktop {
+    display: block;
+  }
   body {
     font-size: 1.2rem;
   }
@@ -301,6 +307,9 @@ p a:visited {
   }
   .buttons-wrapper .download, .buttons-wrapper .sec {
     display: none;
+  }
+  .no-desktop {
+    display: block;
   }
   body {
     padding-left: 5px;
