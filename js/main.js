@@ -1,3 +1,8 @@
+// jQuery import
+var jQueryScript = document.createElement('script');
+jQueryScript.setAttribute('src','https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js');
+document.head.appendChild(jQueryScript);
+
 function download() {
     window.location.href = 'https://github.com/Stepan02/qrgen?tab=readme-ov-file#using-the-extension';
 }
@@ -10,6 +15,14 @@ function tutorial() {
 function demo() {
     const modal = document.querySelector('#demo');
         modal.showModal();
+        $('body').css({'overflow':'hidden'});
+        $(document).bind('scroll',function () { 
+            window.scrollTo(0,0); 
+   });
+   modal.addEventListener("close", () => {
+    $(document).unbind('scroll'); 
+    $('body').css({'overflow':'visible'});
+   });
 }
 function home() {
     window.location.href = 'main.htm';
