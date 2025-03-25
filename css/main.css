@@ -13,11 +13,13 @@
   --feature: rgb(49, 49, 49);
   --feature-background: #F5F5F5;
   --line: rgba(27, 27, 27, 0.137);
+  --body-background: #cccccc04;
 }
 body {
   font-family: 'Mukta', sans-serif;
   padding-left: 20px;
   padding-right: 20px;
+  background-color: var(--body-background);
 }  
 h1 {
   font-family: 'Ubuntu', sans-serif;
