@@ -25,7 +25,7 @@
     <button class="sec" id="openmodal" onclick="demo()">Demo</button>
   </div>
 </header>
-<body>
+<body class="homepage">
   <div style="height: 100px"></div>
   <div class="modal">
     <dialog id="demo">
@@ -65,8 +65,8 @@
   </dialog>
   <h1>QRgen</h1>
   <p>The pocket QR code generator.</p>
-  <p>Generate a QR code for anything - website, text, number, your infomation,... anywhere, anytime.</p>
-  <p>If you have any questions, check out the <a href="#faq">FAQ</a>.</p>
+  Generate a QR code for anything - website, text, number, your infomation,... anywhere, anytime.
+  <br>If you have any questions, check out the <a href="#faq">FAQ</a>.
   <p><button class="sec" onclick="demo()">Try demo on this page</button></p>
   <br>
   <div class="grid">
@@ -106,33 +106,35 @@
   <p class="no-desktop">Please note that the extension is desktop-only.</p>
   <br>
   <h1 id="faq">FAQ</h1>
-  <ol>
-    <li><strong>Is possible to save the QR code?</strong></li>
-    <ol style="list-style-type: none;">
-      <li>Of course! You can save the QR code as an image and share it! Right-click the image and save it as PNG file. In the future there will be a feature to save the QR code and share it.</li>
-    </ol>
-    <li><strong>When is next version coming out?</strong></li>
-    <ol style="list-style-type: none;">
-      <li>I don't know. I'll update QRgen when I have some new features and bug fixes, so I can't say "there will be an update every month" or anything.</li>
-    </ol>
-    <li><strong>How can I update to the current version?</strong></li>
-    <ol style="list-style-type: none;">
-      <li>Unfortunately you have to reinstall the extension manually. The extension is not on any marketplace at the moment, but it might be there in the future.</li>
-    </ol>
-    <li><strong>My QR code hasn't loaded yet, why?</strong></li>
-    <ol style="list-style-type: none;">
-      <li>QR code generation time depends on the amount of data you generate, so if you generate a QR code of a few words, the QR code will display almost instantly, but if you send around 200 characters and more, it may take longer.</li>
-      <li>Just wait a few seconds.</li>
-    </ol>
-    <li><strong>Can I download older versions?</strong></li>
-    <ol style="list-style-type: none;">
-      <li>Sorry, but you can't. This is because these older versions may contain bugs and are not supported.</li>
-    </ol>
-    <li><strong>What is the character limit in the text box?</strong></li>
-    <ol style="list-style-type: none;">
-      <li>I have set the limit to 1,000 characters to avoid problems with the API. It probably won't happen that you need to enter that much data in the QR code, so the limit won't affect you too much. I may increase this limit in the future, but it depends on the limits for API requests (how many times you can request data and how much data you are allowed to put in the request).</li>
-    </ol>
-  </ol>
+  <details>
+    <summary>Is possible to save the QR code?</summary>
+    Of course! You can save the QR code as an image and share it! Right-click the image and save it as PNG file. In the future there will be a feature to save the QR code and share it.
+  </details>
+  <br>
+  <details>
+    <summary>When is next version coming out?</summary>
+    I don't know. I'll update QRgen when I have some new features and bug fixes, so I can't say "there will be an update every month" or anything.
+  </details>
+  <br>
+  <details>
+    <summary>How can I update to the current version?</summary>
+    Unfortunately you have to reinstall the extension manually. The extension is not on any marketplace at the moment, but it might be there in the future.
+  </details>
+  <br>
+  <details>
+    <summary>My QR code hasn't loaded yet, why?</summary>
+    QR code generation time depends on the amount of data you generate, so if you generate a QR code of a few words, the QR code will display almost instantly, but if you send around 200 characters and more, it may take longer. Just wait a few seconds.
+  </details>
+  <br>
+  <details>
+    <summary>Can I download older versions?</summary>
+    You can download them from <a href="https://github.com/Stepan02/qrgen/releases">GitHub</a> but they are not supported, may contain bugs and lack some features.
+  </details>
+  <br>
+  <details>
+    <summary>What is the character limit in the text box?</summary>
+    I have set the limit to 1,000 characters to avoid problems with the API. It probably won't happen that you need to enter that much data in the QR code, so the limit won't affect you too much. I may increase this limit in the future, but it depends on the limits for API requests (how many times you can request data and how much data you are allowed to put in the request).
+  </details>
   <footer>
     <p>Made by <a href="https://www.github.com/Stepan02">Stepan02</a></p>
   </footer>
