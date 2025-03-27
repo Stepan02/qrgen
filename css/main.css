@@ -24,7 +24,7 @@ body {
 h1 {
   font-family: 'Ubuntu', sans-serif;
 }
-.homepage h1:first-of-type {
+.homepage h1:first-of-type:not(dialog h1) {
   font-size: 3.5rem;
 }
 details {
@@ -350,8 +350,9 @@ p a:visited {
   background-color: var(--selection);
 }
 .feature strong {
+  font-family: 'Ubuntu', sans-serif;
   font-size: 2rem;
-  font-weight: 900;
+  font-weight: 500;
 }
 .feature {
   background-color: var(--feature-background);
