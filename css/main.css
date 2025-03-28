@@ -33,11 +33,14 @@ details {
   padding: 0.5em 0.5em 0;
 }
 summary {
-  font-weight: bold;
+  font-family: 'Ubuntu', sans-serif;
   margin: -0.5em -0.5em 0;
   padding: 0.5em;
   cursor: pointer;
   list-style-type: none;
+}
+summary:hover {
+  background-color:var(--feature-background);
 }
 details[open] {
   padding: 0.5em;
