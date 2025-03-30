@@ -33,6 +33,12 @@ If applicable, add screenshots to help explain your problem.
  - OS: [e.g. iOS8.1]
  - Browser [e.g. Chrome, Firefox]
  - Version [e.g. 22]
+   
+**Was the bug caused by a specific commit?** [optional] Yes, [insert commit hash] | No (delete the unsuitable)
+
+*Please, mention commit hash if possible, it helps out a lot.*
 
 **Additional context**
-Add any other context about the problem here.
+
+Add any other context about the problem here. You can include for screenshots, error logs from the console, etc.
+Addding additional context is really helpful and it is appreciated!
