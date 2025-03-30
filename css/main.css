@@ -404,6 +404,9 @@ hr {
   position: relative;
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
+.alert strong {
+  color: rgb(21, 21, 21);
+}
 .alert a {
   text-decoration: none;
   color: var(--main);
@@ -451,6 +454,7 @@ hr {
 @media only screen and (max-width: 900px) {
   .grid {
     display: block;
+    justify-content: space-between;
   }
   .grid .feature {
     width: auto;
@@ -508,6 +512,9 @@ hr {
     text-align: center;
     user-select: none;
     font-size: 4rem;
+  }
+  .ver {
+    width: auto;
   }
 }
 .sp {
