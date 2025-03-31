@@ -1,0 +1,27 @@
+name: Add Label to Browser Issues
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  add-label-if-browser:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check issue content
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueTitle = context.payload.issue.title.toLowerCase();
+            const issueBody = context.payload.issue.body ? context.payload.issue.body.toLowerCase() : "";
+            const containsBrowser = issueTitle.includes("browser") || issueBody.includes("browser");
+            if (containsBrowser) {
+              await github.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.issue.number,
+                labels: ["browser-support"]
+              });
+            }
