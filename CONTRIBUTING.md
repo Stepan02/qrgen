@@ -13,3 +13,10 @@ Did you find a bug?
 You can create a feature request using an issue with the [feature request template](https://github.com/Stepan02/qrgen/issues/new?template=feature-suggestion.md).
 
 **Have you figured out a solution to any bug or a feature request?** Create a [pull request](https://github.com/Stepan02/qrgen/pulls).
+
+## Known issues
+### 🍎 Safari browser
+The extension is yet to be tested in Safari browser. I am currently unable to test the extension since I lack Apple device.
+If you are able to test the extension in Safari and would like to contribute to this project, please create an issue by clicking this [link](https://github.com/stepan02/qrgen/issues/new?title=Safari+browser+test) or manually with ***Safari browser test*** title.
+
+Thanks a lot for your contributions!
