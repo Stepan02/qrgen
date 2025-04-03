@@ -9,6 +9,7 @@
 :root {
   --main: #332cf2;
   --main-hover-box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  --sec-hover-box-shadow: rgba(0, 0, 0, 0.02) 0px 6px 24px 0px, rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
   --selection: rgba(49, 49, 49, 0.123);
   --feature: rgb(49, 49, 49);
   --feature-background: #F5F5F5;
@@ -27,7 +28,7 @@ h1 {
   font-size: 3.5rem;
 }
 details {
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 6px 24px 0px, rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+  box-shadow: var(--sec-hover-box-shadow);
   border-radius: 4px;
   padding: 0.5em 0.5em 0;
 }
@@ -259,7 +260,7 @@ p a:visited {
   border-radius: 5px;
   transition: all .3s;
   user-select: none;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 6px 24px 0px, rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+  box-shadow: var(--sec-hover-box-shadow);
 }
 .browsers a:hover {
   background-color: var(--feature-background);
@@ -473,10 +474,8 @@ hr {
   #clippy {
     user-select: none;
     background-color: white;
-    border-top: 2px solid var(--main);
-    border-bottom: 2px solid var(--main);
     border-radius: 5px;
-    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    box-shadow: var(--sec-hover-box-shadow);
     margin-top: 200px;
     position: fixed;
     scroll-behavior: smooth;
@@ -486,8 +485,7 @@ hr {
   #clippy {
     user-select: none;
     background-color: white;
-    border: 2px solid var(--main);
-    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    box-shadow: var(--sec-hover-box-shadow);
     margin-top: 100px;
     position: fixed;
     width: 35%;
@@ -502,8 +500,7 @@ hr {
   #clippy {
     user-select: none;
     background-color: white;
-    border: 2px solid var(--main);
-    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    box-shadow: var(--sec-hover-box-shadow);
     margin-top: 100px;
     position: fixed;
     width: 100%;
