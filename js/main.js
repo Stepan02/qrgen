@@ -37,9 +37,10 @@ if (clippymodal != null) {
     };
     function clippy() {
         clippymodal.showModal()
-        document.querySelector("body").style.overflow = 'hidden';
+        document.querySelector('body').style.overflow = 'hidden';
     }
     function copyClippy() {
-        navigator.clipboard.writeText('📎').then(() => alert('🎉 Copied, enjoy! 🎉'))
+        button = document.querySelector("#clippy .normal")
+        navigator.clipboard.writeText('📎').then(() => button.innerHTML = "📋 Copied!")
     }
 }
