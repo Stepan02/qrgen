@@ -39,8 +39,18 @@ summary {
   cursor: pointer;
   list-style-type: none;
 }
+summary::before {
+  content: "\F231";
+  font-family: "bootstrap-icons";
+  margin-right: 3px;
+  font-size: 18px;
+  display: inline-block;
+  vertical-align: text-bottom;
+  transition: transform .1s ease;
+  position: relative;
+}
 summary:hover {
-  background-color:var(--feature-background);
+  background-color: var(--feature-background);
 }
 details[open] {
   padding: 0.5em;
@@ -48,6 +58,9 @@ details[open] {
 details[open] summary {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 0.5em;
+}
+details[open] summary::before {
+  transform: rotate(90deg);
 }
 .error-not-found {
   text-align: center;
