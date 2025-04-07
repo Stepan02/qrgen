@@ -44,11 +44,3 @@ if (clippymodal != null) {
         navigator.clipboard.writeText('📎').then(() => button.innerHTML = "📋 Copied!")
     }
 }
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('header.active');
-    if (window.scrollY > 0) {
-      navbar.classList.add('box-shadow');
-    } else {
-      navbar.classList.remove('box-shadow');
-    }
-  });
