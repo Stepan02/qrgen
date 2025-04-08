@@ -398,7 +398,7 @@ p a:visited {
   font-weight: 500;
 }
 .feature {
-  background-color: var(--feature-background);
+  box-shadow: var(--sec-hover-box-shadow);
   color: var(--feature);
   padding: 20px;
   border-radius: 10px;
