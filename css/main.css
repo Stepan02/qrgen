@@ -301,10 +301,15 @@ p a:visited {
   transition: all .3s;
   user-select: none;
   box-shadow: var(--sec-hover-box-shadow);
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 .browsers a:hover {
   background-color: var(--feature-background);
   transition: all .3s;
+  transform: translateY(-2px);
 }
 .github-link {
   font-family: 'Ubuntu', sans-serif;
@@ -457,18 +462,13 @@ hr {
   pointer-events: none;
 }
 .ver {
-  border: 2px solid rgba(51, 51, 51, 0.027);
+  border: 2px solid transparent;
   outline: 1px solid transparent;
   padding: 20px;
   border-radius: 10px;
   width: 300px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  box-shadow: var(--sec-hover-box-shadow);
   transition: all .5s;
-}
-.ver:hover {
-  background-color: white;
-  border: 2px solid var(--main);
-  box-shadow: var(--main-hover-box-shadow);
 }
 .ver h2 {
   font-family: 'Ubuntu', sans-serif;
