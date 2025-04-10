@@ -16,6 +16,9 @@
   --line: rgba(27, 27, 27, 0.137);
   --body-background: #cccccc04;
 }
+a:visited {
+  color: var(--main);
+}
 html::after {
   content: '';
   width: 100%;
@@ -452,9 +455,10 @@ hr {
 }
 .alert strong {
   color: rgb(21, 21, 21);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 100;
 }
 .alert a {
-  text-decoration: none;
   color: var(--main);
 }
 .feature .browsers h1 {
