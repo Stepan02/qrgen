@@ -15,6 +15,8 @@
   --feature-background: #F5F5F5;
   --line: rgba(27, 27, 27, 0.137);
   --body-background: #cccccc04;
+  --primary-font: 'Ubuntu', sans-serif;
+  --secondary-font: 'Mukta', sans-serif;
 }
 a:visited {
   color: var(--main);
@@ -39,12 +41,12 @@ html::after {
   z-index: -1;
 }
 body {
-  font-family: 'Mukta', sans-serif;
+  font-family: var(--secondary-font);
   padding: 0 6%;
   background-color: var(--body-background);
 }
 h1 {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--primary-font);
 }
 .homepage h1:first-of-type:not(dialog h1) {
   font-size: 3.5rem;
@@ -55,7 +57,7 @@ details {
   padding: 0.5em 0.5em 0;
 }
 summary {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--primary-font);
   margin: -0.5em -0.5em 0;
   padding: 0.5em;
   cursor: pointer;
@@ -95,11 +97,11 @@ details[open] summary::before {
   font-weight: 500;
 }
 .tutorial h2 {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--primary-font);
 }
 .menu-content {
   text-align: center;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--primary-font);
   font-size: medium;
 }
 header {
@@ -115,7 +117,7 @@ header {
   display: flex;
 }
 .logo-wrapper {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--primary-font);
 }
 header.active {
   left: 0;
@@ -159,7 +161,7 @@ p a:visited {
   color: var(--main);
 }
 .download {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--primary-font);
   background-color: var(--main);
   border: 2px solid var(--main);
   border-radius: 4px;
@@ -191,7 +193,7 @@ p a:visited {
   }
 }
 .normal {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--primary-font);
   background-color: var(--main);
   border: 2px solid var(--main);
   border-radius: 4px;
@@ -221,7 +223,7 @@ p a:visited {
   }
 }
 .sec {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--primary-font);
   background-color: transparent;
   border: 2px solid var(--main);
   border-radius: 4px;
@@ -246,7 +248,7 @@ p a:visited {
   transform: translateY(-2px);
 }
 .suggestion-link {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--primary-font);
   color: var(--main);
   text-decoration: none;
 }
@@ -257,7 +259,7 @@ p a:visited {
   text-underline-offset: 5px;
 }
 .demo {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--primary-font);
   appearance: button;
   backface-visibility: hidden;
   background-color: var(--main);
@@ -292,7 +294,7 @@ p a:visited {
 }
 .browsers a {
   color: rgba(0, 0, 0, 0.855) !important;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--primary-font);
   font-weight: 500;
   font-size: 1.2rem;
   text-decoration: none;
@@ -315,7 +317,7 @@ p a:visited {
   transform: translateY(-2px);
 }
 .github-link {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--primary-font);
   color: #151B23 !important;
   text-decoration: underline;
   text-underline-offset: 5px;
@@ -401,7 +403,7 @@ p a:visited {
   background-color: var(--selection);
 }
 .feature strong {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--primary-font);
   font-size: 4vh;
   font-weight: 500;
 }
@@ -455,7 +457,7 @@ hr {
 }
 .alert strong {
   color: rgb(21, 21, 21);
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--primary-font);
   font-weight: 100;
 }
 .alert a {
@@ -475,7 +477,7 @@ hr {
   transition: all .5s;
 }
 .ver h2 {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--primary-font);
   font-weight: 700;
 }
 .ver .date {
