@@ -3,16 +3,23 @@
   "name": "QRgen",
   "version": "1.0",
   "description": "The pocket QR code generator.",
-  "action": {
-    "default_icon": "assets/default-logo.png",
-    "default_popup": "popup.html"
-  },
   "icons": {
     "16": "assets/logo-16.jpg",
     "48": "assets/logo-48.jpg",
-    "128": "assets/logo-128.jpg"
+    "128": "assets/logo-128.jpg" 
   },
-  "background": {
-    "service_worker":"popup.js"
-  }
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "assets/logo-48.jpg"
+  },
+  "background.scripts": {
+    "service_worker": "popup.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["popup.js"],
+      "css": ["style.css"]
+    }
+  ]
 }
