@@ -8,6 +8,9 @@
 
 :root {
   --main: #332cf2;
+  --heading: #203857;
+  --error: #e94a84;
+  --error-badge: #df80ff1c;
   --main-hover-box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
   --sec-hover-box-shadow: rgba(0, 0, 0, 0.02) 0px 6px 24px 0px, rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
   --selection: rgba(49, 49, 49, 0.123);
@@ -91,10 +94,24 @@ details[open] summary::before {
 }
 .error-not-found h1 {
   font-weight: 300;
-  font-size: 3rem;
+  font-size: 10vh;
+  color: var(--heading);
 }
 .error-not-found h2 {
   font-weight: 500;
+}
+.error-not-found code {
+  color: var(--error);
+  background-color: var(--error-badge);
+  padding: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+}
+.error-not-found code::before {
+  content: '\F627';
+  font-family: 'bootstrap-icons';
+  vertical-align: -2px;
+  font-size: .75em;
 }
 .tutorial h2 {
   font-family: var(--primary-font);
