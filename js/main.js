@@ -44,3 +44,7 @@ if (clippymodal != null) {
         navigator.clipboard.writeText('📎').then(() => button.innerHTML = "📋 Copied!")
     }
 }
+
+let url = document.location.pathname;
+let place = document.querySelector('.url');
+place.innerHTML = url
