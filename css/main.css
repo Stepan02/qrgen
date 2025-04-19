@@ -485,6 +485,12 @@ hr {
 .ver .date {
   color: #333333;
 }
+.ver ul {
+  padding-left: 15px;
+}
+.ver li {
+  padding-left: 5px;
+}
 .badge {
   color: rgba(0, 0, 0, 0.788);
   font-size: 1rem;
