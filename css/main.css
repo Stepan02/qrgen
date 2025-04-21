@@ -184,17 +184,20 @@ p a:visited {
 .download {
   font-family: var(--primary-font);
   background-color: var(--main);
-  border: 2px solid var(--main);
+  color: white;
+  border: none;
   border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-shadow: none;
   box-sizing: border-box;
-  color: #fff;
   cursor: pointer;
   font-size: 16px;
-  outline: none;
+  font-weight: 400;
   outline: 0;
   padding: 10px 25px;
   text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: all .3s;
   transform: translateY(0);
   transition: transform 150ms, box-shadow 150ms;
   user-select: none;
@@ -202,7 +205,6 @@ p a:visited {
   touch-action: manipulation;
 }
 .download:hover {
-  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
   transform: translateY(-2px);
 }
 .menu-br {
@@ -258,10 +260,13 @@ p a:visited {
   text-align: center;
   user-select: none;
   -webkit-user-select: none;
-  transition: all .3s;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  touch-action: manipulation;
 }
 .sec:hover {
-  background-color: var(--feature-background);
+  transform: translateY(-2px);
 }
 .suggestion-link {
   font-family: var(--primary-font);
