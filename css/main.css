@@ -75,7 +75,6 @@ summary::before {
   font-family: "bootstrap-icons";
   color: var(--heading);
   margin-right: 3px;
-  font-size: 18px;
   display: inline-block;
   vertical-align: text-bottom;
   transition: transform .1s ease;
@@ -495,8 +494,9 @@ hr {
   color: rgba(0, 0, 0, 0.788);
   font-size: 1rem;
   font-weight: 200;
-  background-color: #f5f5f5;
-  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.02);
+  box-shadow: var(--sec-box-shadow);
+  border-radius: 3px;
   padding-top: 2px;
   padding-bottom: 2px;
   padding-right: 4px;
