@@ -10,3 +10,17 @@ if(!value || value === preValue) return
 preValue = value
 qrCode.src =` https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${value} `
 })
+function updateCounter() {
+    const textarea = document.querySelector("textarea");
+    const counter = document.getElementById("char-counter");
+    const maxLength = textarea.getAttribute("maxlength");
+    const currentLength = textarea.value.length;
+    const maxCounter = document.querySelector("#char-max");
+
+    counter.textContent = currentLength;
+    maxCounter.textContent = maxLength;
+}
+
+window.onload = function() {
+    updateCounter();
+};
