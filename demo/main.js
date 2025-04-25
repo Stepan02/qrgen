@@ -19,6 +19,12 @@ function updateCounter() {
 
     counter.textContent = currentLength;
     maxCounter.textContent = maxLength;
+
+    if (currentLength == maxLength) {
+        counter.style.color = "var(--error)"
+    } else {
+        counter.style.color = "gray"
+    }
 }
 
 window.onload = function() {
