@@ -477,6 +477,9 @@ hr {
   box-shadow: var(--sec-box-shadow);
   transition: all .5s;
 }
+.ver:hover {
+  background-color: #f5f5f581;
+}
 .ver h2 {
   font-family: var(--primary-font);
   font-weight: 700;
