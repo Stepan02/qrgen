@@ -4,7 +4,7 @@ jQueryScript.setAttribute('src','https://ajax.googleapis.com/ajax/libs/jquery/3.
 document.head.appendChild(jQueryScript);
 
 function download() {
-    window.location.href = 'https://github.com/Stepan02/qrgen?tab=readme-ov-file#using-the-extension';
+    window.location.href = 'https://github.com/Stepan02/qrgen/tree/main/extension';
 }
 function changelog() {
     window.location.href = 'changelog.htm';
@@ -45,6 +45,9 @@ if (clippymodal != null) {
     }
 }
 
-let url = document.location.pathname;
-let place = document.querySelector('.url');
-place.innerHTML = url
+const url = document.location.pathname;
+const place = document.querySelector('.url');
+
+if (place) {
+    place.innerHTML = url;
+}
