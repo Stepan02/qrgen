@@ -9,10 +9,13 @@
 :root {
   --main: #332cf2;
   --heading: #203857;
+  --alert-heading: #333333;
   --error: #e94a84;
   --error-badge: #df80ff1c;
+  --gray-hover: #f5f5f581;
   --main-hover-box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
   --sec-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  --header-box-shadow: rgba(0, 0, 0, .05) 0 0px 14px 0, rgba(0, 0, 0, .08) 0 0 0 1px;
   --selection: rgba(49, 49, 49, 0.123);
   --feature: rgb(49, 49, 49);
   --feature-background: #F5F5F5;
@@ -146,7 +149,7 @@ header.active {
   z-index: 999;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.98);
-  box-shadow: rgba(0, 0, 0, .05) 0 0px 14px 0, rgba(0, 0, 0, .08) 0 0 0 1px;
+  box-shadow: var(--header-box-shadow);
 }
 .header.active::before {
   position: absolute;
@@ -451,13 +454,12 @@ hr {
   border: 2px solid var(--main);
   border-radius: .375rem;
   box-sizing: border-box;
-  color: #333333;
+  color: var(--alert-heading);
   padding: 10px;
   position: relative;
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
 .alert strong {
-  color: rgb(21, 21, 21);
   font-family: var(--primary-font);
   font-weight: 100;
 }
@@ -478,14 +480,14 @@ hr {
   transition: all .5s;
 }
 .ver:hover {
-  background-color: #f5f5f581;
+  background-color: var(--gray-hover);
 }
 .ver h2 {
   font-family: var(--primary-font);
   font-weight: 700;
 }
 .ver .date {
-  color: #333333;
+  color: var(--alert-heading);
 }
 .ver ul {
   padding-left: 15px;
@@ -494,10 +496,10 @@ hr {
   padding-left: 5px;
 }
 .badge {
-  color: rgba(0, 0, 0, 0.788);
+  color: var(--alert-heading);
   font-size: 1rem;
   font-weight: 200;
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: var(--feature-background);
   box-shadow: var(--sec-box-shadow);
   border-radius: 3px;
   padding-top: 2px;
