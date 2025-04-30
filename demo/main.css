@@ -7,6 +7,10 @@
     --main: #332cf2;
     --focus-box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
     --scrollbar-background: rgba(50, 151, 211, .3);
+    --primary-font: 'Ubuntu', sans-serif;
+    --textarea-font: 'JetBrains Mono', monospace;
+    --button-box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+    --button-box-shadow-hover: rgba(0, 0, 0, .15) 0 3px 9px 0;
 }
 .textarea-container {
     position: relative;
@@ -22,7 +26,7 @@ dialog {
     border-radius: 10px;
 }
 dialog h1 {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: var(--primary-font);
     color: rgba(0, 0, 0, 0.849);
 }
 dialog textarea {
@@ -31,7 +35,7 @@ dialog textarea {
     min-height: 30px;
     max-height: 100px;
     resize: vertical;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--textarea-font);
     border: 2px solid var(--main);
     border-radius: 4px;
     font-size: 1rem;
@@ -59,11 +63,11 @@ dialog img {
     border-radius: 5px;
 }
 dialog button {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: var(--primary-font);
     background-color: transparent;
     border: 2px solid var(--main);
     border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+    box-shadow: var(--button-box-shadow);
     box-sizing: border-box;
     color: var(--main);
     cursor: pointer;
@@ -82,7 +86,7 @@ dialog button {
     width: 100%;
 }
 dialog button:hover {
-    box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+    box-shadow: var(--button-box-shadow-hover);
     transform: translateY(-2px);
     color: #fff;
     background-color: var(--main);
