@@ -335,7 +335,6 @@ p a:visited {
   touch-action: manipulation;
 }
 .browsers a:hover {
-  background-color: var(--feature-background);
   transition: all .3s;
   transform: translateY(-2px);
 }
@@ -490,10 +489,8 @@ hr {
   color: var(--alert-heading);
 }
 .ver ul {
-  padding-left: 15px;
-}
-.ver li {
-  padding-left: 5px;
+  font-family: var(--secondary-font);
+  margin-left: -20px;
 }
 .badge {
   color: var(--alert-heading);
