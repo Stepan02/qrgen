@@ -510,8 +510,7 @@ hr {
 }
 @media only screen and (max-width: 900px) {
   .grid {
-    display: block;
-    justify-content: space-between;
+    flex: none;
   }
   .grid .feature {
     width: auto;
@@ -568,6 +567,14 @@ hr {
   }
   .ver {
     width: auto;
+  }
+  .grid.browsers {
+    display: flex;
+    flex-direction: column;
+  }
+  .grid.browsers a {
+    margin-bottom: 15px;
+    text-align: center;
   }
 }
 .sp {
