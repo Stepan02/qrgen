@@ -27,7 +27,24 @@ dialog {
 }
 dialog h1 {
     font-family: var(--primary-font);
+    font-size: x-large;
     color: rgba(0, 0, 0, 0.849);
+    white-space: nowrap;
+}
+.head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.head p {
+    white-space: nowrap;
+    margin-left: auto;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: monospace;
+    font-weight: 600;
+    font-size: medium;
+    text-align: right;
+    user-select: none;
 }
 dialog textarea {
     transition: all 0.3s;
@@ -46,13 +63,6 @@ dialog textarea:focus {
     border: 2px solid var(--main);
     box-shadow: var(--focus-box-shadow);
     transition: all 0.3s;
-}
-dialog .help {
-    color: rgba(0, 0, 0, 0.788);
-    font-family: monospace;
-    font-weight: bold;
-    text-align: right;
-    user-select: none;
 }
 img[src=""] {
     display: none;
