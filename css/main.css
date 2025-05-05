@@ -568,11 +568,14 @@ hr {
   .ver {
     width: auto;
   }
+}
+@media only screen and (max-width: 600px) {
   .grid.browsers {
     display: flex;
     flex-direction: column;
+    gap: 10px;
   }
-  .grid.browsers a {
+  .grid.browsers p {
     margin-bottom: 15px;
     text-align: center;
   }
