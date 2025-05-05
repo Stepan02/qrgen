@@ -575,7 +575,7 @@ hr {
     flex-direction: column;
     gap: 10px;
   }
-  .grid.browsers p {
+  .grid.browsers a {
     margin-bottom: 15px;
     text-align: center;
   }
