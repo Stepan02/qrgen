@@ -534,6 +534,12 @@ hr {
     margin-top: 200px;
     position: fixed;
     scroll-behavior: smooth;
+    width: 30%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  #clippy {
+    width: 40%;
   }
 }
 @media only screen and (min-width: 500px) {
@@ -543,7 +549,6 @@ hr {
     box-shadow: var(--sec-box-shadow);
     margin-top: 100px;
     position: fixed;
-    width: 35%;
   }
   .emoji {
     text-align: center;
@@ -578,6 +583,9 @@ hr {
   .grid.browsers a {
     margin-bottom: 15px;
     text-align: center;
+  }
+  .sec {
+    width: 100%;
   }
 }
 .sp {
