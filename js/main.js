@@ -19,6 +19,10 @@ function demo() {
         $(document).bind('scroll',function () { 
             window.scrollTo(0,0); 
    });
+   let exitText = document.querySelector('.head p');
+   exitText.addEventListener("click", () => {
+        modal.close();
+   });
    modal.addEventListener("close", () => {
     $(document).unbind('scroll'); 
     $('body').css({'overflow':'visible'});
