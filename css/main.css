@@ -386,6 +386,7 @@ p a:visited {
   }
   .feature {
     width: 100%;
+    text-align: center;
   }
   .no-mb {
     display: none;
@@ -504,6 +505,10 @@ hr {
   padding-right: 4px;
   padding-left: 4px;
   user-select: none;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
 }
 .grid .feature {
  display: block;
