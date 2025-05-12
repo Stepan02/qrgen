@@ -1,0 +1,11 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+cypress/fixtures/
+cypress/support/
