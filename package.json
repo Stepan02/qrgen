@@ -1,0 +1,11 @@
+{
+  "name": "qrgen",
+  "version": "0.1",
+  "scripts": {
+    "test": "cypress open",
+    "test:headless": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^12.0.0"
+  }
+}
