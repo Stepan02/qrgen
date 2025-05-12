@@ -18,9 +18,9 @@ jobs:
         run: npm ci
 
       - name: Start web server
-        run: npx serve -s . -l 8080 &
+        run: npx serve -s . -l 5500 &
       - name: Wait for server
-        run: npx wait-on http://localhost:8080
+        run: npx wait-on http://localhost:5500
 
       - name: Run Cypress tests
         run: npx cypress run
