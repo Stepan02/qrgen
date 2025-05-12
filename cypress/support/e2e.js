@@ -1,0 +1,3 @@
+beforeEach(() => {
+  cy.log('Testing...');
+});
