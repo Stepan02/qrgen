@@ -6,6 +6,7 @@
     "test:headless": "cypress run"
   },
   "devDependencies": {
-    "cypress": "^12.0.0"
+    "@cypress/request": "^3.0.0",
+    "cypress": "^14.3.3"
   }
 }
