@@ -7,6 +7,10 @@ let preValue
 generateBtn.addEventListener("click", () => {
     let value = inputValue.value.trim() 
     if(!value || value === preValue) return
+    const unsafeProtocols = ['javascript:', 'data:', 'file:', 'vbscript:'];
+    if (unsafeProtocols.some(protocol => value.toLowerCase().startsWith(protocol))) {
+        return;
+    }
     preValue = value
-    qrCode.src =` https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${value} `
+    qrCode.src =` https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(value)} `
 })
