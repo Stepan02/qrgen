@@ -5,6 +5,9 @@ on:
     types:
       - opened
 
+permissions:
+  issues: write
+
 jobs:
   add-label-if-browser:
     runs-on: ubuntu-latest
