@@ -2,6 +2,9 @@ name: Run Cypress Tests
 
 on: [push, pull_request]
 
+permissions:
+  contents: read
+
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
