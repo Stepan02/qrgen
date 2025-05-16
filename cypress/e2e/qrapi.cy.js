@@ -4,6 +4,14 @@ describe('QR API test', () => {
     cy.get('#openmodal').click();
   });
 
+  it('Does not generate a blank QR code', () => {
+    cy.get('.qr-code img').should('have.attr', 'src', '');
+
+    cy.get('.generateBtn').click();
+    
+    cy.get('.qr-code img').should('have.attr', 'src', '');
+  })
+
   if('Generates QR code', () => {
     const testUserInput = 'Hello World!';
 
@@ -24,7 +32,7 @@ describe('QR API test', () => {
       });
     });
 
-    it('Character counter update', () => {
+    it('Character counter updates', () => {
       cy.get('textarea').clear().type('abcd');
       cy.get('#char-counter').should('have.text', '4');
     });
