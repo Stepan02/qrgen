@@ -1,5 +1,8 @@
 # QRgen
-<p>Simple browser extension to generate QR codes</p>
+[![CodeQL](https://github.com/Stepan02/qrgen/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/Stepan02/qrgen/actions/workflows/github-code-scanning/codeql)
+[![Run Cypress Tests](https://github.com/Stepan02/qrgen/actions/workflows/cypress.yml/badge.svg)](https://github.com/Stepan02/qrgen/actions/workflows/cypress.yml)
+
+Simple browser extension to generate QR codes
 
 ## Using the extension
 The extension itself is not available on any browser extension marketplace. Therefore it must be dowloaded manually.
