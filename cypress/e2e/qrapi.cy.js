@@ -32,8 +32,30 @@ describe('QR API test', () => {
       });
     });
 
-    it('Character counter updates', () => {
-      cy.get('textarea').clear().type('abcd');
-      cy.get('#char-counter').should('have.text', '4');
+  it('Character counter updates', () => {
+    cy.get('textarea').clear().type('abcd');
+    cy.get('#char-counter').should('have.text', '4');
+  });
+
+  it.skip('Does not overflow', () => { // not passing yet
+    const overfilledInput = 'A'.repeat(2500);
+    const textareaMax = 2000;
+
+    cy.get('textarea')
+      .invoke('val', overfilledInput)
+      .trigger('input');
+
+    cy.get('.generateBtn').click();
+
+    cy.get('.qr-code img')
+      .should('be.visible')
+      .invoke('attr', 'src')
+      .then((src) => {
+        const url = new URL(src);
+        const dataParam = url.searchParams.get('data');
+
+        expect(dataParam).to.have.length(textareaMax);
+        expect(dataParam).to.eq('A'.repeat(textareaMax));
     });
+  })
 });
