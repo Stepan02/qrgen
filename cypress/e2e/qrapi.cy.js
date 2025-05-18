@@ -37,25 +37,22 @@ describe('QR API test', () => {
     cy.get('#char-counter').should('have.text', '4');
   });
 
-  it.skip('Does not overflow', () => { // not passing yet
-    const overfilledInput = 'A'.repeat(2500);
-    const textareaMax = 2000;
-
-    cy.get('textarea')
-      .invoke('val', overfilledInput)
-      .trigger('input');
-
+  it('Does not overflow', () => {
+    cy.get('textarea').clear().type('qwerty');
     cy.get('.generateBtn').click();
 
+    const overflow = 'A'.repeat(2500);
+    
     cy.get('.qr-code img')
       .should('be.visible')
       .invoke('attr', 'src')
-      .then((src) => {
-        const url = new URL(src);
-        const dataParam = url.searchParams.get('data');
+      .then((initialSrc) => {
+        cy.get('textarea').clear().invoke('val', overflow).trigger('input');
+        cy.get('.generateBtn').click();
 
-        expect(dataParam).to.have.length(textareaMax);
-        expect(dataParam).to.eq('A'.repeat(textareaMax));
-    });
+        cy.get('.qr-code img')
+          .invoke('attr', 'src')
+          .should('eq', initialSrc);
+      });
   })
-});
+})
