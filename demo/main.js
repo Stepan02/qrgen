@@ -8,7 +8,10 @@ qrCode.style.cursor = "pointer";
 
 generateBtn.addEventListener("click", () => {
     let value = inputValue.value.trim();
+    let limit = document.querySelector('textarea').maxLength;
+
     if (!value || value === preValue) return;
+    if (limit > 0 && value.length > limit) return;
     
     const unsafeProtocols = ['javascript:', 'data:', 'file:', 'vbscript:'];
     if (unsafeProtocols.some(protocol => value.toLowerCase().startsWith(protocol))) {
