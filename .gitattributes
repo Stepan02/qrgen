@@ -1,3 +1,13 @@
-*.html text
-*.css text
-*.js text
+# text files
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+
+# GitHub config files
+.github/** text eol=lf
+
+# images
+*.png binary
