@@ -55,4 +55,26 @@ describe('QR API test', () => {
           .should('eq', initialSrc);
       });
   })
+
+  it('Does not generate QR codes with dangerous protocols', () => {
+    cy.get('textarea').clear().invoke('val', 'javascript:').trigger('input');
+    cy.get('.generateBtn').click();
+    
+    cy.get('.qr-code img').should('not.be.visible');
+
+    cy.get('textarea').clear().invoke('val', 'data:').trigger('input');
+    cy.get('.generateBtn').click();
+    
+    cy.get('.qr-code img').should('not.be.visible');
+
+    cy.get('textarea').clear().invoke('val', 'file:').trigger('input');
+    cy.get('.generateBtn').click();
+    
+    cy.get('.qr-code img').should('not.be.visible');
+
+    cy.get('textarea').clear().invoke('val', 'vbscript:').trigger('input');
+    cy.get('.generateBtn').click();
+    
+    cy.get('.qr-code img').should('not.be.visible');
+  })
 })
