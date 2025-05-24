@@ -275,6 +275,7 @@ p a:visited {
   touch-action: manipulation;
 }
 .sec:hover {
+  background-color: var(--gray-hover);
   transform: translateY(-2px);
 }
 .suggestion-link {
@@ -485,9 +486,6 @@ hr {
   width: 300px;
   box-shadow: var(--sec-box-shadow);
   transition: all .5s;
-}
-.ver:hover {
-  background-color: var(--gray-hover);
 }
 .ver h2 {
   font-family: var(--primary-font);
