@@ -5,6 +5,7 @@
 
 :root {
     --main: #332cf2;
+    --hover-bg: #F5F5F5;
     --focus-box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
     --scrollbar-background: rgba(50, 151, 211, .3);
     --primary-font: 'Ubuntu', sans-serif;
@@ -45,6 +46,20 @@ dialog h1 {
     font-size: medium;
     text-align: right;
     user-select: none;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: all .3s;
+}
+.head p:hover {
+    background-color: var(--hover-bg);
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 dialog textarea {
     transition: all 0.3s;
