@@ -1,6 +1,8 @@
 # QRgen
 [![CodeQL](https://github.com/Stepan02/qrgen/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/Stepan02/qrgen/actions/workflows/github-code-scanning/codeql)
 [![Run Cypress Tests](https://github.com/Stepan02/qrgen/actions/workflows/cypress.yml/badge.svg)](https://github.com/Stepan02/qrgen/actions/workflows/cypress.yml)
+![GitHub Release](https://img.shields.io/github/v/release/stepan02/qrgen?include_prereleases)
+
 
 Simple browser extension to generate QR codes
 
