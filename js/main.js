@@ -20,10 +20,10 @@ function demo() {
             window.scrollTo(0,0); 
    });
    let exitText = document.querySelector('.head p');
-   exitText.addEventListener("click", () => {
+   exitText.addEventListener('click', () => {
         modal.close();
    });
-   modal.addEventListener("close", () => {
+   modal.addEventListener('close', () => {
     $(document).unbind('scroll'); 
     $('body').css({'overflow':'visible'});
    });
@@ -31,22 +31,21 @@ function demo() {
 function home() {
     window.location.href = 'main.htm';
 }
-
 const clippymodal = document.querySelector('#clippy');
-if (clippymodal != null) {
+if (clippymodal !== null) {
     clippymodal.onkeydown = function( event ) {
-        if ( event.keyCode == 27 ) {
+        if ( event.keyCode === 27 ) {
             event.preventDefault();
         }
-    };
-    function clippy() {
-        clippymodal.showModal()
-        document.querySelector('body').style.overflow = 'hidden';
     }
-    function copyClippy() {
-        button = document.querySelector("#clippy .normal")
-        navigator.clipboard.writeText('📎').then(() => button.innerHTML = "📋 Copied!")
-    }
+}
+function clippy() {
+    clippymodal.showModal();
+    document.querySelector('body').style.overflow = 'hidden';
+}
+function copyClippy() {
+    button = document.querySelector('#clippy .normal');
+    navigator.clipboard.writeText('📎').then(() => button.innerHTML = '📋 Copied!');
 }
 
 const url = document.location.pathname;
