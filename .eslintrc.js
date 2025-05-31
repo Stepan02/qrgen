@@ -3,14 +3,19 @@ module.exports = {
     browser: true,
     node: true,
     es2021: true,
+    "cypress/globals": true,
   },
   extends: [
-    "eslint:recommended"
+    "eslint:recommended",
+    "plugin:cypress/recommended",
   ],
   parserOptions: {
     ecmaVersion: 12,
     sourceType: "module",
   },
+  plugins: [
+    'cypress',
+  ],
   rules: {
     "no-unused-vars": "warn",
     "no-console": "off",
