@@ -30,10 +30,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install ESLint
+      - name: Install ESLint and Cypress plugin
         run: |
           npm install eslint@8.10.0
           npm install @microsoft/eslint-formatter-sarif@3.1.0
+          npm install eslint-plugin-cypress@latest --save-dev
 
       - name: Run ESLint
         env:
