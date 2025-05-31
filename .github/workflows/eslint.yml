@@ -32,19 +32,19 @@ jobs:
 
       - name: Install ESLint and Cypress plugin
         run: |
-          npm install eslint@^9 eslint-plugin-cypress@latest --save-dev
-          npm install @microsoft/eslint-formatter-sarif@3.1.0
-          npm install eslint-plugin-cypress@latest --save-dev
+          npm install eslint@^9 eslint-plugin-cypress@latest @microsoft/eslint-formatter-sarif@3.1.0 --save-dev
 
       - name: Run ESLint
         env:
           SARIF_ESLINT_IGNORE_SUPPRESSED: "true"
-        run: npx eslint .
-          --config .eslintrc.js
-          --ext .js,.jsx,.ts,.tsx
-          --format @microsoft/eslint-formatter-sarif
-          --output-file eslint-results.sarif
+        run: npx eslint . \
+          --config .eslintrc.js \
+          --ext .js,.jsx,.ts,.tsx \
+          --format @microsoft/eslint-formatter-sarif \
+          --output-file eslint-results.sarif \
+          --no-eslintrc-flat
         continue-on-error: true
+
 
       - name: Upload analysis results to GitHub
         uses: github/codeql-action/upload-sarif@v3
