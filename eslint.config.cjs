@@ -1,7 +1,7 @@
-import eslintRecommended from "@eslint/js";
-import cypress from "eslint-plugin-cypress";
+const eslintRecommended = require("@eslint/js");
+const cypress = require("eslint-plugin-cypress");
 
-export default [
+module.exports = [
   eslintRecommended.configs.recommended,
   {
     plugins: {
@@ -12,7 +12,6 @@ export default [
       ecmaVersion: 12,
       sourceType: "module",
     },
-    settings: {},
     environments: ["cypress"],
     rules: {
       "no-unused-vars": "warn",
