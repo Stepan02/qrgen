@@ -11,12 +11,9 @@ export default [
     languageOptions: {
       ecmaVersion: 12,
       sourceType: "module",
-      globals: {
-        ...cypress.environments.globals.globals,
-        browser: true,
-        node: true,
-      },
     },
+    settings: {},
+    environments: ["cypress"],
     rules: {
       "no-unused-vars": "warn",
       "no-console": "off",
