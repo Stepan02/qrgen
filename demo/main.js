@@ -8,7 +8,7 @@ qrCode.style.cursor = "pointer";
 
 generateBtn.addEventListener("click", () => {
     let value = inputValue.value.trim();
-    let limit = document.querySelector('textarea').maxLength;
+    let limit = 2000;
 
     if (!value || value === preValue) return;
     if (limit > 0 && value.length > limit) return;
