@@ -22,6 +22,10 @@ module.exports = [
         afterEach: true,
         context: true,
         expect: true,
+        window: true,
+        document: true,
+        navigator: true,
+        location: true,
       },
     },
     rules: {
