@@ -26,6 +26,12 @@ module.exports = [
         document: true,
         navigator: true,
         location: true,
+        console: true,
+        URL: true,
+        fetch: true,
+        module: true,
+        require: true,
+        $: true,
       },
     },
     rules: {
