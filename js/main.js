@@ -1,37 +1,37 @@
 // jQuery import
-var jQueryScript = document.createElement('script');
-jQueryScript.setAttribute('src','https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js');
+var jQueryScript = document.createElement("script");
+jQueryScript.setAttribute("src","https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js");
 document.head.appendChild(jQueryScript);
 
 function download() {
-    window.location.href = 'https://github.com/Stepan02/qrgen/tree/main/extension';
+    window.location.href = "https://github.com/Stepan02/qrgen/tree/main/extension";
 }
 function changelog() {
-    window.location.href = 'changelog.htm';
+    window.location.href = "changelog.htm";
 }
 function tutorial() {
-    window.location.href = 'tutorial.htm';
+    window.location.href = "tutorial.htm";
 }
 function demo() {
-    const modal = document.querySelector('#demo');
+    const modal = document.querySelector("#demo");
         modal.showModal();
-        $('body').css({'overflow':'hidden'});
-        $(document).bind('scroll',function () { 
+        $("body").css({"overflow":"hidden"});
+        $(document).bind("scroll",function () { 
             window.scrollTo(0,0); 
    });
-   let exitText = document.querySelector('.head p');
-   exitText.addEventListener('click', () => {
+   let exitText = document.querySelector(".head p");
+   exitText.addEventListener("click", () => {
         modal.close();
    });
-   modal.addEventListener('close', () => {
-    $(document).unbind('scroll'); 
-    $('body').css({'overflow':'visible'});
+   modal.addEventListener("close", () => {
+    $(document).unbind("scroll"); 
+    $("body").css({"overflow":"visible"});
    });
 }
 function home() {
-    window.location.href = 'main.htm';
+    window.location.href = "main.htm";
 }
-const clippymodal = document.querySelector('#clippy');
+const clippymodal = document.querySelector("#clippy");
 if (clippymodal !== null) {
     clippymodal.onkeydown = function( event ) {
         if ( event.keyCode === 27 ) {
@@ -41,15 +41,15 @@ if (clippymodal !== null) {
 }
 function clippy() {
     clippymodal.showModal();
-    document.querySelector('body').style.overflow = 'hidden';
+    document.querySelector("body").style.overflow = "hidden";
 }
 function copyClippy() {
-    button = document.querySelector('#clippy .normal');
-    navigator.clipboard.writeText('📎').then(() => button.innerHTML = '📋 Copied!');
+    button = document.querySelector("#clippy .normal");
+    navigator.clipboard.writeText("📎").then(() => button.innerHTML = "📋 Copied!");
 }
 
 const url = document.location.pathname;
-const place = document.querySelector('.url');
+const place = document.querySelector(".url");
 
 if (place) {
     place.innerHTML = url;
