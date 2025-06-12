@@ -1,4 +1,4 @@
-// jQuery import
+/* global $, document, download, changelog, tutorial, demo, home, clippy, copyClippy */
 var jQueryScript = document.createElement("script");
 jQueryScript.setAttribute("src","https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js");
 document.head.appendChild(jQueryScript);
@@ -16,7 +16,7 @@ function demo() {
     const modal = document.querySelector("#demo");
         modal.showModal();
         $("body").css({"overflow":"hidden"});
-        $(document).bind("scroll",function () { 
+        $(document).on("scroll",function () { 
             window.scrollTo(0,0); 
    });
    let exitText = document.querySelector(".head p");
@@ -24,7 +24,7 @@ function demo() {
         modal.close();
    });
    modal.addEventListener("close", () => {
-    $(document).unbind("scroll"); 
+    $(document).off("scroll"); 
     $("body").css({"overflow":"visible"});
    });
 }
@@ -44,7 +44,7 @@ function clippy() {
     document.querySelector("body").style.overflow = "hidden";
 }
 function copyClippy() {
-    button = document.querySelector("#clippy .normal");
+    const button = document.querySelector("#clippy .normal");
     navigator.clipboard.writeText("📎").then(() => button.innerHTML = "📋 Copied!");
 }
 
