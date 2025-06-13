@@ -41,14 +41,14 @@ qrCode.addEventListener("click", () => {
 function updateCounter() {
     const textarea = document.querySelector("textarea"),
         counter = document.getElementById("char-counter"),
-        maxLength = textarea.getAttribute("maxlength"),
+        maxLength = Number(textarea.getAttribute("maxlength")),
         currentLength = textarea.value.length,
         maxCounter = document.querySelector("#char-max");
 
     counter.textContent = currentLength;
     maxCounter.textContent = maxLength;
 
-    if (currentLength == maxLength) {
+    if (currentLength === maxLength) {
         counter.style.color = "var(--error)";
     } else {
         counter.style.color = "gray";
