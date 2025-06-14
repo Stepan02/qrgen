@@ -37,7 +37,7 @@ if (clippymodal !== null) {
         if ( event.keyCode === 27 ) {
             event.preventDefault();
         }
-    }
+    };
 }
 function clippy() {
     clippymodal.showModal();
