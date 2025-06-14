@@ -12,6 +12,7 @@ module.exports = [
       ecmaVersion: 12,
       sourceType: "module",
       globals: {
+        // cypress
         cy: true,
         Cypress: true,
         describe: true,
@@ -22,16 +23,29 @@ module.exports = [
         afterEach: true,
         context: true,
         expect: true,
+
+        // dom
         window: true,
         document: true,
         navigator: true,
         location: true,
+        
+        // javascript
         console: true,
         URL: true,
         fetch: true,
         module: true,
         require: true,
         $: true,
+
+        // custom functions
+        download: true, 
+        changelog: true,
+        tutorial: true, 
+        demo: true, 
+        home: true, 
+        clippy: true,
+        copyClippy: true,
       },
     },
     rules: {
