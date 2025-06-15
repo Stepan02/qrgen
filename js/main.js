@@ -14,13 +14,10 @@ function tutorial() {
 }
 function demo() {
     const modal = document.querySelector("#demo");
-        modal.showModal();
-        $("body").css({"overflow":"hidden"});
-        $(document).on("scroll",function () { 
-            window.scrollTo(0,0); 
-   });
-   let exitText = document.querySelector(".head p");
-   exitText.addEventListener("click", () => {
+    modal.showModal();
+    $("body").css({"overflow":"hidden"});
+    let exitText = document.querySelector(".head p");
+    exitText.addEventListener("click", () => {
         modal.close();
    });
    modal.addEventListener("close", () => {
