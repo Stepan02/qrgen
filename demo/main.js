@@ -1,7 +1,6 @@
 const inputValue = document.querySelector(".form textarea"),
     generateBtn = document.querySelector(".form .generateBtn"),
-    qrCode = document.querySelector(".qr-code img"),
-    container = document.querySelector(".container");
+    qrCode = document.querySelector(".qr-code img");
 let preValue;
 
 qrCode.style.cursor = "pointer";
