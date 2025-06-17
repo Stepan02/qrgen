@@ -5,7 +5,10 @@ let preValue;
 
 generateBtn.addEventListener("click", () => {
     const value = inputValue.value.trim();
+    let limit = 2000;
+    
     if (!value || value === preValue) { return; }
+    if (limit > 0 && value.length > limit) { return; };
 
     const unsafeProtocols = ["javascript:", "data:", "file:", "vbscript:"];
     if (unsafeProtocols.some(protocol => value.toLowerCase().startsWith(protocol))) { return; }
