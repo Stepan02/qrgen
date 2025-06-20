@@ -3,13 +3,12 @@ name: Dependencies Review
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   dependency-review:
     name: Check for vulnerable dependencies
     runs-on: ubuntu-latest
+    continue-on-error: false
     permissions:
       contents: read
       security-events: write
