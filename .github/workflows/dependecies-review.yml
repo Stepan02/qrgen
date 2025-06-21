@@ -1,20 +1,20 @@
-name: Dependencies Review
+name: Dependencies review
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
 
 jobs:
-  dependency-review:
-    name: Check for vulnerable dependencies
+  check-deps:
     runs-on: ubuntu-latest
-    continue-on-error: false
-    permissions:
-      contents: read
-      security-events: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Dependency Review
-        uses: actions/dependency-review-action@v4
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check outdated dependencies
+        run: npm outdated || true
+
+      - name: Run npm audit for vulnerabilities
+        run: npm audit --audit-level=moderate
