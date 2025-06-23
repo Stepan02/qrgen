@@ -2,7 +2,10 @@ name: Dependencies review
 
 on:
   push:
-    branches: [main]
+    branches: [ "main" ]
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
 
 jobs:
   check-deps:
