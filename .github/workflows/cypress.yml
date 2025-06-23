@@ -1,6 +1,17 @@
 name: Run Cypress Tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - '**/*.js'
+      - '**/*.html'
+      - '**/*.css'
+  pull_request:
+    paths:
+      - '**/*.js'
+      - '**/*.html'
+      - '**/*.css'
 
 permissions:
   contents: read
