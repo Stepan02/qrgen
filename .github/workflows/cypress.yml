@@ -36,7 +36,8 @@ jobs:
         run: npm ci
 
       - name: Start web server
-        run: npx serve -s . -l 5500 &
+        run: npx serve . -l 5500 &
+      
       - name: Wait for server
         run: npx wait-on http://localhost:5500
 
