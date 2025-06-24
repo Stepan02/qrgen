@@ -27,7 +27,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-
+          
+      - name: Show repository tree structure
+        run: |
+          find . -print | sed -e 's;[^/]*\/;|__;g;s;__|; |;g'
+          
       - name: Install dependencies
         run: npm ci
 
