@@ -32,3 +32,25 @@ qrCode.addEventListener("click", () => {
         })
         .catch(error => console.error("Error downloading an image: ", error));
 });
+
+function updateCounter() {
+    const textarea = document.querySelector("textarea"),
+        counter = document.getElementById("char-counter"),
+        maxLength = Number(textarea.getAttribute("maxlength")),
+        currentLength = textarea.value.length,
+        maxCounter = document.querySelector("#char-max");
+
+    counter.textContent = currentLength;
+    maxCounter.textContent = maxLength;
+
+    if (currentLength === maxLength) {
+        counter.style.color = "var(--error)";
+        counter.style.fontWeight = 900;
+    } else {
+        counter.style.color = "gray";
+    }
+}
+
+window.onload = function() {
+    updateCounter();
+};
