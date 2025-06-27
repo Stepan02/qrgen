@@ -6,11 +6,13 @@ on:
     paths:
       - '**/*.js'
       - '**/*.html'
+      - '**/*.htm'
       - '**/*.css'
   pull_request:
     paths:
       - '**/*.js'
       - '**/*.html'
+      - '**/*.htm'
       - '**/*.css'
 
 permissions:
