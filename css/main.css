@@ -123,7 +123,7 @@ details[open] summary::before {
 .error-not-found code::before {
   content: '\F627';
   font-family: 'bootstrap-icons';
-  vertical-align: -2px;
+  vertical-align: 0px;
   font-size: .75em;
 }
 .tutorial h2 {
@@ -306,7 +306,7 @@ p a:visited {
   margin: 12px 0 0;
   outline: none;
   overflow: hidden;
-  padding: 0 25px;
+  padding: 0 px;
   position: relative;
   text-align: center;
   text-transform: none;
@@ -584,7 +584,7 @@ hr {
     width: auto;
   }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .grid.browsers {
     display: flex;
     flex-direction: column;
@@ -594,6 +594,8 @@ hr {
     margin-bottom: 15px;
     text-align: center;
   }
+}
+@media only screen and (max-width: 600px) {
   .sec {
     width: 100%;
   }
