@@ -51,6 +51,10 @@ function updateCounter() {
     }
 }
 
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", () => {
     updateCounter();
-};
+    const textarea = document.querySelector("textarea");
+    if (textarea) {
+        textarea.addEventListener("input", updateCounter);
+    }
+});
