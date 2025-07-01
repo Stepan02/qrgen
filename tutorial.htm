@@ -59,20 +59,39 @@
     Therefore it must be downloaded from GitHub repository. You can find the latest release <a href="https://github.com/Stepan02/qrgen/releases">here</a>.
   </div>
   <div class="tutorial">
-    <h2>1. Install ZIP file</h2>
-    <p>First you must do is download ZIP file using the button on the top of this site or button below.</p>
+    <h2>1. Download ZIP file</h2>
+    <p>First, download the ZIP file using the button on the top of this site or button below.</p>
     <p><button class="sec" onclick="download()"><i class="bi bi-download"></i>&nbsp;Download</button></p>
-    <h2>2. Export ZIP folder</h2>
-    <p>Once you have downloaded ZIP file, you have to export it - right-click the file and click "Export all".</p>
+    <h2>2. Extract ZIP folder</h2>
+    <p>Once you have downloaded the ZIP file, extract it:</p>
+    <ul>
+      <li><strong>Windows</strong>: right-click the ZIP file and select Extract All</li>
+      <li><strong>macOS</strong>: double-click the ZIP file to extract it</li>
+    </ul>
     <h2>3. Open your favorite browser</h2>
-    All Chromium-based browsers (Google Chrome, Microsoft Edge,...) and Firefox are supported. Please check <a href="https://github.com/Stepan02/qrgen/blob/main/CONTRIBUTING.md#-safari-browser">known issues</a> for more information about Safari browser support.<wbr>
-    Internet Explorer is not supported.
-    <h2>4. Follow the instructions for your browser</h2>
-    <p>Unfortunately, every browser works differently, so here are links to the documentation for instructions on how to add the extension.<br>Choose your browser:</p>
+    <p>Chromium-based browsers (Google Chrome, Microsoft Edge, Opera, ...) and Firefox are supported. Please check <a href="https://github.com/Stepan02/qrgen/blob/main/CONTRIBUTING.md#-safari-browser">known issues</a> for more information about Safari browser support.<wbr> Internet Explorer is <strong>not supported</strong>.</p>
+    <h2>4. Load the extension</h2>
+    <p><strong>Chromium-based browsers (Google Chrome, Opera, Microsoft Edge, ...)</strong></p>
+    <ol>
+      <li>Open the extension settings page - <code>chrome://extensions/</code> (or <code>edge://extensions/</code> etc.) - or via your browser settings</li>
+      <li><strong>Enable Developer mode</strong></li>
+      <li>Click "Load unpacked"</li>
+      <li>Select the <strong>extracted folder</strong> (<strong>not the downloaded file itself</strong>)</li>
+      <li>Enjoy the extension 😊</li>
+    </ol>
+    <p><strong>Firefox</strong></p>
+    <ol>
+      <li>Open <code>about:debugging#/runtime/this-firefox</code> page</li>
+      <li>Click "Load Temporary Add-on"</li>
+      <li>Select the <code>manifest.json</code> file from the <strong>extracted extension folder</strong></li>
+      <li>Enjoy the extension 😊</li>
+    </ol>
+    <strong>Something went wrong?</strong>
+    <p>Every browser handles extensions differently. For more detailed instructions, please check the official documentation fsor your browser:</p>
     <div class="grid browsers">
       <a href="https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world"><i class="ci ci-chrome"></i>&nbsp;Google Chrome</a>
       <a href="https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading"><i class="ci ci-edge"></i>&nbsp;Microsoft Edge</a>
-      <a href="https://extensionworkshop.com/documentation/publish/distribute-sideloading/"><i class="ci ci-firefox"></i>&nbsp;Mozzila Firefox</a>
+      <a href="https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/#loading-extensions-into-firefox"><i class="ci ci-firefox"></i>&nbsp;Mozzila Firefox</a>
     </div>
     <br>
     <div class="alert">
