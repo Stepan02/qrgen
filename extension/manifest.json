@@ -4,12 +4,16 @@
   "version": "1.0",
   "description": "The pocket QR code generator.",
   "icons": {
-    "16": "assets/logo-16.jpg",
-    "48": "assets/logo-48.jpg",
-    "128": "assets/logo-128.jpg"
+    "16": "assets/logo-16.png",
+    "48": "assets/logo-48.png",
+    "128": "assets/logo-128.png"
   },
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "assets/logo-48.jpg"
+    "default_icon": {
+      "16": "assets/logo-16.png",
+      "48": "assets/logo-48.png",
+      "128": "assets/logo-128.png"
+    }
   }
 }
