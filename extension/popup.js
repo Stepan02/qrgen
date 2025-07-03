@@ -15,6 +15,8 @@ generateBtn.addEventListener("click", () => {
 
     preValue = value;
     qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(value)}`;
+    qrCode.style.cursor = "pointer";
+    qrCode.title = "Click to download";
 });
 
 // download function
@@ -48,6 +50,7 @@ function updateCounter() {
         counter.style.fontWeight = 900;
     } else {
         counter.style.color = "gray";
+        counter.style.fontWeight = 500;
     }
 }
 
