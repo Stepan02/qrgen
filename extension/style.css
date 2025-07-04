@@ -79,3 +79,8 @@ button:hover {
     font-size: 12px;
     color: gray;
 }
+.error-mess {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--error);
+    font-weight: 600;
+}
