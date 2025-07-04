@@ -1,6 +1,7 @@
 const inputValue = document.querySelector(".form textarea"),
       generateBtn = document.querySelector(".form .generateBtn"),
-      qrCode = document.querySelector(".qr-code img");
+      qrCode = document.querySelector(".qr-code img"),
+      alert = document.querySelector(".error-mess");
 let preValue;
 
 generateBtn.addEventListener("click", () => {
@@ -10,8 +11,26 @@ generateBtn.addEventListener("click", () => {
     if (!value || value === preValue) { return; }
     if (limit > 0 && value.length > limit) { return; };
 
-    const unsafeProtocols = ["javascript:", "data:", "file:", "vbscript:"];
-    if (unsafeProtocols.some(protocol => value.toLowerCase().startsWith(protocol))) { return; }
+    const unsafeProtocols = ["javascript", "data", "file", "vbscript"];
+
+    let decodedValue;
+    try {
+        decodedValue = decodeURIComponent(value.toLowerCase());
+    } catch {
+        decodedValue = value.toLowerCase();
+    }
+
+    const regex = new RegExp(`\\b(${unsafeProtocols.join("|")}):`, "i");
+
+    if (regex.test(decodedValue)) {
+        const match = decodedValue.match(regex);
+        const cleanProtocol = match[1];
+        alert.textContent = `You cannot generate QR codes with ${cleanProtocol} protocol!`;
+        alert.style.display = "block";
+        return;
+    } else {
+        alert.style.display = "none";
+    }
 
     preValue = value;
     qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(value)}`;
