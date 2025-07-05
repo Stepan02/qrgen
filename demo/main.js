@@ -5,6 +5,12 @@ let preValue;
 
 qrCode.style.cursor = "pointer";
 
+// create error message element
+let alert = document.createElement('span');
+alert.className = 'error-mess';
+alert.style.display = 'none';
+qrCode.parentNode.appendChild(alert);
+
 generateBtn.addEventListener("click", () => {
     let value = inputValue.value.trim();
     let limit = 2000;
@@ -12,13 +18,32 @@ generateBtn.addEventListener("click", () => {
     if (!value || value === preValue) { return; };
     if (limit > 0 && value.length > limit) { return; };
     
-    const unsafeProtocols = ["javascript:", "data:", "file:", "vbscript:"];
-    if (unsafeProtocols.some(protocol => value.toLowerCase().startsWith(protocol))) {
+    const unsafeProtocols = ["javascript", "data", "file", "vbscript"];
+
+    let decodedValue;
+    try {
+        decodedValue = decodeURIComponent(value.toLowerCase());
+    } catch {
+        decodedValue = value.toLowerCase();
+    }
+
+    const regex = new RegExp(`\\b(${unsafeProtocols.join("|")}):`, "i");
+
+    if (regex.test(decodedValue)) {
+        const match = decodedValue.match(regex);
+        const cleanProtocol = match[1];
+        let alert = document.querySelector('.error-mess');
+        alert.textContent = `You cannot generate QR codes with ${cleanProtocol} protocol!`;
+        alert.style.display = "block";
         return;
+    } else {
+        alert.style.display = "none";
     }
 
     preValue = value;
-    qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(value)}`; 
+    qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(value)}`;
+    qrCode.style.cursor = "pointer";
+    qrCode.title = "Click to download";
 });
 
 // download function
