@@ -61,6 +61,12 @@ dialog h1 {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+.error-mess {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--error);
+    font-weight: 600;
+    font-size: small;
+}
 dialog textarea {
     transition: all 0.3s;
     width: 400px;
