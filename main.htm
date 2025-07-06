@@ -125,6 +125,20 @@
   </details>
   <br>
   <details>
+    <summary>Why can't I generate a QR code with certain protocols?</summary>
+    QR codes are a common attack surface for bad actors - a QR code using a special URL protocol may be used to deliver malicious code.
+    While the risk typically applies to scanning suspicious or unknown QR codes, I want to ensure that this extension is not used to generate such potentially dangerous QR codes.
+    <p>The following protocols are blocked:</p>
+    <ul>
+      <li><code>javascript:</code></li>
+      <li><code>data:</code></li>
+      <li><code>vbscript:</code></li>
+      <li><code>file:</code></li>
+    </ul>
+    <a href="https://security.duke.edu/security-guides/qr-code-security-guide/" target="_blank" rel="noopener noreferrer">Learn more about QR code security</a>
+  </details>
+  <br>
+  <details>
     <summary>When is next version coming out?</summary>
     I don't know. I'll update QRgen when I have some new features and bug fixes, so I can't say "there will be an update every month" or anything.
   </details>
