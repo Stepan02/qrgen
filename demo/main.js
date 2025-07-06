@@ -6,9 +6,9 @@ let preValue;
 qrCode.style.cursor = "pointer";
 
 // create error message element
-let alert = document.createElement('span');
-alert.className = 'error-mess';
-alert.style.display = 'none';
+let alert = document.createElement("span");
+alert.className = "error-mess";
+alert.style.display = "none";
 qrCode.parentNode.appendChild(alert);
 
 generateBtn.addEventListener("click", () => {
@@ -32,8 +32,8 @@ generateBtn.addEventListener("click", () => {
     if (regex.test(decodedValue)) {
         const match = decodedValue.match(regex);
         const cleanProtocol = match[1];
-        let alert = document.querySelector('.error-mess');
-        alert.textContent = `You cannot generate QR codes with ${cleanProtocol} protocol!`;
+        let alert = document.querySelector(".error-mess");
+        alert.textContent = `The "${cleanProtocol}" scheme is blocked for security reasons.`;
         alert.style.display = "block";
         return;
     } else {
