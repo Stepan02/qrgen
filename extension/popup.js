@@ -25,7 +25,7 @@ generateBtn.addEventListener("click", () => {
     if (regex.test(decodedValue)) {
         const match = decodedValue.match(regex);
         const cleanProtocol = match[1];
-        alert.textContent = `You cannot generate QR codes with ${cleanProtocol} protocol!`;
+        alert.textContent = `The "${cleanProtocol}" scheme is blocked for security reasons.`;
         alert.style.display = "block";
         return;
     } else {
