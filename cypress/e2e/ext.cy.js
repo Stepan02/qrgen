@@ -1,6 +1,6 @@
 describe("QR API test", () => {
   beforeEach(() => {
-    cy.visit("/versions/v1/popup.html");
+    cy.visit("/extension/popup.html");
 
     // aliases
     cy.get("textarea").as("input");
