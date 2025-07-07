@@ -66,12 +66,26 @@ describe("QR API test", () => {
       });
   });
 
-  ["javascript:", "data:", "file:", "vbscript:"].forEach((protocol) => {
-    it(`Does not generate QR codes with dangerous protocol: ${protocol}`, () => {
-      cy.get("@input").clear().invoke("val", protocol).trigger("input");
+const dangerousProtocols = [
+    { input: "javascript:alert(document.domain)", expected: "javascript" },
+    { input: "JaVaScRiPt:alert(document.domain)", expected: "javascript" },
+    { input: "javascript%3Aalert(document.domain)", expected: "javascript" },
+    { input: "data:text/html;base64,PHNjcmlwdD5hbGVydChkb2N1bWVudC5kb21haW4pPC9zY3JpcHQ+", expected: "data" },
+    { input: "file:///etc/passwd", expected: "file" },
+    { input: " file:///etc/passwd", expected: "file" },
+    { input: "text\n file:///etc/passwd", expected: "file" },
+    { input: "text\ntext file:///etc/passwd", expected: "file" },
+    { input: "text\ntext file:///etc/passwd text", expected: "file" }
+  ];
+
+  dangerousProtocols.forEach(({ input, expected }) => {
+    it(`Does not generate QR codes with dangerous protocol: ${input}`, () => {
+      cy.get("@input").clear().invoke("val", input).trigger("input");
       cy.get("@generateBtn").click();
 
       cy.get("@qrImg").should("not.be.visible");
+
+      cy.get(".error-mess").should("be.visible").and("contain", expected);
     });
   });
 });
