@@ -3,15 +3,33 @@ const inputValue = document.querySelector(".form textarea"),
       qrCode = document.querySelector(".qr-code img"),
       alert = document.querySelector(".error-mess");
 let preValue;
+let limit = 2000;
 
 generateBtn.addEventListener("click", () => {
     const value = inputValue.value.trim();
-    let limit = 2000;
     
     if (!value || value === preValue) { return; }
     if (limit > 0 && value.length > limit) { return; };
 
-    const unsafeProtocols = ["javascript", "data", "file", "vbscript"];
+    if (checkProtocols(value)) {
+        qrCode.src = "";
+        return;
+    } else {
+        preValue = value;
+        qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(value)}`;
+        qrCode.style.cursor = "pointer";
+        qrCode.title = "Click to download";
+    }
+});
+
+// check for dangerous protocols on input change
+inputValue.addEventListener("input", () => {
+    checkProtocols(inputValue.value.trim());
+});
+
+// protocol filter function
+function checkProtocols(value) {
+const unsafeProtocols = ["javascript", "data", "file", "vbscript"];
 
     let decodedValue;
     try {
@@ -25,18 +43,17 @@ generateBtn.addEventListener("click", () => {
     if (regex.test(decodedValue)) {
         const match = decodedValue.match(regex);
         const cleanProtocol = match[1];
-        alert.textContent = `The "${cleanProtocol}" scheme is blocked for security reasons.`;
+        alert.innerHTML = `The "${cleanProtocol}" scheme is blocked for <a href="https://security.duke.edu/security-guides/qr-code-security-guide/" target="_blank">security reasons</a>.`;
         alert.style.display = "block";
-        return;
+        inputValue.classList.add("err");
+        console.error(`${cleanProtocol} protocol was blocked`);
+        return true;
     } else {
         alert.style.display = "none";
+        inputValue.classList.remove("err");
+        return false;
     }
-
-    preValue = value;
-    qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(value)}`;
-    qrCode.style.cursor = "pointer";
-    qrCode.title = "Click to download";
-});
+}
 
 // download function
 qrCode.addEventListener("click", () => {
