@@ -2,6 +2,7 @@ const inputValue = document.querySelector(".form textarea"),
     generateBtn = document.querySelector(".form .generateBtn"),
     qrCode = document.querySelector(".qr-code img");
 let preValue;
+let limit = 2000;
 
 qrCode.style.cursor = "pointer";
 
@@ -12,13 +13,30 @@ alert.style.display = "none";
 qrCode.parentNode.appendChild(alert);
 
 generateBtn.addEventListener("click", () => {
-    let value = inputValue.value.trim();
-    let limit = 2000;
+    const value = inputValue.value.trim();
 
     if (!value || value === preValue) { return; };
-    if (limit > 0 && value.length > limit) { return; };
+    if (limit > 0 && value.length > limit) { return; }; 
     
-    const unsafeProtocols = ["javascript", "data", "file", "vbscript"];
+   if (checkProtocols(value)) {
+        qrCode.src = "";
+        return;
+    } else {
+        preValue = value;
+        qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(value)}`;
+        qrCode.style.cursor = "pointer";
+        qrCode.title = "Click to download";
+    }
+});
+
+// check for dangerous protocols on input change
+inputValue.addEventListener("input", () => {
+    checkProtocols(inputValue.value.trim());
+});
+
+// protocol filter function
+function checkProtocols(value) {
+const unsafeProtocols = ["javascript", "data", "file", "vbscript"];
 
     let decodedValue;
     try {
@@ -32,19 +50,24 @@ generateBtn.addEventListener("click", () => {
     if (regex.test(decodedValue)) {
         const match = decodedValue.match(regex);
         const cleanProtocol = match[1];
-        let alert = document.querySelector(".error-mess");
-        alert.textContent = `The "${cleanProtocol}" scheme is blocked for security reasons.`;
+        alert.textContent = `The "${cleanProtocol}" scheme is blocked for `;
+        const a = document.createElement("a");
+        a.href = "https://security.duke.edu/security-guides/qr-code-security-guide/";
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.textContent = "security reasons";
+        alert.appendChild(a);
+        alert.appendChild(document.createTextNode("."));
         alert.style.display = "block";
-        return;
+        inputValue.classList.add("err");
+        console.error(`${cleanProtocol} protocol was blocked`);
+        return true;
     } else {
         alert.style.display = "none";
+        inputValue.classList.remove("err");
+        return false;
     }
-
-    preValue = value;
-    qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(value)}`;
-    qrCode.style.cursor = "pointer";
-    qrCode.title = "Click to download";
-});
+}
 
 // download function
 qrCode.addEventListener("click", () => {
