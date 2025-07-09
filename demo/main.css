@@ -12,6 +12,8 @@
     --textarea-font: 'JetBrains Mono', monospace;
     --button-box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
     --button-box-shadow-hover: rgba(0, 0, 0, .15) 0 3px 9px 0;
+    --error: #e94a84;
+    --error-box-shadow: rgba(233, 74, 132, .1) 0 0 0 1px inset, rgba(233, 74, 132, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(233, 74, 132, .3) 0 0 0 4px;
 }
 .textarea-container {
     position: relative;
@@ -67,9 +69,27 @@ dialog h1 {
     font-weight: 600;
     font-size: small;
 }
+.error-mess a {
+    color: var(--error);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    transition: all .1s;
+}
+.error-mess a:hover {
+    text-decoration-thickness: 2px;
+    transition: all .1s;
+}
+.err {
+    border: 2px solid var(--error);
+    box-shadow: none;
+}
+.err:focus {
+    border-color: var(--error);
+    box-shadow: var(--error-box-shadow);
+}
 dialog textarea {
     transition: all 0.3s;
-    width: 400px;
+    width: 425px;
     min-height: 30px;
     max-height: 100px;
     resize: vertical;
