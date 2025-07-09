@@ -43,7 +43,14 @@ const unsafeProtocols = ["javascript", "data", "file", "vbscript"];
     if (regex.test(decodedValue)) {
         const match = decodedValue.match(regex);
         const cleanProtocol = match[1];
-        alert.innerHTML = `The "${cleanProtocol}" scheme is blocked for <a href="https://security.duke.edu/security-guides/qr-code-security-guide/" target="_blank">security reasons</a>.`;
+        alert.textContent = `The "${cleanProtocol}" scheme is blocked for `;
+        const a = document.createElement("a");
+        a.href = "https://security.duke.edu/security-guides/qr-code-security-guide/";
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.textContent = "security reasons";
+        alert.appendChild(a);
+        alert.appendChild(document.createTextNode("."));
         alert.style.display = "block";
         inputValue.classList.add("err");
         console.error(`${cleanProtocol} protocol was blocked`);
