@@ -1,7 +1,8 @@
 const inputValue = document.querySelector(".form textarea"),
       generateBtn = document.querySelector(".form .generateBtn"),
       qrCode = document.querySelector(".qr-code img"),
-      alert = document.querySelector(".error-mess");
+      alert = document.querySelector(".error-mess"),
+      connectionError = document.querySelector(".con-error-mess");
 let preValue;
 let limit = 2000;
 
@@ -99,8 +100,29 @@ function updateCounter() {
 
 document.addEventListener("DOMContentLoaded", () => {
     updateCounter();
+    offlineHandler();
     const textarea = document.querySelector("textarea");
     if (textarea) {
         textarea.addEventListener("input", updateCounter);
     }
 });
+
+window.addEventListener("online", offlineHandler);
+window.addEventListener("offline", offlineHandler);
+
+// offline handler
+function offlineHandler() {
+    const connection = navigator.onLine;
+    
+    if (!connection) {
+        connectionError.textContent = "You are offline. QR code generation is unavailable.";
+        connectionError.style.display = "block";
+        generateBtn.style.visibility = "hidden";
+        generateBtn.style.pointerEvents = "none";
+        qrCode.src = "";
+    } else {
+        connectionError.style.display = "none";
+        generateBtn.style.visibility = "visible";
+        generateBtn.style.pointerEvents = "all";
+    }
+}
