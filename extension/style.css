@@ -80,7 +80,7 @@ button:hover {
     font-size: 12px;
     color: gray;
 }
-.error-mess {
+.error-mess, .con-error-mess {
     font-family: 'JetBrains Mono', monospace;
     color: var(--error);
     font-weight: 600;
