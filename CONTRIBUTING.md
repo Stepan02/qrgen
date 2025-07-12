@@ -12,7 +12,14 @@ Did you find a bug?
 
 You can create a feature request using an issue with the [feature request template](https://github.com/Stepan02/qrgen/issues/new?template=feature-suggestion.md).
 
-**Have you figured out a solution to any bug or a feature request?** Create a [pull request](https://github.com/Stepan02/qrgen/pulls).
+### Pull requests
+**Have you implemented a new feature or found a solution for a bug?** Great! Please create a [pull request](https://github.com/Stepan02/qrgen/pulls) to contribute.
+
+How to create a PR:
+1. Create a new branch - for example `feature-[feature name]` or `fix-[bug name]`
+2. Commit your changes to the branch
+4. [Create a PR](https://github.com/Stepan02/qrgen/pulls) targeting the `main` branch
+5. **Ensure your contribution passes the CodeQL analysis** - CodeQL helps to identify potential security vulnerabilities and code quality issues - **this check is automatic**
 
 ## Known issues
 ### 🍎 Safari browser
