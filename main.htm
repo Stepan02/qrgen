@@ -52,19 +52,15 @@
         </div>
       </dialog>
     </div>
-    <dialog id="clippy">
-      <h1 style="font-size: 2rem;">📎&nbsp;You found Clippy!</h1>
+    <dialog id="clippy" open>
+      <h1 style="font-size: 1.5rem;">📎&nbsp;You found Clippy!</h1>
       <hr>
       <p>As an reward, you can copy the emoji here:</p>
       <p class="emoji">📎</p>
-      <br>
       <button onclick="copyClippy()" class="normal">📋&nbsp;Copy</button>
-      <hr>
-      <div class="help">
-        <form method="dialog">
-          <button onclick="document.querySelector('body').style.overflow = 'visible';">Close</button>
-        </form>
-      </div>
+      <form method="dialog">
+        <p><button class="sec" onclick="document.querySelector('body').style.overflow = 'visible'">Close</button></p>
+      </form>
     </dialog>
     <h1>QRgen</h1>
     <p>The pocket QR code generator.</p>
