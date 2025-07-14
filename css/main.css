@@ -254,8 +254,9 @@ p a:visited {
     padding: 10px 30px;
   }
 }
-.sec {
+.sec, #clippy .sec {
   font-family: var(--primary-font);
+  color: black;
   background-color: transparent;
   border: none;
   border-radius: 4px;
@@ -274,7 +275,7 @@ p a:visited {
   user-select: none;
   touch-action: manipulation;
 }
-.sec:hover {
+.sec:hover, #clippy .sec:hover {
   background-color: var(--gray-hover);
   transform: translateY(-2px);
 }
@@ -306,7 +307,7 @@ p a:visited {
   margin: 12px 0 0;
   outline: none;
   overflow: hidden;
-  padding: 0 px;
+  padding: 0px;
   position: relative;
   text-align: center;
   text-transform: none;
@@ -549,7 +550,7 @@ hr {
 }
 @media only screen and (min-width: 1000px) {
   #clippy {
-    width: 40%;
+    width: 20%;
   }
 }
 @media only screen and (min-width: 500px) {
@@ -563,7 +564,7 @@ hr {
   .emoji {
     text-align: center;
     user-select: none;
-    font-size: 4rem;
+    font-size: 2rem;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -575,10 +576,13 @@ hr {
     position: fixed;
     width: 100%;
   }
+  #clippy .sec {
+    display: block;
+  }
   .emoji {
     text-align: center;
     user-select: none;
-    font-size: 4rem;
+    font-size: 2rem;
   }
   .ver {
     width: auto;
@@ -609,11 +613,6 @@ hr {
   font-size: 1rem;
   user-select: none;
   outline: none;
-}
-@media only screen and (max-height: 700px) {
-  .emoji {
-    display: none;
-  }
 }
 @supports (scrollbar-color: auto) {
   * {
