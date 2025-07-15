@@ -6,11 +6,17 @@ let limit = 2000;
 
 qrCode.style.cursor = "pointer";
 
-// create error message element
+// create protocol error message element
 let alert = document.createElement("span");
 alert.className = "error-mess";
 alert.style.display = "none";
 qrCode.parentNode.appendChild(alert);
+
+// create connection error message element
+let connectionError = document.createElement("span");
+connectionError.className = "error-mess";
+connectionError.style.display = "none";
+qrCode.parentNode.appendChild(connectionError);
 
 generateBtn.addEventListener("click", () => {
     const value = inputValue.value.trim();
@@ -32,6 +38,7 @@ generateBtn.addEventListener("click", () => {
 // check for dangerous protocols on input change
 inputValue.addEventListener("input", () => {
     checkProtocols(inputValue.value.trim());
+    offlineHandler();
 });
 
 // protocol filter function
@@ -104,4 +111,25 @@ function updateCounter() {
 
 window.onload = function() {
     updateCounter();
+    offlineHandler();
 };
+
+window.addEventListener("online", offlineHandler);
+window.addEventListener("offline", offlineHandler);
+
+// offline handler
+function offlineHandler() {
+    const connection = navigator.onLine;
+
+    if (!connection) {
+        connectionError.textContent = "You are offline. QR code generation is unavailable.";
+        connectionError.style.display = "block";
+        generateBtn.style.display = "none";
+        generateBtn.style.pointerEvents = "none";
+        qrCode.src = "";
+    } else {
+        connectionError.style.display = "none";
+        generateBtn.style.display = "block";
+        generateBtn.style.pointerEvents = "all";
+    }
+}
