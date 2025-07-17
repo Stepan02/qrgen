@@ -2,7 +2,8 @@ const inputValue = document.querySelector(".form textarea"),
       generateBtn = document.querySelector(".form .generateBtn"),
       qrCode = document.querySelector(".qr-code img"),
       alert = document.querySelector(".error-mess"),
-      connectionError = document.querySelector(".con-error-mess");
+      connectionError = document.querySelector(".con-error-mess"),
+      downloadLink = document.querySelector(".download-link");
 let preValue;
 let limit = 2000;
 
@@ -19,7 +20,8 @@ generateBtn.addEventListener("click", () => {
         preValue = value;
         qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(value)}`;
         qrCode.style.cursor = "pointer";
-        qrCode.title = "Click to download";
+        qrCode.title = "Click to copy";
+        downloadLink.style.display = "block";
     }
 });
 
@@ -53,18 +55,25 @@ const unsafeProtocols = ["javascript", "data", "file", "vbscript"];
         alert.appendChild(a);
         alert.appendChild(document.createTextNode("."));
         alert.style.display = "block";
+        downloadLink.style.display = "none";
         inputValue.classList.add("err");
         console.error(`${cleanProtocol} protocol was blocked`);
         return true;
     } else {
         alert.style.display = "none";
         inputValue.classList.remove("err");
+        preValue = "";
+        if (qrCode.style.visibility == "visible") {
+            downloadLink.style.display = "block";
+        } else {
+            downloadLink.style.display = "none";
+        }
         return false;
     }
 }
 
 // download function
-qrCode.addEventListener("click", () => {
+downloadLink.addEventListener("click", () => {
     const imageUrl = qrCode.src;
     if (!imageUrl) { return; };
 
@@ -77,6 +86,21 @@ qrCode.addEventListener("click", () => {
             link.click();
         })
         .catch(error => console.error("Error downloading an image: ", error));
+});
+
+// copy function
+qrCode.addEventListener("click", async () => {
+    try {
+        const image = await fetch(qrCode.src);
+        const blob = await image.blob();
+
+        const clipboardItem = new ClipboardItem({ [blob.type]: blob });
+        await navigator.clipboard.write([clipboardItem]);
+        console.log("Image has been copied to clipboard: ", qrCode.src);
+    } catch (copyError) {
+        console.error("Failed to copy image: ", copyError);
+    }
+
 });
 
 function updateCounter() {
@@ -105,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (textarea) {
         textarea.addEventListener("input", updateCounter);
     }
+    downloadLink.style.display = "none";
 });
 
 window.addEventListener("online", offlineHandler);
@@ -119,6 +144,7 @@ function offlineHandler() {
         connectionError.style.display = "block";
         generateBtn.style.visibility = "hidden";
         generateBtn.style.pointerEvents = "none";
+        downloadLink.style.display = "none";
         qrCode.src = "";
     } else {
         connectionError.style.display = "none";
