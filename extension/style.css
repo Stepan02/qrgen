@@ -103,3 +103,12 @@ button:hover {
     border-color: var(--error);
     box-shadow: var(--error-box-shadow);
 }
+.download-link {
+    text-align: center;
+    font-family: 'JetBrains Mono', sans-serif;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: black;
+    text-underline-offset: 3px;
+    cursor: pointer;
+}
