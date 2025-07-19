@@ -106,9 +106,23 @@ button:hover {
 .download-link {
     text-align: center;
     font-family: 'JetBrains Mono', sans-serif;
+    font-size: 1rem;
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-decoration-color: black;
     text-underline-offset: 3px;
     cursor: pointer;
+    transform: translateY(0);
+    transition: transform 300ms, box-shadow 300ms;
+    user-select: none;
+}
+.download-link:hover {
+    text-decoration-thickness: 2px;
+    transition: all .3s;
+    transform: translateY(-2px);
+}
+.download-link:active {
+    text-decoration-thickness: 1px;
+    transition: all .3s;
+    transform: translateY(2px);
 }
