@@ -10,7 +10,10 @@ let limit = 2000;
 generateBtn.addEventListener("click", () => {
     const value = inputValue.value.trim();
     
+    // does not regenerate on empty input
     if (!value || value === preValue) { return; }
+
+    // does not generate when the input is over the character limit
     if (limit > 0 && value.length > limit) { return; };
 
     if (checkProtocols(value)) {
@@ -63,7 +66,7 @@ const unsafeProtocols = ["javascript", "data", "file", "vbscript"];
         alert.style.display = "none";
         inputValue.classList.remove("err");
         preValue = "";
-        if (qrCode.style.visibility == "visible") {
+        if (qrCode.style.visibility === "visible") {
             downloadLink.style.display = "block";
         } else {
             downloadLink.style.display = "none";
@@ -100,7 +103,6 @@ qrCode.addEventListener("click", async () => {
     } catch (copyError) {
         console.error("Failed to copy image: ", copyError);
     }
-
 });
 
 function updateCounter() {
