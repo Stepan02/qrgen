@@ -283,6 +283,7 @@ p a:visited {
   font-family: var(--primary-font);
   color: var(--main);
   text-decoration: none;
+  user-select: none;
 }
 .suggestion-link:hover {
   text-decoration: underline;
@@ -344,6 +345,7 @@ p a:visited {
   touch-action: manipulation;
 }
 .browsers a:hover {
+  background-color: var(--gray-hover);
   transition: all .3s;
   transform: translateY(-2px);
 }
@@ -353,6 +355,7 @@ p a:visited {
   text-decoration: underline;
   text-underline-offset: 5px;
   text-decoration-thickness: 2px;
+  user-select: none;
 }
 .github-link:hover {
   transition: all .3s;
