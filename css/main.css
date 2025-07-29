@@ -215,17 +215,43 @@ a.no-underline {
   color: rgb(0 0 0 / 84.9%);
 }
 
+.alert a {
+  cursor: pointer;
+  color: var(--main);
+}
+
+.browsers a {
+  color: rgb(0 0 0 / 85.5%) !important;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  user-select: none;
+  box-shadow: var(--sec-box-shadow);
+  transform: translateY(0);
+  transition: all 0.3s, transform 150ms, box-shadow 150ms;
+  touch-action: manipulation;
+}
+
 header.active a {
   display: initial;
+}
+
+p a:visited {
+  color: var(--main);
+}
+
+.browsers a:hover {
+  background-color: var(--gray-hover);
+  transition: all 0.3s;
+  transform: translateY(-2px);
 }
 
 header.active .logo-wrapper img {
   height: 30px;
   width: 30px;
-}
-
-p a:visited {
-  color: var(--main);
 }
 
 .download {
@@ -360,7 +386,7 @@ p a:visited {
 
 .demo {
   font-family: var(--primary-font);
-  appearance: button;
+  appearance: auto;
   backface-visibility: hidden;
   background-color: var(--main);
   border-radius: 6px;
@@ -394,27 +420,6 @@ p a:visited {
   box-shadow: rgb(50 50 93 / 10%) 0 0 0 1px inset, rgb(50 50 93 / 20%) 0 6px 15px 0, rgb(0 0 0 / 10%) 0 2px 2px 0, rgb(50 151 211 / 30%) 0 0 0 4px;
 }
 
-.browsers a {
-  color: rgb(0 0 0 / 85.5%) !important;
-  font-family: var(--primary-font);
-  font-weight: 500;
-  font-size: 1.2rem;
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  user-select: none;
-  box-shadow: var(--sec-box-shadow);
-  transform: translateY(0);
-  transition: all 0.3s, transform 150ms, box-shadow 150ms;
-  touch-action: manipulation;
-}
-
-.browsers a:hover {
-  background-color: var(--gray-hover);
-  transition: all 0.3s;
-  transform: translateY(-2px);
-}
-
 .github-link {
   font-family: var(--primary-font);
   color: #151B23 !important;
@@ -427,10 +432,6 @@ p a:visited {
 .github-link:hover {
   transition: all 0.3s;
   text-decoration: none;
-}
-
-.alert a {
-  cursor: pointer;
 }
 
 .no-desktop {
@@ -568,10 +569,6 @@ hr {
 .alert strong {
   font-family: var(--primary-font);
   font-weight: 100;
-}
-
-.alert a {
-  color: var(--main);
 }
 
 .ver {
