@@ -7,10 +7,11 @@ const inputValue = document.querySelector(".form textarea"),
 let preValue;
 let limit = 2000;
 
-generateBtn.addEventListener("click", () => {
+// generate a qr code
+function generate() {
     const value = inputValue.value.trim();
     
-    // does not regenerate on empty input
+    // does not regenerate on empty input or the input stays the same
     if (!value || value === preValue) { return; }
 
     // does not generate when the input is over the character limit
@@ -26,7 +27,10 @@ generateBtn.addEventListener("click", () => {
         qrCode.title = "Click to copy";
         downloadLink.style.display = "block";
     }
-});
+}
+
+// attach generate function to the generate button
+generateBtn.addEventListener("click", generate);
 
 // check for dangerous protocols on input change
 inputValue.addEventListener("input", () => {
@@ -74,6 +78,14 @@ const unsafeProtocols = ["javascript", "data", "file", "vbscript"];
         return false;
     }
 }
+
+// generate a qr code using shift+enter
+inputValue.addEventListener("keydown", (pressed) => {
+    if (pressed.key === "Enter" && pressed.shiftKey) {
+        pressed.preventDefault();
+        generate();
+    }
+});
 
 // download function
 downloadLink.addEventListener("click", () => {
