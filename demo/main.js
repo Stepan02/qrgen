@@ -25,7 +25,8 @@ connectionError.className = "error-mess";
 connectionError.style.display = "none";
 qrCode.parentNode.appendChild(connectionError);
 
-generateBtn.addEventListener("click", () => {
+// generate a qr code
+function generate() {
     const value = inputValue.value.trim();
 
     if (!value || value === preValue) { return; };
@@ -41,7 +42,10 @@ generateBtn.addEventListener("click", () => {
         qrCode.title = "Click to copy";
         downloadLink.style.display = "block";
     }
-});
+}
+
+// attach generate function to the generate button
+generateBtn.addEventListener("click", generate);
 
 // check for dangerous protocols on input change
 inputValue.addEventListener("input", () => {
@@ -90,6 +94,14 @@ const unsafeProtocols = ["javascript", "data", "file", "vbscript"];
         return false;
     }
 }
+
+// generate a qr code using shift+enter
+inputValue.addEventListener("keydown", (pressed) => {
+    if (pressed.key === "Enter" && pressed.shiftKey) {
+        pressed.preventDefault();
+        generate();
+    }
+});
 
 // download function
 downloadLink.addEventListener("click", () => {
