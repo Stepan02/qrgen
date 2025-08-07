@@ -35,16 +35,16 @@ textarea {
     border-radius: 4px;
     padding: 9px;
     outline: none;
-}
 
-textarea:focus {
-    border: 2px solid var(--main);
-    box-shadow: var(--focus-box-shadow);
-    transition: all 0.3s;
-}
+    &:focus {
+        border: 2px solid var(--main);
+        box-shadow: var(--focus-box-shadow);
+        transition: all 0.3s;
+    }
 
-textarea::selection {
-    background-color: var(--selection);
+    &::selection {
+        background-color: var(--selection);
+    }
 }
 
 img[src=""] {
@@ -77,13 +77,13 @@ button {
     user-select: none;
     touch-action: manipulation;
     width: 100%;
-}
 
-button:hover {
-    box-shadow: var(--button-box-shadow-hover);
-    transform: translateY(-2px);
-    color: #fff;
-    background-color: var(--main);
+    &:hover { 
+        box-shadow: var(--button-box-shadow-hover);
+        transform: translateY(-2px);
+        color: #fff;
+        background-color: var(--main);
+    }
 }
 
 .qr-code {
@@ -107,21 +107,21 @@ button:hover {
     text-decoration: underline;
     text-decoration-thickness: 1px;
     transition: all 0.1s;
-}
 
-.error-mess a:hover {
-    text-decoration-thickness: 2px;
-    transition: all 0.1s;
+    &:hover { 
+        text-decoration-thickness: 2px;
+        transition: all 0.1s;
+    }
 }
 
 .err {
     border: 2px solid var(--error);
     box-shadow: none;
-}
 
-.err:focus {
-    border-color: var(--error);
-    box-shadow: var(--error-box-shadow);
+    &:focus {
+        border-color: var(--error);
+        box-shadow: var(--error-box-shadow);
+    }
 }
 
 .download-link {
@@ -136,16 +136,16 @@ button:hover {
     transform: translateY(0);
     transition: transform 300ms, box-shadow 300ms;
     user-select: none;
-}
 
-.download-link:hover {
-    text-decoration-thickness: 2px;
-    transition: all 0.3s;
-    transform: translateY(-2px);
-}
+    &:hover {
+        text-decoration-thickness: 2px;
+        transition: all 0.3s;
+        transform: translateY(-2px);
+    }
 
-.download-link:active {
-    text-decoration-thickness: 1px;
-    transition: all 0.3s;
-    transform: translateY(2px);
+    &:active {       
+        text-decoration-thickness: 1px;
+        transition: all 0.3s;
+        transform: translateY(2px);
+    }
 }
