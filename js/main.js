@@ -16,7 +16,7 @@ function tutorial() {
 }
 
 function demo() {
-    const modal = document.querySelector("#demo"),
+    const modal = document.querySelector("dialog#demo"),
         exitText = document.querySelector(".head p");
 
     // open the modal
@@ -26,7 +26,7 @@ function demo() {
     $("body").css({"overflow":"hidden"});
 
     // close the modal when the user clicks the exit text
-    exitText.addEventListener("click", modal.close);
+    exitText.addEventListener("click", modal.close.bind(modal));
 
     // re-enable scrolling when the modal is opened
     modal.addEventListener("close", () => {
