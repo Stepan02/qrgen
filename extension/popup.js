@@ -11,7 +11,7 @@ let limit = 2000;
 function generate() {
     const value = inputValue.value.trim();
     
-    // does not regenerate on empty input or the input stays the same
+    // does not regenerate on empty input or if the input stays the same
     if (!value || value === preValue) { return; }
 
     // does not generate when the input is over the character limit
@@ -104,7 +104,7 @@ downloadLink.addEventListener("click", () => {
 });
 
 // copy function
-qrCode.addEventListener("click", async () => {
+async function copy() {
     try {
         const image = await fetch(qrCode.src);
         const blob = await image.blob();
@@ -115,7 +115,9 @@ qrCode.addEventListener("click", async () => {
     } catch (copyError) {
         console.error("Failed to copy image: ", copyError);
     }
-});
+}
+
+qrCode.addEventListener("click", copy);
 
 function updateCounter() {
     const textarea = document.querySelector("textarea"),
