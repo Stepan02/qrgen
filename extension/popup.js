@@ -84,7 +84,14 @@ inputValue.addEventListener("keydown", (pressed) => {
     if (pressed.key === "Enter" && pressed.shiftKey) {
         pressed.preventDefault();
         generate();
-    }
+   }
+});
+
+// copy a qr code using control+shift+c or meta+shift+c
+window.addEventListener("keydown", (pressed) => {
+    if (!qrCode) return;
+
+    if (pressed.code === "KeyC" && pressed.shiftKey && (pressed.ctrlKey || pressed.metaKey)) copy();
 });
 
 // download function
