@@ -119,8 +119,21 @@ downloadLink.addEventListener("click", () => {
         .catch(error => console.error("Error downloading an image: ", error));
 });
 
+// copy a qr code using control+shift+c or meta+shift+c
+window.addEventListener("keydown", (pressed) => {
+    if (!qrCode) return;
+    
+    if (pressed.code === "KeyC" && pressed.shiftKey && (pressed.ctrlKey || pressed.metaKey)) {
+        pressed.preventDefault();
+        copy();
+    }
+});
+
+// copy a qr code by clicking the image
+qrCode.addEventListener("click", copy);
+
 // copy function
-qrCode.addEventListener("click", async () => {
+async function copy() {
     try {
         const image = await fetch(qrCode.src);
         const blob = await image.blob();
@@ -131,7 +144,7 @@ qrCode.addEventListener("click", async () => {
     } catch (copyError) {
         console.error("Failed to copy image: ", copyError);
     }
-});
+}
 
 function updateCounter() {
     const textarea = document.querySelector("textarea"),
