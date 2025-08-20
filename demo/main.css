@@ -98,6 +98,10 @@ dialog h1 {
     }
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 .download-link {
     text-align: center;
     font-family: 'JetBrains Mono', sans-serif;
