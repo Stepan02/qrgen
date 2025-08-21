@@ -12,10 +12,10 @@ function generate() {
     const value = inputValue.value.trim();
     
     // does not regenerate on empty input or if the input stays the same
-    if (!value || value === preValue) { return }
+    if (!value || value === preValue) { return; }
 
     // does not generate when the input is over the character limit
-    if (limit > 0 && value.length > limit) { return }
+    if (limit > 0 && value.length > limit) { return; }
 
     if (checkProtocols(value)) {
         qrCode.src = "";
@@ -93,15 +93,15 @@ inputValue.addEventListener("keydown", (pressed) => {
 
 // copy a qr code using control+shift+c or meta+shift+c
 window.addEventListener("keydown", ({ code, shiftKey, ctrlKey, metaKey }) => {
-    if (!qrCode) { return }
+    if (!qrCode) { return; }
 
-    if (code === "KeyC" && shiftKey && (ctrlKey || metaKey)) { copy() }
+    if (code === "KeyC" && shiftKey && (ctrlKey || metaKey)) { copy(); }
 });
 
 // download function
 downloadLink.addEventListener("click", async () => {
     const imageUrl = qrCode.src;
-    if (!imageUrl) { return }
+    if (!imageUrl) { return; }
 
     try {
         const res = await fetch(imageUrl),
@@ -183,7 +183,7 @@ function offlineHandler() {
         qrCode.src = "";
     } else {
         connectionError.style.display = "none";
-        
+
         generateBtn.style.visibility = "visible";
         generateBtn.style.pointerEvents = "all";
     }
