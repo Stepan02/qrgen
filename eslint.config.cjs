@@ -36,6 +36,7 @@ module.exports = [
         fetch: "readonly",
         module: "readonly",
         require: "readonly",
+        ClipboardItem: "readonly",
         $: "readonly",
 
         // custom functions
@@ -45,7 +46,7 @@ module.exports = [
         demo: true, 
         home: true, 
         clippy: true,
-        copyClippy: true,
+        copyClippy: true
       },
     },
     rules: {
