@@ -7,7 +7,7 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 
 /* Coloured Icons */
-@import url("https://cdn.jsdelivr.net/gh/dheereshagrwal/coloured-icons@master/src/app/ci.min.css");
+@import url("https://cdn.jsdelivr.net/gh/dheereshagrwal/coloured-icons@1.9.4/src/app/ci.min.css");
 
 :root {
   --main: #332cf2;
@@ -742,3 +742,4 @@ hr {
     background: var(--body-background);
   }
 }
+
