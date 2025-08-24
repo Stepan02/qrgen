@@ -701,6 +701,7 @@ hr {
   .ver {
     width: auto;
   }
+
 }
 
 @media (width <= 700px) {
@@ -720,7 +721,9 @@ hr {
   .sec {
     width: 100%;
   }
+}
 
+@media (width <= 800px) {
   .sec[onclick*="demo"] {
     display: none;
   }
@@ -742,4 +745,3 @@ hr {
     background: var(--body-background);
   }
 }
-
