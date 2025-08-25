@@ -6,13 +6,12 @@
 :root {
     --main: #332cf2;
     --hover-bg: #F5F5F5;
-    --dialog-box-shadow: rgb(0 0 0 / 1%) 0 1px 3px 0, rgb(27 31 35 / 5%) 0 0 0 1px;
-    --focus-box-shadow: rgb(50 50 93 / 10%) 0 0 0 1px inset, rgb(50 50 93 / 20%) 0 6px 15px 0, rgb(0 0 0 / 10%) 0 2px 2px 0, rgb(50 151 211 / 30%) 0 0 0 4px;
     --scrollbar-background: rgb(50 151 211 / 30%);
     --primary-font: ubuntu, sans-serif;
     --textarea-font: 'JetBrains Mono', monospace;
     --button-box-shadow: rgb(0 0 0 / 10%) 0 2px 4px 0;
-    --button-box-shadow-hover: rgb(0 0 0 / 15%) 0 3px 9px 0;
+    --button-box-shadow-hover: rgb(0 0 0 / 15%) 0 3px 9px 0;--dialog-box-shadow: rgb(0 0 0 / 1%) 0 1px 3px 0, rgb(27 31 35 / 5%) 0 0 0 1px;
+    --focus-box-shadow: rgb(50 50 93 / 10%) 0 0 0 1px inset, rgb(50 50 93 / 20%) 0 6px 15px 0, rgb(0 0 0 / 10%) 0 2px 2px 0, rgb(50 151 211 / 30%) 0 0 0 4px;
     --error: #e94a84;
     --error-box-shadow: rgb(233 74 132 / 10%) 0 0 0 1px inset, rgb(233 74 132 / 20%) 0 6px 15px 0, rgb(0 0 0 / 10%) 0 2px 2px 0, rgb(233 74 132 / 30%) 0 0 0 4px;
 }
@@ -23,9 +22,9 @@
 }
 
 .counter {
+    color: gray;
     text-align: right;
     font-size: 12px;
-    color: gray;
     user-select: none;
 }
 
@@ -40,6 +39,7 @@ dialog h1 {
     font-size: x-large;
     color: rgb(0 0 0 / 84.9%);
     white-space: nowrap;
+    user-select: none;
 }
 
 .head {
@@ -49,19 +49,19 @@ dialog h1 {
 }
 
 .head p {
-    white-space: nowrap;
-    margin-left: auto;
     color: rgb(0 0 0 / 87%);
     font-family: monospace;
     font-weight: 600;
     font-size: medium;
     text-align: right;
-    user-select: none;
     cursor: pointer;
     padding: 5px 10px;
-    transition: all .3s;
+    margin-left: auto;
+    white-space: nowrap;
     box-shadow: var(--dialog-box-shadow);
     border-radius: 5px;
+    user-select: none;
+    transition: all .3s;
     
     &:hover {
         background-color: var(--hover-bg);
@@ -70,8 +70,8 @@ dialog h1 {
 }
 
 .error-mess {
-    font-family: 'JetBrains Mono', monospace;
     color: var(--error);
+    font-family: var(--textarea-font);
     font-weight: 600;
     font-size: small;
 }
@@ -103,43 +103,44 @@ dialog h1 {
 }
 
 .download-link {
-    text-align: center;
-    font-family: 'JetBrains Mono', sans-serif;
+    font-family: var(--textarea-font);
     font-size: 1rem;
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-decoration-color: black;
     text-underline-offset: 3px;
     cursor: pointer;
+    text-align: center;
     transform: translateY(0);
     transition: transform 300ms, box-shadow 300ms;
     user-select: none;
 
     &:hover {
         text-decoration-thickness: 2px;
-        transition: all .3s;
         transform: translateY(-2px);
+        transition: all .3s;
     }
 
     &:active {
         text-decoration-thickness: 1px;
-        transition: all .3s;
         transform: translateY(2px);
+        transition: all .3s;
     }
 }
 
 dialog textarea {
-    transition: all 0.3s;
     width: 425px;
     min-height: 30px;
     max-height: 100px;
+    padding: 9px;
     resize: vertical;
     font-family: var(--textarea-font);
+    font-weight: 500;
+    font-size: 1rem;
     border: 2px solid var(--main);
     border-radius: 4px;
-    font-size: 1rem;
-    padding: 9px;
     outline: none;
+    transition: all 0.3s;
 
     &:focus {   
         border: 2px solid var(--main);
@@ -154,12 +155,15 @@ img[src=""] {
 
 dialog img {
     border: 20px solid transparent;
-    outline: 1px solid #ccc;
     border-radius: 5px;
+    outline: 1px solid #ccc;
+    user-select: none;
 }
 
 dialog button {
     font-family: var(--primary-font);
+    font-size: 16px;
+    font-weight: 100;
     background-color: transparent;
     border: 2px solid var(--main);
     border-radius: 4px;
@@ -167,10 +171,7 @@ dialog button {
     box-sizing: border-box;
     color: var(--main);
     cursor: pointer;
-    font-size: 16px;
-    font-weight: 100;
     outline: none;
-    outline: 0;
     padding: 10px 25px;
     text-align: center;
     transform: translateY(0);
@@ -180,10 +181,10 @@ dialog button {
     width: 100%;
 
     &:hover {
-        box-shadow: var(--button-box-shadow-hover);
-        transform: translateY(-2px);
         color: #fff;
         background-color: var(--main);
+        box-shadow: var(--button-box-shadow-hover);
+        transform: translateY(-2px);
     }
 }
 
@@ -200,9 +201,8 @@ dialog ::-webkit-scrollbar-track {
 }
 
 dialog ::-webkit-scrollbar-thumb {
-    background-color: transparent;
     background-color: var(--scrollbar-background);
-    border-radius: 20px;
     border: 6px solid transparent;
+    border-radius: 20px;
     background-clip: content-box;
 }
