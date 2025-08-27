@@ -2,6 +2,33 @@
   "extends": "stylelint-config-standard",
   "rules": {
     "selector-pseudo-element-no-unknown": null,
-    "font-family-no-missing-generic-family-keyword": null
-  }
+    "font-family-no-missing-generic-family-keyword": null,
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "order/properties-order": [
+      {
+        "properties": [
+          "color",
+          "font-family",
+          "font-weight",
+          "font-size",
+          "text-align",
+          "cursor",
+          "padding",
+          "margin-left",
+          "white-space",
+          "box-shadow",
+          "border-radius",
+          "user-select",
+          "transition"
+        ],
+        "unspecified": "bottom"
+      }        
+    ]
+  },
+  "plugins": [
+    "stylelint-order"
+  ]
 }

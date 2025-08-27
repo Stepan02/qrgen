@@ -24,7 +24,16 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
+
+      - name: Install Stylelint Order plugin
+        run: npm install stylelint-order --no-save
 
       - name: Run Stylelint
-        run: npx stylelint "**/*.css"
+        run: npx stylelint "**/*.css" --formatter json > stylelint-errors.json
+
+      - name: Save Stylelint errors
+        uses: actions/upload-artifact@v3
+        with:
+          name: stylelint-errors
+          path: stylelint-errors.json
