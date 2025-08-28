@@ -68,8 +68,8 @@ body {
 }
 
 h1 {
-  font-family: var(--primary-font);
   color: var(--heading);
+  font-family: var(--primary-font);
 }
 
 .error-not-found h1 {
@@ -88,27 +88,27 @@ h1 {
 
 code {
   font-family: var(--code-font);
-  font-size: 14px;
   font-weight: 500;
+  font-size: 14px;
 }
 
 details {
+  padding: 0.5em 0.5em 0;
   box-shadow: var(--sec-box-shadow);
   border-radius: 4px;
-  padding: 0.5em 0.5em 0;
 }
 
 summary {
   font-family: var(--primary-font);
+  cursor: pointer;
   margin: -0.5em -0.5em 0;
   padding: 0.5em;
-  cursor: pointer;
   list-style-type: none;
 
   &::before {
+    color: var(--heading);
     content: "\F231";
     font-family: bootstrap-icons;
-    color: var(--heading);
     margin-right: 3px;
     display: inline-block;
     vertical-align: text-bottom;
@@ -162,9 +162,9 @@ details[open] summary {
 }
 
 .menu-content {
-  text-align: center;
   font-family: var(--primary-font);
   font-size: medium;
+  text-align: center;
 }
 
 header {
@@ -173,8 +173,8 @@ header {
 }
 
 .logo {
-  font-weight: 400;
   color: var(--feature);
+  font-weight: 400;
 }
 
 .logo-wrapper, header {
@@ -220,8 +220,8 @@ a.no-underline {
 }
 
 .alert a {
-  cursor: pointer;
   color: var(--main);
+  cursor: pointer;
 }
 
 .browsers a {
@@ -231,9 +231,9 @@ a.no-underline {
   font-size: 1.2rem;
   text-decoration: none;
   padding: 10px 15px;
+  box-shadow: var(--sec-box-shadow);
   border-radius: 5px;
   user-select: none;
-  box-shadow: var(--sec-box-shadow);
   transform: translateY(0);
   transition: all 0.3s, transform 150ms, box-shadow 150ms;
   touch-action: manipulation;
@@ -259,19 +259,19 @@ header.active .logo-wrapper img {
 }
 
 .download {
+  color: white;
   font-family: var(--primary-font);
   background-color: var(--main);
-  color: white;
-  border: none;
-  border-radius: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px 25px;
   box-shadow: none;
   box-sizing: border-box;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 400;
+  border: none;
+  border-radius: 4px;
   outline: 0;
-  padding: 10px 25px;
-  text-align: center;
   user-select: none;
   transform: translateY(0);
   transition: all 0.3s, transform 150ms, box-shadow 150ms;
@@ -293,23 +293,23 @@ header.active .logo-wrapper img {
 }
 
 .normal {
+  color: #fff;
   font-family: var(--primary-font);
   background-color: var(--main);
   border: 2px solid var(--main);
-  border-radius: 4px;
-  box-shadow: rgb(0 0 0 / 10%) 0 2px 4px 0;
   box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
   font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px 25px;
+  box-shadow: rgb(0 0 0 / 10%) 0 2px 4px 0;
+  border-radius: 4px;
   outline: none;
   outline: 0;
-  padding: 10px 25px;
-  text-align: center;
+  user-select: none;
   transform: translateY(0);
   transition: transform 150ms, box-shadow 150ms;
-  user-select: none;
   touch-action: manipulation;
 
   &:hover {
@@ -325,19 +325,19 @@ header.active .logo-wrapper img {
 }
 
 .sec {
-  font-family: var(--primary-font);
   color: black;
+  font-family: var(--primary-font);
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px 25px;
   background-color: transparent;
-  border: none;
-  border-radius: 4px;
   box-shadow: var(--sec-box-shadow);
   box-sizing: border-box;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 400;
+  border: none;
+  border-radius: 4px;
   outline: 0;
-  padding: 10px 25px;
-  text-align: center;
   user-select: none;
   transform: translateY(0);
   transition: transform 150ms, box-shadow 150ms;
@@ -350,19 +350,19 @@ header.active .logo-wrapper img {
 }
 
  #clippy .sec {
-  font-family: var(--primary-font);
   color: black;
+  font-family: var(--primary-font);
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
   background-color: transparent;
+  padding: 10px 25px;
+  box-shadow: var(--sec-box-shadow);
   border: none;
   border-radius: 4px;
-  box-shadow: var(--sec-box-shadow);
   box-sizing: border-box;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 400;
   outline: 0;
-  padding: 10px 25px;
-  text-align: center;
   user-select: none;
   transform: translateY(0);
   transition: transform 150ms, box-shadow 150ms;
@@ -375,8 +375,8 @@ header.active .logo-wrapper img {
 }
 
 .suggestion-link {
-  font-family: var(--primary-font);
   color: var(--main);
+  font-family: var(--primary-font);
   text-decoration: none;
   user-select: none;
 
@@ -389,29 +389,29 @@ header.active .logo-wrapper img {
 }
 
 .demo {
+  color: #fff;
   font-family: var(--primary-font);
+  font-size: 100%;
+  text-align: center;
+  cursor: pointer;
   appearance: auto;
   backface-visibility: hidden;
   background-color: var(--main);
-  border-radius: 6px;
-  border-width: 0;
+  padding: 0;
   box-shadow: rgb(50 50 93 / 10%) 0 0 0 1px inset,rgb(50 50 93 / 10%) 0 2px 5px 0,rgb(0 0 0 / 7%) 0 1px 1px 0;
   box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  font-size: 100%;
+  text-transform: none;
+  border-radius: 6px;
+  border-width: 0;
   height: 44px;
   line-height: 1.15;
   margin: 12px 0 0;
   outline: none;
   overflow: hidden;
-  padding: 0;
   position: relative;
-  text-align: center;
-  text-transform: none;
+  user-select: none;
   transform: translateZ(0);
   transition: all 0.2s, box-shadow .08s ease-in;
-  user-select: none;
   touch-action: manipulation;
   width: 100%;
 
@@ -425,8 +425,8 @@ header.active .logo-wrapper img {
 }
 
 .github-link {
-  font-family: var(--primary-font);
   color: #151B23 !important;
+  font-family: var(--primary-font);
   text-decoration: underline;
   text-underline-offset: 5px;
   text-decoration-thickness: 2px;
@@ -526,9 +526,9 @@ header.active .logo-wrapper img {
 }
 
 .feature {
-  box-shadow: var(--sec-box-shadow);
   color: var(--feature);
   padding: 20px;
+  box-shadow: var(--sec-box-shadow);
   border-radius: 10px;
   width: 300px;
 }
@@ -539,20 +539,20 @@ strong {
 
 .feature strong {
   font-family: var(--primary-font);
-  font-size: 4vh;
   font-weight: 500;
+  font-size: 4vh;
 }
 
 .sp {
-  text-decoration: none;
+  font-size: 1rem;
   cursor: pointer;
+  text-decoration: none;
+  user-select: none;
   touch-action: manipulation;
   transform: translateY(0);
   transition: transform 150ms, box-shadow 150ms;
   background-color: transparent;
   border: none;
-  font-size: 1rem;
-  user-select: none;
   outline: none;
 
   &:hover {
@@ -565,13 +565,13 @@ hr {
 }
 
 .alert {
+  color: var(--alert-heading);
+  padding: 10px;
+  box-shadow: rgb(3 102 214 / 30%) 0 0 0 3px;
   border: 2px solid var(--main);
   border-radius: 0.375rem;
   box-sizing: border-box;
-  color: var(--alert-heading);
-  padding: 10px;
   position: relative;
-  box-shadow: rgb(3 102 214 / 30%) 0 0 0 3px;
 }
 
 .alert strong {
@@ -583,9 +583,9 @@ hr {
   border: 2px solid transparent;
   outline: 1px solid transparent;
   padding: 20px;
+  box-shadow: var(--sec-box-shadow);
   border-radius: 10px;
   width: 300px;
-  box-shadow: var(--sec-box-shadow);
   transition: all 0.5s;
 }
 
@@ -605,12 +605,12 @@ hr {
 
 .badge {
   color: var(--alert-heading);
-  font-size: 1rem;
   font-weight: 200;
+  font-size: 1rem;
   background-color: var(--feature-background);
+  padding: 2px 4px;
   box-shadow: var(--sec-box-shadow);
   border-radius: 3px;
-  padding: 2px 4px;
   user-select: none;
   display: inline-block;
   vertical-align: middle;
@@ -645,10 +645,10 @@ hr {
    }
 
   #clippy {
-    user-select: none;
     background-color: white;
-    border-radius: 5px;
     box-shadow: var(--sec-box-shadow);
+    border-radius: 5px;
+    user-select: none;
     margin-top: 200px;
     position: fixed;
     scroll-behavior: smooth;
@@ -664,25 +664,25 @@ hr {
 
 @media (width >= 500px) {
   #clippy {
-    user-select: none;
     background-color: white;
     box-shadow: var(--sec-box-shadow);
     margin-top: 100px;
     position: fixed;
+    user-select: none;
   }
 
   .emoji {
+    font-size: 2rem;
     text-align: center;
     user-select: none;
-    font-size: 2rem;
   }
 }
 
 @media (width <= 500px) {
   #clippy {
-    user-select: none;
     background-color: white;
     box-shadow: var(--sec-box-shadow);
+    user-select: none;
     margin-top: 100px;
     position: fixed;
     width: 100%;
@@ -693,9 +693,9 @@ hr {
   }
 
   .emoji {
+    font-size: 2rem;
     text-align: center;
     user-select: none;
-    font-size: 2rem;
   }
 
   .ver {
