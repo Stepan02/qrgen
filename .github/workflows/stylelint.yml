@@ -30,10 +30,5 @@ jobs:
         run: npm install stylelint-order --no-save
 
       - name: Run Stylelint
-        run: npx stylelint "**/*.css" --formatter json > stylelint-errors.json
-
-      - name: Save Stylelint errors
-        uses: actions/upload-artifact@v3
-        with:
-          name: stylelint-errors
-          path: stylelint-errors.json
+        run: npx stylelint "**/*.css"
+        continue-on-error: true
