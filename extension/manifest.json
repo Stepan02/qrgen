@@ -2,7 +2,13 @@
   "manifest_version": 3,
   "name": "QRgen",
   "version": "1.0",
+  "author": "Stepan02",
   "description": "The pocket QR code generator.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stepan02/qrgen.git"
+  },
+  "bugs": "https://github.com/stepan02/qrgen/issues",
   "icons": {
     "16": "assets/logo-16.png",
     "48": "assets/logo-48.png",
