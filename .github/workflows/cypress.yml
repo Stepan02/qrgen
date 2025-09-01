@@ -17,34 +17,25 @@ on:
 
 permissions:
   contents: read
-
+  
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          
+          node-version: '22'
+
       - name: Show repository tree structure
         run: |
           find . -print | sed -e 's;[^/]*\/;|__;g;s;__|; |;g'
-          
+
       - name: Install dependencies
         run: npm ci
 
-      - name: Start web server
-        run: npx serve . -l 5500 &
-      
-      - name: Wait for server
-        run: npx wait-on http://localhost:5500
-
-      - name: Cypress version
-        run: npx cypress --version
-
-      - name: Run Cypress tests
-        run: npx cypress run
+      - uses: cypress-io/github-action@v5
+        with:
+          start: npx serve . -l 5500
+          wait-on: http://localhost:5500
