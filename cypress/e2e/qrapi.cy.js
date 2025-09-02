@@ -7,6 +7,9 @@ describe("QR API test", () => {
     cy.get("textarea").as("input");
     cy.get(".generateBtn").as("generateBtn");
     cy.get(".qr-code img").as("qrImg");
+    cy.get(".download-link").as("downloadLink");
+    cy.get(".error-mess").as("errorMessage");
+    cy.get(".con-error-mess").as("connectionErrorMessage");
   });
 
   // function to generate a QR code
@@ -21,6 +24,9 @@ describe("QR API test", () => {
     cy.get("@generateBtn").click();
     
     cy.get("@qrImg").should("have.attr", "src", "");
+    cy.get("@downloadLink").should("not.be.visible");
+    cy.get("@errorMessage").should("not.be.visible");
+    cy.get("@connectionErrorMessage").should("not.be.visible");
   });
 
   it("Generates QR code", () => {
@@ -30,6 +36,8 @@ describe("QR API test", () => {
     cy.get("@qrImg")
       .should("have.attr", "src")
       .and("include", encodeURIComponent(testUserInput));
+    cy.get("@downloadLink").should("be.visible");
+    cy.get("@errorMessage").should("not.be.visible");
   });
 
   it("Does not repeat when the input stays the same", () => {
@@ -39,6 +47,10 @@ describe("QR API test", () => {
     cy.get("@qrImg").invoke("attr", "src").then((src1) => {
       cy.get("@generateBtn").click();
       cy.get("@qrImg").invoke("attr", "src").should("eq", src1);
+      cy.get("@downloadLink").should("be.visible");
+
+      cy.get("@errorMessage").should("not.be.visible");
+      cy.get("@connectionErrorMessage").should("not.be.visible");
     });
   });
 
@@ -63,10 +75,15 @@ describe("QR API test", () => {
         cy.get("@qrImg")
           .invoke("attr", "src")
           .should("eq", initialSrc);
+        cy.get("@errorMessage").should("not.be.visible");
+        cy.get("@downloadLink").should("not.be.visible");
+        cy.get("@connectionErrorMessage").should("not.be.visible");
       });
+      cy.get("@errorMessage").should("not.be.visible");
+      cy.get("@connectionErrorMessage").should("not.be.visible");
   });
 
-const dangerousProtocols = [
+  const dangerousProtocols = [
     { input: "javascript:alert(document.domain)", expected: "javascript" },
     { input: "JaVaScRiPt:alert(document.domain)", expected: "javascript" },
     { input: "javascript%3Aalert(document.domain)", expected: "javascript" },
@@ -85,7 +102,9 @@ const dangerousProtocols = [
 
       cy.get("@qrImg").should("not.be.visible");
 
-      cy.get(".error-mess").should("be.visible").and("contain", expected);
+      cy.get("@downloadLink").should("not.be.visible");
+      cy.get("@errorMessage").should("be.visible").and("contain", expected);
+      cy.get("@connectionErrorMessage").should("not.be.visible");
     });
   });
 });
