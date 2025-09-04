@@ -9,6 +9,7 @@ describe("QR API test", () => {
     cy.get(".qr-code img").as("qrImg");
     cy.get(".download-link").as("downloadLink");
     cy.get(".error-mess").as("errorMessage");
+    cy.get("#char-counter").as("characterCounter")
   });
 
   // function to generate a QR code
@@ -53,7 +54,24 @@ describe("QR API test", () => {
 
   it("Character counter updates", () => {
     cy.get("@input").clear().type("abcd");
-    cy.get("#char-counter").should("have.text", "4");
+    cy.get("@characterCounter").should("have.text", "4");
+  });
+
+  it("Character counter turns red when the limit is reached", () => {
+    const safeText = "a";
+    const maxLenghtText = safeText.repeat(2000);
+
+    generateQR(safeText);
+
+    cy.get("@characterCounter").should("not.have.css", "color", "rgb(233, 74, 132)");
+
+    cy.get("@input").clear().invoke("val", maxLenghtText).trigger("input");
+    cy.get("@generateBtn").click();
+
+    cy.get("@characterCounter").should("have.have.css", "color", "rgb(233, 74, 132)").and("have.css", "font-weight", "900");
+
+    generateQR(safeText);
+    cy.get("@characterCounter").should("not.have.css", "color", "rgb(233, 74, 132)");
   });
 
   it("Does not overflow", () => {
