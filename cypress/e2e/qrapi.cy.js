@@ -9,7 +9,7 @@ describe("QR API test", () => {
     cy.get(".qr-code img").as("qrImg");
     cy.get(".download-link").as("downloadLink");
     cy.get(".error-mess").as("errorMessage");
-    cy.get("#char-counter").as("characterCounter")
+    cy.get("#char-counter").as("characterCounter");
   });
 
   // function to generate a QR code
@@ -43,9 +43,9 @@ describe("QR API test", () => {
     const testText = "Hello World!";
     generateQR(testText);
 
-    cy.get("@qrImg").invoke("attr", "src").then((src1) => {
+    cy.get("@qrImg").invoke("attr", "src").then((src) => {
       cy.get("@generateBtn").click();
-      cy.get("@qrImg").invoke("attr", "src").should("eq", src1);
+      cy.get("@qrImg").invoke("attr", "src").should("eq", src);
       cy.get("@downloadLink").should("be.visible");
 
       cy.get("@errorMessage").should("not.be.visible");
@@ -57,7 +57,7 @@ describe("QR API test", () => {
     cy.get("@characterCounter").should("have.text", "4");
   });
 
-  it("Character counter turns red when the limit is reached", () => {
+  it.only("Character counter turns red when the limit is reached", () => {
     const safeText = "a";
     const maxLenghtText = safeText.repeat(2000);
 
@@ -68,10 +68,10 @@ describe("QR API test", () => {
     cy.get("@input").clear().invoke("val", maxLenghtText).trigger("input");
     cy.get("@generateBtn").click();
 
-    cy.get("@characterCounter").should("have.have.css", "color", "rgb(233, 74, 132)").and("have.css", "font-weight", "900");
+    cy.get("@characterCounter").should("have.css", "color", "rgb(233, 74, 132)").and("have.css", "font-weight", "900");
 
     generateQR(safeText);
-    cy.get("@characterCounter").should("not.have.css", "color", "rgb(233, 74, 132)");
+    cy.get("@characterCounter").should("not.have.css", "color", "rgb(233, 74, 132)").and("have.css", "font-weight", "500");
   });
 
   it("Does not overflow", () => {
