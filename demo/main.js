@@ -168,6 +168,7 @@ function updateCounter() {
         counter.style.fontWeight = 900;
     } else {
         counter.style.color = "gray";
+        counter.style.fontWeight = 500;
     }
 }
 
