@@ -7,13 +7,14 @@
 Simple browser extension to generate QR codes
 
 ## Using the extension
-The extension itself is not available on any browser extension marketplace. Therefore it must be dowloaded manually.
+The extension itself is not available on any browser extension marketplace. Therefore it must be downloaded and sideloaded into your browser manually.
 1. Download the [extension folder](extension)
-2. Add it to your favorite browser (Chromium-based browsers are supported, Safari has not been tested yet)
+2. Add it to your favorite browser:
    
    - [Google Chrome](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world)
    - [Firefox docs](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
    - [Microsoft Edge docs](https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading)
+   - Please see the [known issues](https://github.com/Stepan02/qrgen/blob/main/CONTRIBUTING.md#-safari-browser) for more information about Safari support
   > If you have a problem with the installation, please create an [issue](https://github.com/Stepan02/qrgen/issues)
 
 **The instructions for loading the extension into Firefox are for testing purposes. You can build the extension with [web-ext](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/).**
