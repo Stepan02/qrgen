@@ -19,7 +19,7 @@ How to create a PR:
 1. Create a new branch - for example `feature-[feature name]` or `fix-[bug name]`
 2. Push your changes to the branch
 4. [Create a PR](https://github.com/Stepan02/qrgen/pulls) targeting the `main` branch
-5. **Ensure your contribution passes the CodeQL analysis** - CodeQL helps to identify potential security vulnerabilities and code quality issues - **this check is automatic**
+5. Make sure your contribution passes the CodeQL analysis and linting (ESLint/Stylelint) - these checks are automatic
 
 ## Known issues
 ### 🍎 Safari browser
