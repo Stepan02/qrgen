@@ -77,6 +77,10 @@ h1 {
   font-size: 10vh;
 }
 
+.feature > h1 {
+  user-select: none;
+}
+
 .feature .browsers h1 {
   user-select: none;
   pointer-events: none;
@@ -464,7 +468,7 @@ header.active .logo-wrapper img {
 }
 
 @media (width <= 500px) {
-  .sec {
+  .sec, .feature-demo, .no-mb, .no-desktop {
     display: none;
   }
 
@@ -472,21 +476,9 @@ header.active .logo-wrapper img {
     display: block;
   }
 
-  .feature-demo {
-    display: none;
-  }
-
   .feature {
     width: 100%;
     text-align: center;
-  }
-
-  .no-mb {
-    display: none;
-  }
-
-  .no-desktop {
-    display: block;
   }
 
   body {
@@ -499,11 +491,7 @@ header.active .logo-wrapper img {
     display: none;
   }
 
-  .buttons-wrapper .sp:nth-last-of-type(1) {
-    display: block;
-  }
-
-  .no-desktop {
+  .no-desktop, .buttons-wrapper .sp:nth-last-of-type(1) {
     display: block;
   }
 
@@ -701,7 +689,6 @@ hr {
   .ver {
     width: auto;
   }
-
 }
 
 @media (width <= 700px) {
