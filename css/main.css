@@ -174,23 +174,6 @@ details[open] summary {
 header {
   box-sizing: border-box;
   position: fixed;
-}
-
-.logo {
-  color: var(--feature);
-  font-weight: 400;
-}
-
-.logo-wrapper, header {
-  align-items: center;
-  display: flex;
-}
-
-.logo-wrapper {
-  font-family: var(--primary-font);
-}
-
-header.active {
   left: 0;
   padding: 0 6%;
   top: 0;
@@ -205,6 +188,20 @@ header.active {
     z-index: -1; 
     filter: blur(3px);
   }
+}
+
+.logo {
+  color: var(--feature);
+  font-weight: 400;
+}
+
+.logo-wrapper, header {
+  align-items: center;
+  display: flex;
+}
+
+.logo-wrapper {
+  font-family: var(--primary-font);
 }
 
 .logo-wrapper img {
@@ -243,10 +240,6 @@ a.no-underline {
   touch-action: manipulation;
 }
 
-header.active a {
-  display: initial;
-}
-
 p a:visited {
   color: var(--main);
 }
@@ -257,7 +250,7 @@ p a:visited {
   transform: translateY(-2px);
 }
 
-header.active .logo-wrapper img {
+header .logo-wrapper img {
   height: 30px;
   width: 30px;
 }
@@ -457,7 +450,7 @@ header.active .logo-wrapper img {
 }
 
 @media (width <= 1000px) {
-  .active .menu-content .sec .download {
+  .menu-content .sec .download {
       display: none;
   }
 
