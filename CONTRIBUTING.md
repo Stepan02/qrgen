@@ -21,6 +21,11 @@ How to create a PR:
 4. [Create a PR](https://github.com/Stepan02/qrgen/pulls) targeting the `main` branch
 5. Make sure your contribution passes the CodeQL analysis and linting (ESLint/Stylelint) - these checks are automatic
 
+### Security vulnerabilities
+Please **do not** create issues or PRs related to security vulnerabilities. Instead, report the vulnerability [here](https://github.com/Stepan02/qrgen/security/advisories).
+
+[Learn how to responsibly report a vulnerability](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html)
+
 ## Known issues
 ### 🍎 Safari browser
 The extension is yet to be tested in Safari browser. I am currently unable to test the extension since I lack Apple device.
