@@ -52,7 +52,7 @@ module.exports = [
     rules: {
       "no-unused-vars": "warn",
       "no-console": "off",
-      "camelcase": ["error", {"properties": "always"}]
+      "camelcase": ["error", {"properties": "always"}],
       eqeqeq: "error",
       curly: "error",
       semi: ["error", "always"],
