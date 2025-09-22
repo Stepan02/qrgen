@@ -102,19 +102,19 @@ describe("QR API test", () => {
   });
 
   const dangerousProtocols = [
-    { input: "javascript:alert(document.domain)", expected: "javascript" },
-    { input: "JaVaScRiPt:alert(document.domain)", expected: "javascript" },
-    { input: "javascript%3Aalert(document.domain)", expected: "javascript" },
-    { input: "data:text/html;base64,PHNjcmlwdD5hbGVydChkb2N1bWVudC5kb21haW4pPC9zY3JpcHQ+", expected: "data" },
-    { input: "file:///etc/passwd", expected: "file" },
-    { input: " file:///etc/passwd", expected: "file" },
-    { input: "text\n file:///etc/passwd", expected: "file" },
-    { input: "text\ntext file:///etc/passwd", expected: "file" },
-    { input: "text\ntext file:///etc/passwd text", expected: "file" }
+    { input: "javascript:alert(document.domain)", expected: "javascript", description: "javascript" },
+    { input: "JaVaScRiPt:alert(document.domain)", expected: "javascript", description: "JaVaScRiPt" },
+    { input: "javascript%3Aalert(document.domain)", expected: "javascript", description: "javascript%3" },
+    { input: "data:text/html;base64,PHNjcmlwdD5hbGVydChkb2N1bWVudC5kb21haW4pPC9zY3JpcHQ+", expected: "data", description: "data:text/html;base64,PHNjcmlwdD5hbGVydChkb2N1bWVudC5kb21haW4pPC9zY3JpcHQ+" },
+    { input: "file:///etc/passwd", expected: "file", description: "file" },
+    { input: " file:///etc/passwd", expected: "file", description: " file" },
+    { input: "text\n file:///etc/passwd", expected: "file", description: "text\\n file" },
+    { input: "text\ntext file:///etc/passwd", expected: "file", description: "text\\ntext file" },
+    { input: "text\ntext file:///etc/passwd text", expected: "file", description: "text\\ntext file\\ntext" }
   ];
 
-  dangerousProtocols.forEach(({ input, expected }) => {
-    it(`Does not generate QR codes with dangerous protocol: ${input}`, () => {
+  dangerousProtocols.forEach(({ input, expected, description }) => {
+    it(`Does not generate QR codes with potentially malicious input: ${description}`, () => {
       cy.get("@input").clear().invoke("val", input).trigger("input");
       cy.get("@generateBtn").click();
 
