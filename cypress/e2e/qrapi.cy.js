@@ -39,6 +39,13 @@ describe("QR API test", () => {
     cy.get("@errorMessage").should("not.be.visible");
   });
 
+  it("Generates QR code by pressing Shift+Enter", () => {
+    const input = "Hello World!{shift+enter}";
+
+    cy.get("@input").clear().type(input);
+    cy.get("@qrImg").should("be.visible");
+  });
+
   it("Does not repeat when the input stays the same", () => {
     const testText = "Hello World!";
     generateQR(testText);
@@ -120,4 +127,5 @@ describe("QR API test", () => {
     });
   });
 });
+
 
