@@ -40,6 +40,13 @@ describe("QR API test", () => {
     cy.get("@errorMessage").should("not.be.visible");
   });
 
+  it("Generates QR code by pressing Shift+Enter", () => {
+    const input = "Hello World!{shift+enter}";
+
+    cy.get("@input").clear().type(input);
+    cy.get("@qrImg").should("be.visible");
+  });
+
   it("Does not repeat when the input stays the same", () => {
     const testText = "Hello World!";
     generateQR(testText);
@@ -104,7 +111,7 @@ describe("QR API test", () => {
   const dangerousProtocols = [
     { input: "javascript:alert(document.domain)", expected: "javascript", description: "javascript" },
     { input: "JaVaScRiPt:alert(document.domain)", expected: "javascript", description: "JaVaScRiPt" },
-    { input: "javascript%3Aalert(document.domain)", expected: "javascript", description: "javascript%3" },
+    { input: "javascript%3Aalert(document.domain)", expected: "javascript", description: "javascript%3A" },
     { input: "data:text/html;base64,PHNjcmlwdD5hbGVydChkb2N1bWVudC5kb21haW4pPC9zY3JpcHQ+", expected: "data", description: "data:text/html;base64,PHNjcmlwdD5hbGVydChkb2N1bWVudC5kb21haW4pPC9zY3JpcHQ+" },
     { input: "file:///etc/passwd", expected: "file", description: "file" },
     { input: " file:///etc/passwd", expected: "file", description: " file" },
