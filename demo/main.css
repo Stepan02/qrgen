@@ -23,21 +23,21 @@
 
 .counter {
     color: gray;
-    text-align: right;
     font-size: 12px;
+    text-align: right;
     user-select: none;
 }
 
 dialog {
     border: none;
-    border-radius: 10px;
     box-shadow: var(--dialog-box-shadow);
+    border-radius: 10px;
 }
 
 dialog h1 {
+    color: rgb(0 0 0 / 84.9%);
     font-family: var(--primary-font);
     font-size: x-large;
-    color: rgb(0 0 0 / 84.9%);
     white-space: nowrap;
     user-select: none;
 }
@@ -105,15 +105,15 @@ dialog h1 {
 .download-link {
     font-family: var(--textarea-font);
     font-size: 1rem;
+    text-align: center;
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-decoration-color: black;
     text-underline-offset: 3px;
     cursor: pointer;
-    text-align: center;
+    user-select: none;
     transform: translateY(0);
     transition: transform 300ms, box-shadow 300ms;
-    user-select: none;
 
     &:hover {
         text-decoration-thickness: 2px;
@@ -132,11 +132,11 @@ dialog textarea {
     width: 425px;
     min-height: 30px;
     max-height: 100px;
-    padding: 9px;
-    resize: vertical;
     font-family: var(--textarea-font);
     font-weight: 500;
     font-size: 1rem;
+    padding: 9px;
+    resize: vertical;
     border: 2px solid var(--main);
     border-radius: 4px;
     outline: none;
@@ -161,22 +161,22 @@ dialog img {
 }
 
 dialog button {
+    color: var(--main);
     font-family: var(--primary-font);
-    font-size: 16px;
     font-weight: 100;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
     background-color: transparent;
-    border: 2px solid var(--main);
-    border-radius: 4px;
+    padding: 10px 25px;
     box-shadow: var(--button-box-shadow);
     box-sizing: border-box;
-    color: var(--main);
-    cursor: pointer;
+    border: 2px solid var(--main);
+    border-radius: 4px;
+    user-select: none;
     outline: none;
-    padding: 10px 25px;
-    text-align: center;
     transform: translateY(0);
     transition: all 0.3s, transform 150ms, box-shadow 150ms;
-    user-select: none;
     touch-action: manipulation;
     width: 100%;
 
