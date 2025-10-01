@@ -1,9 +1,13 @@
 {
   "name": "qrgen",
   "version": "0.1",
+  "author": "Stepan02",
   "scripts": {
-    "test": "cypress open",
-    "test:headless": "cypress run"
+    "test": "cypress run",
+    "test:ext": "cypress run --spec ./cypress/e2e/ext.cy.js",
+    "test:demo": "cypress run --spec ./cypress/e2e/qrapi.cy.js",
+    "lint:css": "stylelint **/*.css",
+    "lint:js": "eslint"
   },
   "devDependencies": {
     "@cypress/request": "^3.0.0",
