@@ -10,19 +10,22 @@
     "order/properties-order": [
       {
         "properties": [
-          "color",
-          "font-family",
-          "font-weight",
-          "font-size",
-          "text-align",
-          "cursor",
-          "padding",
-          "margin-left",
-          "white-space",
-          "box-shadow",
-          "border-radius",
-          "user-select",
-          "transition"
+        "color",
+        "font-family",
+        "font-weight",
+        "font-size",
+        "text-decoration",
+        "text-transform",
+        "text-align",
+        "cursor",
+        "padding",
+        "margin-left",
+        "white-space",
+        "box-shadow",
+        "border",
+        "border-radius",
+        "user-select",
+        "transition"
         ],
         "unspecified": "bottom"
       }        
