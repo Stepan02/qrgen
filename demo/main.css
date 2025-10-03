@@ -29,8 +29,8 @@
 }
 
 dialog {
-    border: none;
     box-shadow: var(--dialog-box-shadow);
+    border: none;
     border-radius: 10px;
 }
 
@@ -89,8 +89,8 @@ dialog h1 {
 }
 
 .err {
-    border: 2px solid var(--error);
     box-shadow: none;
+    border: 2px solid var(--error);
 
     &:hover {
         border-color: var(--error);
@@ -105,11 +105,11 @@ dialog h1 {
 .download-link {
     font-family: var(--textarea-font);
     font-size: 1rem;
-    text-align: center;
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-decoration-color: black;
     text-underline-offset: 3px;
+    text-align: center;
     cursor: pointer;
     user-select: none;
     transform: translateY(0);
@@ -143,8 +143,8 @@ dialog textarea {
     transition: all 0.3s;
 
     &:focus {   
-        border: 2px solid var(--main);
         box-shadow: var(--focus-box-shadow);
+        border: 2px solid var(--main);
         transition: all 0.3s;
     }
 }
