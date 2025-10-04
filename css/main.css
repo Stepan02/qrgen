@@ -216,8 +216,8 @@ header .buttons-wrapper {
 }
 
 a.no-underline {
-  text-decoration: none;
   color: rgb(0 0 0 / 84.9%);
+  text-decoration: none;
 }
 
 .alert a {
@@ -292,15 +292,15 @@ header .logo-wrapper img {
 .normal {
   color: #fff;
   font-family: var(--primary-font);
-  background-color: var(--main);
-  border: 2px solid var(--main);
-  box-sizing: border-box;
   font-weight: 400;
   font-size: 16px;
+  background-color: var(--main);
   text-align: center;
   cursor: pointer;
   padding: 10px 25px;
+  box-sizing: border-box;
   box-shadow: rgb(0 0 0 / 10%) 0 2px 4px 0;
+  border: 2px solid var(--main);
   border-radius: 4px;
   outline: none;
   outline: 0;
@@ -389,6 +389,7 @@ header .logo-wrapper img {
   color: #fff;
   font-family: var(--primary-font);
   font-size: 100%;
+  text-transform: none;
   text-align: center;
   cursor: pointer;
   appearance: auto;
@@ -397,7 +398,6 @@ header .logo-wrapper img {
   padding: 0;
   box-shadow: rgb(50 50 93 / 10%) 0 0 0 1px inset,rgb(50 50 93 / 10%) 0 2px 5px 0,rgb(0 0 0 / 7%) 0 1px 1px 0;
   box-sizing: border-box;
-  text-transform: none;
   border-radius: 6px;
   border-width: 0;
   height: 44px;
@@ -430,8 +430,8 @@ header .logo-wrapper img {
   user-select: none;
 
   &:hover {
-    transition: all 0.3s;
     text-decoration: none;
+    transition: all 0.3s;
   }
 }
 
@@ -526,14 +526,14 @@ strong {
 
 .sp {
   font-size: 1rem;
-  cursor: pointer;
   text-decoration: none;
+  cursor: pointer;
+  border: none;
   user-select: none;
   touch-action: manipulation;
   transform: translateY(0);
   transition: transform 150ms, box-shadow 150ms;
   background-color: transparent;
-  border: none;
   outline: none;
 
   &:hover {
@@ -561,10 +561,10 @@ hr {
 }
 
 .ver {
-  border: 2px solid transparent;
-  outline: 1px solid transparent;
   padding: 20px;
+  outline: 1px solid transparent;
   box-shadow: var(--sec-box-shadow);
+  border: 2px solid transparent;
   border-radius: 10px;
   width: 300px;
   transition: all 0.5s;
