@@ -11,13 +11,7 @@ describe("QR API test", () => {
     cy.get(".con-error-mess").as("connectionErrorMessage");
     cy.get("#char-counter").as("characterCounter");
   });
-
-  // function to generate a QR code
-  const generateQR = (text) => {
-    cy.get("@input").clear().type(text);
-    cy.get("@generateBtn").click();
-  };
-
+  
   it("Does not generate a blank QR code", () => {
     cy.get("@qrImg").should("have.attr", "src", "");
 
@@ -31,7 +25,7 @@ describe("QR API test", () => {
 
   it("Generates QR code", () => {
     const testUserInput = "Hello World!";
-    generateQR(testUserInput);
+    cy.generate(testUserInput);
 
     cy.get("@qrImg")
       .should("have.attr", "src")
@@ -49,7 +43,7 @@ describe("QR API test", () => {
 
   it("Does not repeat when the input stays the same", () => {
     const testText = "Hello World!";
-    generateQR(testText);
+    cy.generate(testText);
 
     cy.get("@qrImg").invoke("attr", "src").then((src1) => {
       cy.get("@generateBtn").click();
@@ -71,7 +65,7 @@ describe("QR API test", () => {
     const safeText = "a";
     const maxLenghtText = safeText.repeat(2000);
 
-    generateQR(safeText);
+    cy.generate(safeText);
 
     cy.get("@characterCounter").should("not.have.css", "color", "rgb(233, 74, 132)");
 
@@ -80,7 +74,7 @@ describe("QR API test", () => {
 
     cy.get("@characterCounter").should("have.have.css", "color", "rgb(233, 74, 132)").and("have.css", "font-weight", "900");
 
-    generateQR(safeText);
+    cy.generate(safeText);
     cy.get("@characterCounter").should("not.have.css", "color", "rgb(233, 74, 132)");
   });
 
@@ -88,7 +82,7 @@ describe("QR API test", () => {
     const safeText = "qwerty";
     const overflow = "A".repeat(2500);
 
-    generateQR(safeText);
+    cy.generate(safeText);
 
     cy.get("@qrImg")
       .should("be.visible")
