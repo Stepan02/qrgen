@@ -1,3 +1,6 @@
+// custom commands import
+import "../support/commands.js";
+
 describe("QR API test", () => {
   beforeEach(() => {
     cy.visit("/extension/popup.html");
