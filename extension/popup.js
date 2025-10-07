@@ -5,7 +5,11 @@ const inputValue = document.querySelector(".form textarea"),
       connectionError = document.querySelector(".con-error-mess"),
       downloadLink = document.querySelector(".download-link");
 let preValue;
+
+// qr code config
 let limit = 2000;
+let size = "250x250";
+let color = "0f0e0e";
 
 // generate a qr code
 function generate() {
@@ -23,7 +27,7 @@ function generate() {
     }
 
     preValue = value;
-    qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(value)}`;
+    qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=${size}&color=${color}&data=${encodeURIComponent(value)}`;
     qrCode.style.cursor = "pointer";
     qrCode.title = "Click to copy";
     downloadLink.style.display = "block";
