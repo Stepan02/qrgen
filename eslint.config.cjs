@@ -50,7 +50,7 @@ module.exports = [
       },
     },
     rules: {
-      "no-unused-vars": "warn",
+      "no-unused-vars": "off",
       "no-console": "off",
       "camelcase": ["error", {"properties": "always"}],
       eqeqeq: "error",
@@ -58,5 +58,5 @@ module.exports = [
       semi: ["error", "always"],
       quotes: ["error", "double"],
     },
-  },
+  }
 ];
