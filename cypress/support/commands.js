@@ -1,5 +1,5 @@
 // command to generate a QR code
-Cypress.Commands.add('generate', (text) => {
+Cypress.Commands.add("generate", (text) => {
     cy.get("@input").clear().type(text);
-    cy.get('@generateBtn').click();
+    cy.get("@generateBtn").click();
 });
