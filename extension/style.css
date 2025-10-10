@@ -10,11 +10,11 @@
     --secondary-font: mukta, sans-serif;
     --textarea-font: 'JetBrains Mono', monospace;
     --focus-box-shadow: rgb(50 50 93 / 10%) 0 0 0 1px inset, rgb(50 50 93 / 20%) 0 6px 15px 0, rgb(0 0 0 / 10%) 0 2px 2px 0, rgb(50 151 211 / 30%) 0 0 0 4px;
+    --image-hover-box-shadow: rgb(0 0 0 / 5%) 0 1px 14px 0, rgb(0 0 0 / 8%) 0 0 0 1px;
     --button-box-shadow: rgb(0 0 0 / 10%) 0 2px 4px 0;
     --button-box-shadow-hover: rgb(0 0 0 / 15%) 0 3px 9px 0;
     --error: #e94a84;
     --error-box-shadow: rgb(233 74 132 / 10%) 0 0 0 1px inset, rgb(233 74 132 / 20%) 0 6px 15px 0, rgb(0 0 0 / 10%) 0 2px 2px 0, rgb(233 74 132 / 30%) 0 0 0 4px;
-
 }
 
 h1 {
@@ -40,8 +40,8 @@ textarea {
     transition: all 0.3s;
 
     &:focus {
-        border: 2px solid var(--main);
         box-shadow: var(--focus-box-shadow);
+        border: 2px solid var(--main);
         transition: all 0.3s;
     }
 
@@ -55,10 +55,16 @@ img[src=""] {
 }
 
 img {
+    box-shadow: none;
     border: 20px solid transparent;
     border-radius: 5px;
     outline: 1px solid #ccc;
     user-select: none;
+    transition: all 0.3s;
+}
+
+img:hover {
+    box-shadow: var(--image-hover-box-shadow);
 }
 
 button {
@@ -121,8 +127,8 @@ button {
 }
 
 .err {
-    border: 2px solid var(--error);
     box-shadow: none;
+    border: 2px solid var(--error);
 
     &:focus {
         border-color: var(--error);
