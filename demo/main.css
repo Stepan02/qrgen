@@ -12,6 +12,7 @@
     --button-box-shadow: rgb(0 0 0 / 10%) 0 2px 4px 0;
     --button-box-shadow-hover: rgb(0 0 0 / 15%) 0 3px 9px 0;--dialog-box-shadow: rgb(0 0 0 / 1%) 0 1px 3px 0, rgb(27 31 35 / 5%) 0 0 0 1px;
     --focus-box-shadow: rgb(50 50 93 / 10%) 0 0 0 1px inset, rgb(50 50 93 / 20%) 0 6px 15px 0, rgb(0 0 0 / 10%) 0 2px 2px 0, rgb(50 151 211 / 30%) 0 0 0 4px;
+    --image-hover-box-shadow: rgb(0 0 0 / 5%) 0 1px 14px 0, rgb(0 0 0 / 8%) 0 0 0 1px;
     --error: #e94a84;
     --error-box-shadow: rgb(233 74 132 / 10%) 0 0 0 1px inset, rgb(233 74 132 / 20%) 0 6px 15px 0, rgb(0 0 0 / 10%) 0 2px 2px 0, rgb(233 74 132 / 30%) 0 0 0 4px;
 }
@@ -104,6 +105,7 @@ dialog h1 {
 
 .download-link {
     font-family: var(--textarea-font);
+    font-weight: 500;
     font-size: 1rem;
     text-decoration: underline;
     text-decoration-thickness: 1px;
@@ -154,10 +156,16 @@ img[src=""] {
 }
 
 dialog img {
+    box-shadow: none;
     border: 20px solid transparent;
     border-radius: 5px;
     outline: 1px solid #ccc;
     user-select: none;
+    transition: all 0.3s;
+}
+
+dialog img:hover {
+    box-shadow: var(--image-hover-box-shadow);
 }
 
 dialog button {
