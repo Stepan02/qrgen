@@ -62,8 +62,8 @@
     <h2>1. Download ZIP file</h2>
     <p>First, download the ZIP file using the button on the top of this site or button below.</p>
     <p><button class="sec" onclick="download()"><i class="bi bi-download"></i>&nbsp;Download</button></p>
-    <h2>2. Extract ZIP folder</h2>
-    <p>Once you have downloaded the ZIP file, extract it:</p>
+    <h2>2. Extract ZIP folder (optional)</h2>
+    <p>Most browsers should support sideloading from ZIP files by default, but you may have to extract the ZIP file first:</p>
     <ul>
       <li><strong>Windows</strong>: right-click the ZIP file and select Extract All</li>
       <li><strong>macOS</strong>: double-click the ZIP file to extract it</li>
@@ -78,16 +78,15 @@
       <li><strong>Enable Developer mode</strong></li>
       <li>Click "Load unpacked"</li>
       <li>Select the <strong>extracted folder</strong> (<strong>not the downloaded file itself</strong>)</li>
-      <li>Enjoy the extension 😊</li>
+      <li>Enjoy the extension</li>
     </ol>
     <p><strong>Firefox</strong></p>
     <ol>
       <li>Open <code>about:debugging#/runtime/this-firefox</code> page</li>
       <li>Click "Load Temporary Add-on"</li>
-      <li>Select the <code>manifest.json</code> file from the <strong>extracted extension folder</strong></li>
-      <li>Enjoy the extension 😊</li>
+      <li>Select the downloaded ZIP file or <code>manifest.json</code> file from the extracted ZIP file</li>
+      <li>Enjoy the extension</li>
     </ol>
-    <p>You can also <strong>build the extension</strong> with <a href="https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/">web-ext</a>.</p>
     <strong>Something went wrong?</strong>
     <p>Every browser handles extensions differently. For more detailed instructions, please check the official documentation for your browser:</p>
     <div class="grid browsers">
