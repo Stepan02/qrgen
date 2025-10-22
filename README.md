@@ -1,7 +1,8 @@
 # QRgen
-[![CodeQL](https://github.com/Stepan02/qrgen/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/Stepan02/qrgen/actions/workflows/github-code-scanning/codeql)
-[![Run Cypress Tests](https://github.com/Stepan02/qrgen/actions/workflows/cypress.yml/badge.svg)](https://github.com/Stepan02/qrgen/actions/workflows/cypress.yml)
-![GitHub Release](https://img.shields.io/github/v/release/stepan02/qrgen?include_prereleases)
+[![Cypress Tests](https://github.com/Stepan02/qrgen/actions/workflows/cypress.yml/badge.svg)](https://github.com/Stepan02/qrgen/actions/workflows/cypress.yml)
+[![ESLint](https://github.com/Stepan02/qrgen/actions/workflows/eslint.yml/badge.svg)](https://github.com/Stepan02/qrgen/actions/workflows/eslint.yml)
+![GitHub Release](https://img.shields.io/github/v/release/stepan02/qrgen?include_prereleases&sort=semver&display_name=release&label=Release
+)
 
 
 Simple browser extension to generate QR codes
