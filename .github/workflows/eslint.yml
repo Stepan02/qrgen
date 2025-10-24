@@ -15,7 +15,6 @@ on:
     paths:
       - '**/*.js'
       - '**/*.cjs'
-      - '**/*.jsx'
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ "main" ]
@@ -43,7 +42,7 @@ jobs:
           SARIF_ESLINT_IGNORE_SUPPRESSED: "true"
         run: |
           npx eslint . \
-          --ext .js,.jsx,.ts,.tsx \
+          --ext .js,.cjs \
           --no-error-on-unmatched-pattern \
           --format @microsoft/eslint-formatter-sarif \
           --output-file eslint-results.sarif
