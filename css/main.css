@@ -33,6 +33,10 @@ p, summary, details, li, .homepage, .alert {
   font-weight: 300;
 }
 
+.menu-break {
+  height: 100px;
+}
+
 a {
   text-underline-offset: 2px;
 
@@ -170,6 +174,10 @@ details[open] summary {
   font-size: medium;
   text-align: center;
 }
+
+.menu-content .logo-wrapper p.logo {
+  transform: translateY(2px);
+} 
 
 header {
   box-sizing: border-box;
@@ -344,6 +352,14 @@ header .logo-wrapper img {
     background-color: var(--gray-hover);
     transform: translateY(-2px);
   }
+}
+
+.end-align {
+  text-align: end;
+}
+
+#clippy h1 {
+  font-size: 1.5rem;
 }
 
 #clippy .sec {
