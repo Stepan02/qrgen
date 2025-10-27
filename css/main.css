@@ -263,7 +263,7 @@ header .logo-wrapper img {
   width: 30px;
 }
 
-.download {
+.download-button {
   color: white;
   font-family: var(--primary-font);
   background-color: var(--main);
@@ -287,17 +287,21 @@ header .logo-wrapper img {
   }
 }
 
-.menu-br {
+.menu-links-break {
   width: 20px;
 }
 
+.menu-buttons-break {
+  width: 10px;
+}
+
 @media (width >= 768px) {
-  .download {
+  .download-button {
     padding: 10px 30px;
   }
 }
 
-.normal {
+.normal-button-button {
   color: #fff;
   font-family: var(--primary-font);
   font-weight: 400;
@@ -324,12 +328,12 @@ header .logo-wrapper img {
 }
 
 @media (width >= 768px) {
-  .normal {
+  .normal-button {
     padding: 10px 30px;
   }
 }
 
-.sec {
+.secondary-button {
   color: black;
   font-family: var(--primary-font);
   font-weight: 400;
@@ -362,7 +366,7 @@ header .logo-wrapper img {
   font-size: 1.5rem;
 }
 
-#clippy .sec {
+#clippy .secondary-button {
   color: black;
   font-family: var(--primary-font);
   font-weight: 400;
@@ -463,32 +467,28 @@ button[onclick="clippy()"] {
 }
 
 @media (width >= 768px) {
-  .sec {
-    padding: 10px 30px;
-  }
-
-  .ghost {
+  .secondary-button {
     padding: 10px 30px;
   }
 }
 
 @media (width <= 1000px) {
-  .menu-content .sec .download {
+  .menu-content .secondary-button .download-button-button {
       display: none;
   }
 
-  .error-not-found .sec {
+  .error-not-found .secondary-button {
     display: block;
     margin: 0 auto;
   }
 }
 
 @media (width <= 500px) {
-  .sec, .feature-demo, .no-mb, .no-desktop {
+  .secondary-button, .feature-demo, .no-mb, .no-desktop {
     display: none;
   }
 
-  .tutorial .sec {
+  .tutorial .secondary-button {
     display: block;
   }
 
@@ -503,11 +503,11 @@ button[onclick="clippy()"] {
 }
 
 @media (width <= 800px) {
-  .buttons-wrapper .sp, .buttons-wrapper .download, .buttons-wrapper .sec {
+  .buttons-wrapper .menu-link, .buttons-wrapper .download-button, .buttons-wrapper .secondary-button {
     display: none;
   }
 
-  .no-desktop, .buttons-wrapper .sp:nth-last-of-type(1) {
+  .no-desktop, .buttons-wrapper .menu-link:nth-last-of-type(1) {
     display: block;
   }
 
@@ -547,7 +547,7 @@ strong {
   font-size: 4vh;
 }
 
-.sp {
+.menu-link {
   font-size: 1rem;
   text-decoration: none;
   cursor: pointer;
@@ -692,7 +692,7 @@ hr {
     width: 100%;
   }
 
-  #clippy .sec {
+  #clippy .secondary-button {
     display: block;
   }
 
@@ -721,13 +721,13 @@ hr {
 }
 
 @media (width <= 600px) {
-  .sec {
+  .secondary-button {
     width: 100%;
   }
 }
 
 @media (width <= 800px) {
-  .sec[onclick*="demo"] {
+  .secondary-button[onclick*="demo"] {
     display: none;
   }
 
