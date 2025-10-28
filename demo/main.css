@@ -22,7 +22,7 @@
     display: inline-block;
 }
 
-.counter {
+.character-counter {
     color: gray;
     font-size: 12px;
     text-align: right;
@@ -43,13 +43,13 @@ dialog h1 {
     user-select: none;
 }
 
-.head {
+.header {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.head p {
+.header p {
     color: rgb(0 0 0 / 87%);
     font-family: monospace;
     font-weight: 600;
@@ -70,14 +70,14 @@ dialog h1 {
     }
 }
 
-.error-mess {
+.error-message {
     color: var(--error);
     font-family: var(--textarea-font);
     font-weight: 600;
     font-size: small;
 }
 
-.error-mess a {
+.error-message a {
     color: var(--error);
     text-decoration: underline;
     text-decoration-thickness: 1px;
@@ -89,7 +89,7 @@ dialog h1 {
     }
 }
 
-.err {
+.border-error {
     box-shadow: none;
     border: 2px solid var(--error);
 
