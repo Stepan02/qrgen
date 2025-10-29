@@ -19,13 +19,13 @@ qrCode.parentNode.appendChild(downloadLink);
 
 // create protocol error message element
 let errorMessage = document.createElement("span");
-errorMessage.className = "error-mess";
+errorMessage.className = "error-message";
 errorMessage.style.display = "none";
 qrCode.parentNode.appendChild(errorMessage);
 
 // create connection error message element
 let connectionError = document.createElement("span");
-connectionError.className = "error-mess";
+connectionError.className = "error-message";
 connectionError.style.display = "none";
 qrCode.parentNode.appendChild(connectionError);
 
@@ -89,14 +89,14 @@ const unsafeProtocols = ["javascript", "data", "file", "vbscript"];
         errorMessage.style.display = "block";
 
         downloadLink.style.display = "none";
-        inputValue.classList.add("err");
+        inputValue.classList.add("border-error");
 
         console.error(`${match} protocol was blocked`);
         return true;
     }
 
     errorMessage.style.display = "none";
-    inputValue.classList.remove("err");
+    inputValue.classList.remove("border-error");
 
     preValue = "";
     downloadLink.style.display = qrCode.style.visibility === "visible" ? "block" : "none";
@@ -106,7 +106,7 @@ const unsafeProtocols = ["javascript", "data", "file", "vbscript"];
 
 // generate a qr code using shift+enter
 inputValue.addEventListener("keydown", (pressed) => {
-    const { code, shiftKey} = pressed;
+    const { code, shiftKey } = pressed;
 
     if (code === "Enter" && shiftKey) {
         pressed.preventDefault();
@@ -159,10 +159,10 @@ async function copy() {
 
 function updateCounter() {
     const textarea = document.querySelector("textarea"),
-        counter = document.getElementById("char-counter"),
+        counter = document.querySelector(".current-character-counter"),
         maxLength = Number(textarea.getAttribute("maxlength")),
         currentLength = textarea.value.length,
-        maxCounter = document.querySelector("#char-max");
+        maxCounter = document.querySelector(".character-max-count");
 
     counter.textContent = currentLength;
     maxCounter.textContent = maxLength;
@@ -205,4 +205,3 @@ function offlineHandler() {
         generateBtn.style.pointerEvents = "all";
     }
 }
-
