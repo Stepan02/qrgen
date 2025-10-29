@@ -1,5 +1,5 @@
 const modal = document.querySelector("dialog#demo"),
-    exitText = document.querySelector(".head p"),
+    exitText = document.querySelector(".header p"),
     body = document.querySelector("body");
 
 // close the modal when the user clicks the exit text
@@ -50,7 +50,7 @@ function clippy() {
 }
 
 function copyClippy() {
-    const button = document.querySelector("#clippy .normal");
+    const button = document.querySelector("#clippy .normal-button");
     
     // copy the emoji to the user's clipboard
     navigator.clipboard.writeText("📎").then(() => button.innerHTML = "📋 Copied!");
