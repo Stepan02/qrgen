@@ -12,32 +12,32 @@
     <a href="#" class="no-underline">
       <div class="logo-wrapper">
         <img src="assets/logo.png" alt="QRgen logo">
-        <p class="logo" style="transform: translateY(2px)"><h2>QRgen</h2></p>
+        <p class="logo"><h2>QRgen</h2></p>
       </div>
     </a>
     <div class="buttons-wrapper">
       <a class="sp" onclick="tutorial()">Tutorial</a>
-      <div class="menu-br"></div>
+      <div class="menu-links-break"></div>
       <a class="sp" onclick="changelog()">📜 Changelog</a>
-      <div class="menu-br"></div>
-      <button class="download" onclick="download()">Download from <i class="bi bi-github"></i></button>
-      <div style="width: 10px;"></div>
-      <button class="sec" id="openmodal" onclick="demo()">Demo</button>
+      <div class="menu-links-break"></div>
+      <button class="download-button" onclick="download()">Download from <i class="bi bi-github"></i></button>
+      <div class="menu-buttons-break"></div>
+      <button class="secondary-button" id="openmodal" onclick="demo()">Demo</button>
     </div>
   </header>
   <body class="homepage">
-    <div style="height: 100px"></div>
+    <div class="menu-break"></div>
     <div class="modal">
       <dialog id="demo">
         <link rel="stylesheet" href="demo/main.css">
-        <div class="head">
+        <div class="header">
           <h1>QR Generator</h1>
           <p>Press Esc key to exit</p>
         </div>
         <div class="form">
           <textarea type="text" maxlength="2000" placeholder="Enter URL/text,..." spellcheck="false" oninput="updateCounter()"></textarea>
-          <div class="counter">
-              <span id="char-counter">0</span>/<span id="char-max"></span>
+          <div class="character-counter">
+              <span class="current-character-counter">0</span>/<span class="character-max-count"></span>
             </div>
           <div class="cols">
           <p><button type="button" class="generateBtn">Generate</button></p>
@@ -53,20 +53,20 @@
       </dialog>
     </div>
     <dialog id="clippy">
-      <h1 style="font-size: 1.5rem;">📎&nbsp;You found Clippy!</h1>
+      <h1>📎&nbsp;You found Clippy!</h1>
       <hr>
       <p>As an reward, you can copy the emoji here:</p>
       <p class="emoji">📎</p>
-      <button onclick="copyClippy()" class="normal">📋&nbsp;Copy</button>
+      <button onclick="copyClippy()" class="normal-button">📋&nbsp;Copy</button>
       <form method="dialog">
-        <p><button class="sec" onclick="document.querySelector('body').style.overflow = 'visible'">Close</button></p>
+        <p><button class="secondary-button" onclick="document.querySelector('body').style.overflow = 'visible'">Close</button></p>
       </form>
     </dialog>
     <h1>QRgen</h1>
     <p>The pocket QR code generator.</p>
-    Generate a QR code for anything - website, text, number, your infomation,... anywhere, anytime.
-    <br>If you have any questions, check out the <a href="#faq">FAQ</a>.
-    <p><button class="sec" onclick="demo()">Try demo on this page</button></p>
+    Generate a QR code for anything - website, text, number, your infomation,... anywhere, anytime in your favorite browser.
+    <br>Check out the <a href="#faq">FAQ</a> if you have any questions.
+    <p><button class="secondary-button" onclick="demo()">Try demo on this page</button></p>
     <br>
     <div class="grid">
       <div class="feature st">
@@ -95,14 +95,14 @@
       </div>
     </div>
     <br>
-    <div style="text-align: end;">
-      <button class="sp" onclick="clippy()">📎</button>
+    <div class="end-align">
+      <button class="menu-link" onclick="clippy()">📎</button>
     </div>
     <hr>
     <h1>Download</h1>
     <p>QRgen is free to use, <strong>but there's a catch</strong> - you have to install it manually. It's not available on any extension marketplace, as publishing the extension is not worth it just yet. Instead, it's published as a <a href="https://github.com/Stepan02/qrgen/releases">GitHub release</a>. Since you can't install it from the marketplace, you have to <a href="https://en.wikipedia.org/wiki/Sideloading" rel="noopener noreferrer">sideload it</a> into your browser - don't worry, <a href="tutorial.htm">here</a> is a tutorial.</p>
     <p>You can visit the GitHub page by clicking the download button below.</p>
-    <button class="sec" onclick="download()"><i class="bi bi-download"></i>&nbsp;Download</button>
+    <button class="secondary-button" onclick="download()"><i class="bi bi-download"></i>&nbsp;Download</button>
     <p class="no-desktop">Please note that the extension is desktop-only.</p>
     <br>
     <h1 id="faq">FAQ</h1>
