@@ -12,17 +12,17 @@
   <a href="main.htm" class="no-underline">
     <div class="logo-wrapper">
       <img src="assets/logo.png" alt="QRgen logo">
-      <p class="logo" style="transform: translateY(2px)"><h2>QRgen</h2></p>
+      <p class="logo"><h2>QRgen</h2></p>
     </div>
   </a>
   <div class="buttons-wrapper">
-    <a class="sp" onclick="tutorial()">Tutorial</a>
-    <div class="menu-br"></div>
-      <a class="sp" onclick="changelog()">📜 Changelog</a>
-      <div class="menu-br"></div>
-      <button class="download" onclick="download()">Download from <i class="bi bi-github"></i></button>
-      <div style="width: 10px;"></div>
-      <button class="sec" id="openmodal" onclick="demo()">Demo</button>
+    <a class="menu-link" onclick="tutorial()">Tutorial</a>
+    <div class="menu-links-break"></div>
+      <a class="menu-link" onclick="changelog()">📜 Changelog</a>
+      <div class="menu-links-break"></div>
+      <button class="download-button" onclick="download()">Download from <i class="bi bi-github"></i></button>
+      <div class="menu-buttons-break"></div>
+      <button class="secondary-button" id="openmodal" onclick="demo()">Demo</button>
     </div>
 </header>
 <body>
@@ -30,19 +30,19 @@
   <div class="modal">
     <dialog id="demo">
       <link rel="stylesheet" href="demo/main.css">
-      <div class="head">
+      <div class="header">
         <h1>QR Generator</h1>
         <p>Press Esc key to exit</p>
       </div>
-      <div class="form">
-        <textarea type="text" maxlength="2000" placeholder="Enter URL/text,..." spellcheck="false" oninput="updateCounter()"></textarea>
-        <div class="counter">
-            <span id="char-counter">0</span>/<span id="char-max"></span>
+       <div class="form">
+          <textarea type="text" maxlength="2000" placeholder="Enter URL/text,..." spellcheck="false" oninput="updateCounter()"></textarea>
+          <div class="character-counter">
+              <span class="current-character-counter">0</span>/<span class="character-max-count"></span>
+            </div>
+          <div class="cols">
+          <p><button type="button" class="generateBtn">Generate</button></p>
           </div>
-        <div class="cols">
-        <p><button type="button" class="generateBtn">Generate</button></p>
-        </div>
-    </div>
+      </div>
       <div class="qr-code">
         <div class="border">
           <div class="scancontainer">
