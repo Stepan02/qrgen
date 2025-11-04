@@ -100,7 +100,7 @@ button {
     padding-bottom: 10px;
 }
 
-.counter {
+.character-counter {
     color: gray;
     font-family: var(--secondary-font);
     font-size: 12px;
@@ -108,13 +108,13 @@ button {
     user-select: none;
 }
 
-.error-mess, .con-error-mess {
+.error-message, .connection-error-message {
     color: var(--error);
     font-family: var(--textarea-font);
     font-weight: 600;
 }
 
-.error-mess a {
+.error-message a {
     color: var(--error);
     text-decoration: underline;
     text-decoration-thickness: 1px;
@@ -126,7 +126,7 @@ button {
     }
 }
 
-.err {
+.border-error {
     box-shadow: none;
     border: 2px solid var(--error);
 
