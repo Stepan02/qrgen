@@ -1,8 +1,8 @@
 const inputValue = document.querySelector(".form textarea"),
       generateBtn = document.querySelector(".form .generateBtn"),
       qrCode = document.querySelector(".qr-code img"),
-      errorMessage = document.querySelector(".error-mess"),
-      connectionError = document.querySelector(".con-error-mess"),
+      errorMessage = document.querySelector(".error-message"),
+      connectionError = document.querySelector(".connection-error-message"),
       downloadLink = document.querySelector(".download-link");
 let preValue;
 
@@ -70,14 +70,14 @@ function checkProtocols(value) {
         errorMessage.style.display = "block";
 
         downloadLink.style.display = "none";
-        inputValue.classList.add("err");
+        inputValue.classList.add("border-error");
 
         console.error(`${match} protocol was blocked`);
         return true;
     }
 
     errorMessage.style.display = "none";
-    inputValue.classList.remove("err");
+    inputValue.classList.remove("border-error");
 
     preValue = "";
     downloadLink.style.display = qrCode.style.visibility === "visible" ? "block" : "none";
@@ -140,10 +140,10 @@ qrCode.addEventListener("click", copy);
 
 function updateCounter() {
     const textarea = document.querySelector("textarea"),
-        counter = document.getElementById("char-counter"),
+        counter = document.querySelector(".current-character-counter"),
         maxLength = Number(textarea.getAttribute("maxlength")),
         currentLength = textarea.value.length,
-        maxCounter = document.querySelector("#char-max");
+        maxCounter = document.querySelector(".character-max-count");
 
     counter.textContent = currentLength;
     maxCounter.textContent = maxLength;
