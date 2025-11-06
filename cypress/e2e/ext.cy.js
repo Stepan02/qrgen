@@ -10,9 +10,9 @@ describe("QR API test", () => {
     cy.get(".generateBtn").as("generateBtn");
     cy.get(".qr-code img").as("qrImg");
     cy.get(".download-link").as("downloadLink");
-    cy.get(".error-mess").as("errorMessage");
-    cy.get(".con-error-mess").as("connectionErrorMessage");
-    cy.get("#char-counter").as("characterCounter");
+    cy.get(".error-message").as("errorMessage");
+    cy.get(".connection-error-message").as("connectionErrorMessage");
+    cy.get(".current-character-counter").as("characterCounter");
   });
 
   it("Does not generate a blank QR code", () => {
@@ -76,7 +76,7 @@ describe("QR API test", () => {
     cy.get("@generateBtn").click();
 
     cy.get("@characterCounter").should("have.have.css", "color", "rgb(233, 74, 132)") // the character counter should be red
-                                .and("have.css", "font-weight", "900");               // and bold 
+                                .and("have.css", "font-weight", "900");                 // and bold 
 
     cy.generate(safeText);
     cy.get("@characterCounter").should("not.have.css", "color", "rgb(233, 74, 132)"); // the character counter should not be red
