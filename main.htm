@@ -108,72 +108,94 @@
     <h1 id="faq">FAQ</h1>
     <details>
       <summary>Is it possible to save the QR code?</summary>
-      Of course! You can save the QR code as an image and share it! You can download it by clicking the download button, or copy it by clicking on the image.
+      <div class="details-conent">
+        Of course! You can save the QR code as an image and share it! You can download it by clicking the download button, or copy it by clicking on the image.
+      </div>
     </details>
     <br>
     <details>
       <summary>Do I need an internet connection?</summary>
-      Yes. The extension generates QR codes using the <a href="https://goqr.me/api/">goQR</a> API, so you need an internet connection. However, client-side (offline) generation is planned for future release.
+      <div class="details-conent">
+        Yes. The extension generates QR codes using the <a href="https://goqr.me/api/">goQR</a> API, so you need an internet connection. However, client-side (offline) generation is planned for future release.
+      </div>
     </details>
     <br>
     <details>
       <summary>What types of QR codes can I generate?</summary>
-      Here is the list:
-      <ul>
-        <li>URL - <code>https://example.com</code></li>
-        <li>Phone number - <code>tel:123456789</code></li>
-        <li>E-Mail - <code>mailto:email@example.com</code></li>
-      </ul>
+      <div class="details-conent">
+        Here is the list:
+        <ul>
+          <li>URL - <code>https://example.com</code></li>
+          <li>Phone number - <code>tel:123456789</code></li>
+          <li>E-Mail - <code>mailto:email@example.com</code></li>
+        </ul>
+      </div>
     </details>
     <br>
-    <details>
+    <details open>
       <summary>Why can't I generate a QR code with certain protocols?</summary>
-      QR codes are a common attack surface for bad actors - a QR code using a special URL protocol may be used to deliver malicious code.
-      While the risk typically applies to scanning suspicious or unknown QR codes, I want to ensure that this extension is not used to generate such potentially dangerous QR codes.
-      <p>The following protocols are blocked:</p>
-      <ul>
-        <li><code>javascript:</code></li>
-        <li><code>data:</code></li>
-        <li><code>vbscript:</code></li>
-        <li><code>file:</code></li>
-      </ul>
-      <a href="https://security.duke.edu/security-guides/qr-code-security-guide/" target="_blank" rel="noopener noreferrer">Learn more about QR code security</a>
+      <div class="details-conent">
+        QR codes are a common attack surface for bad actors - a QR code using a special URL protocol may be used to deliver malicious code.<br>
+        While the risk typically applies to scanning suspicious or unknown QR codes, I want to ensure that this extension is not used to generate such potentially dangerous QR codes.
+        The following protocols are blocked:
+        <ul class="details-content-list">
+          <li><code>javascript:</code></li>
+          <li><code>data:</code></li>
+          <li><code>vbscript:</code></li>
+          <li><code>file:</code></li>
+        </ul>
+        <a href="https://security.duke.edu/security-guides/qr-code-security-guide/" target="_blank" rel="noopener noreferrer">Learn more about QR code security</a>
+      </div>
     </details>
     <br>
     <details>
       <summary>When is next version coming out?</summary>
-      I don't know. I'll update QRgen when I have some new features and bug fixes, so I can't say "there will be an update every month" or anything.
+      <div class="details-conent">
+        I don't know. I'll update QRgen when I have some new features and bug fixes, so I can't say "there will be an update every month" or anything.
+      </div>
     </details>
     <br>
     <details>
       <summary>How can I update to the current version?</summary>
-      Unfortunately you have to reinstall the extension manually. The extension is not on any marketplace at the moment, but it might be there in the future.
+      <div class="details-conent">
+        Unfortunately you have to reinstall the extension manually. The extension is not on any marketplace at the moment, but it might be there in the future.
+      </div>
     </details>
     <br>
     <details>
       <summary>My QR code hasn't loaded yet, why?</summary>
-      QR code generation time depends on the amount of data you generate, so if you generate a QR code of a few words, the QR code will display almost instantly, but if you send around 200 characters and more, it may take longer. Just wait a few seconds.
+      <div class="details-conent">
+        QR code generation time depends on the amount of data you generate, so if you generate a QR code of a few words, the QR code will display almost instantly, but if you send around 200 characters and more, it may take longer. Just wait a few seconds.
+      </div>
     </details>
     <br>
     <details>
       <summary>Can I download older versions?</summary>
-      You can download them from <a href="https://github.com/Stepan02/qrgen/releases">GitHub</a> but they are not supported, may contain bugs and lack some features.
+      <div class="details-conent">
+        You can download them from <a href="https://github.com/Stepan02/qrgen/releases">GitHub</a> but they are not supported, may contain bugs and lack some features.
+      </div>
     </details>
     <br>
     <details>
       <summary>Why is character input limited to 2,000 characters?</summary>
-      I have set the limit to 2,000 characters to avoid problems with the API (QRgen uses the <a href="https://goqr.me/api/">goQR API</a>). Generating a QR code with a large amount of data also negatively affects the readability of the image. It probably won't happen that you need to enter that much data in the QR code, so the limit won't affect you too much. I may increase this limit in the future, but it depends on the limits for API requests (how many times you can request data and how much data you are allowed to put in the request).
+      <div class="details-conent">
+        I have set the limit to 2,000 characters to avoid problems with the API (QRgen uses the <a href="https://goqr.me/api/">goQR API</a>). Generating a QR code with a large amount of data also negatively affects the readability of the image. It probably won't happen that you need to enter that much data in the QR code, so the limit won't affect you too much. I may increase this limit in the future, but it depends on the limits for API requests (how many times you can request data and how much data you are allowed to put in the request).
+      </div>
     </details>
     <br>
     <details>
       <summary>I want to suggest a feature, how can I do it?</summary>
-      You can check the <a href="https://github.com/Stepan02/qrgen/blob/main/CONTRIBUTING.md#feature-request">contribution guidelines</a> on GitHub. Any suggestion is greatly appreciated!
+      <div class="details-conent">
+        You can check the <a href="https://github.com/Stepan02/qrgen/blob/main/CONTRIBUTING.md#feature-request">contribution guidelines</a> on GitHub. Any suggestion is greatly appreciated!
+      </div>
     </details>
     <br>
     <details>
       <summary>I found a bug, how can I report it?</summary>
-      If you found a bug, please report it on <a href="https://github.com/Stepan02/qrgen/issues/new/choose">GitHub</a> using the "Bug report" issue template.<br>
-      <strong>Do not</strong> create issues or PRs related to security vulnerabilities. Report them <a href="https://github.com/Stepan02/qrgen/security/advisories">here</a>.
+      <div class="details-conent">
+        If you found a bug, please report it on <a href="https://github.com/Stepan02/qrgen/issues/new/choose">GitHub</a> using the "Bug report" issue template.<br>
+        <strong>Do not</strong> create issues or PRs related to security vulnerabilities. Report them <a href="https://github.com/Stepan02/qrgen/security/advisories">here</a>.
+      </div>
     </details>
     <footer>
       <p>Made by <a href="https://www.github.com/Stepan02">Stepan02</a></p>
