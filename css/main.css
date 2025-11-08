@@ -19,7 +19,7 @@
   --main-hover-box-shadow: rgb(3 102 214 / 30%) 0 0 0 3px;
   --sec-box-shadow: rgb(0 0 0 / 2%) 0 1px 3px 0, rgb(27 31 35 / 15%) 0 0 0 1px;
   --header-box-shadow: rgb(0 0 0 / 5%) 0 0px 14px 0, rgb(0 0 0 / 8%) 0 0 0 1px;
-  --selection: rgb(49 49 49 / 12.3%);
+  --selection: rgb(50 151 211 / 10%);
   --feature: rgb(49 49 49);
   --feature-background: #F5F5F5;
   --line: rgb(27 27 27 / 13.7%);
@@ -104,6 +104,7 @@ details {
   padding: 0.5em 0.5em 0;
   box-shadow: var(--sec-box-shadow);
   border-radius: 4px;
+  transition: all 0.1s;
 }
 
 summary {
@@ -120,7 +121,7 @@ summary {
     margin-right: 3px;
     display: inline-block;
     vertical-align: text-bottom;
-    transition: transform 0.1s ease;
+    transition: transform 0.3s ease;
     position: relative;
   }
 
