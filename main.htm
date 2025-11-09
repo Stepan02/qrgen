@@ -176,10 +176,11 @@
       </div>
     </details>
     <br>
-    <details>
-      <summary>Why is character input limited to 2,000 characters?</summary>
+    <details open>
+      <summary>How many data can I put into the QR code?</summary>
       <div class="details-conent">
-        I have set the limit to 2,000 characters to avoid problems with the API (QRgen uses the <a href="https://goqr.me/api/">goQR API</a>). Generating a QR code with a large amount of data also negatively affects the readability of the image. It probably won't happen that you need to enter that much data in the QR code, so the limit won't affect you too much. I may increase this limit in the future, but it depends on the limits for API requests (how many times you can request data and how much data you are allowed to put in the request).
+        Generating a QR code with a large amount of data has a negative effect on the image's readability. You could theoretically put up to 7,089 digits or 4,296 characters, but the QR code becomes unreadable at around 1,000 characters in an image that is about 6 x 6 cm (250 x 250 px) in size. There are plans to add image size settings.<br>
+        I have set the limit to 2,000 characters to avoid problems with the API (QRgen uses the <a href="https://goqr.me/api/">goQR API</a>).
       </div>
     </details>
     <br>
@@ -204,4 +205,3 @@
     <script src="demo/main.js"></script>
   </body>
 </html>
-
