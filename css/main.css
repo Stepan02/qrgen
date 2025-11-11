@@ -403,13 +403,17 @@ button[onclick="clippy()"] {
   color: var(--main);
   font-family: var(--primary-font);
   text-decoration: none;
+  padding: 4px 6px;
+  border: 2px solid var(--main);
+  border-radius: 4px;
   user-select: none;
+  transform: translateY(0);
+  transition: all 0.3s, transform 150ms, box-shadow 150ms;
 
   &:hover { 
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-decoration-color: #332cf2dc;
-    text-underline-offset: 5px;
+    text-decoration: none;
+    box-shadow: var(--main-hover-box-shadow);
+    transform: translateY(-2px);
   }
 }
 
