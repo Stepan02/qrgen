@@ -33,6 +33,10 @@ dialog {
     box-shadow: var(--dialog-box-shadow);
     border: none;
     border-radius: 10px;
+
+    &::backdrop {
+        background-color: rgb(0 0 0 / 10%);
+    }
 }
 
 dialog h1 {
@@ -143,6 +147,7 @@ dialog textarea {
     border-radius: 4px;
     outline: none;
     transition: all 0.3s;
+    scrollbar-color: var(--scrollbar-background) transparent;
 
     &:focus {   
         box-shadow: var(--focus-box-shadow);
@@ -198,19 +203,4 @@ dialog button {
 
 dialog .qr-code {
     text-align: center;
-}
-
-dialog ::-webkit-scrollbar {
-    width: 19px;
-}
-
-dialog ::-webkit-scrollbar-track {
-    background-color: transparent;
-}
-
-dialog ::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-background);
-    border: 6px solid transparent;
-    border-radius: 20px;
-    background-clip: content-box;
 }
