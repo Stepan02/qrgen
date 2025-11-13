@@ -29,6 +29,11 @@
   --code-font: 'JetBrains mono', monospace;
 }
 
+* {
+  scrollbar-color: #ccc var(--body-background);
+  scrollbar-width: thin;
+}
+
 p, summary, details, li, .homepage, .alert {
   font-weight: 300;
 }
@@ -747,21 +752,4 @@ hr {
   .github-link {
     font-size: 1.1rem;
   }
-}
-
-@supports (scrollbar-color: auto) {
-  * {
-    scrollbar-color: #ccc var(--body-background);
-    scrollbar-width: thin;
-  }
-}
-
-@supports selector(::-webkit-scrollbar) {
-  *::-webkit-scrollbar {
-    background: #ccc;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background: var(--body-background);
-  }
-}
+}
