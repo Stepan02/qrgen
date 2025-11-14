@@ -15,6 +15,7 @@
   --alert-heading: #333;
   --error: #e94a84;
   --error-badge: #df80ff1c;
+  --scrollbar-background: rgb(3 102 214 / 30%);
   --gray-hover: #f5f5f581;
   --main-hover-box-shadow: rgb(3 102 214 / 30%) 0 0 0 3px;
   --sec-box-shadow: rgb(0 0 0 / 2%) 0 1px 3px 0, rgb(27 31 35 / 15%) 0 0 0 1px;
@@ -30,9 +31,9 @@
 }
 
 * {
-  scrollbar-color: #ccc var(--body-background);
+  scrollbar-color: var(--scrollbar-background) transparent;
   scrollbar-width: thin;
-}
+}
 
 p, summary, details, li, .homepage, .alert {
   font-weight: 300;
@@ -752,4 +753,4 @@ hr {
   .github-link {
     font-size: 1.1rem;
   }
-}
+}
