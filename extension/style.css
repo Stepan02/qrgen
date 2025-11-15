@@ -15,6 +15,12 @@
     --button-box-shadow-hover: rgb(0 0 0 / 15%) 0 3px 9px 0;
     --error: #e94a84;
     --error-box-shadow: rgb(233 74 132 / 10%) 0 0 0 1px inset, rgb(233 74 132 / 20%) 0 6px 15px 0, rgb(0 0 0 / 10%) 0 2px 2px 0, rgb(233 74 132 / 30%) 0 0 0 4px;
+    --scrollbar-background: rgb(3 102 214 / 30%);
+}
+
+* {
+  scrollbar-color: var(--scrollbar-background) transparent;
+  scrollbar-width: thin;
 }
 
 h1 {
