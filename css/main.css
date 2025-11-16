@@ -622,8 +622,9 @@ hr {
   color: var(--alert-heading);
   font-weight: 200;
   font-size: 1rem;
-  background-color: var(--feature-background);
+  background-color: var(--gray-hover);
   padding: 2px 4px;
+  margin-left: 10px;
   box-shadow: var(--sec-box-shadow);
   border-radius: 3px;
   user-select: none;
