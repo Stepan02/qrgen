@@ -10,7 +10,8 @@
     --primary-font: ubuntu, sans-serif;
     --textarea-font: 'JetBrains Mono', monospace;
     --button-box-shadow: rgb(0 0 0 / 10%) 0 2px 4px 0;
-    --button-box-shadow-hover: rgb(0 0 0 / 15%) 0 3px 9px 0;--dialog-box-shadow: rgb(0 0 0 / 1%) 0 1px 3px 0, rgb(27 31 35 / 5%) 0 0 0 1px;
+    --button-box-shadow-hover: rgb(0 0 0 / 15%) 0 3px 9px 0;
+    --dialog-box-shadow: rgb(0 0 0 / 1%) 0 1px 3px 0, rgb(27 31 35 / 5%) 0 0 0 1px;
     --focus-box-shadow: rgb(50 50 93 / 10%) 0 0 0 1px inset, rgb(50 50 93 / 20%) 0 6px 15px 0, rgb(0 0 0 / 10%) 0 2px 2px 0, rgb(50 151 211 / 30%) 0 0 0 4px;
     --image-hover-box-shadow: rgb(0 0 0 / 5%) 0 1px 14px 0, rgb(0 0 0 / 8%) 0 0 0 1px;
     --error: #e94a84;
@@ -132,6 +133,11 @@ dialog h1 {
         transform: translateY(2px);
         transition: all .3s;
     }
+
+    &:focus {
+        outline: none;
+        text-decoration-thickness: 2px;
+    }
 }
 
 dialog textarea {
@@ -198,6 +204,10 @@ dialog button {
         background-color: var(--main);
         box-shadow: var(--button-box-shadow-hover);
         transform: translateY(-2px);
+    }
+
+    &:focus-visible {
+        box-shadow: var(--focus-box-shadow);
     }
 }
 
