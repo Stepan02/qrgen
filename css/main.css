@@ -55,7 +55,7 @@ a {
     text-decoration: none;
   }
 
-  &:focus {
+  &:focus-visible {
     outline: none;
     text-decoration-thickness: 2px;
   }
@@ -264,7 +264,7 @@ a.no-underline {
   transition: all 0.3s, transform 150ms, box-shadow 150ms;
   touch-action: manipulation;
   
-  &:focus {
+  &:focus-visible {
     border: none;
     outline: 2px solid var(--heading);
   }
@@ -308,7 +308,7 @@ header .logo-wrapper img {
     transform: translateY(-2px);
   }
 
-  &:focus {
+  &:focus-visible {
     outline: 2px solid var(--main);
     border: 2px solid white;
   }
@@ -352,7 +352,7 @@ header .logo-wrapper img {
     transform: translateY(-2px);
   }
 
-  &:focus {
+  &:focus-visible {
     outline: 2px solid var(--main);
     border: 2px solid white;
   }
@@ -388,7 +388,7 @@ header .logo-wrapper img {
     transform: translateY(-2px);
   }
 
-  &:focus {
+  &:focus-visible {
     border: none;
     outline: 2px solid var(--heading);
   }
@@ -483,7 +483,7 @@ button[onclick="clippy()"] {
     cursor: default;
   }
 
-  &:focus {
+  &:focus-visible {
     box-shadow: rgb(50 50 93 / 10%) 0 0 0 1px inset, rgb(50 50 93 / 20%) 0 6px 15px 0, rgb(0 0 0 / 10%) 0 2px 2px 0, rgb(50 151 211 / 30%) 0 0 0 4px;
   }
 }
