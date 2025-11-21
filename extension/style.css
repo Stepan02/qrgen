@@ -25,14 +25,14 @@
 
 h1 {
     color: rgb(0 0 0 / 84.9%);
-    font-family: var(--primary-font);
+    font-family: var(--primary-font), sans-serif;
     font-size: x-large;
     white-space: nowrap;
     user-select: none;
 }
 
 textarea {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--textarea-font), monospace;
     font-weight: 500;
     font-size: 1rem;
     width: 400px;
@@ -76,7 +76,7 @@ img:hover {
 button {
     color: var(--main);
     background-color: transparent;
-    font-family: var(--primary-font);
+    font-family: var(--primary-font), sans-serif;
     font-weight: 500;
     font-size: 16px;
     text-align: center;
@@ -99,6 +99,12 @@ button {
         box-shadow: var(--button-box-shadow-hover);
         transform: translateY(-2px);
     }
+
+    &:focus-visible {
+        color: white;
+        background-color: var(--main);
+        box-shadow: var(--focus-box-shadow);
+    }
 }
 
 .qr-code {
@@ -108,7 +114,7 @@ button {
 
 .character-counter {
     color: gray;
-    font-family: var(--secondary-font);
+    font-family: var(--secondary-font), sans-serif;
     font-size: 12px;
     text-align: right;
     user-select: none;
@@ -116,7 +122,7 @@ button {
 
 .error-message, .connection-error-message {
     color: var(--error);
-    font-family: var(--textarea-font);
+    font-family: var(--textarea-font), sans-serif;
     font-weight: 600;
 }
 
@@ -143,7 +149,7 @@ button {
 }
 
 .download-link {
-    font-family: var(--textarea-font);
+    font-family: var(--textarea-font), monospace;
     font-weight: 500;
     font-size: 1rem;
     text-decoration: underline;
