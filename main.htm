@@ -35,7 +35,7 @@
           <p>Press Esc key to exit</p>
         </div>
         <div class="form">
-          <textarea type="text" maxlength="2000" placeholder="Enter URL/text,..." spellcheck="false" oninput="updateCounter()"></textarea>
+          <textarea id="input" maxlength="2000" placeholder="Enter URL/text,..." spellcheck="false" oninput="updateCounter()"></textarea>
           <div class="character-counter">
               <span class="current-character-counter">0</span>/<span class="character-max-count"></span>
             </div>
@@ -55,7 +55,7 @@
     <dialog id="clippy">
       <h1>📎&nbsp;You found Clippy!</h1>
       <hr>
-      <p>As an reward, you can copy the emoji here:</p>
+      <p>As a reward, you can copy the emoji here:</p>
       <p class="emoji">📎</p>
       <button onclick="copyClippy()" class="normal-button">📋&nbsp;Copy</button>
       <form method="dialog">
@@ -108,21 +108,21 @@
     <h1 id="faq">FAQ</h1>
     <details>
       <summary>Is it possible to save the QR code?</summary>
-      <div class="details-conent">
+      <div class="details-content">
         Of course! You can save the QR code as an image and share it! You can download it by clicking the download button, or copy it by clicking on the image.
       </div>
     </details>
     <br>
     <details>
       <summary>Do I need an internet connection?</summary>
-      <div class="details-conent">
+      <div class="details-content">
         Yes. The extension generates QR codes using the <a href="https://goqr.me/api/">goQR</a> API, so you need an internet connection. However, client-side (offline) generation is planned for future release.
       </div>
     </details>
     <br>
     <details>
       <summary>What types of QR codes can I generate?</summary>
-      <div class="details-conent">
+      <div class="details-content">
         Here is the list:
         <ul>
           <li>URL - <code>https://example.com</code></li>
@@ -134,7 +134,7 @@
     <br>
     <details>
       <summary>Why can't I generate a QR code with certain protocols?</summary>
-      <div class="details-conent">
+      <div class="details-content">
         QR codes are a common attack surface for bad actors - a QR code using a special URL protocol may be used to deliver malicious code.<br>
         While the risk typically applies to scanning suspicious or unknown QR codes, I want to ensure that this extension is not used to generate such potentially dangerous QR codes.
         The following protocols are blocked:
@@ -150,35 +150,35 @@
     <br>
     <details>
       <summary>When is next version coming out?</summary>
-      <div class="details-conent">
+      <div class="details-content">
         I don't know. I have a few features planned, but I can't promise any release date. I'll release a new version when some interesting features are finished.
       </div>
     </details>
     <br>
     <details>
       <summary>How can I update to the current version?</summary>
-      <div class="details-conent">
+      <div class="details-content">
         Unfortunately you have to reinstall the extension manually. The extension is not on any marketplace at the moment, but it might be there in the future.
       </div>
     </details>
     <br>
     <details>
       <summary>My QR code hasn't loaded yet, why?</summary>
-      <div class="details-conent">
+      <div class="details-content">
         QR code generation time depends on the amount of data you generate, so if you generate a QR code of a few words, the QR code will display almost instantly, but if you send around 200 characters and more, it might take longer. Just wait a few seconds.
       </div>
     </details>
     <br>
     <details>
       <summary>Can I download older versions?</summary>
-      <div class="details-conent">
-        You can download them from <a href="https://github.com/Stepan02/qrgen/releases">GitHub</a> but they are not supported, may contain bugs and lack some features.
+      <div class="details-content">
+        You can download them from <a href="https://github.com/Stepan02/qrgen/releases">GitHub</a>, but they are not supported, may contain bugs and lack some features.
       </div>
     </details>
     <br>
     <details>
       <summary>How many data can I put into the QR code?</summary>
-      <div class="details-conent">
+      <div class="details-content">
         Generating a QR code with a large amount of data has a negative effect on the image's readability. You could theoretically put up to 7,089 digits or 4,296 characters, but the QR code becomes unreadable at around 1,000 characters in an image that is about 6 x 6 cm (250 x 250 px) in size. There are plans to add image size settings.<br>
         I have set the limit to 2,000 characters to avoid problems with the API (QRgen uses the <a href="https://goqr.me/api/">goQR API</a>).
       </div>
@@ -186,14 +186,14 @@
     <br>
     <details>
       <summary>I want to suggest a feature, how can I do it?</summary>
-      <div class="details-conent">
+      <div class="details-content">
         You can check the <a href="https://github.com/Stepan02/qrgen/blob/main/CONTRIBUTING.md#feature-request">contribution guidelines</a> on GitHub. Any suggestion is greatly appreciated!
       </div>
     </details>
     <br>
     <details>
       <summary>I found a bug, how can I report it?</summary>
-      <div class="details-conent">
+      <div class="details-content">
         If you found a bug, please report it on <a href="https://github.com/Stepan02/qrgen/issues/new/choose">GitHub</a> using the "Bug report" issue template.<br>
         <strong>Do not</strong> create issues or PRs related to security vulnerabilities. Report them <a href="https://github.com/Stepan02/qrgen/security/advisories">here</a>.
       </div>
