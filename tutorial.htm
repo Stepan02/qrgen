@@ -35,8 +35,10 @@
         <p>Press Esc key to exit</p>
       </div>
       <div class="form">
-        <textarea type="text" maxlength="2000" placeholder="Enter URL/text,..." spellcheck="false" oninput="updateCounter()"></textarea>
-        <div class="character-counter">
+          <label>
+              <textarea maxlength="2000" oninput="updateCounter()" placeholder="Enter URL/text,..." spellcheck="false"></textarea>
+          </label>
+          <div class="character-counter">
             <span class="current-character-counter">0</span>/<span class="character-max-count"></span>
           </div>
         <div class="cols">
@@ -56,7 +58,7 @@
   <p>Wondering how to add an extension to your browser? Here's how:</p>
   <div class="alert">
     <strong>The extension is not available at any browser extension marketplace yet</strong><br>
-    Therefore it must be downloaded from GitHub repository. You can find the latest release <a href="https://github.com/Stepan02/qrgen/releases">here</a>.
+    Therefore, it must be downloaded from GitHub repository. You can find the latest release <a href="https://github.com/Stepan02/qrgen/releases">here</a>.
   </div>
   <div class="tutorial">
     <h2>1. Download ZIP file</h2>
