@@ -307,6 +307,11 @@ header .logo-wrapper img {
     outline: 2px solid var(--main);
     border: 2px solid white;
   }
+
+  &:active {
+    transform: translateY(2px);
+    transition: all 0.3s;
+  }
 }
 
 .menu-links-break {
@@ -351,6 +356,11 @@ header .logo-wrapper img {
     outline: 2px solid var(--main);
     border: 2px solid white;
   }
+
+  &:active {
+    transform: translateY(2px);
+    transition: all 0.3s;
+  }
 }
 
 @media (width >= 768px) {
@@ -386,6 +396,11 @@ header .logo-wrapper img {
   &:focus-visible {
     border: none;
     outline: 2px solid var(--heading);
+  }
+
+  &:active {
+    transform: translateY(2px);
+    transition: all 0.3s;
   }
 }
 
