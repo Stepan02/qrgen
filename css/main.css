@@ -140,6 +140,11 @@ summary {
   &:hover {
     background-color: var(--feature-background);
   }
+
+  &:focus-visible {
+    border: 2px solid var(--main);
+    outline: none;
+  }
 }
 
 details[open] {
@@ -258,21 +263,26 @@ a.no-underline {
   transform: translateY(0);
   transition: all 0.3s, transform 150ms, box-shadow 150ms;
   touch-action: manipulation;
-  
+
+  &:hover {
+    background-color: var(--gray-hover);
+    transition: all 0.3s;
+    transform: translateY(-2px);
+ }
+
   &:focus-visible {
     border: none;
     outline: 2px solid var(--heading);
+  }
+
+  &:active {
+    transform: translateY(2px);
+    transition: all 0.3s;
   }
 }
 
 p a:visited {
   color: var(--main);
-}
-
-.browsers a:hover {
-  background-color: var(--gray-hover);
-  transition: all 0.3s;
-  transform: translateY(-2px);
 }
 
 header .logo-wrapper img {
