@@ -53,6 +53,7 @@ module.exports = [
       "no-unused-vars": "off",
       "no-console": "off",
       "camelcase": ["error", {"properties": "always"}],
+      "max-len": ["error", 120],
       eqeqeq: "error",
       curly: "error",
       semi: ["error", "always"],
