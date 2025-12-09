@@ -1,16 +1,18 @@
-const modal = document.querySelector("dialog#demo"),
-    exitText = document.querySelector(".header p"),
-    body = document.querySelector("body");
+const demoModal   = document.querySelector("dialog#demo"),
+      exitText    = document.querySelector(".header p"),
+      body        = document.querySelector("body"),
+      clippyModal = document.querySelector("#clippy"),
+      copyButton  = document.querySelector("#clippy .normal-button");
 
 // close the modal when the user clicks the exit text
-exitText.addEventListener("click", closeModal);
+exitText.addEventListener("click",  closeModal);
 
 // re-enable scrolling when the modal is closed
-modal.addEventListener("close", closeModal);
+demoModal.addEventListener("close", closeModal);
 
 function demo() {
     // open the modal
-    modal.showModal();
+    demoModal.showModal();
 
     // disable scrolling when the modal is open
     body.classList.add("no-scroll");
@@ -21,7 +23,7 @@ function closeModal() {
     body.classList.remove("no-scroll");
 
     // close the modal
-    modal.close();
+    demoModal.close();
 }
 
 // navbar links
@@ -42,23 +44,19 @@ function tutorial() {
 }
 
 function clippy() {
-    const clippymodal = document.querySelector("#clippy");
-
     // open the modal
-    clippymodal.showModal();
-    document.querySelector("body").style.overflow = "hidden"; // disable scrolling when the modal is opened
+    clippyModal.showModal();
+    body.style.overflow = "hidden"; // disable scrolling when the modal is opened
 }
 
 function copyClippy() {
-    const button = document.querySelector("#clippy .normal-button");
-    
     // copy the emoji to the user's clipboard
-    navigator.clipboard.writeText("📎").then(() => button.innerHTML = "📋 Copied!");
+    navigator.clipboard.writeText("📎").then(() => copyButton.innerHTML = "📋 Copied!");
 }
 
 // show current url endpoint on the 404 page
-const url = document.location.pathname,
-    place = document.querySelector(".url");
+const url   = document.location.pathname,
+      place = document.querySelector(".url");
 
 if (place) {
     place.innerHTML = url; // show the url if place element exists
