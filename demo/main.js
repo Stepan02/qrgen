@@ -1,7 +1,7 @@
 const inputValue     = document.querySelector(".form textarea"),
-      generateButton = document.querySelector(".form .generateButton"),
-      qrCode         = document.querySelector(".qr-code img");
-let preValue;
+      generateButton = document.querySelector(".form .generateBtn"),
+      qrCodeImage    = document.querySelector(".qr-code img");
+let previousValue;
 
 // qr code config
 let limit  = 2000,
@@ -9,7 +9,7 @@ let limit  = 2000,
     color  = "0f0e0e",
     apiUrl = "https://api.qrserver.com/v1/create-qr-code/";
 
-qrCode.style.cursor = "pointer";
+qrCodeImage.style.cursor = "pointer";
 
 // create download link
 let downloadLink = document.createElement("div");
@@ -18,7 +18,7 @@ downloadLink.className     = "download-link";
 downloadLink.style.display = "none";
 downloadLink.textContent   = "Download";
 
-qrCode.parentNode.appendChild(downloadLink);
+qrCodeImage.parentNode.appendChild(downloadLink);
 
 // create protocol error message element
 let errorMessage = document.createElement("span");
@@ -26,7 +26,7 @@ let errorMessage = document.createElement("span");
 errorMessage.className     = "error-message";
 errorMessage.style.display = "none";
 
-qrCode.parentNode.appendChild(errorMessage);
+qrCodeImage.parentNode.appendChild(errorMessage);
 
 // create connection error message element
 let connectionError = document.createElement("span");
@@ -34,28 +34,28 @@ let connectionError = document.createElement("span");
 connectionError.className     = "error-message";
 connectionError.style.display = "none";
 
-qrCode.parentNode.appendChild(connectionError);
+qrCodeImage.parentNode.appendChild(connectionError);
 
 // generate a qr code
 function generate() {
     const value = inputValue.value.trim();
 
     // does not regenerate on empty input or if the input stays the same
-    if (!value || value === preValue) { return; }
+    if (!value || value === previousValue) { return; }
 
     // does not generate when the input is over the character limit
     if (limit > 0 && value.length > limit) { return; }
     
     if (checkProtocols(value)) {
-        qrCode.src = "";
+        qrCodeImage.src = "";
         return;
     }
 
-    preValue   = value;
-    qrCode.src = `${apiUrl}?size=${size}&color=${color}&data=${encodeURIComponent(value)}`;
+    previousValue   = value;
+    qrCodeImage.src = `${apiUrl}?size=${size}&color=${color}&data=${encodeURIComponent(value)}`;
 
-    qrCode.style.cursor = "pointer";
-    qrCode.title        = "Click to copy";
+    qrCodeImage.style.cursor = "pointer";
+    qrCodeImage.title        = "Click to copy";
 
     downloadLink.style.display = "block";
 }
@@ -115,9 +115,9 @@ function checkProtocols(value) {
     errorMessage.style.display = "none";
     inputValue.classList.remove("border-error");
 
-    preValue = "";
-    
-    downloadLink.style.display = qrCode.style.visibility === "visible" ? "block" : "none";
+    previousValue = "";
+
+    downloadLink.style.display = qrCodeImage.style.visibility === "visible" ? "block" : "none";
 
     return false;
 }
@@ -134,7 +134,8 @@ inputValue.addEventListener("keydown", (pressed) => {
 
 // download function
 downloadLink.addEventListener("click", async () => {
-    const imageUrl = qrCode.src;
+    const imageUrl = qrCodeImage.src;
+
     if (!imageUrl) { return; }
 
     try {
@@ -153,25 +154,25 @@ downloadLink.addEventListener("click", async () => {
 
 // copy a qr code using control+shift+c or meta+shift+c
 window.addEventListener("keydown", ({ code, shiftKey, ctrlKey, metaKey }) => {
-    if (!qrCode) { return; }
+    if (!qrCodeImage) { return; }
 
     if (code === "KeyC" && shiftKey && (ctrlKey || metaKey)) { copy(); }
 });
 
 // copy a qr code by clicking the image
-qrCode.addEventListener("click", copy);
+qrCodeImage.addEventListener("click", copy);
 
 // copy function
 async function copy() {
     try {
-        const image = await fetch(qrCode.src),
+        const image = await fetch(qrCodeImage.src),
               blob  = await image.blob();
 
         // write the image to the clipboard
         const clipboardItem = new ClipboardItem({ [blob.type]: blob });
         await navigator.clipboard.write([clipboardItem]);
 
-        console.log(`Image has been copied to clipboard: ${qrCode.src}`);
+        console.log(`Image has been copied to clipboard: ${qrCodeImage.src}`);
     } catch (copyError) {
         console.error(`Failed to copy image: ${copyError}`);
     }
@@ -221,7 +222,7 @@ function offlineHandler() {
         // hide download link and qr code
         downloadLink.style.display = "none";
 
-        qrCode.src = "";
+        qrCodeImage.src = "";
     } else {
         connectionError.style.display = "none";
 
