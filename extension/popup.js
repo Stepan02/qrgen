@@ -1,43 +1,44 @@
-const inputValue      = document.querySelector(".form textarea"),
-      generateBtn     = document.querySelector(".form .generateBtn"),
-      qrCode          = document.querySelector(".qr-code img"),
-      errorMessage    = document.querySelector(".error-message"),
-      connectionError = document.querySelector(".connection-error-message"),
-      downloadLink    = document.querySelector(".download-link");
-let preValue;
+const inputValue             = document.querySelector(".form textarea"),
+      generateButton         = document.querySelector(".form .generateBtn"),
+      qrCodeImage            = document.querySelector(".qr-code img"),
+      errorMessage           = document.querySelector(".error-message"),
+      connectionErrorMessage = document.querySelector(".connection-error-message"),
+      downloadLink           = document.querySelector(".download-link");
+let previousValue;
 
 // qr code config
 let limit  = 2000,
     size   = "250x250",
     color  = "0f0e0e",
-    apiUrl = 'https://api.qrserver.com/v1/create-qr-code/';
+    apiUrl = "https://api.qrserver.com/v1/create-qr-code/";
 
 // generate a qr code
 function generate() {
     const value = inputValue.value.trim();
     
     // does not regenerate on empty input or if the input stays the same
-    if (!value || value === preValue) { return; }
+    if (!value || value === previousValue) { return; }
 
     // does not generate when the input is over the character limit
     if (limit > 0 && value.length > limit) { return; }
 
+    // hide the qr code if the protocol check fails
     if (checkProtocols(value)) {
-        qrCode.src = "";
+        qrCodeImage.src = "";
         return;
     }
 
-    preValue   = value;
-    qrCode.src = `${apiUrl}?size=${size}&color=${color}&data=${encodeURIComponent(value)}`;
+    previousValue   = value;
+    qrCodeImage.src = `${apiUrl}?size=${size}&color=${color}&data=${encodeURIComponent(value)}`;
 
-    qrCode.style.cursor = "pointer";
-    qrCode.title        = "Click to copy";
+    qrCodeImage.style.cursor = "pointer";
+    qrCodeImage.title        = "Click to copy";
 
     downloadLink.style.display = "block";
 }
 
 // attach generate function to the generate button
-generateBtn.addEventListener("click", generate);
+generateButton.addEventListener("click", generate);
 
 // check for dangerous protocols on input change
 inputValue.addEventListener("input", () => {
@@ -86,8 +87,8 @@ function checkProtocols(value) {
     errorMessage.style.display = "none";
     inputValue.classList.remove("border-error");
 
-    preValue = "";
-    downloadLink.style.display = qrCode.style.visibility === "visible" ? "block" : "none";
+    previousValue = "";
+    downloadLink.style.display = qrCodeImage.style.visibility === "visible" ? "block" : "none";
 
     return false;
 }
@@ -104,14 +105,14 @@ inputValue.addEventListener("keydown", (pressed) => {
 
 // copy a qr code using control+shift+c or meta+shift+c
 window.addEventListener("keydown", ({ code, shiftKey, ctrlKey, metaKey }) => {
-    if (!qrCode) { return; }
+    if (!qrCodeImage) { return; }
 
-    if (code === "KeyC" && shiftKey && (ctrlKey || metaKey)) { copy(); }
+    if (code === "KeyC" && shiftKey && (ctrlKey || metaKey)) { void copy(); }
 });
 
 // download function
 downloadLink.addEventListener("click", async () => {
-    const imageUrl = qrCode.src;
+    const imageUrl = qrCodeImage.src;
     if (!imageUrl) { return; }
 
     try {
@@ -131,38 +132,38 @@ downloadLink.addEventListener("click", async () => {
 // copy function
 async function copy() {
     try {
-        const image = await fetch(qrCode.src),
+        const image = await fetch(qrCodeImage.src),
               blob  = await image.blob();
 
         // write the image to the clipboard
         const clipboardItem = new ClipboardItem({ [blob.type]: blob });
         await navigator.clipboard.write([clipboardItem]);
 
-        console.log(`Image has been copied to clipboard: ${qrCode.src}`);
+        console.log(`Image has been copied to clipboard: ${qrCodeImage.src}`);
     } catch (copyError) {
         console.error(`Failed to copy image: ${copyError}`);
     }
 }
 
 // copy a qr code by clicking the image
-qrCode.addEventListener("click", copy);
+qrCodeImage.addEventListener("click", copy);
 
 function updateCounter() {
-    const textarea      = document.querySelector("textarea"),
-          counter       = document.querySelector(".current-character-counter"),
-          maxLength     = Number(textarea.getAttribute("maxlength")),
-          currentLength = textarea.value.length,
-          maxCounter    = document.querySelector(".character-max-count");
+    const textarea              = document.querySelector("textarea"),
+          characterCounter      = document.querySelector(".current-character-counter"),
+          textareaMaxLength     = Number(textarea.getAttribute("maxlength")),
+          textareaCurrentLength = textarea.value.length,
+          maxCharacterCount     = document.querySelector(".character-max-count");
 
-    counter.textContent    = currentLength.toString();
-    maxCounter.textContent = maxLength.toString();
+    characterCounter.textContent  = textareaCurrentLength.toString();
+    maxCharacterCount.textContent = textareaMaxLength.toString();
 
-    if (currentLength === maxLength) {
-        counter.style.color      = "var(--error)";
-        counter.style.fontWeight = 900;
+    if (textareaCurrentLength === textareaMaxLength) {
+        characterCounter.style.color      = "var(--error)";
+        characterCounter.style.fontWeight = 900;
     } else {
-        counter.style.color      = "gray";
-        counter.style.fontWeight = 500;
+        characterCounter.style.color      = "gray";
+        characterCounter.style.fontWeight = 500;
     }
 }
 
@@ -187,21 +188,21 @@ function offlineHandler() {
     
     if (!connection) {
         // display error message
-        connectionError.textContent   = "You are offline. QR code generation is unavailable.";
-        connectionError.style.display = "block";
+        connectionErrorMessage.textContent   = "You are offline. QR code generation is unavailable.";
+        connectionErrorMessage.style.display = "block";
 
         // hide generate button
-        generateBtn.style.visibility    = "hidden";
-        generateBtn.style.pointerEvents = "none";
+        generateButton.style.visibility    = "hidden";
+        generateButton.style.pointerEvents = "none";
 
         // hide download link and qr code
         downloadLink.style.display = "none";
-          
-        qrCode.src = "";
-    } else {
-        connectionError.style.display = "none";
 
-        generateBtn.style.visibility    = "visible";
-        generateBtn.style.pointerEvents = "all";
+        qrCodeImage.src = "";
+    } else {
+        connectionErrorMessage.style.display = "none";
+
+        generateButton.style.visibility    = "visible";
+        generateButton.style.pointerEvents = "all";
     }
 }
