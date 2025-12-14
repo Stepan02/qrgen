@@ -18,8 +18,10 @@
   --scrollbar-background: rgb(3 102 214 / 30%);
   --gray-hover: #f5f5f581;
   --main-hover-box-shadow: rgb(3 102 214 / 30%) 0 0 0 3px;
-  --sec-box-shadow: rgb(0 0 0 / 2%) 0 1px 3px 0, rgb(27 31 35 / 15%) 0 0 0 1px;
-  --header-box-shadow: rgb(0 0 0 / 5%) 0 0px 14px 0, rgb(0 0 0 / 8%) 0 0 0 1px;
+  --sec-box-shadow: rgb(0 0 0 / 2%) 0 1px 3px 0,
+                    rgb(27 31 35 / 15%) 0 0 0 1px;
+  --header-box-shadow: rgb(0 0 0 / 5%) 0 0px 14px 0,
+                       rgb(0 0 0 / 8%) 0 0 0 1px;
   --selection: rgb(50 151 211 / 10%);
   --feature: rgb(49 49 49);
   --feature-background: #F5F5F5;
@@ -652,6 +654,10 @@ hr {
 .ver h2 {
   font-family: var(--primary-font), sans-serif;
   font-weight: 700;
+}
+
+.ver a {
+    text-decoration: none;
 }
 
 .ver .date {
