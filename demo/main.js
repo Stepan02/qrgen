@@ -17,6 +17,7 @@ let downloadLink = document.createElement("div");
 downloadLink.className     = "download-link";
 downloadLink.style.display = "none";
 downloadLink.textContent   = "Download";
+downloadLink.setAttribute("tabindex", "0");
 
 qrCodeImage.parentNode.appendChild(downloadLink);
 
@@ -230,3 +231,4 @@ function offlineHandler() {
         generateButton.style.pointerEvents = "all";
     }
 }
+
