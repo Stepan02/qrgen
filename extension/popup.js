@@ -35,6 +35,7 @@ function generate() {
     qrCodeImage.title        = "Click to copy";
 
     downloadLink.style.display = "block";
+    downloadLink.setAttribute("tabindex", "0");
 }
 
 // attach generate function to the generate button
