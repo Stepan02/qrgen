@@ -1,12 +1,12 @@
 const inputValue     = document.querySelector(".form textarea"),
       generateButton = document.querySelector(".form .generateBtn"),
-      qrCodeImage    = document.querySelector(".qr-code img");
+      qrCodeImage    = document.querySelector(".qr-code img"),
+      qrCodeColor    = document.querySelector(".form #color");
 let previousValue;
 
 // qr code config
 let limit  = 2000,
     size   = "250x250",
-    color  = "0f0e0e",
     apiUrl = "https://api.qrserver.com/v1/create-qr-code/";
 
 qrCodeImage.style.cursor = "pointer";
@@ -17,6 +17,7 @@ let downloadLink = document.createElement("div");
 downloadLink.className     = "download-link";
 downloadLink.style.display = "none";
 downloadLink.textContent   = "Download";
+
 downloadLink.setAttribute("tabindex", "0");
 
 qrCodeImage.parentNode.appendChild(downloadLink);
@@ -39,7 +40,8 @@ qrCodeImage.parentNode.appendChild(connectionError);
 
 // generate a qr code
 function generate() {
-    const value = inputValue.value.trim();
+    const value = inputValue.value.trim(),
+          color = qrCodeColor.value.substring(1, 7); // remove # from the hex code
 
     // does not regenerate on empty input or if the input stays the same
     if (!value || value === previousValue) { return; }
@@ -231,4 +233,5 @@ function offlineHandler() {
         generateButton.style.pointerEvents = "all";
     }
 }
+
 
