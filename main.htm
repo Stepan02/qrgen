@@ -35,7 +35,14 @@
           <p>Press Esc key to exit</p>
         </div>
         <div class="form">
-          <textarea id="input" maxlength="2000" placeholder="Enter URL/text,..." spellcheck="false" oninput="updateCounter()"></textarea>
+            <label>
+                <textarea id="input" maxlength="2000" placeholder="Enter URL/text,..." spellcheck="false" oninput="updateCounter()"></textarea>
+            </label>
+            <p>
+              <label>
+                <input id="color" type="color" title="Select color">
+              </label>
+            </p>
           <div class="character-counter">
               <span class="current-character-counter">0</span>/<span class="character-max-count"></span>
             </div>
@@ -64,7 +71,7 @@
     </dialog>
     <h1>QRgen</h1>
     <p>The pocket QR code generator.</p>
-    Generate a QR code for anything - website, text, number, your infomation,... anywhere, anytime in your favorite browser.
+    Generate a QR code for anything - website, text, number, your information,... anywhere, anytime in your favorite browser.
     <br>Check out the <a href="#faq">FAQ</a> if you have any questions.
     <p><button class="secondary-button" onclick="demo()">Try demo on this page</button></p>
     <br>
