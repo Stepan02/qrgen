@@ -2,7 +2,8 @@ const inputValue     = document.querySelector(".form textarea"),
       generateButton = document.querySelector(".form .generateBtn"),
       qrCodeImage    = document.querySelector(".qr-code img"),
       qrCodeColor    = document.querySelector(".form #color");
-let previousValue;
+let previousValue,
+    previousColor;
 
 // qr code config
 let limit  = 2000,
@@ -43,8 +44,8 @@ function generate() {
     const value = inputValue.value.trim(),
           color = qrCodeColor.value.substring(1, 7); // remove # from the hex code
 
-    // does not regenerate on empty input or if the input stays the same
-    if (!value || value === previousValue) { return; }
+    // does not regenerate on empty input or if the input and the color stay the same
+    if ((!value || value === previousValue) && color === previousColor) { return; }
 
     // does not generate when the input is over the character limit
     if (limit > 0 && value.length > limit) { return; }
@@ -54,7 +55,9 @@ function generate() {
         return;
     }
 
-    previousValue   = value;
+    previousValue = value;
+    previousColor = color;
+      
     qrCodeImage.src = `${apiUrl}?size=${size}&color=${color}&data=${encodeURIComponent(value)}`;
 
     qrCodeImage.style.cursor = "pointer";
@@ -233,5 +236,3 @@ function offlineHandler() {
         generateButton.style.pointerEvents = "all";
     }
 }
-
-
