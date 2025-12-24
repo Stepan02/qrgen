@@ -1,23 +1,25 @@
 const inputValue             = document.querySelector(".form textarea"),
+      qrCodeColor            = document.querySelector(".form #color"),
       generateButton         = document.querySelector(".form .generateBtn"),
       qrCodeImage            = document.querySelector(".qr-code img"),
       errorMessage           = document.querySelector(".error-message"),
       connectionErrorMessage = document.querySelector(".connection-error-message"),
       downloadLink           = document.querySelector(".download-link");
-let previousValue;
+let previousValue,
+    previousColor;
 
 // qr code config
-let limit  = 2000,
+let limit = 2000,
     size   = "250x250",
-    color  = "0f0e0e",
     apiUrl = "https://api.qrserver.com/v1/create-qr-code/";
 
 // generate a qr code
 function generate() {
-    const value = inputValue.value.trim();
-    
-    // does not regenerate on empty input or if the input stays the same
-    if (!value || value === previousValue) { return; }
+    const value = inputValue.value.trim(),
+          color = qrCodeColor.value.substring(1, 7); // remove # from the hex code
+
+    // does not regenerate on empty input or if the input and the color stay the same
+    if ((!value || value === previousValue) && color === previousColor) { return; }
 
     // does not generate when the input is over the character limit
     if (limit > 0 && value.length > limit) { return; }
@@ -28,7 +30,9 @@ function generate() {
         return;
     }
 
-    previousValue   = value;
+    previousValue = value;
+    previousColor = color;
+
     qrCodeImage.src = `${apiUrl}?size=${size}&color=${color}&data=${encodeURIComponent(value)}`;
 
     qrCodeImage.style.cursor = "pointer";

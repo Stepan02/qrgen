@@ -10,10 +10,17 @@
 <body>
   <h1>QR Generator</h1>
   <div class="form">
-      <textarea type="text" maxlength="2000" placeholder="Enter URL/text,..." spellcheck="false"></textarea>
+      <label>
+        <textarea maxlength="2000" placeholder="Enter URL/text,..." spellcheck="false"></textarea>
+      </label>
       <div class="character-counter">
         <span class="current-character-counter">0</span>/<span class="character-max-count"></span>
       </div>
+      <p>
+          <label>
+              <input id="color" type="color" title="Select color">
+          </label>
+      </p>
       <div class="cols">
         <p><button type="button" class="generateBtn">Generate</button></p>
       </div>
