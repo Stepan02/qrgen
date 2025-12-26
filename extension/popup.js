@@ -17,9 +17,12 @@ let limit = 2000,
 function generate() {
     const value = inputValue.value.trim(),
           color = qrCodeColor.value.substring(1, 7); // remove # from the hex code
+    
+    // does not generate on empty input
+    if (!value) { return; }
 
-    // does not regenerate on empty input or if the input and the color stay the same
-    if ((!value || value === previousValue) && color === previousColor) { return; }
+    // does not regenerate if the input and the color stay the same
+    if (value === previousValue && color === previousColor) { return; }
 
     // does not generate when the input is over the character limit
     if (limit > 0 && value.length > limit) { return; }
