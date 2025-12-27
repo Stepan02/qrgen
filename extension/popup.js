@@ -1,5 +1,6 @@
 const inputValue             = document.querySelector(".form textarea"),
       qrCodeColor            = document.querySelector(".form #color"),
+      qrCodeBackgroundColor  = document.querySelector(".form #backgroundColor"),
       generateButton         = document.querySelector(".form .generateBtn"),
       qrCodeImage            = document.querySelector(".qr-code img"),
       errorMessage           = document.querySelector(".error-message"),
@@ -9,15 +10,16 @@ let previousValue,
     previousColor;
 
 // qr code config
-let limit = 2000,
+let limit  = 2000,
     size   = "250x250",
     apiUrl = "https://api.qrserver.com/v1/create-qr-code/";
 
 // generate a qr code
 function generate() {
-    const value = inputValue.value.trim(),
-          color = qrCodeColor.value.substring(1, 7); // remove # from the hex code
-    
+    const value           = inputValue.value.trim(),
+          color           = qrCodeColor.value.substring(1, 7),           // remove # from the hex code
+          backgroundColor = qrCodeBackgroundColor.value.substring(1, 7); // remove # from the hex code
+
     // does not generate on empty input
     if (!value) { return; }
 
@@ -36,7 +38,7 @@ function generate() {
     previousValue = value;
     previousColor = color;
 
-    qrCodeImage.src = `${apiUrl}?size=${size}&color=${color}&data=${encodeURIComponent(value)}`;
+    qrCodeImage.src = `${apiUrl}?size=${size}&color=${color}&bgcolor=${backgroundColor}&data=${encodeURIComponent(value)}`;
 
     qrCodeImage.style.cursor = "pointer";
     qrCodeImage.title        = "Click to copy";
