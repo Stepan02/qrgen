@@ -1,9 +1,11 @@
-const inputValue     = document.querySelector(".form textarea"),
-      generateButton = document.querySelector(".form .generateBtn"),
-      qrCodeImage    = document.querySelector(".qr-code img"),
-      qrCodeColor    = document.querySelector(".form #color");
+const inputValue             = document.querySelector(".form textarea"),
+      generateButton         = document.querySelector(".form .generateBtn"),
+      qrCodeImage            = document.querySelector(".qr-code img"),
+      qrCodeColor            = document.querySelector(".form #color"),
+      qrCodeBackgroundColor  = document.querySelector(".form #backgroundColor");
 let previousValue,
-    previousColor;
+    previousColor
+    previousBackgroundColor;
 
 // qr code config
 let limit  = 2000,
@@ -41,14 +43,16 @@ qrCodeImage.parentNode.appendChild(connectionError);
 
 // generate a qr code
 function generate() {
-    const value = inputValue.value.trim(),
-          color = qrCodeColor.value.substring(1, 7); // remove # from the hex code
+    const value           = inputValue.value.trim(),
+          color           = qrCodeColor.value.substring(1, 7),           // remove # from the hex code
+          backgroundColor = qrCodeBackgroundColor.value.substring(1, 7); // remove # from the hex code
+
 
     // does not generate on empty input
     if (!value) { return; }
 
-    // does not regenerate if the input and the color stay the same
-    if (value === previousValue && color === previousColor) { return; }
+    // does not regenerate if the input and the colors stay the same
+    if (value === previousValue && color === previousColor && backgroundColor === previousBackgroundColor) { return; }
 
     // does not generate when the input is over the character limit
     if (limit > 0 && value.length > limit) { return; }
@@ -58,10 +62,11 @@ function generate() {
         return;
     }
 
-    previousValue = value;
-    previousColor = color;
-      
-    qrCodeImage.src = `${apiUrl}?size=${size}&color=${color}&data=${encodeURIComponent(value)}`;
+    previousValue           = value;
+    previousColor           = color;
+    previousBackgroundColor = backgroundColor;
+
+    qrCodeImage.src = `${apiUrl}?size=${size}&color=${color}&bgcolor=${backgroundColor}&data=${encodeURIComponent(value)}`;
 
     qrCodeImage.style.cursor = "pointer";
     qrCodeImage.title        = "Click to copy";
@@ -239,4 +244,3 @@ function offlineHandler() {
         generateButton.style.pointerEvents = "all";
     }
 }
-
