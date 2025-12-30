@@ -7,10 +7,11 @@ const inputValue             = document.querySelector(".form textarea"),
       connectionErrorMessage = document.querySelector(".connection-error-message"),
       downloadLink           = document.querySelector(".download-link");
 let previousValue,
-    previousColor;
+    previousColor,
+    previousBackgroundColor;
 
 // qr code config
-let limit  = 2000,
+let limit = 2000,
     size   = "250x250",
     apiUrl = "https://api.qrserver.com/v1/create-qr-code/";
 
@@ -23,8 +24,8 @@ function generate() {
     // does not generate on empty input
     if (!value) { return; }
 
-    // does not regenerate if the input and the color stay the same
-    if (value === previousValue && color === previousColor) { return; }
+    // does not regenerate if the input and the colors stay the same
+    if (value === previousValue && color === previousColor && backgroundColor === previousBackgroundColor) { return; }
 
     // does not generate when the input is over the character limit
     if (limit > 0 && value.length > limit) { return; }
@@ -37,8 +38,12 @@ function generate() {
 
     previousValue = value;
     previousColor = color;
+    previousBackgroundColor = backgroundColor;
 
-    qrCodeImage.src = `${apiUrl}?size=${size}&color=${color}&bgcolor=${backgroundColor}&data=${encodeURIComponent(value)}`;
+    qrCodeImage.src = `${apiUrl}?size=${encodeURIComponent(size)}
+                                &color=${encodeURIComponent(color)}
+                                &bgcolor=${encodeURIComponent(backgroundColor)}
+                                &data=${encodeURIComponent(value)}`;
 
     qrCodeImage.style.cursor = "pointer";
     qrCodeImage.title        = "Click to copy";
