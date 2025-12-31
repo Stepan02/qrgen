@@ -1,10 +1,10 @@
-const inputValue             = document.querySelector(".form textarea"),
-      generateButton         = document.querySelector(".form .generateBtn"),
-      qrCodeImage            = document.querySelector(".qr-code img"),
-      qrCodeColor            = document.querySelector(".form #color"),
-      qrCodeBackgroundColor  = document.querySelector(".form #backgroundColor");
+const inputValue            = document.querySelector(".form textarea"),
+      generateButton        = document.querySelector(".form .generateBtn"),
+      qrCodeImage           = document.querySelector(".qr-code img"),
+      qrCodeColor           = document.querySelector(".form #color"),
+      qrCodeBackgroundColor = document.querySelector(".form #backgroundColor");
 let previousValue,
-    previousColor
+    previousColor,
     previousBackgroundColor;
 
 // qr code config
@@ -47,7 +47,6 @@ function generate() {
           color           = qrCodeColor.value.substring(1, 7),           // remove # from the hex code
           backgroundColor = qrCodeBackgroundColor.value.substring(1, 7); // remove # from the hex code
 
-
     // does not generate on empty input
     if (!value) { return; }
 
@@ -66,7 +65,10 @@ function generate() {
     previousColor           = color;
     previousBackgroundColor = backgroundColor;
 
-    qrCodeImage.src = `${apiUrl}?size=${size}&color=${color}&bgcolor=${backgroundColor}&data=${encodeURIComponent(value)}`;
+    qrCodeImage.src = `${apiUrl}?size=${encodeURIComponent(size)}
+                                &color=${encodeURIComponent(color)}
+                                &bgcolor=${encodeURIComponent(backgroundColor)}
+                                &data=${encodeURIComponent(value)}`;
 
     qrCodeImage.style.cursor = "pointer";
     qrCodeImage.title        = "Click to copy";
