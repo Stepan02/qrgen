@@ -11,7 +11,7 @@ let previousValue,
     previousBackgroundColor;
 
 // qr code config
-let limit = 2000,
+let limit  = 2000,
     size   = "250x250",
     apiUrl = "https://api.qrserver.com/v1/create-qr-code/";
 
@@ -40,10 +40,10 @@ function generate() {
     previousColor = color;
     previousBackgroundColor = backgroundColor;
 
-    qrCodeImage.src = `${apiUrl}?size=${encodeURIComponent(size)}
-                                &color=${encodeURIComponent(color)}
-                                &bgcolor=${encodeURIComponent(backgroundColor)}
-                                &data=${encodeURIComponent(value)}`;
+    qrCodeImage.src = `${apiUrl}?size=${encodeURIComponent(size)}`
+                             + `&color=${encodeURIComponent(color)}`
+                             + `&bgcolor=${encodeURIComponent(backgroundColor)}`
+                             + `&data=${encodeURIComponent(value)}`;
 
     qrCodeImage.style.cursor = "pointer";
     qrCodeImage.title        = "Click to copy";
