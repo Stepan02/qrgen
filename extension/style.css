@@ -6,6 +6,7 @@
 :root {
     --main: #332cf2;
     --heading: #203857;
+    --label: #212426;
     --selection: rgb(50 151 211 / 30%);
     --primary-font: ubuntu, sans-serif;
     --secondary-font: mukta, sans-serif;
@@ -32,6 +33,10 @@
 * {
   scrollbar-color: var(--scrollbar-background) transparent;
   scrollbar-width: thin;
+}
+
+body {
+    padding: 5px;
 }
 
 h1 {
@@ -68,11 +73,10 @@ textarea {
 }
 
 input[type="color"] {
-    width: 100%;
-    padding: 10px 25px;
     background-color: transparent;
     box-shadow: var(--color-input-box-shadow);
-    box-sizing: border-box;
+    width: 100%;
+    margin-top: 5px;
     border: none;
     border-radius: 4px;
     outline: 1px solid transparent;
@@ -95,6 +99,20 @@ input[type="color"] {
         transform: translateY(2px);
         transition: all 0.3s;
     }
+}
+
+label {
+    color: var(--label);
+    font-family: var(--textarea-font), sans-serif;
+    font-weight: 700;
+    font-size: small;
+    user-select: none;
+}
+
+.color-inputs {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1%;
 }
 
 img[src=""] {
@@ -146,6 +164,10 @@ button {
         background-color: var(--main);
         box-shadow: var(--focus-box-shadow);
     }
+}
+
+.form {
+    padding-bottom: 30px;
 }
 
 .qr-code {
