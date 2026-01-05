@@ -65,10 +65,10 @@ function generate() {
     previousColor           = color;
     previousBackgroundColor = backgroundColor;
 
-    qrCodeImage.src = `${apiUrl}?size=${encodeURIComponent(size)}
-                                &color=${encodeURIComponent(color)}
-                                &bgcolor=${encodeURIComponent(backgroundColor)}
-                                &data=${encodeURIComponent(value)}`;
+    qrCodeImage.src = `${apiUrl}?size=${encodeURIComponent(size)}`
+                             + `&color=${encodeURIComponent(color)}`
+                             + `&bgcolor=${encodeURIComponent(backgroundColor)}`
+                             + `&data=${encodeURIComponent(value)}`;
 
     qrCodeImage.style.cursor = "pointer";
     qrCodeImage.title        = "Click to copy";
@@ -246,3 +246,4 @@ function offlineHandler() {
         generateButton.style.pointerEvents = "all";
     }
 }
+
