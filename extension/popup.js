@@ -5,6 +5,7 @@ const inputValue             = document.querySelector(".form textarea"),
       qrCodeImage            = document.querySelector(".qr-code img"),
       errorMessage           = document.querySelector(".error-message"),
       connectionErrorMessage = document.querySelector(".connection-error-message"),
+      imageContrastWarning   = document.querySelector(".contract-warning-message"),
       downloadLink           = document.querySelector(".download-link");
 let previousValue,
     previousColor,
@@ -29,6 +30,17 @@ function generate() {
 
     // does not generate when the input is over the character limit
     if (limit > 0 && value.length > limit) { return; }
+
+    // add a warning if the user generated a qr code with the background color being the same as the main color
+    if (color === backgroundColor) {
+        imageContrastWarning.textContent = `This color combination might render the QR code unreadable.`;
+
+        imageContrastWarning.style.display = "block";
+
+        console.warn(`This color combination (#${color} - #${backgroundColor}) might render the QR code unreadable`);
+    } else {
+        imageContrastWarning.style.display = "none";
+    }
 
     // hide the qr code if the protocol check fails
     if (checkProtocols(value)) {
