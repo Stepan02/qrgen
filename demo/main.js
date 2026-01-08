@@ -41,6 +41,14 @@ connectionError.style.display = "none";
 
 qrCodeImage.parentNode.appendChild(connectionError);
 
+// create image contrast warning message element
+let imageContrastWarning = document.createElement("span");
+
+imageContrastWarning.className     = "warning-message";
+imageContrastWarning.style.display = "none";
+
+qrCodeImage.parentNode.appendChild(imageContrastWarning);
+
 // generate a qr code
 function generate() {
     const value           = inputValue.value.trim(),
@@ -55,7 +63,18 @@ function generate() {
 
     // does not generate when the input is over the character limit
     if (limit > 0 && value.length > limit) { return; }
-    
+
+    // add a warning if the user generated a qr code with the background color being the same as the main color
+    if (color === backgroundColor) {
+        imageContrastWarning.textContent = `This color combination might render the QR code unreadable.`;
+
+        imageContrastWarning.style.display = "block";
+
+        console.warn(`This color combination (#${color} - #${backgroundColor}) might render the QR code unreadable`);
+    } else {
+        imageContrastWarning.style.display = "none";
+    }
+
     if (checkProtocols(value)) {
         qrCodeImage.src = "";
         return;
@@ -246,4 +265,3 @@ function offlineHandler() {
         generateButton.style.pointerEvents = "all";
     }
 }
-
