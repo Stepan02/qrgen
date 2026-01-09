@@ -26,6 +26,7 @@
                         rgb(233 74 132 / 20%) 0 6px 15px 0,
                         rgb(0 0 0 / 10%) 0 2px 2px 0,
                         rgb(233 74 132 / 30%) 0 0 0 4px;
+    --warning: #e9a44a;
 }
 
 .textarea-container {
@@ -115,6 +116,20 @@ input[type="color"] {
     }
 }
 
+label {
+    color: var(--label);
+    font-family: var(--textarea-font), sans-serif;
+    font-weight: 700;
+    font-size: small;
+    user-select: none;
+}
+
+.color-inputs {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1%;
+}
+
 .error-message {
     color: var(--error);
     font-family: var(--textarea-font), monospace;
@@ -132,6 +147,12 @@ input[type="color"] {
         text-decoration-thickness: 2px;
         transition: all .1s;
     }
+}
+
+.warning-message {
+    color: var(--warning);
+    font-family: var(--textarea-font), sans-serif;
+    font-weight: 600;
 }
 
 .border-error {
@@ -157,6 +178,7 @@ input[type="color"] {
     text-decoration-color: black;
     text-underline-offset: 3px;
     text-align: center;
+    margin-bottom: 10px;
     cursor: pointer;
     user-select: none;
     transform: translateY(0);
@@ -249,6 +271,10 @@ dialog button {
     &:focus-visible {
         box-shadow: var(--focus-box-shadow);
     }
+}
+
+.form {
+    padding-bottom: 30px;
 }
 
 dialog .qr-code {
