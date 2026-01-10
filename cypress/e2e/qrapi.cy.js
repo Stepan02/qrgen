@@ -13,6 +13,9 @@ describe("QR API test", () => {
     cy.get(".download-link").as("downloadLink");
     cy.get(".error-message").as("errorMessage");
     cy.get(".current-character-counter").as("characterCounter");
+    cy.get("#color").as("colorInput");
+    cy.get("#backgroundColor").as("backgroundColorInput");
+    cy.get(".contract-warning-message").as("contractWarningMessage");
   });
   
   it("Does not generate a blank QR code", () => {
@@ -117,6 +120,24 @@ describe("QR API test", () => {
       cy.get("@errorMessage").should("not.be.visible");   // no error should be visible
   });
 
+      const testUserInput = "Hello World!";
+
+    cy.get("@colorInput").invoke("val", "#000000")
+                                 .trigger("input");
+
+    cy.get("@backgroundColorInput").invoke("val", "#000000")
+                                           .trigger("input");
+
+    cy.generate(testUserInput);
+
+    cy.get("@qrImg")
+        .should("have.attr", "src")                       // the qr code should appear
+        .and("include", encodeURIComponent(testUserInput));     // the user input should be part of the img source
+    cy.get("@downloadLink").should("be.visible");       // the download link should be visible
+    cy.get("@errorMessage").should("not.be.visible");   // no errors should be visible
+    cy.get("@contrastErrorMessage").should("be.visible"); // image contrast error message should be visible
+  });
+
   const dangerousProtocols = [
     { input: "javascript:alert(document.domain)", expected: "javascript", description: "javascript" },
     { input: "JaVaScRiPt:alert(document.domain)", expected: "javascript", description: "JaVaScRiPt" },
@@ -146,3 +167,4 @@ describe("QR API test", () => {
   });
 });
   
+
