@@ -73,27 +73,27 @@ describe("QR API test", () => {
     cy.generate(safeText);
 
     cy.get("@characterCounter").should("not.have.css",
-                                         "color",
-                                         "rgb(233, 74, 132)"); // the character counter should not turn red
+                                        "color",
+                                        "rgb(233, 74, 132)"); // the character counter should not turn red
 
     cy.get("@input").clear().invoke("val", maxLenghtText)
-                                    .trigger("input");         // brute force input over the limit
+                            .trigger("input");                 // brute force input over the limit
     cy.get("@generateBtn").click();
 
     cy.get("@characterCounter").should("have.css",
-                                         "color",
-                                         "rgb(233, 74, 132)")  // the character counter should be red
-                                       .and("have.css",
-                                             "font-weight",
-                                             "900");           // and bold
+                                       "color",
+                                       "rgb(233, 74, 132)")  // the character counter should be red
+                              .and("have.css",
+                                   "font-weight",
+                                   "900");                   // and bold
 
     cy.generate(safeText);
     cy.get("@characterCounter").should("not.have.css",
-                                         "color",
-                                         "rgb(233, 74, 132)") // the character counter should not be red
-                                       .and("have.css",
-                                             "font-weight",
-                                             "500");
+                                       "color",
+                                       "rgb(233, 74, 132)") // the character counter should not be red
+                               .and("have.css",
+                                    "font-weight",
+                                    "500");                 // and not bold
   });
 
   it("Does not overflow", () => {
@@ -104,11 +104,11 @@ describe("QR API test", () => {
 
     cy.get("@qrImg")
       .should("be.visible")
-      .invoke("attr", "src")                              // the qr code should be visible and have content
+      .invoke("attr", "src")                     // the qr code should be visible and have content
       .then((initialSrc) => {
         cy.get("@input").clear()
-                                .invoke("val", overflow)
-                                .trigger("input");        // force the input over the limit
+                        .invoke("val", overflow) 
+                        .trigger("input");       // force the input over the limit
         cy.get("@generateBtn").click();
 
         cy.get("@qrImg")
@@ -120,22 +120,23 @@ describe("QR API test", () => {
       cy.get("@errorMessage").should("not.be.visible");   // no error should be visible
   });
 
+  it("Contrast warning is displayed when generating image with both color and background color being the same", () => {
       const testUserInput = "Hello World!";
 
     cy.get("@colorInput").invoke("val", "#000000")
-                                 .trigger("input");
+                         .trigger("input");
 
     cy.get("@backgroundColorInput").invoke("val", "#000000")
-                                           .trigger("input");
+                                   .trigger("input");
 
     cy.generate(testUserInput);
 
     cy.get("@qrImg")
-        .should("have.attr", "src")                       // the qr code should appear
-        .and("include", encodeURIComponent(testUserInput));     // the user input should be part of the img source
-    cy.get("@downloadLink").should("be.visible");       // the download link should be visible
-    cy.get("@errorMessage").should("not.be.visible");   // no errors should be visible
-    cy.get("@contrastErrorMessage").should("be.visible"); // image contrast error message should be visible
+        .should("have.attr", "src")                         // the qr code should appear
+        .and("include", encodeURIComponent(testUserInput)); // the user input should be part of the img source
+    cy.get("@downloadLink").should("be.visible");           // the download link should be visible
+    cy.get("@errorMessage").should("not.be.visible");       // no errors should be visible
+    cy.get("@contrastErrorMessage").should("be.visible");   // image contrast error message should be visible
   });
 
   const dangerousProtocols = [
@@ -154,17 +155,18 @@ describe("QR API test", () => {
   dangerousProtocols.forEach(({ input, expected, description }) => {
     it(`Does not generate QR codes with potentially malicious input: ${description}`, () => {
       cy.get("@input").clear()
-                              .invoke("val", input)
-                              .trigger("input");
+                      .invoke("val", input)
+                      .trigger("input");
       cy.get("@generateBtn").click();
 
-      cy.get("@qrImg").should("not.be.visible");                // the qr code should not generate
+      cy.get("@qrImg").should("not.be.visible");        // the qr code should not generate
 
-      cy.get("@downloadLink").should("not.be.visible");         // the download link should not be visible
+      cy.get("@downloadLink").should("not.be.visible"); // the download link should not be visible
       cy.get("@errorMessage").should("be.visible")
-                                     .and("contain", expected); // the error message should appear
+                             .and("contain", expected); // the error message should appear
     });
   });
 });
   
+
 
