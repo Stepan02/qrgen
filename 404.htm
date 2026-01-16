@@ -38,24 +38,27 @@
           <label>
             <textarea id="input" maxlength="2000" placeholder="Enter URL/text,..." spellcheck="false" oninput="updateCounter()"></textarea>
           </label>
-          <p>
-            <label>
-              <input id="color" type="color" title="Select color">
-            </label>
-          </p>
           <div class="character-counter">
             <span class="current-character-counter">0</span>/<span class="character-max-count"></span>
           </div>
-          <div class="cols">
-            <p><button type="button" class="generateBtn">Generate</button></p>
+          <div class="color-inputs">
+            <p>
+              <label for="color">Color</label>
+              <input id="color" type="color" title="Select color" value="#000000">
+            </p>
+            <p>
+              <label for="backgroundColor">Background color</label>
+              <input id="backgroundColor" type="color" title="Select background color" value="#ffffff">
+            </p>
           </div>
-          <div class="qr-code">
-            <div class="border">
-              <div class="scancontainer">
-                <img src="" alt="QR code load failed.">
-              </div>
-            </div>
+          <button type="button" class="generateBtn">Generate</button>
         </div>
+        <div class="qr-code">
+          <div class="border">
+            <div class="scancontainer">
+              <img src="" alt="QR code load failed.">
+            </div>
+          </div>
         </div>
       </dialog>
     </div>
