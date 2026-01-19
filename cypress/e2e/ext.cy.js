@@ -17,9 +17,9 @@ describe("QR API test", () => {
   });
 
   it("Does not generate a blank QR code", () => {
-    cy.get(selectors.input).should("have.attr", "src", "");
+    cy.get("@qrImg").should("have.attr", "src", "");
 
-    cy.get(selectors.generateButton).click();
+    cy.get("@generateBtn").click();
     
     cy.get("@qrImg").should("have.attr", "src", "");               // the qr code should not appear
     cy.get("@downloadLink").should("not.be.visible");              // no download link and error messages should appear
