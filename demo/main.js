@@ -1,8 +1,11 @@
-const inputValue            = document.querySelector(".form textarea"),
-      generateButton        = document.querySelector(".form .generateBtn"),
-      qrCodeImage           = document.querySelector(".qr-code img"),
-      qrCodeColor           = document.querySelector(".form #color"),
-      qrCodeBackgroundColor = document.querySelector(".form #backgroundColor");
+const inputValue             = document.querySelector(".form textarea"),
+      generateButton         = document.querySelector(".form .generateBtn"),
+      qrCodeImage            = document.querySelector(".qr-code img"),
+      qrCodeColor            = document.querySelector(".form #color"),
+      qrCodeBackgroundColor  = document.querySelector(".form #backgroundColor"),
+      errorMessage           = document.querySelector(".error-message"),
+      connectionErrorMessage = document.querySelector(".connection-error-message"),
+      imageContrastWarning   = document.querySelector(".contract-warning-message");
 let previousValue,
     previousColor,
     previousBackgroundColor;
@@ -24,30 +27,6 @@ downloadLink.textContent   = "Download";
 downloadLink.setAttribute("tabindex", "0");
 
 qrCodeImage.parentNode.appendChild(downloadLink);
-
-// create protocol error message element
-let errorMessage = document.createElement("span");
-
-errorMessage.className     = "error-message";
-errorMessage.style.display = "none";
-
-qrCodeImage.parentNode.appendChild(errorMessage);
-
-// create connection error message element
-let connectionError = document.createElement("span");
-
-connectionError.className     = "error-message";
-connectionError.style.display = "none";
-
-qrCodeImage.parentNode.appendChild(connectionError);
-
-// create image contrast warning message element
-let imageContrastWarning = document.createElement("span");
-
-imageContrastWarning.className     = "warning-message";
-imageContrastWarning.style.display = "none";
-
-qrCodeImage.parentNode.appendChild(imageContrastWarning);
 
 // generate a qr code
 function generate() {
@@ -265,3 +244,4 @@ function offlineHandler() {
         generateButton.style.pointerEvents = "all";
     }
 }
+
