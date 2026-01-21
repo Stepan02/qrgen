@@ -28,7 +28,7 @@ describe("QR API test", () => {
     cy.get(".contract-warning-message").should("not.be.visible");  // no contrast warning should appear
   });
 
-  it.skip("Generates QR code", () => {
+  it("Generates QR code", () => {
     const testUserInput = "Hello World!";
     cy.generate(testUserInput);
 
@@ -40,7 +40,7 @@ describe("QR API test", () => {
     cy.get(".contract-warning-message").should("not.be.visible"); // no contrast warning should appear
   });
 
-  it.skip("Generates QR code by pressing Shift+Enter", () => {
+  it("Generates QR code by pressing Shift+Enter", () => {
     const input = "Hello World!{shift+enter}";
 
     cy.get("@input").clear()
@@ -48,7 +48,7 @@ describe("QR API test", () => {
     cy.get("@qrImg").should("be.visible"); // the img should appear
   });
 
-  it.skip("Does not repeat when the input stays the same", () => {
+  it("Does not repeat when the input stays the same", () => {
     const testText = "Hello World!";
     cy.generate(testText);
 
@@ -65,13 +65,13 @@ describe("QR API test", () => {
     });
   });
 
-  it.skip("Character counter updates", () => {
+  it("Character counter updates", () => {
     cy.get("@input").clear()
                     .type("abcd");
     cy.get("@characterCounter").should("have.text", "4");
   });
 
-  it.skip("Character counter turns red when the limit is reached", () => {
+  it("Character counter turns red when the limit is reached", () => {
     const safeText = "a";
     const maxLengthText = safeText.repeat(2000);
 
@@ -99,7 +99,7 @@ describe("QR API test", () => {
                                        "rgb(233, 74, 132)"); // the character counter should not be red
   });
 
-  it.skip("Does not overflow", () => {
+  it("Does not overflow", () => {
     const safeText = "qwerty";
     const overflow = "A".repeat(2500);
 
@@ -140,7 +140,7 @@ describe("QR API test", () => {
   ];
 
   dangerousProtocols.forEach(({ input, expected, description }) => {
-    it.skip(`Does not generate QR codes with potentially malicious input: ${description}`, () => {
+    it(`Does not generate QR codes with potentially malicious input: ${description}`, () => {
       cy.get("@input").clear()
                       .invoke("val", input)
                       .trigger("input");
