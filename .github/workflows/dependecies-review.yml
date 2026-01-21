@@ -6,6 +6,9 @@ on:
     paths:
       - 'package.json'
       - 'package-lock.json'
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1'
 
 jobs:
   check-deps:
@@ -19,7 +22,9 @@ jobs:
         run: npm ci
 
       - name: Check outdated dependencies
-        run: npm outdated || true
+        run: npm outdated
+        continue-on-error: true
 
       - name: Run npm audit for vulnerabilities
         run: npm audit --audit-level=moderate
+        continue-on-error: true
