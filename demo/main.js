@@ -5,28 +5,18 @@ const inputValue             = document.querySelector(".form textarea"),
       qrCodeBackgroundColor  = document.querySelector(".form #backgroundColor"),
       errorMessage           = document.querySelector(".error-message"),
       connectionErrorMessage = document.querySelector(".connection-error-message"),
-      imageContrastWarning   = document.querySelector(".contract-warning-message");
+      imageContrastWarning   = document.querySelector(".contract-warning-message"),
+      downloadLink           = document.querySelector(".download-link");
 let previousValue,
     previousColor,
     previousBackgroundColor;
 
 // qr code config
-let limit  = 2000,
+let limit = 2000,
     size   = "250x250",
     apiUrl = "https://api.qrserver.com/v1/create-qr-code/";
 
 qrCodeImage.style.cursor = "pointer";
-
-// create download link
-let downloadLink = document.createElement("div");
-
-downloadLink.className     = "download-link";
-downloadLink.style.display = "none";
-downloadLink.textContent   = "Download";
-
-downloadLink.setAttribute("tabindex", "0");
-
-qrCodeImage.parentNode.appendChild(downloadLink);
 
 // generate a qr code
 function generate() {
@@ -226,8 +216,8 @@ function offlineHandler() {
 
     if (!connection) {
         // display error message
-        connectionError.textContent   = "You are offline. QR code generation is unavailable.";
-        connectionError.style.display = "block";
+        connectionErrorMessage.textContent   = "You are offline. QR code generation is unavailable.";
+        connectionErrorMessage.style.display = "block";
 
         // hide generate button
         generateButton.style.display       = "none";
@@ -238,10 +228,9 @@ function offlineHandler() {
 
         qrCodeImage.src = "";
     } else {
-        connectionError.style.display = "none";
+        connectionErrorMessage.style.display = "none";
 
         generateButton.style.display       = "block";
         generateButton.style.pointerEvents = "all";
     }
 }
-
