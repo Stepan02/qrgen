@@ -15,7 +15,7 @@ describe("QR API test", () => {
     cy.get(".current-character-counter").as("characterCounter");
     cy.get("#color").as("colorInput");
     cy.get("#backgroundColor").as("backgroundColorInput");
-    cy.get(".contract-warning-message").as("contractWarningMessage");
+    cy.get(".contract-warning-message").as("contrastWarningMessage");
   });
   
   it("Does not generate a blank QR code", () => {
@@ -26,7 +26,7 @@ describe("QR API test", () => {
     cy.get("@qrImg").should("have.attr", "src", "");              // the qr code should not appear
     cy.get("@downloadLink").should("not.be.visible");             // no download link and error messages should appear
     cy.get("@errorMessage").should("not.be.visible");
-    cy.get(".contract-warning-message").should("not.be.visible"); // no contrast warning should appear
+    cy.get("@contrastWarningMessage").should("not.be.visible"); // no contrast warning should appear
   });
 
   it("Generates QR code", () => {
@@ -38,7 +38,7 @@ describe("QR API test", () => {
       .and("include", encodeURIComponent(testUserInput));         // the user input should be part of the img source
     cy.get("@downloadLink").should("be.visible");                 // the download link should be visible
     cy.get("@errorMessage").should("not.be.visible");             // no errors should be visible
-    cy.get(".contract-warning-message").should("not.be.visible"); // no contrast warning should appear
+    cy.get("@contrastWarningMessage").should("not.be.visible"); // no contrast warning should appear
   });
 
   it("Generates QR code by pressing Shift+Enter", () => {
@@ -60,7 +60,7 @@ describe("QR API test", () => {
       cy.get("@downloadLink").should("be.visible");                 // the download link should be visible
 
       cy.get("@errorMessage").should("not.be.visible");             // no error should be visible
-      cy.get(".contract-warning-message").should("not.be.visible"); // no contrast warning should appear
+      cy.get("@contrastWarningMessage").should("not.be.visible"); // no contrast warning should appear
     });
   });
 
@@ -122,7 +122,7 @@ describe("QR API test", () => {
         cy.get("@downloadLink").should("not.be.visible");           // the download link should not be visible
       });
       cy.get("@errorMessage").should("not.be.visible");             // no error should be visible
-      cy.get(".contract-warning-message").should("not.be.visible"); // no contrast warning should appear
+      cy.get("@contrastWarningMessage").should("not.be.visible"); // no contrast warning should appear
   });
 
   it("Contrast warning is displayed when generating image with both color and background color being the same", () => {
@@ -172,3 +172,4 @@ describe("QR API test", () => {
     });
   });
 });
+
