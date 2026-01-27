@@ -13,7 +13,7 @@ describe("QR API test", () => {
     cy.get(".error-message").as("errorMessage");
     cy.get(".connection-error-message").as("connectionErrorMessage");
     cy.get(".current-character-counter").as("characterCounter");
-    cy.get(".contrast-warning-message").as("contractWarningMessage");
+    cy.get(".contrast-warning-message").as("contrastWarningMessage");
   });
 
   it("Does not generate a blank QR code", () => {
@@ -25,7 +25,7 @@ describe("QR API test", () => {
     cy.get("@downloadLink").should("not.be.visible");              // no download link and error messages should appear
     cy.get("@errorMessage").should("not.be.visible");
     cy.get("@connectionErrorMessage").should("not.be.visible");
-    cy.get("@contractWarningMessage").should("not.be.visible");  // no contrast warning should appear
+    cy.get("@contrastWarningMessage").should("not.be.visible");  // no contrast warning should appear
   });
 
   it("Generates QR code", () => {
@@ -37,7 +37,7 @@ describe("QR API test", () => {
       .and("include", encodeURIComponent(testUserInput));         // the user input should be part of the img source
     cy.get("@downloadLink").should("be.visible");                 // the download link should be visible
     cy.get("@errorMessage").should("not.be.visible");             // no errors should be visible
-    cy.get("@contractWarningMessage").should("not.be.visible"); // no contrast warning should appear
+    cy.get("@contrastWarningMessage").should("not.be.visible"); // no contrast warning should appear
   });
 
   it("Generates QR code by pressing Shift+Enter", () => {
@@ -61,7 +61,7 @@ describe("QR API test", () => {
 
       cy.get("@errorMessage").should("not.be.visible");             // no errors should be visible
       cy.get("@connectionErrorMessage").should("not.be.visible");
-      cy.get("@contractWarningMessage").should("not.be.visible"); // no contrast warning should appear
+      cy.get("@contrastWarningMessage").should("not.be.visible"); // no contrast warning should appear
     });
   });
 
@@ -123,7 +123,7 @@ describe("QR API test", () => {
       });
     cy.get("@errorMessage").should("not.be.visible");               // no errors should be visible
     cy.get("@connectionErrorMessage").should("not.be.visible");
-    cy.get("@contractWarningMessage").should("not.be.visible");   // no contrast warning should appear
+    cy.get("@contrastWarningMessage").should("not.be.visible");   // no contrast warning should appear
   });
 
   const dangerousProtocols = [
@@ -152,7 +152,7 @@ describe("QR API test", () => {
       cy.get("@errorMessage").should("be.visible")
                             .and("contain", expected);              // the error message should appear
       cy.get("@connectionErrorMessage").should("not.be.visible");   // no connection error message should be visible
-      cy.get("@contractWarningMessage").should("not.be.visible"); // no contrast warning should appear
+      cy.get("@contrastWarningMessage").should("not.be.visible"); // no contrast warning should appear
     });
   });
 });
