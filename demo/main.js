@@ -12,18 +12,52 @@ let previousValue,
     previousBackgroundColor;
 
 // qr code config
-let limit = 2000,
+let limit  = 2000,
     size   = "250x250",
     apiUrl = "https://api.qrserver.com/v1/create-qr-code/";
 
 qrCodeImage.style.cursor = "pointer";
 
+// convert hex color to rgb - todo: add support for shorthand hexs
+function convertHexToRgb(hex) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+    } : null;
+}
+
+// get rgb color luminance - https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html?utm_source=copilot.com
+function luminance(r, g, b) {
+    const a = [r, g, b].map((v) => {
+        v /= 255;
+        return v <= 0.03928
+            ? v / 12.92
+            : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+}
+
+// get contrast ratio between 2 rgb colors
+function getContrastRatio(rgb1, rgb2) {
+    const luminance1 = luminance(rgb1.r, rgb1.g, rgb1.b);
+    const luminance2 = luminance(rgb2.r, rgb2.g, rgb2.b);
+
+    const bright = Math.max(luminance1, luminance2);
+    const dark   = Math.min(luminance1, luminance2);
+
+    return (bright + 0.05) / (dark + 0.05);
+}
+
 // generate a qr code
 function generate() {
-    const value           = inputValue.value.trim(),
-          color           = qrCodeColor.value.substring(1, 7),           // remove # from the hex code
-          backgroundColor = qrCodeBackgroundColor.value.substring(1, 7); // remove # from the hex code
-
+    const value                 = inputValue.value.trim(),
+          color                 = qrCodeColor.value.substring(1, 7),           // remove # from the hex code
+          backgroundColor       = qrCodeBackgroundColor.value.substring(1, 7), // remove # from the hex code
+          minimalContrastRation = 4.5                                          // minimal contrast ratio between the two colors of the qr code
+      
     // does not generate on empty input
     if (!value) { return; }
 
@@ -33,8 +67,12 @@ function generate() {
     // does not generate when the input is over the character limit
     if (limit > 0 && value.length > limit) { return; }
 
-    // add a warning if the user generated a qr code with the background color being the same as the main color
-    if (color === backgroundColor) {
+    // convert hex colors to rgb
+    let rgbColor           = convertHexToRgb(color);
+    let rgbBackgroundColor = convertHexToRgb(backgroundColor);
+
+    // add a warning if the user generated a qr code with bad color contrast
+    if (getContrastRatio(rgbColor, rgbBackgroundColor) < 4.5) {
         imageContrastWarning.textContent = `This color combination might render the QR code unreadable.`;
 
         imageContrastWarning.style.display = "block";
