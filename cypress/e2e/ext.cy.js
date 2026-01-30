@@ -21,11 +21,11 @@ describe("QR API test", () => {
 
     cy.get("@generateBtn").click();
     
-    cy.get("@qrImg").should("have.attr", "src", "");               // the qr code should not appear
-    cy.get("@downloadLink").should("not.be.visible");              // no download link and error messages should appear
+    cy.get("@qrImg").should("have.attr", "src", "");            // the qr code should not appear
+    cy.get("@downloadLink").should("not.be.visible");           // no download link and error messages should appear
     cy.get("@errorMessage").should("not.be.visible");
     cy.get("@connectionErrorMessage").should("not.be.visible");
-    cy.get("@contrastWarningMessage").should("not.be.visible");  // no contrast warning should appear
+    cy.get("@contrastWarningMessage").should("not.be.visible"); // no contrast warning should appear
   });
 
   it("Generates QR code", () => {
@@ -33,10 +33,10 @@ describe("QR API test", () => {
     cy.generate(testUserInput);
 
     cy.get("@qrImg")
-      .should("have.attr", "src")                                 // the qr code should appear
-      .and("include", encodeURIComponent(testUserInput));         // the user input should be part of the img source
-    cy.get("@downloadLink").should("be.visible");                 // the download link should be visible
-    cy.get("@errorMessage").should("not.be.visible");             // no errors should be visible
+      .should("have.attr", "src")                               // the qr code should appear
+      .and("include", encodeURIComponent(testUserInput));       // the user input should be part of the img source
+    cy.get("@downloadLink").should("be.visible");               // the download link should be visible
+    cy.get("@errorMessage").should("not.be.visible");           // no errors should be visible
     cy.get("@contrastWarningMessage").should("not.be.visible"); // no contrast warning should appear
   });
 
@@ -56,11 +56,11 @@ describe("QR API test", () => {
       cy.get("@generateBtn").click();
 
       cy.get("@qrImg").invoke("attr", "src")
-                      .should("eq", src1);                         // first qr code should appear
-      cy.get("@downloadLink").should("be.visible");                // the download link should be visible
+                      .should("eq", src1);                        // first qr code should appear
+      cy.get("@downloadLink").should("be.visible");               // the download link should be visible
 
-      cy.get("@errorMessage").should("not.be.visible");             // no errors should be visible
-      cy.get("@connectionErrorMessage").should("not.be.visible");
+      cy.get("@errorMessage").should("not.be.visible");           // no errors should be visible
+      cy.get("@connectionErrorMessage").should("not.be.visible"); 
       cy.get("@contrastWarningMessage").should("not.be.visible"); // no contrast warning should appear
     });
   });
@@ -83,7 +83,7 @@ describe("QR API test", () => {
 
     cy.get("@input").clear()
                     .invoke("val", maxLengthText) 
-                    .trigger("input");            // brute force input over the limit
+                    .trigger("input");                     // brute force input over the limit
     cy.get("@generateBtn").click();
 
     cy.get("@characterCounter").should("have.have.css",
@@ -107,11 +107,11 @@ describe("QR API test", () => {
 
     cy.get("@qrImg")
       .should("be.visible") 
-      .invoke("attr", "src")                        // the qr code should be visible and have content
+      .invoke("attr", "src")                     // the qr code should be visible and have content
       .then((initialSrc) => {
         cy.get("@input").clear()
                         .invoke("val", overflow)
-                        .trigger("input");         // force the input over the limit
+                        .trigger("input");       // force the input over the limit
         cy.get("@generateBtn").click();
 
         cy.get("@qrImg")
@@ -123,7 +123,7 @@ describe("QR API test", () => {
       });
     cy.get("@errorMessage").should("not.be.visible");               // no errors should be visible
     cy.get("@connectionErrorMessage").should("not.be.visible");
-    cy.get("@contrastWarningMessage").should("not.be.visible");   // no contrast warning should appear
+    cy.get("@contrastWarningMessage").should("not.be.visible");     // no contrast warning should appear
   });
 
   const dangerousProtocols = [
@@ -146,12 +146,12 @@ describe("QR API test", () => {
                       .trigger("input");
       cy.get("@generateBtn").click();
 
-      cy.get("@qrImg").should("not.be.visible");                    // the qr code should not generate
+      cy.get("@qrImg").should("not.be.visible");                  // the qr code should not generate
 
-      cy.get("@downloadLink").should("not.be.visible");             // the download link should not be visible
+      cy.get("@downloadLink").should("not.be.visible");           // the download link should not be visible
       cy.get("@errorMessage").should("be.visible")
-                            .and("contain", expected);              // the error message should appear
-      cy.get("@connectionErrorMessage").should("not.be.visible");   // no connection error message should be visible
+                             .and("contain", expected);           // the error message should appear
+      cy.get("@connectionErrorMessage").should("not.be.visible"); // no connection error message should be visible
       cy.get("@contrastWarningMessage").should("not.be.visible"); // no contrast warning should appear
     });
   });
