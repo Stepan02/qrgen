@@ -62,7 +62,7 @@
         </div>
         <span class="download-link">Download</span>
         <span class="error-message"></span>
-        <span class="contract-warning-message"></span>
+        <span class="contrast-warning-message"></span>
         <span class="connection-error-message"></span>
       </dialog>
     </div>
@@ -114,7 +114,12 @@
     </div>
     <hr>
     <h1>Download</h1>
-    <p>QRgen is free to use, <strong>but there's a catch</strong> - you have to install it manually. It's not available on any extension marketplace, as publishing the extension is not worth it just yet. Instead, it's published as a <a href="https://github.com/Stepan02/qrgen/releases">GitHub release</a>. Since you can't install it from the marketplace, you have to <a href="https://en.wikipedia.org/wiki/Sideloading" rel="noopener noreferrer">sideload it</a> into your browser - don't worry, <a href="tutorial.htm">here</a> is a tutorial.</p>
+    <p>QRgen is free to use, <strong>but there's a catch</strong> - you have to install it manually.
+    It's not available on any extension marketplace, as publishing the extension is not worth it just yet.
+    Instead, it's published as a <a href="https://github.com/Stepan02/qrgen/releases">GitHub release</a>.
+    Since you can't install it from the marketplace, you have to
+    <a href="https://en.wikipedia.org/wiki/Sideloading" rel="noopener noreferrer">sideload it</a> into your browser - don't worry,
+    <a href="tutorial.htm">here</a> is a tutorial.</p>
     <p>You can visit the GitHub page by clicking the download button below.</p>
     <button class="secondary-button" onclick="download()"><i class="bi bi-download"></i>&nbsp;Download</button>
     <p class="no-desktop">Please note that the extension is desktop-only.</p>
@@ -123,14 +128,16 @@
     <details>
       <summary>Is it possible to save the QR code?</summary>
       <div class="details-content">
-        Of course! You can save the QR code as an image and share it! You can download it by clicking the download button, or copy it by clicking on the image.
+        Of course! You can save the QR code as an image and share it! You can download it by clicking the download button,
+        or copy it by clicking on the image.
       </div>
     </details>
     <br>
     <details>
       <summary>Do I need an internet connection?</summary>
       <div class="details-content">
-        Yes. The extension generates QR codes using the <a href="https://goqr.me/api/">goQR</a> API, so you need an internet connection. However, client-side (offline) generation is planned for future release.
+        Yes. The extension generates QR codes using the <a href="https://goqr.me/api/">goQR</a> API, so you need an internet connection.
+        However, client-side (offline) generation is planned for future release.
       </div>
     </details>
     <br>
@@ -150,7 +157,8 @@
       <summary>Why can't I generate a QR code with certain protocols?</summary>
       <div class="details-content">
         QR codes are a common attack surface for bad actors - a QR code using a special URL protocol may be used to deliver malicious code.<br>
-        While the risk typically applies to scanning suspicious or unknown QR codes, I want to ensure that this extension is not used to generate such potentially dangerous QR codes.
+        While the risk typically applies to scanning suspicious or unknown QR codes,
+        I want to ensure that this extension is not used to generate such potentially dangerous QR codes.<br>
         The following protocols are blocked:
         <ul class="details-content-list">
           <li><code>javascript:</code></li>
@@ -179,21 +187,27 @@
     <details>
       <summary>My QR code hasn't loaded yet, why?</summary>
       <div class="details-content">
-        QR code generation time depends on the amount of data you generate, so if you generate a QR code of a few words, the QR code will display almost instantly, but if you send around 200 characters and more, it might take longer. Just wait a few seconds.
+        QR code generation time depends on the amount of data you generate.
+        If you generate a QR code of a few words, the QR code will display almost instantly.<br>
+        But if you send around 200 characters and more, it might take a little bit longer.
       </div>
     </details>
     <br>
     <details>
       <summary>Can I download older versions?</summary>
       <div class="details-content">
-        You can download them from <a href="https://github.com/Stepan02/qrgen/releases">GitHub</a>, but they are not supported, may contain bugs and lack some features.
+        You can download them from <a href="https://github.com/Stepan02/qrgen/releases">GitHub</a>,
+        but they are not supported, may contain bugs and lack some features.
       </div>
     </details>
     <br>
     <details>
       <summary>How many data can I put into the QR code?</summary>
       <div class="details-content">
-        Generating a QR code with a large amount of data has a negative effect on the image's readability. You could theoretically put up to 7,089 digits or 4,296 characters, but the QR code becomes unreadable at around 1,000 characters in an image that is about 6 x 6 cm (250 x 250 px) in size. There are plans to add image size settings.<br>
+        Generating a QR code with a large amount of data has a negative effect on the image's readability.
+        You could theoretically put up to 7,089 digits or 4,296 characters,
+        but the QR code becomes unreadable at around 1,000 characters in an image that is about 6 x 6 cm (250 x 250 px) in size.
+        There are plans to add image size settings.<br>
         I have set the limit to 2,000 characters to avoid problems with the API (QRgen uses the <a href="https://goqr.me/api/">goQR API</a>).
       </div>
     </details>
@@ -201,15 +215,18 @@
     <details>
       <summary>I want to suggest a feature, how can I do it?</summary>
       <div class="details-content">
-        You can check the <a href="https://github.com/Stepan02/qrgen/blob/main/CONTRIBUTING.md#feature-request">contribution guidelines</a> on GitHub. Any suggestion is greatly appreciated!
+        You can check the <a href="https://github.com/Stepan02/qrgen/blob/main/CONTRIBUTING.md#feature-request">contribution guidelines</a> on GitHub.
+        Any suggestion is greatly appreciated!
       </div>
     </details>
     <br>
     <details>
       <summary>I found a bug, how can I report it?</summary>
       <div class="details-content">
-        If you found a bug, please report it on <a href="https://github.com/Stepan02/qrgen/issues/new/choose">GitHub</a> using the "Bug report" issue template.<br>
-        <strong>Do not</strong> create issues or PRs related to security vulnerabilities. Report them <a href="https://github.com/Stepan02/qrgen/security/advisories">here</a>.
+        If you found a bug, please report it on <a href="https://github.com/Stepan02/qrgen/issues/new/choose">GitHub</a>
+        using the "Bug report" issue template.<br>
+        <strong>Do not</strong> create issues or PRs related to security vulnerabilities.
+        Report them <a href="https://github.com/Stepan02/qrgen/security/advisories">here</a>.
       </div>
     </details>
     <footer>
