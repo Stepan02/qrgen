@@ -5,7 +5,7 @@ const inputValue             = document.querySelector(".form textarea"),
       qrCodeBackgroundColor  = document.querySelector(".form #backgroundColor"),
       errorMessage           = document.querySelector(".error-message"),
       connectionErrorMessage = document.querySelector(".connection-error-message"),
-      imageContrastWarning   = document.querySelector(".contract-warning-message"),
+      imageContrastWarning   = document.querySelector(".contrast-warning-message"),
       downloadLink           = document.querySelector(".download-link");
 let previousValue,
     previousColor,
