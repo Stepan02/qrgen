@@ -15,7 +15,7 @@ describe("QR API test", () => {
     cy.get(".current-character-counter").as("characterCounter");
     cy.get("#color").as("colorInput");
     cy.get("#backgroundColor").as("backgroundColorInput");
-    cy.get(".contract-warning-message").as("contrastWarningMessage");
+    cy.get(".contrast-warning-message").as("contrastWarningMessage");
   });
   
   it("Does not generate a blank QR code", () => {

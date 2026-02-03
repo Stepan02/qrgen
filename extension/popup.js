@@ -5,7 +5,7 @@ const inputValue             = document.querySelector(".form textarea"),
       qrCodeImage            = document.querySelector(".qr-code img"),
       errorMessage           = document.querySelector(".error-message"),
       connectionErrorMessage = document.querySelector(".connection-error-message"),
-      imageContrastWarning   = document.querySelector(".contract-warning-message"),
+      imageContrastWarning   = document.querySelector(".contrast-warning-message"),
       downloadLink           = document.querySelector(".download-link");
 let previousValue,
     previousColor,
@@ -65,7 +65,7 @@ function generate() {
     if (limit > 0 && value.length > limit) { return; }
 
     // convert hex colors to rgb
-    let rgbColor  = convertHexToRgb(color);
+    let rgbColor           = convertHexToRgb(color);
     let rgbBackgroundColor = convertHexToRgb(backgroundColor);
 
     // add a warning if the user generated a qr code with bad color contrast
