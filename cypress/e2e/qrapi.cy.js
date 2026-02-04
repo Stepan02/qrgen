@@ -117,11 +117,11 @@ describe("QR API test", () => {
 
         cy.get("@qrImg")
           .invoke("attr", "src")
-          .should("eq", initialSrc);                                // the qr code should not regenerate
-        cy.get("@errorMessage").should("not.be.visible");           // no error should be visible
-        cy.get("@downloadLink").should("not.be.visible");           // the download link should not be visible
+          .should("eq", initialSrc);                              // the qr code should not regenerate
+        cy.get("@errorMessage").should("not.be.visible");         // no error should be visible
+        cy.get("@downloadLink").should("not.be.visible");         // the download link should not be visible
       });
-      cy.get("@errorMessage").should("not.be.visible");             // no error should be visible
+      cy.get("@errorMessage").should("not.be.visible");           // no error should be visible
       cy.get("@contrastWarningMessage").should("not.be.visible"); // no contrast warning should appear
   });
 
@@ -137,11 +137,11 @@ describe("QR API test", () => {
     cy.generate(testUserInput);
 
     cy.get("@qrImg")
-      .should("have.attr", "src")                         // the qr code should appear
-      .and("include", encodeURIComponent(testUserInput)); // the user input should be part of the img source
-    cy.get("@downloadLink").should("be.visible");         // the download link should be visible
-    cy.get("@errorMessage").should("not.be.visible");     // no errors should be visible
-    cy.get("@contrastErrorMessage").should("be.visible"); // image contrast error message should be visible
+      .should("have.attr", "src")                           // the qr code should appear
+      .and("include", encodeURIComponent(testUserInput));   // the user input should be part of the img source
+    cy.get("@downloadLink").should("be.visible");           // the download link should be visible
+    cy.get("@errorMessage").should("not.be.visible");       // no errors should be visible
+    cy.get("@contrastWarningMessage").should("be.visible"); // image contrast error message should be visible
   });
 
   const dangerousProtocols = [
@@ -172,4 +172,5 @@ describe("QR API test", () => {
     });
   });
 });
+
 
