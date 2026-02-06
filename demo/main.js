@@ -18,15 +18,20 @@ let limit  = 2000,
 
 qrCodeImage.style.cursor = "pointer";
 
-// convert hex color to rgb - todo: add support for shorthand hexs
+// convert hex color to rgb
 function convertHexToRgb(hex) {
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    // cut # from the hex
+    hex = hex.replace('#', '');
 
-    return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16),
-    } : null;
+    // expand shorthand code
+    if (hex.length === 3) {
+        hex = hex.split('').map(c => c + c).join('');
+    }
+    const r = parseInt(hex.slice(0, 2), 16);
+    const g = parseInt(hex.slice(2, 4), 16);
+    const b = parseInt(hex.slice(4, 6), 16);
+
+    return { r, g, b };
 }
 
 // get rgb color luminance - https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html?utm_source=copilot.com
@@ -272,3 +277,4 @@ function offlineHandler() {
         generateButton.style.pointerEvents = "all";
     }
 }
+
