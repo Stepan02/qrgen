@@ -19,12 +19,13 @@ let limit  = 2000,
 // convert hex color to rgb
 function convertHexToRgb(hex) {
     // cut # from the hex
-    hex = hex.replace('#', '');
+    hex = hex.replace("#", "");
 
     // expand shorthand code
     if (hex.length === 3) {
-        hex = hex.split('').map(c => c + c).join('');
+        hex = hex.split("").map(c => c + c).join("");
     }
+
     const r = parseInt(hex.slice(0, 2), 16);
     const g = parseInt(hex.slice(2, 4), 16);
     const b = parseInt(hex.slice(4, 6), 16);
@@ -32,7 +33,7 @@ function convertHexToRgb(hex) {
     return { r, g, b };
 }
 
-// get rgb color luminance - https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html?utm_source=copilot.com
+// get rgb color luminance - https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
 function luminance(r, g, b) {
     const a = [r, g, b].map((v) => {
         v /= 255;
@@ -40,6 +41,7 @@ function luminance(r, g, b) {
             ? v / 12.92
             : Math.pow((v + 0.055) / 1.055, 2.4);
     });
+
     return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
 }
 
@@ -73,7 +75,7 @@ function generate() {
     let rgbColor           = convertHexToRgb(color);
     let rgbBackgroundColor = convertHexToRgb(backgroundColor);
 
-    // add a warning if the user generated a qr code with bad color contrast
+    // add a warning if the user generated a qr code with bad color contrast - the contrast ratio should be over 4.5 (https://www.w3.org/WAI/WCAG21/Techniques/general/G174)
     if (getContrastRatio(rgbColor, rgbBackgroundColor) < 4.5) {
         imageContrastWarning.textContent = `This color combination might render the QR code unreadable.`;
 
@@ -193,8 +195,8 @@ downloadLink.addEventListener("click", async () => {
         link.href     = URL.createObjectURL(blob);
         link.download = "qrcode.png";
         link.click();
-    } catch (err) {
-        console.error(`Error downloading an image: ${err}`);
+    } catch (downloadError) {
+        console.error(`Error downloading an image: ${downloadError}`);
     }
 });
 
