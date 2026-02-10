@@ -1,6 +1,7 @@
 const inputValue             = document.querySelector(".form textarea"),
       qrCodeColor            = document.querySelector(".form #color"),
       qrCodeBackgroundColor  = document.querySelector(".form #backgroundColor"),
+      qrCodeSize             = document.querySelector(".form #size"),
       generateButton         = document.querySelector(".form .generateBtn"),
       qrCodeImage            = document.querySelector(".qr-code img"),
       errorMessage           = document.querySelector(".error-message"),
@@ -9,11 +10,11 @@ const inputValue             = document.querySelector(".form textarea"),
       downloadLink           = document.querySelector(".download-link");
 let previousValue,
     previousColor,
-    previousBackgroundColor;
+    previousBackgroundColor,
+    previousSize;
 
 // qr code config
 let limit  = 2000,
-    size   = "250x250",
     apiUrl = "https://api.qrserver.com/v1/create-qr-code/";
 
 // convert hex color to rgb
@@ -60,13 +61,19 @@ function getContrastRatio(rgb1, rgb2) {
 function generate() {
     const value           = inputValue.value.trim(),
           color           = qrCodeColor.value.substring(1, 7),           // remove # from the hex code
-          backgroundColor = qrCodeBackgroundColor.value.substring(1, 7); // remove # from the hex code
+          backgroundColor = qrCodeBackgroundColor.value.substring(1, 7), // remove # from the hex code
+          size            = qrCodeSize.value;
 
     // does not generate on empty input
     if (!value) { return; }
 
-    // does not regenerate if the input and the colors stay the same
-    if (value === previousValue && color === previousColor && backgroundColor === previousBackgroundColor) { return; }
+    // does not regenerate if the input, the colors and the size stay the same
+    if (value === previousValue &&
+        color === previousColor &&
+        backgroundColor === previousBackgroundColor &&
+        size === previousSize) {
+        return;
+    }
 
     // does not generate when the input is over the character limit
     if (limit > 0 && value.length > limit) { return; }
@@ -92,11 +99,12 @@ function generate() {
         return;
     }
 
-    previousValue = value;
-    previousColor = color;
+    previousValue           = value;
+    previousColor           = color;
     previousBackgroundColor = backgroundColor;
+    previousSize            = size;
 
-    qrCodeImage.src = `${apiUrl}?size=${encodeURIComponent(size)}`
+    qrCodeImage.src = `${apiUrl}?size=${encodeURIComponent(size)}x${encodeURIComponent(size)}`
                              + `&color=${encodeURIComponent(color)}`
                              + `&bgcolor=${encodeURIComponent(backgroundColor)}`
                              + `&data=${encodeURIComponent(value)}`;
@@ -184,6 +192,7 @@ window.addEventListener("keydown", ({ code, shiftKey, ctrlKey, metaKey }) => {
 // download function
 downloadLink.addEventListener("click", async () => {
     const imageUrl = qrCodeImage.src;
+
     if (!imageUrl) { return; }
 
     try {
