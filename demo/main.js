@@ -3,17 +3,18 @@ const inputValue             = document.querySelector(".form textarea"),
       qrCodeImage            = document.querySelector(".qr-code img"),
       qrCodeColor            = document.querySelector(".form #color"),
       qrCodeBackgroundColor  = document.querySelector(".form #backgroundColor"),
+      qrCodeSize             = document.querySelector(".form #size"),
       errorMessage           = document.querySelector(".error-message"),
       connectionErrorMessage = document.querySelector(".connection-error-message"),
       imageContrastWarning   = document.querySelector(".contrast-warning-message"),
       downloadLink           = document.querySelector(".download-link");
 let previousValue,
     previousColor,
-    previousBackgroundColor;
+    previousBackgroundColor,
+    previousSize;
 
 // qr code config
-let limit  = 2000,
-    size   = "250x250",
+let limit = 2000,
     apiUrl = "https://api.qrserver.com/v1/create-qr-code/";
 
 qrCodeImage.style.cursor = "pointer";
@@ -34,7 +35,7 @@ function convertHexToRgb(hex) {
     return { r, g, b };
 }
 
-// get rgb color luminance - https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+// get rgb color luminance - https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html?utm_source=copilot.com
 function luminance(r, g, b) {
     const a = [r, g, b].map((v) => {
         v /= 255;
@@ -42,7 +43,7 @@ function luminance(r, g, b) {
             ? v / 12.92
             : Math.pow((v + 0.055) / 1.055, 2.4);
     });
-      
+
     return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
 }
 
@@ -59,15 +60,21 @@ function getContrastRatio(rgb1, rgb2) {
 
 // generate a qr code
 function generate() {
-    const value                 = inputValue.value.trim(),
-          color                 = qrCodeColor.value.substring(1, 7),           // remove # from the hex code
-          backgroundColor       = qrCodeBackgroundColor.value.substring(1, 7); // remove # from the hex code
-      
+    const value           = inputValue.value.trim(),
+          color           = qrCodeColor.value.substring(1, 7),           // remove # from the hex code
+          backgroundColor = qrCodeBackgroundColor.value.substring(1, 7), // remove # from the hex code
+          size            = qrCodeSize.value;
+
     // does not generate on empty input
     if (!value) { return; }
 
-    // does not regenerate if the input and the colors stay the same
-    if (value === previousValue && color === previousColor && backgroundColor === previousBackgroundColor) { return; }
+    // does not regenerate if the input, the colors and the size stay the same
+    if (value === previousValue &&
+        color === previousColor &&
+        backgroundColor === previousBackgroundColor &&
+        size === previousSize) {
+        return;
+    }
 
     // does not generate when the input is over the character limit
     if (limit > 0 && value.length > limit) { return; }
@@ -96,7 +103,7 @@ function generate() {
     previousColor           = color;
     previousBackgroundColor = backgroundColor;
 
-    qrCodeImage.src = `${apiUrl}?size=${encodeURIComponent(size)}`
+    qrCodeImage.src = `${apiUrl}?size=${encodeURIComponent(size)}x${encodeURIComponent(size)}`
                              + `&color=${encodeURIComponent(color)}`
                              + `&bgcolor=${encodeURIComponent(backgroundColor)}`
                              + `&data=${encodeURIComponent(value)}`;
@@ -194,8 +201,8 @@ downloadLink.addEventListener("click", async () => {
         link.href     = URL.createObjectURL(blob);
         link.download = "qrcode.png";
         link.click();
-    } catch (downloadError) {
-        console.error(`Error downloading an image: ${downloadError}`);
+    } catch (err) {
+        console.error(`Error downloading an image: ${err}`);
     }
 });
 
@@ -277,5 +284,3 @@ function offlineHandler() {
         generateButton.style.pointerEvents = "all";
     }
 }
-
-
