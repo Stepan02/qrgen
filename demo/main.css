@@ -86,12 +86,42 @@ dialog h1 {
     }
 }
 
-input[type="color"] {
-    width: 100%;
-    padding: 10px 25px;
+
+input[type="text"] {
+    padding: 8px 5px;
+    box-shadow: var(--color-input-box-shadow);
+    border: none;
+    border-radius: 4px;
+    user-select: none;
+    transition: transform 150ms, box-shadow 150ms;
     background-color: transparent;
-    box-shadow: var(--sec-box-shadow);
-    box-sizing: border-box;
+    width: 50%;
+    margin-top: 5px;
+    outline: 1px solid transparent;
+    transform: translateY(0);
+    touch-action: manipulation;
+
+    &:hover {
+        background-color: var(--gray-hover);
+    }
+
+    &:focus-visible {
+        box-shadow: var(--focus-box-shadow);
+        border: none;
+        outline: 2px solid var(--main);
+    }
+
+    &:active {
+        outline: 2px solid var(--main);
+        transition: all 0.3s;
+    }
+}
+
+input[type="color"] {
+    background-color: transparent;
+    box-shadow: var(--color-input-box-shadow);
+    width: 100%;
+    margin-top: 5px;
     border: none;
     border-radius: 4px;
     outline: 1px solid transparent;
@@ -126,8 +156,8 @@ label {
 
 .color-inputs {
     display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 1%;
+    grid-template-columns: 20% 20% 50%;
+    gap: 5%;
 }
 
 .error-message {
