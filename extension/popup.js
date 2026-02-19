@@ -84,7 +84,7 @@ function generate() {
 
     // add a warning if the user generated a qr code with bad color contrast - the contrast ratio should be over 4.5 (https://www.w3.org/WAI/WCAG21/Techniques/general/G174)
     if (getContrastRatio(rgbColor, rgbBackgroundColor) < 4.5) {
-        imageContrastWarning.textContent = `This color combination might render the QR code unreadable.`;
+        imageContrastWarning.textContent = 'This color combination might render the QR code unreadable.';
 
         imageContrastWarning.style.display = "block";
 

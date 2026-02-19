@@ -22,11 +22,11 @@ qrCodeImage.style.cursor = "pointer";
 // convert hex color to rgb
 function convertHexToRgb(hex) {
     // cut # from the hex
-    hex = hex.replace('#', '');
+    hex = hex.replace("#", "");
 
     // expand shorthand code
     if (hex.length === 3) {
-        hex = hex.split('').map(c => c + c).join('');
+        hex = hex.split("").map(c => c + c).join("");
     }
     const r = parseInt(hex.slice(0, 2), 16);
     const g = parseInt(hex.slice(2, 4), 16);
