@@ -95,7 +95,7 @@ input[type="text"] {
     user-select: none;
     transition: transform 150ms, box-shadow 150ms;
     background-color: transparent;
-    width: 50%;
+    width: 100%;
     margin-top: 5px;
     outline: 1px solid transparent;
     transform: translateY(0);
@@ -157,7 +157,7 @@ label {
 .color-inputs {
     display: grid;
     grid-template-columns: 20% 20% 50%;
-    gap: 5%;
+    gap: 3%;
 }
 
 .error-message {
