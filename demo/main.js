@@ -285,3 +285,10 @@ function offlineHandler() {
         generateButton.style.pointerEvents = "all";
     }
 }
+
+// removes non-numeric characters in the image size input
+qrCodeSize.addEventListener("beforeinput", (event) => {
+    if (event.data && /\D/.test(event.data)) {
+        event.preventDefault();
+    }
+});
