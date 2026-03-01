@@ -7,11 +7,14 @@
     "test:ext": "cypress run --spec ./cypress/e2e/ext.cy.js",
     "test:demo": "cypress run --spec ./cypress/e2e/qrapi.cy.js",
     "lint:css": "stylelint **/*.css",
-    "lint:js": "eslint"
+    "lint:js": "eslint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
     "@cypress/request": "^3.0.0",
     "cypress": "^15.11.0",
+    "prettier": "^3.8.1",
     "stylelint": "^17.4.0",
     "stylelint-config-standard": "^40.0.0"
   },
