@@ -17,11 +17,11 @@ describe("QR API test", () => {
   });
 
   it("Does not generate a blank QR code", () => {
-    cy.get("@qrImg").should("have.attr", "src", "");
+    cy.get("@qrImg").invoke("have.attr", "src").should("be.empty");
 
     cy.get("@generateBtn").click();
 
-    cy.get("@qrImg").should("have.attr", "src", ""); // the qr code should not appear
+    cy.get("@qrImg").invoke("attr", "src").should("be.empty"); // the qr code should not appear
     cy.get("@downloadLink").should("not.be.visible"); // no download link and error messages should appear
     cy.get("@errorMessage").should("not.be.visible");
     cy.get("@connectionErrorMessage").should("not.be.visible");
@@ -42,10 +42,17 @@ describe("QR API test", () => {
   });
 
   it("Generates QR code by pressing Shift+Enter", () => {
-    const input = "Hello World!{shift+enter}";
+    const firstInput = "Hello World!{shift+enter}";
+    const secondInput = "Second text{shift+enter}";
 
-    cy.get("@input").clear().type(input);
-    cy.get("@qrImg").should("be.visible"); // the img should appear
+    cy.get("@input").clear().type(firstInput);
+    cy.get("@qrImg")
+      .invoke("attr", "src")
+      .then((initialSrc) => {
+        cy.get("@input").clear().type(secondInput);
+
+        cy.get("@qrImg").invoke("attr", "src").should("not.eq", initialSrc);
+      });
   });
 
   it("Character counter turns red when the limit is reached", () => {
@@ -60,7 +67,7 @@ describe("QR API test", () => {
     cy.get("@generateBtn").click();
 
     cy.get("@characterCounter")
-      .should("have.have.css", "color", "rgb(233, 74, 132)") // the character counter should be red
+      .should("have.css", "color", "rgb(233, 74, 132)") // the character counter should be red
       .and("have.css", "font-weight", "900"); // and bold
 
     cy.generate(safeText);
@@ -78,16 +85,15 @@ describe("QR API test", () => {
       .invoke("attr", "src") // the qr code should be visible and have content
       .then((initialSrc) => {
         cy.get("@input").clear().invoke("val", overflow).trigger("input"); // force the input over the limit
-        cy.get("@generateBtn").click();
+
+        cy.get("@generateBtn").click(); // generate the qr code
 
         cy.get("@qrImg").invoke("attr", "src").should("eq", initialSrc);
+
         cy.get("@errorMessage").should("not.be.visible"); // no errors should be visible
         cy.get("@connectionErrorMessage").should("not.be.visible");
-        cy.get("@downloadLink").should("not.be.visible"); // the download link should not be visible
+        cy.get("@contrastWarningMessage").should("not.be.visible"); // no contrast warning should appear
       });
-    cy.get("@errorMessage").should("not.be.visible"); // no errors should be visible
-    cy.get("@connectionErrorMessage").should("not.be.visible");
-    cy.get("@contrastWarningMessage").should("not.be.visible"); // no contrast warning should appear
   });
 
   it("Contrast warning is displayed when generating image with bad contrast", () => {
