@@ -11,13 +11,15 @@ describe("QR API test", () => {
     cy.get(".qr-code img").as("qrImg");
     cy.get(".download-link").as("downloadLink");
     cy.get(".error-message").as("errorMessage");
+    cy.get("#color").as("colorInput");
+    cy.get("#backgroundColor").as("backgroundColorInput");
     cy.get(".connection-error-message").as("connectionErrorMessage");
     cy.get(".current-character-counter").as("characterCounter");
     cy.get(".contrast-warning-message").as("contrastWarningMessage");
   });
 
   it("Does not generate a blank QR code", () => {
-    cy.get("@qrImg").invoke("have.attr", "src").should("be.empty");
+    cy.get("@qrImg").invoke("attr", "src").should("be.empty");
 
     cy.get("@generateBtn").click();
 
@@ -146,7 +148,7 @@ describe("QR API test", () => {
   ];
 
   dangerousProtocols.forEach(({ input, expected, description }) => {
-    it.skip(`Does not generate QR codes with potentially malicious input: ${description}`, () => {
+    it(`Does not generate QR codes with potentially malicious input: ${description}`, () => {
       cy.get("@input").clear().invoke("val", input).trigger("input");
       cy.get("@generateBtn").click();
 
