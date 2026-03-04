@@ -4,8 +4,8 @@
   "author": "Stepan02",
   "scripts": {
     "test": "cypress run",
-    "test:ext": "cypress run --spec ./cypress/e2e/ext.cy.js",
-    "test:demo": "cypress run --spec ./cypress/e2e/qrapi.cy.js",
+    "test:ext": "cypress run --spec tests/e2e/extension.spec.js",
+    "test:demo": "cypress run --spec tests/e2e/demo.spec.js",
     "lint:css": "stylelint **/*.css",
     "lint:js": "eslint",
     "format": "prettier --write .",

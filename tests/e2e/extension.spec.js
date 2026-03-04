@@ -1,7 +1,4 @@
-// custom commands import
-import "../support/commands.js";
-
-describe("QR API test", () => {
+describe("QRgen extension test", () => {
   beforeEach(() => {
     cy.visit("/extension/popup.html");
 
@@ -32,7 +29,8 @@ describe("QR API test", () => {
 
   it("Generates QR code", () => {
     const testUserInput = "Hello World!";
-    cy.generate(testUserInput);
+    cy.get("@input").clear().type(testUserInput);
+    cy.get("@generateBtn").click();
 
     cy.get("@characterCounter").should("have.text", "12"); // the character counter should update
     cy.get("@qrImg")
@@ -61,7 +59,8 @@ describe("QR API test", () => {
     const safeText = "a";
     const maxLengthText = safeText.repeat(2000);
 
-    cy.generate(safeText);
+    cy.get("@input").clear().type(safeText);
+    cy.get("@generateBtn").click();
 
     cy.get("@characterCounter").should("not.have.css", "color", "rgb(233, 74, 132)"); // the character counter should not turn red
 
@@ -72,7 +71,8 @@ describe("QR API test", () => {
       .should("have.css", "color", "rgb(233, 74, 132)") // the character counter should be red
       .and("have.css", "font-weight", "900"); // and bold
 
-    cy.generate(safeText);
+    cy.get("@input").clear().type(safeText);
+    cy.get("@generateBtn").click();
     cy.get("@characterCounter").should("not.have.css", "color", "rgb(233, 74, 132)"); // the character counter should not be red
   });
 
@@ -80,7 +80,8 @@ describe("QR API test", () => {
     const safeText = "qwerty";
     const overflow = "A".repeat(2500);
 
-    cy.generate(safeText);
+    cy.get("@input").clear().type(safeText);
+    cy.get("@generateBtn").click();
 
     cy.get("@qrImg")
       .should("be.visible")
@@ -105,7 +106,8 @@ describe("QR API test", () => {
 
     cy.get("@backgroundColorInput").invoke("val", "#00007b").trigger("input");
 
-    cy.generate(testUserInput);
+    cy.get("@input").clear().type(testUserInput);
+    cy.get("@generateBtn").click();
 
     cy.get("@qrImg")
       .should("have.attr", "src") // the qr code should appear
