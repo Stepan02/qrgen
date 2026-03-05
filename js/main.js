@@ -27,20 +27,13 @@ function closeModal() {
 }
 
 // navbar links
-function home() {
-    window.location.href = "main.htm";
+function goToPage(url) {
+  window.location.href = `${url}.htm`;
 }
 
+// download function
 function download() {
-    window.location.href = "https://github.com/Stepan02/qrgen/tree/main/extension";
-}
-
-function changelog() {
-    window.location.href = "changelog.htm";
-}
-
-function tutorial() {
-    window.location.href = "tutorial.htm";
+  window.location.href = "https://github.com/Stepan02/qrgen/tree/main/extension";
 }
 
 function clippy() {
