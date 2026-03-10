@@ -165,6 +165,7 @@ label {
     font-family: var(--textarea-font), monospace;
     font-weight: 600;
     font-size: small;
+    text-align: center;
 }
 
 .error-message a {
@@ -183,6 +184,8 @@ label {
     color: var(--warning);
     font-family: var(--textarea-font), sans-serif;
     font-weight: 600;
+    font-size: small;
+    text-align: center;
 }
 
 .border-error {
@@ -310,3 +313,4 @@ dialog button {
 dialog .qr-code {
     text-align: center;
 }
+
