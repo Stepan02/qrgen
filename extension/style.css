@@ -212,19 +212,21 @@ button {
 
 .error-message, .connection-error-message {
     color: var(--error);
-    font-family: var(--textarea-font), sans-serif;
+    font-family: var(--textarea-font), monospace;
     font-weight: 600;
+    font-size: small;
+    text-align: center;
 }
 
 .error-message a {
     color: var(--error);
     text-decoration: underline;
     text-decoration-thickness: 1px;
-    transition: all 0.1s;
+    transition: all .1s;
 
-    &:hover { 
+    &:hover {
         text-decoration-thickness: 2px;
-        transition: all 0.1s;
+        transition: all .1s;
     }
 }
 
@@ -232,6 +234,8 @@ button {
     color: var(--warning);
     font-family: var(--textarea-font), sans-serif;
     font-weight: 600;
+    font-size: small;
+    text-align: center;
 }
 
 .border-error {
