@@ -19,6 +19,10 @@
                         rgb(50 50 93 / 20%) 0 6px 15px 0,
                         rgb(0 0 0 / 10%) 0 2px 2px 0,
                         rgb(50 151 211 / 30%) 0 0 0 4px;
+    --secondary-focus-box-shadow: rgb(50 50 93 / 10%) 0 0 0 1px inset,
+                                  rgb(50 50 93 / 20%) 0 6px 15px 0,
+                                  rgb(0 0 0 / 10%) 0 2px 2px 0,
+                                  rgb(50 151 211 / 30%) 0 0 0 4px;
     --image-hover-box-shadow: rgb(0 0 0 / 5%) 0 1px 14px 0,
                               rgb(0 0 0 / 8%) 0 0 0 1px;
     --error: #e94a84;
@@ -93,25 +97,22 @@ input[type="text"] {
     border: none;
     border-radius: 4px;
     user-select: none;
-    transition: transform 150ms, box-shadow 150ms;
-    background-color: transparent;
     width: 100%;
     margin-top: 5px;
-    outline: 1px solid transparent;
-    transform: translateY(0);
-    touch-action: manipulation;
+    outline: none;
+    transition: all 0.3s;
+    scrollbar-color: var(--scrollbar-background) transparent;
 
-    &:hover {
-        background-color: var(--gray-hover);
+    &:focus {
+        outline: none;
+        box-shadow: var(--focus-box-shadow);
+        border: 2px solid var(--main);
+        transition: all 0.3s;
     }
 
     &:focus-visible {
-        box-shadow: var(--focus-box-shadow);
+        box-shadow: var(--secondary-focus-box-shadow);
         border: none;
-        outline: 2px solid var(--main);
-    }
-
-    &:active {
         outline: 2px solid var(--main);
         transition: all 0.3s;
     }
@@ -236,7 +237,7 @@ label {
 }
 
 dialog textarea {
-    width: 425px;
+    width: 100%;
     min-height: 30px;
     max-height: 100px;
     font-family: var(--textarea-font), monospace;
@@ -247,6 +248,7 @@ dialog textarea {
     border: 2px solid var(--main);
     border-radius: 4px;
     outline: none;
+    box-sizing: border-box;
     transition: all 0.3s;
     scrollbar-color: var(--scrollbar-background) transparent;
 
@@ -313,4 +315,3 @@ dialog button {
 dialog .qr-code {
     text-align: center;
 }
-
