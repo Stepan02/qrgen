@@ -90,7 +90,9 @@ function generate() {
 
         imageContrastWarning.style.display = "block";
 
-        console.warn(`This color contrast (#${color} - #${backgroundColor}) might render the QR code unreadable`);
+    console.warn(
+      `[warning] this color contrast (#${color} - #${backgroundColor}) might render the QR code unreadable`,
+    );
     } else {
         imageContrastWarning.style.display = "none";
     }
@@ -162,7 +164,7 @@ function checkProtocols(value) {
         inputValue.classList.add("border-error");
 
         // do not generate the qr code if the check fails
-        console.error(`${match} protocol was blocked`);
+        console.error(`[security] ${match} protocol was blocked`);
         return true;
     }
 
@@ -203,7 +205,7 @@ downloadLink.addEventListener("click", async () => {
         link.download = "qrcode.png";
         link.click();
     } catch (err) {
-        console.error(`Error downloading an image: ${err}`);
+        console.error(`[error] error downloading an image: ${err}`);
     }
 });
 
@@ -227,9 +229,9 @@ async function copy() {
         const clipboardItem = new ClipboardItem({ [blob.type]: blob });
         await navigator.clipboard.write([clipboardItem]);
 
-        console.log(`Image has been copied to clipboard: ${qrCodeImage.src}`);
+        console.log(`[info] image has been copied to clipboard: ${qrCodeImage.src}`);
     } catch (copyError) {
-        console.error(`Failed to copy image: ${copyError}`);
+        console.error(`[error] failed to copy image: ${copyError}`);
     }
 }
 
