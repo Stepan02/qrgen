@@ -90,8 +90,9 @@ dialog h1 {
     }
 }
 
-
 input[type="text"] {
+    font-family: var(--textarea-font), monospace;
+    font-weight: 500;
     padding: 8px 5px;
     box-shadow: var(--color-input-box-shadow);
     border: none;
