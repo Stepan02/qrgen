@@ -158,10 +158,16 @@ function checkProtocols(value) {
         downloadLink.style.display = "none";
         inputValue.classList.add("border-error");
 
+        // disable the generate button
+        generateButton.disabled = true;
+
         // do not generate the qr code if the check fails
         console.error(`[security] ${match} protocol was blocked`);
         return true;
     }
+
+    // enable the generate button if the check passes
+    generateButton.disabled = false;
 
     // generate the qr code if the check passes
     errorMessage.style.display = "none";
