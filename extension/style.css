@@ -12,6 +12,7 @@
     --secondary-font: mukta, sans-serif;
     --textarea-font: 'JetBrains Mono', monospace;
     --gray-hover: #f5f5f581;
+    --disabled: rgb(69 69 69 / 69%);
     --focus-box-shadow: rgb(50 50 93 / 10%) 0 0 0 1px inset,
                         rgb(50 50 93 / 20%) 0 6px 15px 0,
                         rgb(0 0 0 / 10%) 0 2px 2px 0,
@@ -177,8 +178,12 @@ button {
     outline: none;
     width: 100%;
     touch-action: manipulation;
-    transform: translateY(0);
-    transition: all 0.3s, transform 150ms, box-shadow 150ms;
+
+    /* enable animation if the button is not disabled */
+    &:not(:disabled) {
+        transform: translateY(0);
+        transition: all 0.3s, transform 150ms, box-shadow 150ms;
+    }
 
     &:hover { 
         color: #fff;
@@ -191,6 +196,18 @@ button {
         color: white;
         background-color: var(--main);
         box-shadow: var(--focus-box-shadow);
+    }
+
+    &:disabled {
+        color: var(--disabled);
+        border-color: var(--disabled);
+        cursor: not-allowed;
+    }
+
+    &:disabled:hover {
+        background-color: white;
+        transform: none;
+        box-shadow: var(--button-box-shadow);
     }
 }
 
