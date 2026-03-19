@@ -163,6 +163,9 @@ function checkProtocols(value) {
         // add error border to the input
         inputValue.classList.add("border-error");
 
+        // disable the generate button
+        generateButton.disabled = true;
+
         // do not generate the qr code if the check fails
         console.error(`[security] ${match} protocol was blocked`);
         return true;
@@ -178,6 +181,9 @@ function checkProtocols(value) {
 
     return false;
 }
+
+// enable the generate button if the check passes
+generateButton.disabled = false;
 
 // generate a qr code using shift+enter
 inputValue.addEventListener("keydown", (pressed) => {
