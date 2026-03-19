@@ -9,6 +9,7 @@
     --scrollbar-background: rgb(50 151 211 / 30%);
     --primary-font: ubuntu, sans-serif;
     --textarea-font: 'JetBrains Mono', monospace;
+    --disabled: rgb(69 69 69 / 69%);
     --color-input-box-shadow: rgb(0 0 0 / 2%) 0 1px 3px 0,
                               rgb(27 31 35 / 15%) 0 0 0 1px;
     --button-box-shadow: rgb(0 0 0 / 10%) 0 2px 4px 0;
@@ -279,12 +280,12 @@ dialog img:hover {
 
 dialog button {
     color: var(--main);
+    background-color: transparent;
     font-family: var(--primary-font), sans-serif;
     font-weight: 100;
     font-size: 16px;
     text-align: center;
     cursor: pointer;
-    background-color: transparent;
     padding: 10px 25px;
     box-shadow: var(--button-box-shadow);
     box-sizing: border-box;
@@ -292,10 +293,14 @@ dialog button {
     border-radius: 4px;
     user-select: none;
     outline: none;
-    transform: translateY(0);
-    transition: all 0.3s, transform 150ms, box-shadow 150ms;
-    touch-action: manipulation;
     width: 100%;
+    touch-action: manipulation;
+
+    /* enable animation if the button is not disabled */
+    &:not(:disabled) {
+        transform: translateY(0);
+        transition: all 0.3s, transform 150ms, box-shadow 150ms;
+    }
 
     &:hover {
         color: #fff;
@@ -305,7 +310,21 @@ dialog button {
     }
 
     &:focus-visible {
+        color: white;
+        background-color: var(--main);
         box-shadow: var(--focus-box-shadow);
+    }
+
+    &:disabled {
+        color: var(--disabled);
+        border-color: var(--disabled);
+        cursor: not-allowed;
+    }
+
+    &:disabled:hover {
+        background-color: white;
+        transform: none;
+        box-shadow: var(--button-box-shadow);
     }
 }
 
