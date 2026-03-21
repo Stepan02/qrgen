@@ -143,17 +143,21 @@ describe("QRgen demo test", () => {
   ];
 
   dangerousProtocols.forEach(({ input, expected, description }) => {
-    it(`Does not generate QR codes with potentially malicious input: ${description}`, () => {
-      cy.get("@input").clear().invoke("val", input).trigger("input");
+    it(
+      `Does not generate QR codes with potentially malicious input: ${description}`,
+      { retries: 0 },
+      () => {
+        cy.get("@input").clear().invoke("val", input).trigger("input");
 
-      cy.get("@generateBtn")
-        .invoke("removeAttr", "disabled") // remove the disabled attribute from the generate button
-        .click(); // click the generate button
-      
-      cy.get("@qrImg").should("not.be.visible"); // the qr code should not generate
+        cy.get("@generateBtn")
+          .invoke("removeAttr", "disabled") // remove the disabled attribute from the generate button
+          .click(); // click the generate button
 
-      cy.get("@downloadLink").should("not.be.visible"); // the download link should not be visible
-      cy.get("@errorMessage").should("be.visible").and("contain", expected); // the error message should appear
-    });
+        cy.get("@qrImg").should("not.be.visible"); // the qr code should not generate
+
+        cy.get("@downloadLink").should("not.be.visible"); // the download link should not be visible
+        cy.get("@errorMessage").should("be.visible").and("contain", expected); // the error message should appear
+      },
+    );
   });
 });
