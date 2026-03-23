@@ -15,7 +15,21 @@ let previousValue,
 
 // qr code config
 let limit  = 2000,
-    apiUrl = "https://api.qrserver.com/v1/create-qr-code/";
+    apiUrl = "https://api.qrserver.com/v1/create-qr-code/",
+    savedImageProperties;
+
+// load saved qr code settings
+try {
+  savedImageProperties = JSON.parse(localStorage.getItem("qrgen-image-properties"));
+} catch (error) {
+  savedImageProperties = null;
+}
+
+if (savedImageProperties) {
+  qrCodeColor.value           = savedImageProperties.color;
+  qrCodeBackgroundColor.value = savedImageProperties.backgroundColor;
+  qrCodeSize.value            = savedImageProperties.size;
+}
 
 // convert hex color to rgb
 function convertHexToRgb(hex) {
@@ -115,6 +129,15 @@ function generate() {
 
     downloadLink.style.display = "block";
     downloadLink.setAttribute("tabindex", "0");
+
+    // save colors and size to localstorage
+    let qrCodeProperties = {
+          color: qrCodeColor.value,
+          backgroundColor: qrCodeBackgroundColor.value,
+          size: qrCodeSize.value,
+    };
+      
+    localStorage.setItem("qrgen-image-properties", JSON.stringify(qrCodeProperties));
 }
 
 // attach generate function to the generate button
