@@ -84,7 +84,7 @@ dialog h1 {
     border-radius: 5px;
     user-select: none;
     transition: all .3s;
-    
+
     &:hover {
         background-color: var(--hover-bg);
         border-radius: 5px;
@@ -205,10 +205,47 @@ label {
     overflow: hidden;
 }
 
+.footer {
+    text-align: center;
+}
+
 .download-link {
     font-family: var(--textarea-font), monospace;
     font-weight: 500;
     font-size: 1rem;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: black;
+    text-underline-offset: 3px;
+    text-align: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(0);
+    transition: transform 300ms, box-shadow 300ms;
+
+    &:hover {
+        text-decoration-thickness: 2px;
+        transform: translateY(-2px);
+        transition: all .3s;
+    }
+
+    &:active {
+        text-decoration-thickness: 1px;
+        transform: translateY(2px);
+        transition: all .3s;
+    }
+
+    &:focus {
+        outline: none;
+        text-decoration-thickness: 2px;
+    }
+}
+
+.reset-link {
+    font-family: var(--textarea-font), monospace;
+    font-weight: 300;
+    font-size: 0.8rem;
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-decoration-color: black;
@@ -254,7 +291,7 @@ dialog textarea {
     transition: all 0.3s;
     scrollbar-color: var(--scrollbar-background) transparent;
 
-    &:focus {   
+    &:focus {
         box-shadow: var(--focus-box-shadow);
         border: 2px solid var(--main);
         transition: all 0.3s;
@@ -282,7 +319,7 @@ dialog button {
     color: var(--main);
     background-color: transparent;
     font-family: var(--primary-font), sans-serif;
-    font-weight: 100;
+    font-weight: 500;
     font-size: 16px;
     text-align: center;
     cursor: pointer;
