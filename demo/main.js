@@ -4,6 +4,7 @@ const inputValue             = document.querySelector(".form textarea"),
       qrCodeColor            = document.querySelector(".form #color"),
       qrCodeBackgroundColor  = document.querySelector(".form #backgroundColor"),
       qrCodeSize             = document.querySelector(".form #size"),
+      resetQrCodeSettings    = document.querySelector('.reset-link'),
       errorMessage           = document.querySelector(".error-message"),
       connectionErrorMessage = document.querySelector(".connection-error-message"),
       imageContrastWarning   = document.querySelector(".contrast-warning-message"),
@@ -30,8 +31,25 @@ try {
 if (savedImageProperties) {
   qrCodeColor.value           = savedImageProperties.color;
   qrCodeBackgroundColor.value = savedImageProperties.backgroundColor;
-  qrCodeSize.value           = savedImageProperties.size;
+  qrCodeSize.value            = savedImageProperties.size;
 }
+
+// remove saved qr code settings (reset to default)
+function resetSavedProperties() {
+  // remove saved settings
+  localStorage.removeItem("qrgen-image-properties");
+  savedImageProperties = null;
+
+  // reset color and size inputs to their default values
+  qrCodeColor.value           = "#000000";
+  qrCodeBackgroundColor.value = "#ffffff";
+  qrCodeSize.value            = 250;
+
+  console.log("Image properties set to default");
+}
+
+// attach reset function to the reset link
+resetQrCodeSettings.addEventListener("click", resetSavedProperties);
 
 // convert hex color to rgb
 function convertHexToRgb(hex) {
