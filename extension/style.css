@@ -268,6 +268,10 @@ button {
     }
 }
 
+.footer {
+    text-align: center;
+}
+
 .download-link {
     font-family: var(--textarea-font), monospace;
     font-weight: 500;
@@ -292,5 +296,38 @@ button {
         text-decoration-thickness: 1px;
         transform: translateY(2px);
         transition: all 0.3s;
+    }
+}
+
+.reset-link {
+    font-family: var(--textarea-font), monospace;
+    font-weight: 300;
+    font-size: 0.8rem;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: black;
+    text-underline-offset: 3px;
+    text-align: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(0);
+    transition: transform 300ms, box-shadow 300ms;
+
+    &:hover {
+        text-decoration-thickness: 2px;
+        transform: translateY(-2px);
+        transition: all .3s;
+    }
+
+    &:active {
+        text-decoration-thickness: 1px;
+        transform: translateY(2px);
+        transition: all .3s;
+    }
+
+    &:focus {
+        outline: none;
+        text-decoration-thickness: 2px;
     }
 }
