@@ -37,7 +37,9 @@ module.exports = [
         module: "readonly",
         require: "readonly",
         ClipboardItem: "readonly",
-        $: "readonly",
+
+        // browser
+        localStorage: "readonly",
 
         // custom functions
         download: true, 
