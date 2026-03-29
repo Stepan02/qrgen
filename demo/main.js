@@ -137,6 +137,7 @@ function generate() {
     previousValue           = value;
     previousColor           = color;
     previousBackgroundColor = backgroundColor;
+    previousSize            = size;
 
     qrCodeImage.src = `${apiUrl}?size=${encodeURIComponent(size)}x${encodeURIComponent(size)}`
                              + `&color=${encodeURIComponent(color)}`
