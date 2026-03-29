@@ -54,7 +54,8 @@ describe("QRgen demo test", () => {
     cy.get("@input").clear().type(safeText);
     cy.get("@generateBtn").click();
 
-    cy.get("@characterCounter").should("not.have.css", "color", "rgb(233, 74, 132)"); // the character counter should not turn red
+    cy.get("@characterCounter")
+      .should("not.have.css", "color", "rgb(233, 74, 132)"); // the character counter should not turn red
 
     cy.get("@input").clear().invoke("val", maxLengthText).trigger("input"); // brute force input over the limit
     cy.get("@generateBtn").click();

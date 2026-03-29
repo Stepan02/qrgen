@@ -2,7 +2,7 @@ const inputValue             = document.querySelector(".form textarea"),
       qrCodeColor            = document.querySelector(".form #color"),
       qrCodeBackgroundColor  = document.querySelector(".form #backgroundColor"),
       qrCodeSize             = document.querySelector(".form #size"),
-      resetQrCodeSettings    = document.querySelector('.reset-link'),
+      resetQrCodeSettings    = document.querySelector(".reset-link"),
       generateButton         = document.querySelector(".form .generateBtn"),
       qrCodeImage            = document.querySelector(".qr-code img"),
       errorMessage           = document.querySelector(".error-message"),
@@ -121,7 +121,9 @@ function generate() {
 
         imageContrastWarning.style.display = "block";
 
-        console.warn(`[warning] this color contrast (#${color} - #${backgroundColor}) might render the QR code unreadable`);
+        console.warn(
+            `[warning] this color contrast (#${color} - #${backgroundColor}) might render the QR code unreadable`
+        );
     } else {
         imageContrastWarning.style.display = "none";
     }
