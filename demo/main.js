@@ -161,80 +161,83 @@ function generate() {
 
 // attach generate function to the generate button
 generateButton.addEventListener("click", generate);
+ 
+// protocol filter function
+function checkProtocols(value) {
+  const unsafeProtocols = ["javascript", "data", "file", "vbscript"]; // common potentially unsafe protocols
+
+  let decodedValue;
+  try {
+    // decode uri encoding
+    decodedValue = decodeURIComponent(value.toLowerCase());
+  } catch {
+    decodedValue = value.toLowerCase();
+  }
+
+  const regex = new RegExp(`\\b(${unsafeProtocols.join("|")}):`, "i"); // regular expression filter
+
+  if (regex.test(decodedValue)) {
+    return decodedValue.match(regex)[1];
+  }
+
+  return false;
+}
+
+// function to show the protocol warning
+function triggerProtocolError(match) {
+  errorMessage.textContent = `The "${match}" scheme is blocked for `;
+  const a = Object.assign(document.createElement("a"), {
+    href: "https://security.duke.edu/security-guides/qr-code-security-guide/",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    textContent: "security reasons",
+  });
+
+  // display error message
+  errorMessage.appendChild(a);
+  errorMessage.appendChild(document.createTextNode("."));
+  errorMessage.style.display = "block";
+
+  // hide the download link
+  downloadLink.style.display = "none";
+
+  // add error border to the input
+  inputValue.classList.add("border-error");
+
+  // disable the generate button
+  generateButton.disabled = true;
+
+  // do not generate the qr code if the check fails
+  console.error(`[security] ${match} protocol was blocked`);
+}
+
+// function to reset protocol error
+function resetProtocolError() {
+  // enable the generate button if the check passes
+  generateButton.disabled = false;
+
+  // generate the qr code if the check passes
+  errorMessage.style.display = "none";
+  inputValue.classList.remove("border-error");
+
+  previousValue = "";
+
+  downloadLink.style.display = qrCodeImage.style.visibility === "visible" ? "block" : "none";
+}
 
 // check for dangerous protocols on input change
 inputValue.addEventListener("input", () => {
-    checkProtocols(inputValue.value.trim());
-    offlineHandler();
-});
+  let error = checkProtocols(inputValue.value.trim());
 
-// protocol filter function
-function checkProtocols(value) {
-    const unsafeProtocols = ["javascript", "data", "file", "vbscript"]; // common potentially unsafe protocols
+  // remove error message if the check passes
+  if (!error) {
+    resetProtocolError();
+  } else {
+    // trigger error message otherwise
+    triggerProtocolError(error);
+  }
 
-    let decodedValue;
-    try {
-        // decode uri encoding
-        decodedValue = decodeURIComponent(value.toLowerCase());
-    } catch {
-        decodedValue = value.toLowerCase();
-    }
-
-    const regex = new RegExp(`\\b(${unsafeProtocols.join("|")}):`, "i"); // regular expression filter
-
-    if (regex.test(decodedValue)) {
-        const match = decodedValue.match(regex)[1];
-
-        errorMessage.textContent = `The "${match}" scheme is blocked for `;
-        const a = Object.assign(
-            document.createElement("a"), {
-                href:        "https://security.duke.edu/security-guides/qr-code-security-guide/",
-                target:      "_blank",
-                rel:         "noopener noreferrer",
-                textContent: "security reasons"
-        });
-
-        // display error message
-        errorMessage.appendChild(a);
-        errorMessage.appendChild(document.createTextNode("."));
-        errorMessage.style.display = "block";
-
-        // hide the download link
-        downloadLink.style.display = "none";
-
-        // add error border to the input
-        inputValue.classList.add("border-error");
-
-        // disable the generate button
-        generateButton.disabled = true;
-
-        // do not generate the qr code if the check fails
-        console.error(`[security] ${match} protocol was blocked`);
-        return true;
-    }
-
-    // generate the qr code if the check passes
-    errorMessage.style.display = "none";
-    inputValue.classList.remove("border-error");
-
-    previousValue = "";
-
-    downloadLink.style.display = qrCodeImage.style.visibility === "visible" ? "block" : "none";
-
-    return false;
-}
-
-// enable the generate button if the check passes
-generateButton.disabled = false;
-
-// generate a qr code using shift+enter
-inputValue.addEventListener("keydown", (pressed) => {
-    const { code, shiftKey } = pressed;
-
-    if (code === "Enter" && shiftKey) {
-        pressed.preventDefault();
-        generate();
-    }
+  offlineHandler();
 });
 
 // download function
@@ -342,4 +345,3 @@ qrCodeSize.addEventListener("beforeinput", (event) => {
         event.preventDefault();
     }
 });
-
