@@ -97,24 +97,30 @@ function generate() {
           size            = qrCodeSize.value;
 
     // does not generate on empty input
-    if (!value) { return; }
+    if (!value) {
+        return;
+    }
 
     // does not regenerate if the input, the colors and the size stay the same
-    if (value === previousValue &&
+    if (
+        value === previousValue &&
         color === previousColor &&
         backgroundColor === previousBackgroundColor &&
-        size === previousSize) {
+        size === previousSize
+    ) {
         return;
     }
 
     // does not generate when the input is over the character limit
-    if (limit > 0 && value.length > limit) { return; }
+    if (limit > 0 && value.length > limit) {
+        return;
+    }
 
     // convert hex colors to rgb
     let rgbColor           = convertHexToRgb(color);
     let rgbBackgroundColor = convertHexToRgb(backgroundColor);
 
-    // add a warning if the user generated a qr code with bad color contrast 
+    // add a warning if the user generated a qr code with bad color contrast
     // the contrast ratio should be over 4.5 (https://www.w3.org/WAI/WCAG21/Techniques/general/G174)
     if (getContrastRatio(rgbColor, rgbBackgroundColor) < 4.5) {
         imageContrastWarning.textContent = "This color contrast might render the QR code unreadable.";
@@ -128,7 +134,6 @@ function generate() {
         imageContrastWarning.style.display = "none";
     }
 
-    // hide the qr code if the protocol check fails
     if (checkProtocols(value)) {
         qrCodeImage.src = "";
         return;
@@ -139,38 +144,33 @@ function generate() {
     previousBackgroundColor = backgroundColor;
     previousSize            = size;
 
-    qrCodeImage.src = `${apiUrl}?size=${encodeURIComponent(size)}x${encodeURIComponent(size)}`
-                             + `&color=${encodeURIComponent(color)}`
-                             + `&bgcolor=${encodeURIComponent(backgroundColor)}`
-                             + `&data=${encodeURIComponent(value)}`;
+    qrCodeImage.src =
+        `${apiUrl}?size=${encodeURIComponent(size)}x${encodeURIComponent(size)}` +
+        `&color=${encodeURIComponent(color)}` +
+        `&bgcolor=${encodeURIComponent(backgroundColor)}` +
+        `&data=${encodeURIComponent(value)}`;
 
     qrCodeImage.style.cursor = "pointer";
     qrCodeImage.title        = "Click to copy";
 
     downloadLink.style.display = "block";
-    downloadLink.setAttribute("tabindex", "0");
 
     // save colors and size to localstorage
     let qrCodeProperties = {
-          color: qrCodeColor.value,
-          backgroundColor: qrCodeBackgroundColor.value,
-          size: qrCodeSize.value,
+        color:           qrCodeColor.value,
+        backgroundColor: qrCodeBackgroundColor.value,
+        size:            qrCodeSize.value,
     };
-      
+
     localStorage.setItem("qrgen-image-properties", JSON.stringify(qrCodeProperties));
 }
 
 // attach generate function to the generate button
 generateButton.addEventListener("click", generate);
 
-// check for dangerous protocols on input change
-inputValue.addEventListener("input", () => {
-    checkProtocols(inputValue.value.trim());
-});
-
 // protocol filter function
 function checkProtocols(value) {
-    const unsafeProtocols = [ "javascript", "data", "file", "vbscript" ]; // common potentially unsafe protocols
+    const unsafeProtocols = ["javascript", "data", "file", "vbscript"]; // common potentially unsafe protocols
 
     let decodedValue;
     try {
@@ -183,32 +183,42 @@ function checkProtocols(value) {
     const regex = new RegExp(`\\b(${unsafeProtocols.join("|")}):`, "i"); // regular expression filter
 
     if (regex.test(decodedValue)) {
-        const match = decodedValue.match(regex)[1];
-
-        errorMessage.textContent = `The "${match}" scheme is blocked for `;
-        const a = Object.assign(
-            document.createElement("a"), {
-                href:        "https://security.duke.edu/security-guides/qr-code-security-guide/",
-                target:      "_blank",
-                rel:         "noopener noreferrer",
-                textContent: "security reasons"
-        });
-
-        errorMessage.appendChild(a);
-        errorMessage.appendChild(document.createTextNode("."));
-        errorMessage.style.display = "block";
-
-        downloadLink.style.display = "none";
-        inputValue.classList.add("border-error");
-
-        // disable the generate button
-        generateButton.disabled = true;
-
-        // do not generate the qr code if the check fails
-        console.error(`[security] ${match} protocol was blocked`);
-        return true;
+        return decodedValue.match(regex)[1];
     }
 
+    return false;
+}
+
+// function to show the protocol warning
+function triggerProtocolError(match) {
+    errorMessage.textContent = `The "${match}" scheme is blocked for `;
+    const a = Object.assign(document.createElement("a"), {
+        href: "https://security.duke.edu/security-guides/qr-code-security-guide/",
+        target: "_blank",
+        rel: "noopener noreferrer",
+        textContent: "security reasons",
+    });
+
+    // display error message
+    errorMessage.appendChild(a);
+    errorMessage.appendChild(document.createTextNode("."));
+    errorMessage.style.display = "block";
+
+    // hide the download link
+    downloadLink.style.display = "none";
+
+    // add error border to the input
+    inputValue.classList.add("border-error");
+
+    // disable the generate button
+    generateButton.disabled = true;
+
+    // do not generate the qr code if the check fails
+    console.error(`[security] ${match} protocol was blocked`);
+}
+
+// function to reset protocol error
+function resetProtocolError() {
     // enable the generate button if the check passes
     generateButton.disabled = false;
 
@@ -217,10 +227,24 @@ function checkProtocols(value) {
     inputValue.classList.remove("border-error");
 
     previousValue = "";
-    downloadLink.style.display = qrCodeImage.style.visibility === "visible" ? "block" : "none";
 
-    return false;
+    downloadLink.style.display = qrCodeImage.style.visibility === "visible" ? "block" : "none";
 }
+
+// check for dangerous protocols on input change
+inputValue.addEventListener("input", () => {
+    let error = checkProtocols(inputValue.value.trim());
+
+    // remove error message if the check passes
+    if (!error) {
+        resetProtocolError();
+    } else {
+        // trigger error message otherwise
+        triggerProtocolError(error);
+    }
+
+    offlineHandler();
+});
 
 // generate a qr code using shift+enter
 inputValue.addEventListener("keydown", (pressed) => {
