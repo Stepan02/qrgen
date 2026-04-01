@@ -260,6 +260,16 @@ downloadLink.addEventListener("click", async () => {
     }
 });
 
+// generate a qr code using shift+enter
+inputValue.addEventListener("keydown", (pressed) => {
+  const { code, shiftKey } = pressed;
+
+  if (code === "Enter" && shiftKey) {
+    pressed.preventDefault();
+    generate();
+  }
+});
+
 // copy a qr code using control+shift+c or meta+shift+c
 window.addEventListener("keydown", ({ code, shiftKey, ctrlKey, metaKey }) => {
     if (!qrCodeImage) { return; }
