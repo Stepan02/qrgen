@@ -17,10 +17,30 @@ on:
 
 permissions:
   contents: read
-  
+
 jobs:
-  cypress-run:
+  cypress-tests-demo:
+    name: Cypress tests for demo
     runs-on: ubuntu-latest
+
+    if: |
+      (
+        github.event_name == 'push' &&
+        (
+          contains(join(github.event.commits.*.modified, ','), 'demo/') ||
+          (
+            (
+              contains(join(github.event.commits.*.modified, ','), '.html') ||
+              contains(join(github.event.commits.*.modified, ','), '.htm')
+            )
+            &&
+            !contains(join(github.event.commits.*.modified, ','), 'extension/')
+          )
+        )
+      )
+      ||
+      github.event_name == 'pull_request'
+
     steps:
       - uses: actions/checkout@v3
 
@@ -35,3 +55,28 @@ jobs:
         with:
           start: npx serve . -l 5500
           wait-on: http://localhost:5500
+          spec: 'tests/e2e/demo.spec.js'
+
+  cypress-tests-extension:
+    name: Cypress tests for extension
+    runs-on: ubuntu-latest
+
+    if: |
+      github.event_name == 'pull_request' ||
+      contains(join(github.event.commits.*.modified, ','), 'extension/')
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - uses: cypress-io/github-action@v6
+        with:
+          start: npx serve . -l 5500
+          wait-on: http://localhost:5500
+          spec: 'tests/e2e/extension.spec.js'
