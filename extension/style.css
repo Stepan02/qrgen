@@ -24,11 +24,13 @@
     --button-box-shadow: rgb(0 0 0 / 10%) 0 2px 4px 0;
     --button-box-shadow-hover: rgb(0 0 0 / 15%) 0 3px 9px 0;
     --error: #e94a84;
+    --error-background: rgb(233 74 132 / 10%);
     --error-box-shadow: rgb(233 74 132 / 10%) 0 0 0 1px inset,
                         rgb(233 74 132 / 20%) 0 6px 15px 0,
                         rgb(0 0 0 / 10%) 0 2px 2px 0,
                         rgb(233 74 132 / 30%) 0 0 0 4px;
     --warning: #e9a44a;
+    --warning-background: rgb(233 164 74 / 10%);
     --scrollbar-background: rgb(3 102 214 / 30%);
 }
 
@@ -230,12 +232,16 @@ button {
     user-select: none;
 }
 
-.error-message, .connection-error-message {
+.error-message {
     color: var(--error);
+    display: none;
     font-family: var(--textarea-font), monospace;
     font-weight: 600;
     font-size: small;
     text-align: center;
+    background-color: var(--error-background);
+    padding: 5px 4px;
+    border-radius: 4px;
 }
 
 .error-message a {
@@ -246,16 +252,19 @@ button {
 
     &:hover {
         text-decoration-thickness: 2px;
-        transition: all .1s;
     }
 }
 
 .contrast-warning-message {
     color: var(--warning);
+    display: none;
     font-family: var(--textarea-font), sans-serif;
     font-weight: 600;
     font-size: small;
     text-align: center;
+    background-color: var(--warning-background);
+    padding: 5px 4px;
+    border-radius: 4px;
 }
 
 .border-error {
@@ -268,8 +277,13 @@ button {
     }
 }
 
+
 .footer {
     text-align: center;
+
+    &>*:not(:last-child) {
+        margin-bottom: 10px;
+    }
 }
 
 .download-link {
