@@ -118,14 +118,9 @@ function generate() {
     // add a warning if the user generated a qr code with bad color contrast 
     // the contrast ratio should be over 4.5 (https://www.w3.org/WAI/WCAG21/Techniques/general/G174)
     if (getContrastRatio(rgbColor, rgbBackgroundColor) < 4.5) {
-        imageContrastWarning.textContent = "This color contrast might render the QR code unreadable.";
-
-        imageContrastWarning.style.display = "block";
-
-    console.warn(
-      `[warning] this color contrast (#${color} - #${backgroundColor}) might render the QR code unreadable`,
-    );
+        triggerContrastWarning(rgbColor, rgbBackgroundColor);
     } else {
+        // hide the contrast warning message if the contrast is over 4.5
         imageContrastWarning.style.display = "none";
     }
 
@@ -216,13 +211,24 @@ function resetProtocolError() {
   // enable the generate button if the check passes
   generateButton.disabled = false;
 
-  // generate the qr code if the check passes
+  // clear the error message and border
   errorMessage.style.display = "none";
   inputValue.classList.remove("border-error");
 
+  // reset previous value
   previousValue = "";
 
+  // reset download link visibility
   downloadLink.style.display = qrCodeImage.style.visibility === "visible" ? "block" : "none";
+}
+
+// function to show contrast warning message
+function triggerContrastWarning(color, backgroundColor) {
+  imageContrastWarning.textContent = "This color contrast might render the QR code unreadable.";
+
+  imageContrastWarning.style.display = "block";
+
+  console.warn(`[warning] this color contrast (#${color} - #${backgroundColor}) might render the QR code unreadable`);
 }
 
 // check for dangerous protocols on input change
@@ -238,6 +244,35 @@ inputValue.addEventListener("input", () => {
   }
 
   offlineHandler();
+});
+
+// check for contrast ratio on input change
+qrCodeColor.addEventListener("input", () => {
+  // convert hex colors to rgb
+  let rgbColor           = convertHexToRgb(qrCodeColor.value);
+  let rgbBackgroundColor = convertHexToRgb(qrCodeBackgroundColor.value);
+
+  // add a warning if the user generated a qr code with bad color contrast
+  if (getContrastRatio(rgbColor, rgbBackgroundColor) < 4.5) {
+    triggerContrastWarning(rgbColor, rgbBackgroundColor);
+  } else {
+    // hide the contrast warning message if the contrast is over 4.5
+    imageContrastWarning.style.display = "none";
+  }
+});
+
+qrCodeBackgroundColor.addEventListener("input", () => {
+  // convert hex colors to rgb
+  let rgbColor           = convertHexToRgb(qrCodeColor.value);
+  let rgbBackgroundColor = convertHexToRgb(qrCodeBackgroundColor.value);
+
+  // add a warning if the user generated a qr code with bad color contrast
+  if (getContrastRatio(rgbColor, rgbBackgroundColor) < 4.5) {
+    triggerContrastWarning(rgbColor, rgbBackgroundColor);
+  } else {
+    // hide the contrast warning message if the contrast is over 4.5
+    imageContrastWarning.style.display = "none";
+  }
 });
 
 // download function
