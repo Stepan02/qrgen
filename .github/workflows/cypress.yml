@@ -8,38 +8,42 @@ on:
       - '**/*.html'
       - '**/*.htm'
       - '**/*.css'
+      - 'demo/**'
+      - 'extension/**'
   pull_request:
     paths:
       - '**/*.js'
       - '**/*.html'
       - '**/*.htm'
       - '**/*.css'
-
-permissions:
-  contents: read
+      - 'demo/**'
+      - 'extension/**'
 
 jobs:
-  cypress-tests-demo:
-    name: Cypress tests for demo
+  detect-changes:
     runs-on: ubuntu-latest
+    outputs:
+      demo: ${{ steps.filter.outputs.demo }}
+      extension: ${{ steps.filter.outputs.extension }}
 
-    if: |
-      (
-        github.event_name == 'push' &&
-        (
-          contains(join(github.event.commits.*.modified, ','), 'demo/') ||
-          (
-            (
-              contains(join(github.event.commits.*.modified, ','), '.html') ||
-              contains(join(github.event.commits.*.modified, ','), '.htm')
-            )
-            &&
-            !contains(join(github.event.commits.*.modified, ','), 'extension/')
-          )
-        )
-      )
-      ||
-      github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            demo:
+              - 'demo/**'
+              - '*.html'
+              - '*.htm'
+            extension:
+              - 'extension/**'
+  cypress-tests-demo:
+    name: "Cypress tests for demo"
+    runs-on: ubuntu-latest
+    needs: detect-changes
+    if: needs.detect-changes.outputs.demo == 'true'
 
     steps:
       - uses: actions/checkout@v3
@@ -58,12 +62,10 @@ jobs:
           spec: 'tests/e2e/demo.spec.js'
 
   cypress-tests-extension:
-    name: Cypress tests for extension
+    name: "Cypress tests for extension"
     runs-on: ubuntu-latest
-
-    if: |
-      github.event_name == 'pull_request' ||
-      contains(join(github.event.commits.*.modified, ','), 'extension/')
+    needs: detect-changes
+    if: needs.detect-changes.outputs.extension == 'true'
 
     steps:
       - uses: actions/checkout@v3
