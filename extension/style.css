@@ -267,6 +267,12 @@ button {
     border-radius: 4px;
 }
 
+.error-message, .contrast-warning-message {
+    &::selection {
+        background-color: var(--selection);
+    }
+}
+
 .border-error {
     box-shadow: none;
     border: 2px solid var(--error);
@@ -276,7 +282,6 @@ button {
         box-shadow: var(--error-box-shadow);
     }
 }
-
 
 .footer {
     text-align: center;
