@@ -19,6 +19,9 @@ on:
       - 'demo/**'
       - 'extension/**'
 
+permissions:
+  contents: read
+
 jobs:
   detect-changes:
     runs-on: ubuntu-latest
