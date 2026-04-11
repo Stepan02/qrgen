@@ -254,27 +254,35 @@ inputValue.addEventListener("input", () => {
 
 // check for contrast ratio on input change
 qrCodeColor.addEventListener("input", () => {
-  // convert hex colors to rgb
-  let rgbColor           = convertHexToRgb(qrCodeColor.value);
-  let rgbBackgroundColor = convertHexToRgb(qrCodeBackgroundColor.value);
+    // get current color and background color
+    let hexColor           = qrCodeColor.value;
+    let hexBackgroundColor = qrCodeBackgroundColor.value;
 
-  // add a warning if the user generated a qr code with bad color contrast
-  if (getContrastRatio(rgbColor, rgbBackgroundColor) < 4.5) {
-    triggerContrastWarning(rgbColor, rgbBackgroundColor);
-  } else {
-    // hide the contrast warning message if the contrast is over 4.5
-    imageContrastWarning.style.display = "none";
-  }
+    // convert hex colors to rgb
+    let rgbColor           = convertHexToRgb(hexColor);
+    let rgbBackgroundColor = convertHexToRgb(hexBackgroundColor);
+
+    // add a warning if the user generated a qr code with bad color contrast
+    if (getContrastRatio(rgbColor, rgbBackgroundColor) < 4.5) {
+        triggerContrastWarning(hexColor, hexBackgroundColor);
+    } else {
+        // hide the contrast warning message if the contrast is over 4.5
+        imageContrastWarning.style.display = "none";
+    }
 });
 
 qrCodeBackgroundColor.addEventListener("input", () => {
+  // get current color and background color
+  let hexColor           = qrCodeColor.value;
+  let hexBackgroundColor = qrCodeBackgroundColor.value;
+
   // convert hex colors to rgb
-  let rgbColor           = convertHexToRgb(qrCodeColor.value);
-  let rgbBackgroundColor = convertHexToRgb(qrCodeBackgroundColor.value);
+  let rgbColor           = convertHexToRgb(hexColor);
+  let rgbBackgroundColor = convertHexToRgb(hexBackgroundColor);
 
   // add a warning if the user generated a qr code with bad color contrast
   if (getContrastRatio(rgbColor, rgbBackgroundColor) < 4.5) {
-    triggerContrastWarning(rgbColor, rgbBackgroundColor);
+      triggerContrastWarning(hexColor, hexBackgroundColor);
   } else {
     // hide the contrast warning message if the contrast is over 4.5
     imageContrastWarning.style.display = "none";
