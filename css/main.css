@@ -259,6 +259,11 @@ a.no-underline {
   font-size: 1.2rem;
   text-decoration: none;
   padding: 10px 15px;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-bottom: 10px;
   box-shadow: var(--sec-box-shadow);
   border-radius: 5px;
   user-select: none;
