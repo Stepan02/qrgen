@@ -4,10 +4,10 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 /* Bootstrap Icons */
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css');
 
 /* Coloured Icons */
-@import url("https://cdn.jsdelivr.net/gh/dheereshagrwal/coloured-icons@1.9.4/src/app/ci.min.css");
+@import url('https://cdn.jsdelivr.net/gh/dheereshagrwal/coloured-icons@1.9.4/src/app/ci.min.css');
 
 :root {
   --main: #332cf2;
@@ -130,7 +130,7 @@ summary {
 
   &::before {
     color: var(--heading);
-    content: "\F231";
+    content: '\F231';
     font-family: bootstrap-icons, sans-serif;
     margin-right: 3px;
     display: inline-block;
@@ -176,7 +176,7 @@ details[open] summary {
   padding: 5px;
   border-radius: 5px;
 
-  &::before { 
+  &::before {
     content: '\F627';
     font-family: bootstrap-icons, sans-serif;
     vertical-align: 0;
@@ -196,7 +196,7 @@ details[open] summary {
 
 .menu-content .logo-wrapper p.logo {
   transform: translateY(2px);
-} 
+}
 
 header {
   box-sizing: border-box;
@@ -209,10 +209,10 @@ header {
   background-color: rgb(255 255 255 / 98%);
   box-shadow: var(--header-box-shadow);
 
-  &::before {   
+  &::before {
     position: absolute;
     inset: -3px;
-    z-index: -1; 
+    z-index: -1;
     filter: blur(3px);
   }
 }
@@ -263,7 +263,6 @@ a.no-underline {
   align-items: center;
   white-space: nowrap;
   flex-shrink: 0;
-  margin-bottom: 10px;
   box-shadow: var(--sec-box-shadow);
   border-radius: 5px;
   user-select: none;
@@ -286,6 +285,10 @@ a.no-underline {
     transform: translateY(2px);
     transition: all 0.3s;
   }
+}
+
+.ver a {
+    text-decoration: none;
 }
 
 p a:visited {
@@ -405,7 +408,7 @@ header .logo-wrapper img {
   transition: transform 150ms, box-shadow 150ms;
   touch-action: manipulation;
 
-  &:hover {   
+  &:hover {
     background-color: var(--gray-hover);
     transform: translateY(-2px);
   }
@@ -454,11 +457,11 @@ header .logo-wrapper img {
   }
 }
 
-button[onclick="clippy()"] {
+button[onclick='clippy()'] {
   font-size: 0.7rem;
   user-select: none;
   margin-right: -5px;
-  transform: rotate(-5deg); 
+  transform: rotate(-5deg);
 }
 
 .suggestion-link {
@@ -472,7 +475,7 @@ button[onclick="clippy()"] {
   transform: translateY(0);
   transition: all 0.3s, transform 150ms, box-shadow 150ms;
 
-  &:hover { 
+  &:hover {
     text-decoration: none;
     box-shadow: var(--main-hover-box-shadow);
     transform: translateY(-2px);
@@ -583,7 +586,7 @@ button[onclick="clippy()"] {
     padding-right: 5px;
   }
 
-  i[class="bi bi-download"] {
+  i[class='bi bi-download'] {
     display: none;
   }
 }
@@ -661,10 +664,6 @@ hr {
   font-weight: 700;
 }
 
-.ver a {
-    text-decoration: none;
-}
-
 .ver .date {
   color: var(--alert-heading);
 }
@@ -705,12 +704,6 @@ hr {
 }
 
 @media (width >= 1345px) {
-  .grid {
-    display: flex;
-    gap: 20px;
-    text-align: center;
-   }
-
    .flex {
     display: flex;
     gap: 20px;
@@ -781,11 +774,6 @@ hr {
     flex-direction: column;
     gap: 10px;
   }
-
-  .grid.browsers a {
-    margin-bottom: 15px;
-    text-align: center;
-  }
 }
 
 @media (width <= 600px) {
@@ -795,7 +783,7 @@ hr {
 }
 
 @media (width <= 800px) {
-  .secondary-button[onclick*="demo"] {
+  .secondary-button[onclick*='demo'] {
     display: none;
   }
 
