@@ -13,6 +13,7 @@
   --main: #332cf2;
   --heading: #203857;
   --alert-heading: #333;
+  --alert-background: rgb(0 100 255 / 10%);
   --error: #e94a84;
   --error-badge: #df80ff1c;
   --scrollbar-background: rgb(3 102 214 / 30%);
@@ -637,8 +638,7 @@ hr {
 .alert {
   color: var(--alert-heading);
   padding: 10px;
-  box-shadow: rgb(3 102 214 / 30%) 0 0 0 3px;
-  border: 2px solid var(--main);
+  background-color: var(--alert-background);
   border-radius: 0.375rem;
   box-sizing: border-box;
   position: relative;
