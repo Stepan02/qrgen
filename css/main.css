@@ -709,6 +709,12 @@ hr {
     gap: 20px;
    }
 
+  .grid {
+    display: flex;
+    gap: 20px;
+    text-align: center;
+  }
+
   #clippy {
     background-color: white;
     box-shadow: var(--sec-box-shadow);
