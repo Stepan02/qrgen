@@ -4,6 +4,9 @@ describe("QRgen extension test", () => {
 
     // aliases
     cy.get("textarea").as("input");
+    cy.get("input#color").as("colorInput");
+    cy.get("input#backgroundColor").as("backgroundColorInput");
+    cy.get("input#size").as("sizeInput");
     cy.get(".generateBtn").as("generateBtn");
     cy.get(".qr-code img").as("qrImg");
     cy.get(".download-link").as("downloadLink");
@@ -53,6 +56,35 @@ describe("QRgen extension test", () => {
 
         cy.get("@qrImg").invoke("attr", "src").should("not.eq", initialSrc);
       });
+  });
+
+  it("Image settings are saved to localStorage", () => {
+    const input = "Hello World!{shift+enter}";
+
+    cy.get("@colorInput").invoke("val", "#ff3d13").trigger("change"); // set color
+    cy.get("@backgroundColorInput").invoke("val", "#ffffff").trigger("change"); // set background color
+
+    cy.get("@sizeInput").clear().type("200"); // set image size
+
+    cy.get("@input").clear().type(input); // generate the qr code
+
+    cy.window().then((win) => {
+      const data = JSON.parse(win.localStorage.getItem("qrgen-image-properties")); // get localstorage data
+
+      expect(data).to.deep.include({
+        // check whether the data has been saved correctly
+        color: "#ff3d13",
+        backgroundColor: "#ffffff",
+        size: "200",
+      });
+    });
+
+    cy.reload(); // reload the page
+
+    // the color and size inputs should have the saved value
+    cy.get("@colorInput").should("have.value", "#ff3d13");
+    cy.get("@backgroundColorInput").should("have.value", "#ffffff");
+    cy.get("@sizeInput").should("have.value", "200");
   });
 
   it("Character counter turns red when the limit is reached", () => {
