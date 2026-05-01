@@ -45,7 +45,7 @@ function resetSavedProperties() {
   qrCodeBackgroundColor.value = "#ffffff";
   qrCodeSize.value            = 250;
 
-  console.log("Image properties set to default");
+  console.debug("[debug] image properties set to default");
 }
 
 // attach reset function to the reset link
@@ -317,7 +317,7 @@ async function copy() {
         const clipboardItem = new ClipboardItem({ [blob.type]: blob });
         await navigator.clipboard.write([clipboardItem]);
 
-        console.log(`[info] image has been copied to clipboard: ${qrCodeImage.src}`);
+        console.debug(`[debug] image has been copied to clipboard: ${qrCodeImage.src}`);
     } catch (copyError) {
         console.error(`[error] failed to copy image: ${copyError}`);
     }
