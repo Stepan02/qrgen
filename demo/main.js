@@ -15,9 +15,16 @@ let previousValue,
     previousSize;
 
 // qr code config
-let limit = 2000,
+let limit  = 2000,
     apiUrl = "https://api.qrserver.com/v1/create-qr-code/",
     savedImageProperties;
+
+// default image settings
+let defaultImageSettings = {
+  color:           "#000000",
+  backgroundColor: "#ffffff",
+  size:            "200",
+};
 
 qrCodeImage.style.cursor = "pointer";
 
@@ -32,6 +39,12 @@ if (savedImageProperties) {
   qrCodeColor.value           = savedImageProperties.color;
   qrCodeBackgroundColor.value = savedImageProperties.backgroundColor;
   qrCodeSize.value            = savedImageProperties.size;
+
+  // show the reset link
+  resetQrCodeSettings.style.display = "block";
+} else {
+  // hide the reset link
+  resetQrCodeSettings.style.display = "none";
 }
 
 // remove saved qr code settings (reset to default)
@@ -264,6 +277,17 @@ inputValue.addEventListener("input", () => {
       // hide the contrast warning message if the contrast is over 4.5
       imageContrastWarning.style.display = "none";
     }
+  });
+});
+
+// check for qr code settings change (displaying the reset link)
+const inputs = [ qrCodeColor, qrCodeBackgroundColor, qrCodeSize ];
+inputs.forEach(input => {
+  input.addEventListener("input", () => {
+    // show the reset link, if the settings had been changed
+    const isChanged = inputs.some(input => input.value !== defaultImageSettings[input.id]);
+
+    resetQrCodeSettings.style.display = isChanged ? "block" : "none";
   });
 });
 
