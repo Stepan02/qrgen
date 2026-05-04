@@ -21,9 +21,9 @@ let limit  = 2000,
 
 // default image settings ([ color, background color, size ])
 let defaultImageSettings = {
-    color:           '#000000',
-    backgroundColor: '#ffffff',
-    size:            '200',
+    color:           "#000000",
+    backgroundColor: "#ffffff",
+    size:            "200",
 };
 
 // load saved qr code settings
