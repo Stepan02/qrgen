@@ -8,11 +8,11 @@
     "test:demo": "cypress run --spec tests/e2e/demo.spec.js",
     "lint:css": "stylelint **/*.css",
     "lint:js": "eslint",
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write ."
   },
   "devDependencies": {
-    "@cypress/request": "^3.0.0",
+    "@cypress/request": "^4.0.0",
     "@eslint/js": "^10.0.1",
     "cypress": "^15.14.2",
     "prettier": "^3.8.1",
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "eslint": "^10.3.0",
-    "eslint-plugin-cypress": "^6.4.0",
+    "eslint-plugin-cypress": "^6.4.1",
     "stylelint-order": "^8.1.1"
   }
 }
