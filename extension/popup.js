@@ -23,7 +23,7 @@ let limit  = 2000,
 let defaultImageSettings = {
     color:           "#000000",
     backgroundColor: "#ffffff",
-    size:            "200",
+    size:            "250",
 };
 
 // load saved qr code settings
@@ -52,9 +52,9 @@ function resetSavedProperties() {
   savedImageProperties = null;
 
   // reset color and size inputs to their default values
-  qrCodeColor.value           = "#000000";
-  qrCodeBackgroundColor.value = "#ffffff";
-  qrCodeSize.value            = 250;
+  qrCodeColor.value           = defaultImageSettings.color;
+  qrCodeBackgroundColor.value = defaultImageSettings.backgroundColor;
+  qrCodeSize.value            = defaultImageSettings.size;
 
   console.debug("[debug] image properties set to default");
 }
