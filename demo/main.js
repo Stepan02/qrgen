@@ -42,8 +42,14 @@ if (savedImageProperties) {
 
   // show the reset link
   resetQrCodeSettings.style.display = "block";
-} else {
-  // hide the reset link
+}
+
+// hide the reset link if the user did not change the settings
+if (
+    qrCodeColor.value           === defaultImageSettings.color &&
+    qrCodeBackgroundColor.value === defaultImageSettings.backgroundColor &&
+    qrCodeSize.value            === defaultImageSettings.size
+) {
   resetQrCodeSettings.style.display = "none";
 }
 
