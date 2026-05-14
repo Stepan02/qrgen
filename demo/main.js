@@ -64,6 +64,9 @@ function resetSavedProperties() {
   qrCodeBackgroundColor.value = defaultImageSettings.backgroundColor;
   qrCodeSize.value            = defaultImageSettings.size;
 
+  // hide the reset link
+  resetQrCodeSettings.style.display = "none";
+
   console.debug("[debug] image properties set to default");
 }
 
