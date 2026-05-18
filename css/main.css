@@ -730,13 +730,7 @@ hr {
     margin-top: 200px;
     position: fixed;
     scroll-behavior: smooth;
-    width: 30%;
-  }
-}
-
-@media (width >= 1000px) {
-  #clippy {
-    width: 20%;
+    width: 40%;
   }
 }
 
