@@ -144,35 +144,13 @@ describe("QRgen demo test", () => {
   });
 
   const dangerousProtocols = [
-    {
-      input: "javascript:alert(document.domain)",
-      expected: "javascript",
-      description: "javascript",
-    },
-    {
-      input: "JaVaScRiPt:alert(document.domain)",
-      expected: "javascript",
-      description: "JaVaScRiPt",
-    },
-    {
-      input: "javascript%3Aalert(document.domain)",
-      expected: "javascript",
-      description: "javascript%3A",
-    },
-    {
-      input: "data:text/html;base64,PHNjcmlwdD5hbGVydChkb2N1bWVudC5kb21haW4pPC9zY3JpcHQ+",
-      expected: "data",
-      description: "data:text/html;base64,PHNjcmlwdD5hbGVydChkb2N1bWVudC5kb21haW4pPC9zY3JpcHQ+",
-    },
-    { input: "file:///etc/passwd", expected: "file", description: "file" },
-    { input: " file:///etc/passwd", expected: "file", description: " file" },
-    { input: "text\n file:///etc/passwd", expected: "file", description: "text\\n file" },
-    { input: "text\ntext file:///etc/passwd", expected: "file", description: "text\\ntext file" },
-    {
-      input: "text\ntext file:///etc/passwd text",
-      expected: "file",
-      description: "text\\ntext file\\ntext",
-    },
+    { input: "javascript:alert(1)", expected: "javascript", description: "javascript protocol" },
+    { input: "\tjava\nscript\0:alert(1)", expected: "javascript", description: "white spaces and null byte" },
+    { input: "java%0ascript:alert(1)", expected: "javascript", description: "url encoding" },
+    { input: "j&#x61;vascript:alert(1)", expected: "javascript", description: "html entity" },
+    { input: "j\u0061vascript:alert(1)", expected: "javascript", description: "unicode escape" },
+    { input: "  javascript:alert(1)//", expected: "javascript", description: "spaces and comment" },
+    { input: "vbs\ncript:msgbox(1)", expected: "vbscript", description: "vbscript newline" },
   ];
 
   dangerousProtocols.forEach(({ input, expected, description }) => {
