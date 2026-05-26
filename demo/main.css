@@ -292,7 +292,8 @@ label {
 
 dialog textarea {
     width: 100%;
-    min-height: 30px;
+    line-height: 1.5;
+    min-height: calc(1.5rem + 18px + 4px);
     max-height: 100px;
     font-family: var(--textarea-font), monospace;
     font-weight: 500;
