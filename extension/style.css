@@ -57,8 +57,9 @@ textarea {
     font-weight: 500;
     font-size: 1rem;
     width: 100%;
+    line-height: 1.5;
     box-sizing: border-box;
-    min-height: 40px;
+    min-height: calc(1.5rem + 18px + 4px);
     max-height: 100px;
     resize: vertical;
     padding: 9px;
