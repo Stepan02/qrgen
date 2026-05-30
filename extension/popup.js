@@ -185,25 +185,48 @@ function generate() {
 // attach generate function to the generate button
 generateButton.addEventListener("click", generate);
 
+// common potentially unsafe protocols
+const unsafeProtocols = ["javascript", "data", "file", "vbscript"];
+
+// regular expression filter
+const protocolsRegex = new RegExp(`(${unsafeProtocols.join("|")}):`, "i");
+
+function attemptURIDecode(value) {
+    try {
+        return decodeURIComponent(value);
+    } catch {
+        return value;
+    }
+}
+
 // protocol filter function
 function checkProtocols(value) {
-    const unsafeProtocols = ["javascript", "data", "file", "vbscript"]; // common potentially unsafe protocols
+    let decodedValue = value;
 
-    let decodedValue;
-    try {
-        // decode uri encoding
-        decodedValue = decodeURIComponent(value.toLowerCase());
-    } catch {
-        decodedValue = value.toLowerCase();
-    }
+    // decode unicode, html, url
+    decodedValue = decodedValue.replace(/\\u([0-9a-fA-F]{4})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
+    decodedValue = decodedValue.replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
+    decodedValue = decodedValue.replace(/&#([0-9]+);/g, (_, dec) => String.fromCharCode(parseInt(dec, 10)));
 
-    const regex = new RegExp(`\\b(${unsafeProtocols.join("|")}):`, "i"); // regular expression filter
+    // double uri decode
+    decodedValue = attemptURIDecode(decodedValue);
+    decodedValue = attemptURIDecode(decodedValue);
 
-    if (regex.test(decodedValue)) {
-        return decodedValue.match(regex)[1];
-    }
+    // delete backslashes
+    decodedValue = decodedValue.replace(/\\[tnr0b]/g, "");
 
-    return false;
+    // delete whitespace, null bytes, newlines and tabs
+    decodedValue = decodedValue.replace(/[\s\x00-\x1F]/g, "");
+
+    // transform to lowercase
+    decodedValue = decodedValue.toLowerCase();
+
+    // final protocol regex test
+    const match = decodedValue.match(protocolsRegex);
+
+    // return false if the protocol is safe
+    // if the protocol is not safe, return its name
+    return match ? match[1] : false;
 }
 
 // function to show the protocol warning
