@@ -56,6 +56,7 @@ module.exports = [
       "no-console": "off",
       "camelcase": ["error", {"properties": "always"}],
       "max-len": ["error", 120],
+      "no-control-regex": "off",
       eqeqeq: "error",
       curly: "error",
       semi: ["error", "always"],
