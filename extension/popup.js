@@ -282,9 +282,33 @@ function triggerContrastWarning(color, backgroundColor) {
     console.warn(`[warning] this color contrast (#${color} - #${backgroundColor}) might render the QR code unreadable`);
 }
 
-// check for dangerous protocols on input change
+// function to detect and underline urls
+function checkForUrl(value) {
+    try {
+        // attempt to create url
+        const url = new URL(value.startsWith("http") ? value.trim() : "https://" + value.trim());
+
+        // do not apply styles if the url does not contain dot
+        if (!url.hostname.includes('.')) {
+            inputValue.style.color = 'black';
+            inputValue.style.textDecoration = 'none';
+            return;
+        }
+
+        // if the input contains url, add different color and undeline it
+        inputValue.style.color = 'var(--main)';
+        inputValue.style.textDecoration = 'underline';
+    } catch {
+        // reset the styles if the input is not url
+        inputValue.style.color = 'black';
+        inputValue.style.textDecoration = 'none';
+    }
+}
+
+// check for dangerous protocols and urls on input change
 inputValue.addEventListener("input", () => {
     let error = checkProtocols(inputValue.value.trim());
+    let content = inputValue.value;
 
     // remove error message if the check passes
     if (!error) {
@@ -293,6 +317,9 @@ inputValue.addEventListener("input", () => {
         // trigger error message otherwise
         triggerProtocolError(error);
     }
+
+    // check for url
+    checkForUrl(content);
 
     offlineHandler();
 });
