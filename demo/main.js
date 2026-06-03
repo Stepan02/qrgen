@@ -276,19 +276,44 @@ function triggerContrastWarning(color, backgroundColor) {
   console.warn(`[warning] this color contrast (#${color} - #${backgroundColor}) might render the QR code unreadable`);
 }
 
-// check for dangerous protocols on input change
+function checkForUrl(value) {
+    try {
+        const url = new URL(value.startsWith("http") ? value.trim() : "https://" + value.trim());
+
+        // do not apply styles if the url does not contain dot
+        if (!url.hostname.includes(".")) {
+            inputValue.style.color = "black";
+            inputValue.style.textDecoration = "none";
+            return;
+        }
+
+        // if the input contains url, add different color and undeline it
+        inputValue.style.color = "var(--main)";
+        inputValue.style.textDecoration = "underline";
+    } catch {
+        // reset the styles if the input is not url
+        inputValue.style.color = "black";
+        inputValue.style.textDecoration = "none";
+    }
+}
+
+// check for dangerous protocols and urls on input change
 inputValue.addEventListener("input", () => {
-  let error = checkProtocols(inputValue.value.trim());
+    let error = checkProtocols(inputValue.value.trim());
+    let content = inputValue.value;
 
-  // remove error message if the check passes
-  if (!error) {
-    resetProtocolError();
-  } else {
-    // trigger error message otherwise
-    triggerProtocolError(error);
-  }
+    // remove error message if the check passes
+    if (!error) {
+        resetProtocolError();
+    } else {
+        // trigger error message otherwise
+        triggerProtocolError(error);
+    }
 
-  offlineHandler();
+    // check for url
+    checkForUrl(content);
+
+    offlineHandler();
 });
 
 // check for contrast ratio on input change (both color and background color input)
