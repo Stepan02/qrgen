@@ -289,19 +289,19 @@ function checkForUrl(value) {
         const url = new URL(value.startsWith("http") ? value.trim() : "https://" + value.trim());
 
         // do not apply styles if the url does not contain dot
-        if (!url.hostname.includes('.')) {
-            inputValue.style.color = 'black';
-            inputValue.style.textDecoration = 'none';
+        if (!url.hostname.includes(".")) {
+            inputValue.style.color = "black";
+            inputValue.style.textDecoration = "none";
             return;
         }
 
         // if the input contains url, add different color and undeline it
-        inputValue.style.color = 'var(--main)';
-        inputValue.style.textDecoration = 'underline';
+        inputValue.style.color = "var(--main)";
+        inputValue.style.textDecoration = "underline";
     } catch {
         // reset the styles if the input is not url
-        inputValue.style.color = 'black';
-        inputValue.style.textDecoration = 'none';
+        inputValue.style.color = "black";
+        inputValue.style.textDecoration = "none";
     }
 }
 
