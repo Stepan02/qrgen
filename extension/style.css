@@ -8,6 +8,7 @@
     --heading: #203857;
     --label: #212426;
     --selection: rgb(50 151 211 / 30%);
+    --highlighted-link-color: #228DCFFF;
     --primary-font: ubuntu, sans-serif;
     --secondary-font: mukta, sans-serif;
     --textarea-font: 'JetBrains Mono', monospace;
@@ -77,6 +78,11 @@ textarea {
     &::selection {
         background-color: var(--selection);
     }
+}
+
+.highlighted-link {
+    color: var(--highlighted-link-color) !important;
+    text-decoration: underline !important;
 }
 
 input[type="text"] {
