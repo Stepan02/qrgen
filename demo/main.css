@@ -6,6 +6,7 @@
 :root {
     --main: #332cf2;
     --hover-bg: #F5F5F5;
+    --highlighted-link-color: #228DCFFF;
     --scrollbar-background: rgb(50 151 211 / 30%);
     --primary-font: ubuntu, sans-serif;
     --textarea-font: 'JetBrains Mono', monospace;
@@ -312,6 +313,11 @@ dialog textarea {
         border: 2px solid var(--main);
         transition: all 0.3s;
     }
+}
+
+.highlighted-link {
+    color: var(--highlighted-link-color) !important;
+    text-decoration: underline !important;
 }
 
 img[src=""] {
