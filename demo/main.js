@@ -282,18 +282,15 @@ function checkForUrl(value) {
 
         // do not apply styles if the url does not contain dot
         if (!url.hostname.includes(".")) {
-            inputValue.style.color = "black";
-            inputValue.style.textDecoration = "none";
+            inputValue.classList.remove("highlighted-link");
             return;
         }
 
-        // if the input contains url, add different color and undeline it
-        inputValue.style.color = "var(--main)";
-        inputValue.style.textDecoration = "underline";
+        // if the input contains url, add different color and underline it
+        inputValue.classList.add("highlighted-link");
     } catch {
         // reset the styles if the input is not url
-        inputValue.style.color = "black";
-        inputValue.style.textDecoration = "none";
+        inputValue.classList.remove("highlighted-link");
     }
 }
 
