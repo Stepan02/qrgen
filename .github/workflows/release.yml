@@ -1,0 +1,53 @@
+name: Release Extension
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  tests:
+    name: "Cypress tests for extension"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - uses: cypress-io/github-action@v6
+        with:
+          start: npx serve . -l 5500
+          wait-on: http://localhost:5500
+          spec: 'tests/e2e/extension.spec.js'
+
+  build-and-release:
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get Version from manifest
+        id: get_version
+        run: |
+          VERSION=$(jq -r .version extension/manifest.json)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Current version in manifest: $VERSION"
+
+      - name: Create Zip Archive
+        run: |
+          cd extension
+          zip -r ../qrgen-${{ steps.get_version.outputs.version }}.zip .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.get_version.outputs.version }}
+          name: Release v${{ steps.get_version.outputs.version }}
+          files: qrgen-${{ steps.get_version.outputs.version }}.zip
+          generate_release_notes: true
