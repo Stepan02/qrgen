@@ -22,6 +22,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   detect-changes:
     runs-on: ubuntu-latest
@@ -30,9 +34,9 @@ jobs:
       extension: ${{ steps.filter.outputs.extension }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
 
-      - uses: dorny/paths-filter@v3
+      - uses: dorny/paths-filter@v4
         id: filter
         with:
           filters: |
@@ -49,16 +53,17 @@ jobs:
     if: needs.detect-changes.outputs.demo == 'true'
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v6
         with:
           node-version: '22'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - uses: cypress-io/github-action@v6
+      - uses: cypress-io/github-action@v7
         with:
           start: npx serve . -l 5500
           wait-on: http://localhost:5500
@@ -71,16 +76,17 @@ jobs:
     if: needs.detect-changes.outputs.extension == 'true'
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v6
         with:
           node-version: '22'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - uses: cypress-io/github-action@v6
+      - uses: cypress-io/github-action@v7
         with:
           start: npx serve . -l 5500
           wait-on: http://localhost:5500
