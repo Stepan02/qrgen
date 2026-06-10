@@ -1,8 +1,10 @@
 name: Cypress
 
 on:
+  workflow_dispatch:
+
   push:
-    branches: [ "main" ]
+    branches: [ "main", "feature/ci-refactor" ]
     paths:
       - '**/*.js'
       - '**/*.html'
@@ -46,6 +48,7 @@ jobs:
               - '*.htm'
             extension:
               - 'extension/**'
+
   cypress-tests-demo:
     name: "Cypress tests for demo"
     runs-on: ubuntu-latest
