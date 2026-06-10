@@ -4,6 +4,7 @@
   "version": "1.0",
   "author": "Stepan02",
   "description": "The pocket QR code generator.",
+  "homepage_url": "https://github.com/stepan02/qrgen",
   "repository": {
     "type": "git",
     "url": "https://github.com/stepan02/qrgen.git"
