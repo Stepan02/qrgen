@@ -11,6 +11,8 @@ assignees: ''
 
 A clear and concise description of what the bug is and where did you find it.
 
+**Version:** [e. g. v1]
+
 **To reproduce**
 
 Steps to reproduce the behavior:
