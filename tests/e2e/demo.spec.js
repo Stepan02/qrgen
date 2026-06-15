@@ -1,6 +1,6 @@
 describe("QRgen demo test", () => {
   beforeEach(() => {
-    cy.visit("/main.htm");
+    cy.visit("/index.htm");
     cy.get("#openmodal").click();
 
     // aliases
