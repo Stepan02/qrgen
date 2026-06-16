@@ -138,6 +138,12 @@ function generate() {
         return;
     }
 
+    // autofill default value if the size input is empty
+    if (size === "") {
+        size             = defaultImageSettings.size;
+        qrCodeSize.value = size;
+    }
+
     // convert hex colors to rgb
     let rgbColor           = convertHexToRgb(color);
     let rgbBackgroundColor = convertHexToRgb(backgroundColor);
