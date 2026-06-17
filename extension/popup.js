@@ -113,10 +113,10 @@ function getContrastRatio(rgb1, rgb2) {
 
 // generate a qr code
 function generate() {
-    const value           = inputValue.value.trim(),
-          color           = qrCodeColor.value.substring(1, 7),           // remove # from the hex code
-          backgroundColor = qrCodeBackgroundColor.value.substring(1, 7), // remove # from the hex code
-          size            = qrCodeSize.value;
+    let value           = inputValue.value.trim(),
+        color           = qrCodeColor.value.substring(1, 7),           // remove # from the hex code
+        backgroundColor = qrCodeBackgroundColor.value.substring(1, 7), // remove # from the hex code
+        size            = qrCodeSize.value;
 
     // does not generate on empty input
     if (!value) {
