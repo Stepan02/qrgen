@@ -2,6 +2,7 @@ name: Cypress
 
 on:
   workflow_dispatch:
+  workflow_call:
 
   push:
     branches: [ "main", "feature/ci-refactor" ]
@@ -53,7 +54,10 @@ jobs:
     name: "Cypress tests for demo"
     runs-on: ubuntu-latest
     needs: detect-changes
-    if: github.event_name == 'workflow_dispatch' || needs.detect-changes.outputs.demo == 'true'
+    if: | 
+      github.event_name == 'workflow_dispatch' || 
+      github.event_name == 'workflow_call' ||
+      needs.detect-changes.outputs.demo == 'true'
 
     steps:
       - uses: actions/checkout@v5
