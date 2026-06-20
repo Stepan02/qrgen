@@ -33,7 +33,7 @@ function goToPage(url) {
 
 // download function
 function download() {
-  window.location.href = "https://github.com/Stepan02/qrgen/tree/main/extension";
+  window.location.href = "https://github.com/Stepan02/qrgen/releases";
 }
 
 function clippy() {
