@@ -1,11 +1,13 @@
 # Node.js
 node_modules/
 npm-debug.log
-yarn-error.log
-package-lock.json
+
+# IDE config
+.vscode/
+.idea/
 
 # Cypress
-cypress/videos/
-cypress/screenshots/
-cypress/fixtures/
-cypress/support/
+tests/e2e/videos/
+tests/e2e/screenshots/
+tests/e2e/fixtures/
+tests/e2e/support/
