@@ -24,13 +24,9 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: '22'
-          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Install Stylelint Order plugin
-        run: npm install stylelint-order --no-save
+      - name: Install Stylelint and Stylelint order plugin
+        run: npm install stylelint stylelint-order --no-save
 
       - name: Run Stylelint
         run: npx stylelint "**/*.css"
