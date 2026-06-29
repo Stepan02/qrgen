@@ -17,19 +17,20 @@
         <span class="current-character-counter">0</span>/<span class="character-max-count"></span>
       </div>
       <div class="color-inputs">
-          <p>
-              <label for="color">Color</label>
-              <input id="color" type="color" title="Select color" value="#000000">
-          </p>
-          <p>
-              <label for="backgroundColor">Background</label>
-              <input id="backgroundColor" type="color" title="Select background color" value="#ffffff">
-          </p>
-          <p>
-              <label for="size">Image size (px)</label>
-              <input id="size" type="text" placeholder="Size" value="250">
-          </p>
-      </div>
+        <p>
+            <label>Color</label>
+            <hex-color-picker id="colorPicker color" class="color-picker">class="color-picker"></hex-color-picker>
+        </p>
+        <div style="width: 5%;"></div>
+        <p>
+            <label>Background</label>
+            <hex-color-picker id="colorPicker backgroundColor" class="color-picker"></hex-color-picker
+        </p>
+    </div>
+    <p>
+        <label for="size">Image size (px)</label>
+        <input id="size" type="text" placeholder="Size" value="250">
+    </p>
       <button type="button" class="generateBtn">Generate</button>
   </div>
   <div class="qr-code">
@@ -47,5 +48,6 @@
       <span class="reset-link">Reset settings</span>
   </div>
   <script src="popup.js"></script>
+  <script type="module" src="https://esm.sh/vanilla-colorful"></script>
 </body>
 </html>
