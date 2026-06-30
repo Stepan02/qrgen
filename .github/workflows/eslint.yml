@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      security-events: write
       actions: read
     steps:
       - name: Checkout code
@@ -30,16 +29,5 @@ jobs:
           --save-dev
 
       - name: Run ESLint
-        env:
-          SARIF_ESLINT_IGNORE_SUPPRESSED: "true"
-        run: |
-          npm run lint:js -- \
-          --format @microsoft/eslint-formatter-sarif \
-          --output-file eslint-results.sarif
+        run: npm run lint:js
         continue-on-error: true
-
-      - name: Upload analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@v4
-        with:
-          sarif_file: eslint-results.sarif
-          wait-for-processing: true
