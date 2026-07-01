@@ -1,4 +1,4 @@
-import "https://esm.sh/vanilla-colorful";
+import "./vanilla-colorful.js";
 
 const inputValue           = document.querySelector(".form textarea"),
     qrCodeSize             = document.querySelector(".form #size"),
@@ -391,7 +391,7 @@ function handleColorInputChange() {
     }
 
     // check reset link visibility
-    updateResetLinkVisibility()
+    updateResetLinkVisibility();
 }
 
 // generate a qr code using shift+enter

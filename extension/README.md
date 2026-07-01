@@ -26,6 +26,11 @@ Simple QR code generator extension
 
 Please refer to GitHub for information about Safari support.
 
+## Credits
+This extension is using awesome [vanilla-colorful](https://github.com/web-padawan/vanilla-colorful) (version 0.7.2) colorpicker by [web-padawan](https://github.com/web-padawan) licensed under MIT.
+
+*Note: the library is bundled locally using [bundlejs](https://bundlejs.com/) in `vanilla-colorful.js` file to comply with the extension's Content Security Policy (CSP)*
+
 ## Contributing
 
 Any contribution is greatly appreciated. Please check the contribution guidelines on https://github.com/stepan02/qrgen/blob/main/CONTRIBUTING.md for more information about contributions.
