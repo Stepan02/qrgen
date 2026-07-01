@@ -1,5 +1,3 @@
-import "./vanilla-colorful.js";
-
 const inputValue           = document.querySelector(".form textarea"),
     qrCodeSize             = document.querySelector(".form #size"),
     resetQrCodeSettings    = document.querySelector(".reset-link"),
