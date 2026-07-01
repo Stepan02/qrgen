@@ -19,19 +19,19 @@
       <div class="color-inputs">
         <p>
             <label>Color</label>
-            <hex-color-picker id="colorPicker color" class="color-picker">class="color-picker"></hex-color-picker>
+            <hex-color-picker class="color-picker color"></hex-color-picker>
         </p>
         <div style="width: 5%;"></div>
         <p>
             <label>Background</label>
-            <hex-color-picker id="colorPicker backgroundColor" class="color-picker"></hex-color-picker>
+            <hex-color-picker class="color-picker background-color"></hex-color-picker>
         </p>
     </div>
     <p>
         <label for="size">Image size (px)</label>
         <input id="size" type="text" placeholder="Size" value="250">
     </p>
-      <button type="button" class="generateBtn">Generate</button>
+    <button type="button" class="generateBtn">Generate</button>
   </div>
   <div class="qr-code">
     <div class="border">
@@ -47,7 +47,7 @@
       <span class="connection-error-message"></span>
       <span class="reset-link">Reset settings</span>
   </div>
-  <script src="popup.js"></script>
   <script type="module" src="vanilla-colorful.js"></script>
+  <script type="module" src="popup.js"></script>
 </body>
 </html>
