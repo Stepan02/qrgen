@@ -1,14 +1,14 @@
-const inputValue             = document.querySelector(".form textarea"),
-      qrCodeColor            = document.querySelector(".form #color"),
-      qrCodeBackgroundColor  = document.querySelector(".form #backgroundColor"),
-      qrCodeSize             = document.querySelector(".form #size"),
-      resetQrCodeSettings    = document.querySelector(".reset-link"),
-      generateButton         = document.querySelector(".form .generateBtn"),
-      qrCodeImage            = document.querySelector(".qr-code img"),
-      errorMessage           = document.querySelector(".error-message"),
-      connectionErrorMessage = document.querySelector(".connection-error-message"),
-      imageContrastWarning   = document.querySelector(".contrast-warning-message"),
-      downloadLink           = document.querySelector(".download-link");
+const inputValue           = document.querySelector(".form textarea"),
+    qrCodeSize             = document.querySelector(".form #size"),
+    resetQrCodeSettings    = document.querySelector(".reset-link"),
+    generateButton         = document.querySelector(".form .generateBtn"),
+    qrCodeImage            = document.querySelector(".qr-code img"),
+    errorMessage           = document.querySelector(".error-message"),
+    connectionErrorMessage = document.querySelector(".connection-error-message"),
+    imageContrastWarning   = document.querySelector(".contrast-warning-message"),
+    downloadLink           = document.querySelector(".download-link"),
+    colorPicker            = document.querySelector(".color-picker.color"),
+    backgroundColorPicker  = document.querySelector(".color-picker.background-color");
 let previousValue,
     previousColor,
     previousBackgroundColor,
@@ -19,14 +19,22 @@ let limit  = 2000,
     apiUrl = "https://api.qrserver.com/v1/create-qr-code/",
     savedImageProperties;
 
-// default image settings ([ color, background color, size ])
+// default image settings
 let defaultImageSettings = {
     color:           "#000000",
     backgroundColor: "#ffffff",
     size:            "250",
 };
 
-// load saved qr code settings
+// color picket config
+let qrCodeColor           = defaultImageSettings.color,
+    qrCodeBackgroundColor = defaultImageSettings.backgroundColor;
+
+colorPicker.addEventListener("color-changed", handleColorInputChange);
+backgroundColorPicker.addEventListener("color-changed", handleColorInputChange);
+qrCodeSize.addEventListener("input", updateResetLinkVisibility);
+
+// load saved qr code settings, display reset link if the user had changed the image settings
 try {
   savedImageProperties = JSON.parse(localStorage.getItem("qrgen-image-properties"));
 } catch (error) {
@@ -34,22 +42,32 @@ try {
 }
 
 if (savedImageProperties) {
-  qrCodeColor.value           = savedImageProperties.color;
-  qrCodeBackgroundColor.value = savedImageProperties.backgroundColor;
-  qrCodeSize.value            = savedImageProperties.size;
-      
-  // show the reset link
-  resetQrCodeSettings.style.display = "block";
-} 
+    qrCodeColor           = savedImageProperties.color;
+    qrCodeBackgroundColor = savedImageProperties.backgroundColor;
+    qrCodeSize.value      = savedImageProperties.size;
 
-// hide the reset link if the user did not change the settings
-if (
-    qrCodeColor.value           === defaultImageSettings.color &&
-    qrCodeBackgroundColor.value === defaultImageSettings.backgroundColor &&
-    qrCodeSize.value            === defaultImageSettings.size
-) {
-  resetQrCodeSettings.style.display = "none";
+    colorPicker.color           = qrCodeColor;
+    backgroundColorPicker.color = qrCodeBackgroundColor;
+
+    // show the reset link
+    resetQrCodeSettings.style.display = "block";
+} else {
+    colorPicker.color           = defaultImageSettings.color;
+    backgroundColorPicker.color = defaultImageSettings.backgroundColor;
+    qrCodeSize.value            = defaultImageSettings.size;
 }
+
+// show reset link if the image properties changed
+function updateResetLinkVisibility() {
+    const imagePropertiesChanged = colorPicker.color           !== defaultImageSettings.color ||
+                                   backgroundColorPicker.color !== defaultImageSettings.backgroundColor ||
+                                   qrCodeSize.value            !== defaultImageSettings.size;
+
+    resetQrCodeSettings.style.display = imagePropertiesChanged ? "block" : "none";
+}
+
+// hide/display reset link at start
+updateResetLinkVisibility();
 
 // remove saved qr code settings (reset to default)
 function resetSavedProperties() {
@@ -57,9 +75,13 @@ function resetSavedProperties() {
   localStorage.removeItem("qrgen-image-properties");
   savedImageProperties = null;
 
-  // reset color and size inputs to their default values
-  qrCodeColor.value           = defaultImageSettings.color;
-  qrCodeBackgroundColor.value = defaultImageSettings.backgroundColor;
+  // reset color variables
+  qrCodeColor           = defaultImageSettings.color;
+  qrCodeBackgroundColor = defaultImageSettings.backgroundColor;
+
+  // reset ui
+  colorPicker.color           = defaultImageSettings.color;
+  backgroundColorPicker.color = defaultImageSettings.backgroundColor;
   qrCodeSize.value            = defaultImageSettings.size;
 
   // hide the reset link
@@ -111,81 +133,82 @@ function getContrastRatio(rgb1, rgb2) {
     return (bright + 0.05) / (dark + 0.05);
 }
 
+
 // generate a qr code
 function generate() {
-    let value           = inputValue.value.trim(),
-        color           = qrCodeColor.value.substring(1, 7),           // remove # from the hex code
-        backgroundColor = qrCodeBackgroundColor.value.substring(1, 7), // remove # from the hex code
-        size            = qrCodeSize.value;
+  let value           = inputValue.value.trim(),
+      color           = qrCodeColor.substring(1, 7),           // remove # from the hex code
+      backgroundColor = qrCodeBackgroundColor.substring(1, 7), // remove # from the hex code
+      size            = qrCodeSize.value;
 
-    // does not generate on empty input
-    if (!value) {
-        return;
-    }
+  // does not generate on empty input
+  if (!value) {
+    return;
+  }
 
-    // does not regenerate if the input, the colors and the size stay the same
-    if (
-        value === previousValue &&
-        color === previousColor &&
-        backgroundColor === previousBackgroundColor &&
-        size === previousSize
-    ) {
-        return;
-    }
+  // does not regenerate if the input, the colors and the size stay the same
+  if (
+    value                 === previousValue &&
+    qrCodeColor           === previousColor &&
+    qrCodeBackgroundColor === previousBackgroundColor &&
+    size                  === previousSize
+  ) {
+    return;
+  }
 
-    // does not generate when the input is over the character limit
-    if (limit > 0 && value.length > limit) {
-        return;
-    }
+  // does not generate when the input is over the character limit
+  if (limit > 0 && value.length > limit) {
+      return;
+  }
 
-    // autofill default value if the size input is empty
-    if (size === "") {
-        size             = defaultImageSettings.size;
-        qrCodeSize.value = size;
-    }
+  // autofill default value if the size input is empty
+  if (size === "") {
+      size             = defaultImageSettings.size;
+      qrCodeSize.value = size;
+  }
 
-    // convert hex colors to rgb
-    let rgbColor           = convertHexToRgb(color);
-    let rgbBackgroundColor = convertHexToRgb(backgroundColor);
+  // convert hex colors to rgb
+  let rgbColor           = convertHexToRgb(color);
+  let rgbBackgroundColor = convertHexToRgb(backgroundColor);
 
-    // add a warning if the user generated a qr code with bad color contrast
-    // the contrast ratio should be over 4.5 (https://www.w3.org/WAI/WCAG21/Techniques/general/G174)
-    if (getContrastRatio(rgbColor, rgbBackgroundColor) < 4.5) {
-        triggerContrastWarning(rgbColor, rgbBackgroundColor);
-     } else {
-        // hide the contrast warning message if the contrast is over 4.5
-        imageContrastWarning.style.display = "none";
-    }
+  // add a warning if the user generated a qr code with bad color contrast
+  // the contrast ratio should be over 4.5 (https://www.w3.org/WAI/WCAG21/Techniques/general/G174)
+  if (getContrastRatio(rgbColor, rgbBackgroundColor) < 4.5) {
+    triggerContrastWarning(color, backgroundColor);
+  } else {
+    // hide the contrast warning message if the contrast is over 4.5
+    imageContrastWarning.style.display = "none";
+  }
 
-    if (checkProtocols(value)) {
-        qrCodeImage.src = "";
-        return;
-    }
+  if (checkProtocols(value)) {
+    qrCodeImage.src = "";
+    return;
+  }
 
-    previousValue           = value;
-    previousColor           = color;
-    previousBackgroundColor = backgroundColor;
-    previousSize            = size;
+  previousValue           = value;
+  previousColor           = qrCodeColor;
+  previousBackgroundColor = qrCodeBackgroundColor;
+  previousSize            = size;
 
-    qrCodeImage.src =
-        `${apiUrl}?size=${encodeURIComponent(size)}x${encodeURIComponent(size)}` +
-        `&color=${encodeURIComponent(color)}` +
-        `&bgcolor=${encodeURIComponent(backgroundColor)}` +
-        `&data=${encodeURIComponent(value)}`;
+  qrCodeImage.src =
+    `${apiUrl}?size=${encodeURIComponent(size)}x${encodeURIComponent(size)}` +
+    `&color=${encodeURIComponent(color)}` +
+    `&bgcolor=${encodeURIComponent(backgroundColor)}` +
+    `&data=${encodeURIComponent(value)}`;
 
-    qrCodeImage.style.cursor = "pointer";
-    qrCodeImage.title        = "Click to copy";
+  qrCodeImage.style.cursor = "pointer";
+  qrCodeImage.title        = "Click to copy";
 
-    downloadLink.style.display = "block";
+  downloadLink.style.display = "block";
 
-    // save colors and size to localstorage
-    let qrCodeProperties = {
-        color:           qrCodeColor.value,
-        backgroundColor: qrCodeBackgroundColor.value,
-        size:            qrCodeSize.value,
-    };
+  // save colors and size to localstorage
+  let qrCodeProperties = {
+    color:           colorPicker.color,
+    backgroundColor: backgroundColorPicker.color,
+    size:            qrCodeSize.value,
+  };
 
-    localStorage.setItem("qrgen-image-properties", JSON.stringify(qrCodeProperties));
+  localStorage.setItem("qrgen-image-properties", JSON.stringify(qrCodeProperties));
 }
 
 // attach generate function to the generate button
@@ -288,7 +311,6 @@ function triggerContrastWarning(color, backgroundColor) {
     console.warn(`[warning] this color contrast (#${color} - #${backgroundColor}) might render the QR code unreadable`);
 }
 
-// function to detect and underline urls
 function checkForUrl(value) {
     try {
         const url = new URL(value.startsWith("http") ? value.trim() : "https://" + value.trim());
@@ -327,14 +349,14 @@ inputValue.addEventListener("input", () => {
 });
 
 // check for contrast ratio on input change (both color and background color input)
-[qrCodeColor, qrCodeBackgroundColor].forEach(colorInput => {
+[ colorPicker, backgroundColorPicker ].forEach(colorInput => {
     colorInput.addEventListener("input", () => {
         // get current color and background color
-        let hexColor           = qrCodeColor.value;
-        let hexBackgroundColor = qrCodeBackgroundColor.value;
+        let hexColor = colorPicker.value;
+        let hexBackgroundColor = backgroundColorPicker.value;
 
         // convert hex colors to rgb
-        let rgbColor           = convertHexToRgb(hexColor);
+        let rgbColor = convertHexToRgb(hexColor);
         let rgbBackgroundColor = convertHexToRgb(hexBackgroundColor);
 
         // add a warning if the user generated a qr code with bad color contrast
@@ -347,16 +369,28 @@ inputValue.addEventListener("input", () => {
     });
 });
 
-// check for qr code settings change (displaying the reset link)
-const inputs = [ qrCodeColor, qrCodeBackgroundColor, qrCodeSize ];
-inputs.forEach(input => {
-    input.addEventListener("input", () => {
-        // show the reset link, if the settings had been changed
-        const isChanged = inputs.some(input => input.value !== defaultImageSettings[input.id]);
+// calculate color contrast and handle color input change
+function handleColorInputChange() {
+    let hexColor           = colorPicker.color,
+        hexBackgroundColor = backgroundColorPicker.color;
 
-        resetQrCodeSettings.style.display = isChanged ? "block" : "none";
-    });
-});
+    // update variables
+    qrCodeColor           = hexColor;
+    qrCodeBackgroundColor = hexBackgroundColor;
+
+    // check contrast
+    let rgbColor           = convertHexToRgb(hexColor),
+        rgbBackgroundColor = convertHexToRgb(hexBackgroundColor);
+
+    if (getContrastRatio(rgbColor, rgbBackgroundColor) < 4.5) {
+        triggerContrastWarning(hexColor, hexBackgroundColor);
+    } else {
+        imageContrastWarning.style.display = "none";
+    }
+
+    // check reset link visibility
+    updateResetLinkVisibility();
+}
 
 // generate a qr code using shift+enter
 inputValue.addEventListener("keydown", (pressed) => {
@@ -383,8 +417,8 @@ downloadLink.addEventListener("click", async () => {
 
     try {
         // fetch the image and download it
-        const res  = await fetch(imageUrl),
-              blob = await res.blob(),
+        const res = await fetch(imageUrl),
+              blob    = await res.blob(),
               link = document.createElement("a");
 
         link.href     = URL.createObjectURL(blob);
@@ -399,7 +433,7 @@ downloadLink.addEventListener("click", async () => {
 async function copy() {
     try {
         const image = await fetch(qrCodeImage.src),
-              blob  = await image.blob();
+              blob      = await image.blob();
 
         // write the image to the clipboard
         const clipboardItem = new ClipboardItem({ [blob.type]: blob });
@@ -415,7 +449,7 @@ async function copy() {
 qrCodeImage.addEventListener("click", copy);
 
 function updateCounter() {
-    const textarea              = document.querySelector("textarea"),
+    const textarea   = document.querySelector("textarea"),
           characterCounter      = document.querySelector(".current-character-counter"),
           textareaMaxLength     = Number(textarea.getAttribute("maxlength")),
           textareaCurrentLength = textarea.value.length,
@@ -468,7 +502,7 @@ function offlineHandler() {
     } else {
         connectionErrorMessage.style.display = "none";
 
-        generateButton.style.visibility    = "visible";
+        generateButton.style.visibility = "visible";
         generateButton.style.pointerEvents = "all";
     }
 }
