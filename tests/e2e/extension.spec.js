@@ -1,18 +1,18 @@
+import './cypress.commands';
+
 describe("QRgen extension test", () => {
   beforeEach(() => {
     cy.visit("/extension/popup.html");
 
     // aliases
     cy.get("textarea").as("input");
-    cy.get("input#color").as("colorInput");
-    cy.get("input#backgroundColor").as("backgroundColorInput");
+    cy.get(".color-picker.color").as("colorInput");
+    cy.get(".color-picker.background-color").as("backgroundColorInput");
     cy.get("input#size").as("sizeInput");
     cy.get(".generateBtn").as("generateBtn");
     cy.get(".qr-code img").as("qrImg");
     cy.get(".download-link").as("downloadLink");
     cy.get(".error-message").as("errorMessage");
-    cy.get("#color").as("colorInput");
-    cy.get("#backgroundColor").as("backgroundColorInput");
     cy.get(".connection-error-message").as("connectionErrorMessage");
     cy.get(".current-character-counter").as("characterCounter");
     cy.get(".contrast-warning-message").as("contrastWarningMessage");
@@ -61,8 +61,8 @@ describe("QRgen extension test", () => {
   it("Image settings are saved to localStorage", () => {
     const input = "Hello World!{shift+enter}";
 
-    cy.get("@colorInput").invoke("val", "#ff3d13").trigger("change"); // set color
-    cy.get("@backgroundColorInput").invoke("val", "#ffffff").trigger("change"); // set background color
+    cy.get("@colorInput").pickColor("#ff3d13"); // set color
+    cy.get("@backgroundColorInput").pickColor("#ffffff"); // set background color
 
     cy.get("@sizeInput").clear().type("200"); // set image size
 
@@ -82,8 +82,8 @@ describe("QRgen extension test", () => {
     cy.reload(); // reload the page
 
     // the color and size inputs should have the saved value
-    cy.get("@colorInput").should("have.value", "#ff3d13");
-    cy.get("@backgroundColorInput").should("have.value", "#ffffff");
+    cy.get("@colorInput").should("have.prop", "color", "#ff3d13");
+    cy.get("@backgroundColorInput").should("have.prop", "color", "#ffffff");
     cy.get("@sizeInput").should("have.value", "200");
   });
 
@@ -136,9 +136,8 @@ describe("QRgen extension test", () => {
   it("Contrast warning is displayed when generating image with bad contrast", () => {
     const testUserInput = "Hello World!";
 
-    cy.get("@colorInput").invoke("val", "#000000").trigger("input");
-
-    cy.get("@backgroundColorInput").invoke("val", "#00007b").trigger("input");
+    cy.get("@colorInput").pickColor("#000000"); // set color
+    cy.get("@backgroundColorInput").pickColor("#00007b"); // set background color
 
     cy.get("@input").clear().type(testUserInput);
     cy.get("@generateBtn").click();
