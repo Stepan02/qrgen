@@ -15,8 +15,6 @@ describe("QRgen demo test", () => {
     cy.get(".download-link").as("downloadLink");
     cy.get(".error-message").as("errorMessage");
     cy.get(".current-character-counter").as("characterCounter");
-    cy.get("#color").as("colorInput");
-    cy.get("#backgroundColor").as("backgroundColorInput");
     cy.get(".contrast-warning-message").as("contrastWarningMessage");
   });
 
