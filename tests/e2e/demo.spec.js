@@ -5,6 +5,7 @@ describe("QRgen demo test", () => {
     cy.viewport(1280, 900);
     cy.visit("/index.htm");
     cy.get("#openmodal").click();
+    cy.get(".current-character-counter", { timeout: 1000 }).should("be.visible");
 
     // aliases
     cy.get("textarea").as("input");
