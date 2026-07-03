@@ -476,15 +476,6 @@ function updateCounter() {
     }
 }
 
-window.onload = function () {
-    updateCounter();
-    offlineHandler();
-    downloadLink.style.display = "none";
-};
-
-window.addEventListener("online", offlineHandler);
-window.addEventListener("offline", offlineHandler);
-
 // offline handler
 function offlineHandler() {
     const connection = navigator.onLine;
@@ -516,3 +507,13 @@ qrCodeSize.addEventListener("beforeinput", (event) => {
         event.preventDefault();
     }
 });
+
+window.addEventListener("DOMContentLoaded", () => {
+    updateCounter();
+    offlineHandler();
+    downloadLink.style.display = "none";
+});
+
+window.addEventListener("online", offlineHandler);
+window.addEventListener("offline", offlineHandler);
+
