@@ -2,6 +2,7 @@ import './cypress.commands';
 
 describe("QRgen demo test", () => {
   beforeEach(() => {
+    cy.viewport(1280, 900);
     cy.visit("/index.htm");
     cy.get("#openmodal").click();
 
