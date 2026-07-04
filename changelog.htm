@@ -35,28 +35,29 @@
         <p>Press Esc key to exit</p>
       </div>
       <div class="form">
-        <label>
-          <textarea id="input" maxlength="2000" placeholder="Enter URL/text,..." spellcheck="false" oninput="updateCounter()"></textarea>
-        </label>
+          <label>
+              <textarea id="input" maxlength="2000" placeholder="Enter URL/text,..." spellcheck="false" oninput="updateCounter()"></textarea>
+          </label>
         <div class="character-counter">
-          <span class="current-character-counter">0</span>/<span class="character-max-count"></span>
+            <span class="current-character-counter">0</span>/<span class="character-max-count"></span>
         </div>
         <div class="color-inputs">
           <p>
-            <label for="color">Color</label>
-            <input id="color" type="color" title="Select color" value="#000000">
+            <label>Color</label>
+            <hex-color-picker class="color-picker color"></hex-color-picker>
           </p>
+          <div style="width: 5%;"></div>
           <p>
-            <label for="backgroundColor">Background</label>
-            <input id="backgroundColor" type="color" title="Select background color" value="#ffffff">
-          </p>
-          <p>
-            <label for="size">Image size (px)</label>
-            <input id="size" type="text" placeholder="Size" value="250">
+            <label>Background</label>
+            <hex-color-picker class="color-picker background-color"></hex-color-picker>
           </p>
         </div>
+        <p>
+          <label for="size">Image size (px)</label>
+          <input id="size" type="text" placeholder="Size" value="250">
+        </p>
         <button type="button" class="generateBtn">Generate</button>
-      </div>
+    </div>
       <div class="qr-code">
         <div class="border">
           <div class="scancontainer">
@@ -128,6 +129,7 @@
     <p>Made by <a href="https://www.github.com/stepan02">Stepan02</a></p>
   </footer>
   <script src="js/main.js"></script>
-  <script src="demo/main.js"></script>
+  <script type="module" src="demo/main.js"></script>
+  <script type="module" src="https://esm.sh/vanilla-colorful"></script>
 </body>
 </html>
