@@ -3,6 +3,12 @@
   "rules": {
     "selector-pseudo-element-no-unknown": null,
     "font-family-no-missing-generic-family-keyword": null,
+    "no-descending-specificity": [
+      true,
+      {
+        "ignore": ["selectors-within-list"]
+      }
+    ],
     "order/order": [
       "custom-properties",
       "declarations"
