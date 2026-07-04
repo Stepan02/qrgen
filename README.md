@@ -10,7 +10,7 @@ Simple browser extension to generate QR codes
 The extension itself is not available on any browser extension marketplace. Therefore it has to be downloaded and sideloaded into your browser manually.
 1. Download the [extension folder](extension) or the [latest release](https://github.com/Stepan02/qrgen/releases)
 2. Add it to your favorite browser:
-   
+
    - [Google Chrome](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world)
    - [Firefox](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
    - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading)
@@ -20,6 +20,7 @@ The extension itself is not available on any browser extension marketplace. Ther
 ### Credits
 - QR code source: goQR code generator API - [Website](https://goqr.me/api/)
 - Icons: Coloured Icons - [GitHub](https://github.com/dheereshagrwal/coloured-icons/tree/master) &centerdot; [Website](https://coloured-icons.vercel.app/)
+- Color picker: vanilla-colorful - [GitHub](https://github.com/web-padawan/vanilla-colorful) &centerdot; [Website](https://iamkulykov.com/vanilla-colorful/)
 ## Contribution and bug reporting
 Any contribution or bug report is greatly appreciated.
 Please check the [contribution guide](https://github.com/Stepan02/qrgen/blob/main/CONTRIBUTING.md) for more information.
