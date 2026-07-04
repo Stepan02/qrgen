@@ -329,28 +329,6 @@ function checkForUrl(value) {
     }
 }
 
-// check for dangerous protocols and urls on input change
-inputValue.addEventListener("input", () => {
-    let error   = checkProtocols(inputValue.value.trim());
-    let content = inputValue.value;
-
-    // remove error message if the check passes
-    if (!error) {
-        resetProtocolError();
-    } else {
-        // trigger error message otherwise
-        triggerProtocolError(error);
-    }
-
-    // check for url
-    checkForUrl(content);
-
-    // update the character counter
-    updateCounter();
-
-    offlineHandler();
-});
-
 // check for contrast ratio on input change (both color and background color input)
 [colorPicker, backgroundColorPicker].forEach((colorInput) => {
     colorInput.addEventListener("input", () => {
@@ -508,12 +486,37 @@ qrCodeSize.addEventListener("beforeinput", (event) => {
     }
 });
 
+window.updateCounter  = updateCounter;
+window.offlineHandler = offlineHandler;
+
 window.addEventListener("DOMContentLoaded", () => {
-    updateCounter();
-    offlineHandler();
+    window.updateCounter();
+    window.offlineHandler();
     downloadLink.style.display = "none";
 });
 
 window.addEventListener("online", offlineHandler);
 window.addEventListener("offline", offlineHandler);
 
+// check for dangerous protocols and urls on input change
+inputValue.addEventListener("input", () => {
+    let error   = checkProtocols(inputValue.value.trim());
+    let content = inputValue.value;
+
+    // remove error message if the check passes
+    if (!error) {
+        resetProtocolError();
+    } else {
+        // trigger error message otherwise
+        triggerProtocolError(error);
+    }
+
+    // check for url
+    checkForUrl(content);
+
+    // update the character counter
+    updateCounter();
+
+    // check the internet connection
+    offlineHandler();
+});
