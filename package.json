@@ -14,7 +14,7 @@
   "devDependencies": {
     "@cypress/request": "^4.0.0",
     "@eslint/js": "^10.0.1",
-    "cypress": "^15.18.0",
+    "cypress": "^15.18.1",
     "prettier": "^3.9.4",
     "stylelint": "^17.14.0",
     "stylelint-config-standard": "^40.0.0"
