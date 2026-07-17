@@ -2,6 +2,7 @@
   "manifest_version": 3,
   "name": "QRgen",
   "version": "1.0",
+  "version_name": "v1",
   "author": "Stepan02",
   "description": "The pocket QR code generator.",
   "homepage_url": "https://github.com/stepan02/qrgen",
