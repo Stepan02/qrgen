@@ -33,7 +33,7 @@ function goToPage(url) {
 
 // download function
 function download() {
-  window.location.href = "https://github.com/Stepan02/qrgen/releases";
+  window.location.href = "https://github.com/Stepan02/qrgen/releases/latest";
 }
 
 function clippy() {
@@ -44,7 +44,7 @@ function clippy() {
 
 function copyClippy() {
     // copy the emoji to the user's clipboard
-    navigator.clipboard.writeText("📎").then(() => copyButton.innerHTML = "📋 Copied!");
+    navigator.clipboard.writeText("📎").then(() => copyButton.textContent = "📋 Copied!");
 }
 
 // show current url endpoint on the 404 page
@@ -52,5 +52,5 @@ const url   = document.location.pathname,
       place = document.querySelector(".url");
 
 if (place) {
-    place.innerHTML = url; // show the url if place element exists
+    place.textContent = url; // show the url if place element exists
 }
