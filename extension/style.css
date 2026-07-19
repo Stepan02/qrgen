@@ -232,7 +232,7 @@ button {
     user-select: none;
 }
 
-.error-message {
+.error-message, .connection-error-message {
     color: var(--error);
     display: none;
     font-family: var(--textarea-font), monospace;
