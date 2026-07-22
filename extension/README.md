@@ -4,16 +4,12 @@ Simple QR code generator extension
 ## Installation
 > You can see up-to-date installation guide on github.com/Stepan02/qrgen
 
-**Google Chrome**
+**Chromium-based browsers (Google Chrome, Microsoft Edge,...)**
 1. Open the "Extension" tabs by entering chrome://extension or click the puzzle icon and select "Manage Extension"
 2. Enable Developer Mode
-3. Click on "Load unpacked" and select the extension ZIP file
+3. Click on "Load unpacked" and select the extension directory
 
-**Microsoft Edge**
-1. Open the "Extension" tab by clicking the puzzle icon and click on "Manage extensions"
-2. Enable Developer Mode
-3. Click on "Load unpacked" button and select the extension ZIP file
-> You can also load the extension from a directory
+> You can also load the extension from a ZIP file
 
 *You might have to refresh the webpage*
 
