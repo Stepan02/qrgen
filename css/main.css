@@ -296,7 +296,8 @@ a.no-underline {
 }
 
 .ver a {
-    text-decoration: none;
+  text-decoration: none;
+  color: black;
 }
 
 p a:visited {
