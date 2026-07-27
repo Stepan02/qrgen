@@ -563,7 +563,7 @@ button[onclick='clippy()'] {
 }
 
 @media (width <= 500px) {
-  .secondary-button, .feature-demo, .no-mb, .no-desktop {
+  .feature-demo, .no-mb, .no-desktop {
     display: none;
   }
 
@@ -791,10 +791,6 @@ hr {
 }
 
 @media (width <= 800px) {
-  .secondary-button[onclick*='demo'] {
-    display: none;
-  }
-
   .feature strong {
     font-size: 3vh;
   }
